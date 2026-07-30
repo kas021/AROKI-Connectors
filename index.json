@@ -129,24 +129,6 @@
     {
       "contentRating" : "unknown",
       "contentType" : "video",
-      "familyID" : "donghuaworld",
-      "id" : "donghuaworld",
-      "language" : "en",
-      "manifest" : {
-        "path" : "connectors\/donghuaworld\/connector.json",
-        "sha256" : "2d1d012f56a559a71ba90a71f8d1025d9f57b96f4907ffa23e7a4b6860016a72",
-        "signature" : "IlFcIe45dmcqaPE42E33Q3v\/LgG8gVffAyOcW6HRYPJabpbFbtfe3iQi4eStVCdmoEZZ+vErLXS0pxPMImukCg=="
-      },
-      "minimumAppVersion" : "0.1.0",
-      "name" : "DonghuaWorld",
-      "releaseNotes" : "Initial signed repository release. Live HLS and simulator AVPlayer verified; unsupported hosts fail safely.",
-      "releaseTrack" : "beta",
-      "status" : "active",
-      "version" : "1.1.0"
-    },
-    {
-      "contentRating" : "unknown",
-      "contentType" : "video",
       "familyID" : "archive-classics",
       "id" : "archive-classics",
       "language" : "en",
@@ -164,10 +146,10 @@
     }
   ],
   "enabled" : true,
-  "generatedAt" : 1785443183,
+  "generatedAt" : 1785444193,
   "name" : "AROKI Connectors",
   "publicKey" : "qt8oJY4xwc5\/uXLq8CYrSoHPCiVrybtCKZS8++d+CNg=",
   "repositoryID" : "aroki-connectors",
   "schemaVersion" : 1,
-  "signature" : "JuI\/sEsTLAOfeyLoF0dH43JWEzEKq6ZyOw1kPGoHHT9zvOZJZH31bxpiuPwup5erH5D9FiAEbZpeM7kVVDk5Cg=="
+  "signature" : "3PEFW4TZSUYSMXy3YfVbtrf1AG3CPOXgzgnAbYQ6Dqdk7l3KIl\/sZfhmc5cYpb08\/OpqF6GKBdVJr3w\/YUcQBA=="
 }

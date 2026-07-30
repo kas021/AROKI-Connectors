@@ -14,13 +14,14 @@ browser automation, credentials, media files, or a proxy/backend service.
 
    `kas021/AROKI-Connectors`
 
-3. Tap **Preview repository**.
+3. Tap **Add verified sources**.
 4. Review the repository and signing-key fingerprint.
-5. Tap **Install** beside each connector you want.
+5. Choose the active source from the source picker.
 
-Previewing never installs anything. Installation is explicit, verifies the
-repository signature, manifest signature, SHA-256 digest, schema and manifest
-identity, then stores that connector locally on the device.
+Adding a repository verifies its repository signature, every manifest
+signature, SHA-256 digest, schema and manifest identity before a connector is
+stored locally on the device. AROKI then lets the user choose its active
+source at any time.
 
 ## Published connectors
 
@@ -30,7 +31,6 @@ identity, then stores that connector locally on the device.
 - ToonTales
 - AnimeGG
 - AniLol
-- DonghuaWorld
 - Archive Classics
 
 The index contains the exact compatibility track for every connector. A source
