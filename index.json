@@ -93,6 +93,24 @@
     {
       "contentRating" : "unknown",
       "contentType" : "video",
+      "familyID" : "anineko",
+      "id" : "anineko",
+      "language" : "en",
+      "manifest" : {
+        "path" : "connectors\/anineko\/connector.json",
+        "sha256" : "39a2a930ad1b7b82399224f55971848ef17b2897207fcc101bf992ed05a58023",
+        "signature" : "rqvI70QZBHuvQurVjKhak5CzOjwWLMOQrQWAeLjHv3mcusTKWXOXgOp4gRNdsr5JCvd2pO5Qipxz\/KtVWVPuBw=="
+      },
+      "minimumAppVersion" : "0.1.0",
+      "name" : "AniNeko",
+      "releaseNotes" : "Beta. Live Sub\/Dub HLS (#EXTM3U) verified 2026-07-30; physical AVPlayer verification pending.",
+      "releaseTrack" : "beta",
+      "status" : "active",
+      "version" : "1.0.0"
+    },
+    {
+      "contentRating" : "unknown",
+      "contentType" : "video",
       "familyID" : "anilol",
       "id" : "anilol",
       "language" : "en",
@@ -146,10 +164,10 @@
     }
   ],
   "enabled" : true,
-  "generatedAt" : 1785416688,
+  "generatedAt" : 1785442764,
   "name" : "AROKI Connectors",
   "publicKey" : "qt8oJY4xwc5\/uXLq8CYrSoHPCiVrybtCKZS8++d+CNg=",
   "repositoryID" : "aroki-connectors",
   "schemaVersion" : 1,
-  "signature" : "98f4o4hGLpmDOTP24+VuK7zlsNcyuf1y9RwLclaeZ09vPEE6kobFztscL\/6\/jo\/ozg01LNIVtlOJi1tz5Pu+BQ=="
+  "signature" : "y8ueSxuHFQQQETdIqfFgB5D2pGUvsHM4s+IYVkMTL4Y703OGE99EuYuXYY9rLl8f7w9EdWpOK6FCWl7dQp9IDQ=="
 }
