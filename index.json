@@ -99,7 +99,7 @@
       "manifest" : {
         "path" : "connectors\/anineko\/connector.json",
         "sha256" : "39a2a930ad1b7b82399224f55971848ef17b2897207fcc101bf992ed05a58023",
-        "signature" : "rqvI70QZBHuvQurVjKhak5CzOjwWLMOQrQWAeLjHv3mcusTKWXOXgOp4gRNdsr5JCvd2pO5Qipxz\/KtVWVPuBw=="
+        "signature" : "xV9whGG90JBelndUxVZko46wXcRrNcov8XV9plW\/9bMNZP++U2E9ft11pV1ceGvtCS9EN1x\/GoIfyh2qIkoSDQ=="
       },
       "minimumAppVersion" : "0.1.0",
       "name" : "AniNeko",
@@ -164,10 +164,10 @@
     }
   ],
   "enabled" : true,
-  "generatedAt" : 1785442764,
+  "generatedAt" : 1785443183,
   "name" : "AROKI Connectors",
   "publicKey" : "qt8oJY4xwc5\/uXLq8CYrSoHPCiVrybtCKZS8++d+CNg=",
   "repositoryID" : "aroki-connectors",
   "schemaVersion" : 1,
-  "signature" : "y8ueSxuHFQQQETdIqfFgB5D2pGUvsHM4s+IYVkMTL4Y703OGE99EuYuXYY9rLl8f7w9EdWpOK6FCWl7dQp9IDQ=="
+  "signature" : "JuI\/sEsTLAOfeyLoF0dH43JWEzEKq6ZyOw1kPGoHHT9zvOZJZH31bxpiuPwup5erH5D9FiAEbZpeM7kVVDk5Cg=="
 }
