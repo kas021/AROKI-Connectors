@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 1,
+  "id": "archive-classics",
+  "familyID": "archive-classics",
+  "name": "Archive Classics",
+  "version": "1.0.0",
+  "minimumAppVersion": "0.1.0",
+  "contentType": "video",
+  "language": "en",
+  "contentRating": "unknown",
+  "releaseTrack": "beta",
+  "status": "active",
+  "attribution": { "author": "Internet Archive community collections", "website": "https://archive.org" },
+  "authorization": {
+    "basis": "documented-public-api",
+    "note": "Uses the Internet Archive's documented public search and metadata APIs, restricted to the feature_films collection of classic public-domain era films and serials. Rights status varies per item; the collection is curated by archive.org.",
+    "evidenceURL": "https://archive.org/developers/index.html"
+  },
+  "allowedHosts": ["archive.org", "*.archive.org"],
+  "capabilities": ["discovery", "search", "details", "episodes", "streams"],
+  "limits": { "timeoutMilliseconds": 20000, "maxConcurrentRequests": 3, "maxResponseBytes": 8388608 },
+  "operations": {
+    "discovery": {
+      "sections": [
+        {
+          "id": "popular-features",
+          "title": "Popular Feature Films",
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://archive.org/advancedsearch.php?q=collection%3Afeature_films+AND+mediatype%3Amovies&fl%5B%5D=identifier&fl%5B%5D=title&rows=24&page=1&output=json&sort%5B%5D=downloads+desc",
+            "headers": { "Accept": "application/json" }
+          },
+          "response": { "format": "json" },
+          "items": {
+            "collection": "response.docs[*]",
+            "fields": {
+              "sourceID": { "path": "identifier" },
+              "title": { "path": "title", "transforms": [ { "op": "trim" } ] },
+              "posterURL": { "path": "identifier", "transforms": [ { "op": "template", "value": "https://archive.org/services/img/{value}", "encodeValue": true } ] }
+            }
+          }
+        },
+        {
+          "id": "classic-serials",
+          "title": "Cliffhanger Serials",
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://archive.org/advancedsearch.php?q=%22serial%22+AND+%22chapter%22+AND+collection%3Afeature_films&fl%5B%5D=identifier&fl%5B%5D=title&rows=24&page=1&output=json&sort%5B%5D=downloads+desc",
+            "headers": { "Accept": "application/json" }
+          },
+          "response": { "format": "json" },
+          "items": {
+            "collection": "response.docs[*]",
+            "fields": {
+              "sourceID": { "path": "identifier" },
+              "title": { "path": "title", "transforms": [ { "op": "trim" } ] },
+              "posterURL": { "path": "identifier", "transforms": [ { "op": "template", "value": "https://archive.org/services/img/{value}", "encodeValue": true } ] }
+            }
+          }
+        }
+      ]
+    },
+    "search": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://archive.org/advancedsearch.php?q={query}+AND+collection%3Afeature_films+AND+mediatype%3Amovies&fl%5B%5D=identifier&fl%5B%5D=title&rows=24&page={page}&output=json",
+        "headers": { "Accept": "application/json" }
+      },
+      "response": { "format": "json" },
+      "items": {
+        "collection": "response.docs[*]",
+        "fields": {
+          "sourceID": { "path": "identifier" },
+          "title": { "path": "title", "transforms": [ { "op": "trim" } ] },
+          "posterURL": { "path": "identifier", "transforms": [ { "op": "template", "value": "https://archive.org/services/img/{value}", "encodeValue": true } ] }
+        }
+      },
+      "pagination": { "type": "pageParam", "start": 1, "maxPages": 10 }
+    },
+    "details": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://archive.org/metadata/{titleID}",
+        "headers": { "Accept": "application/json" }
+      },
+      "response": { "format": "json" },
+      "extract": {
+        "title": { "path": "metadata.title" },
+        "synopsis": { "path": "metadata.description" },
+        "posterURL": { "path": "metadata.identifier", "transforms": [ { "op": "template", "value": "https://archive.org/services/img/{value}", "encodeValue": true } ] },
+        "year": { "path": "metadata.year", "transforms": [ { "op": "firstInteger" } ] },
+        "genres": { "collection": "metadata.subject[*]" }
+      }
+    },
+    "episodes": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://archive.org/metadata/{titleID}",
+        "headers": { "Accept": "application/json" }
+      },
+      "response": { "format": "json" },
+      "extract": {
+        "collection": {
+          "path": "files[*]",
+          "where": [
+            { "path": "format", "oneOf": ["MPEG4", "h.264"] }
+          ]
+        },
+        "fields": {
+          "episodeID": { "path": "name" },
+          "title": { "path": "name", "transforms": [ { "op": "removeSuffix", "value": ".mp4" } ] },
+          "episodeNumber": { "path": "name", "transforms": [ { "op": "firstInteger" } ] }
+        }
+      }
+    },
+    "streams": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://archive.org/metadata/{titleID}",
+        "headers": { "Accept": "application/json" }
+      },
+      "response": { "format": "json" },
+      "extract": {
+        "collection": {
+          "path": "files[*]",
+          "where": [
+            { "path": "name", "equalsPlaceholder": "episodeID" }
+          ]
+        },
+        "fields": {
+          "url": { "path": "name", "transforms": [ { "op": "template", "value": "https://archive.org/download/{titleID}/{value}", "encodeValue": true } ] },
+          "qualityLabel": { "path": "format" }
+        }
+      }
+    }
+  },
+  "releaseNotes": "Initial release: Internet Archive classic film and serial collections via the documented public APIs."
+}

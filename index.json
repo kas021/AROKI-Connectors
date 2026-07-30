@@ -1,0 +1,155 @@
+{
+  "connectors" : [
+    {
+      "contentRating" : "unknown",
+      "contentType" : "video",
+      "familyID" : "anikoto",
+      "id" : "anikoto",
+      "language" : "en",
+      "manifest" : {
+        "path" : "connectors\/anikoto\/connector.json",
+        "sha256" : "83640d8b6eb511fecf088b612dbeb161bca839d56442730cec8593cc3abdc4cf",
+        "signature" : "xm69bD9JMEt4g1bDa0D5FaNTTSGE+sr7LNrc5kKgR73uNoNeQayl9qZzTCboBG+eqlM84t+drD45F5mKO86ECA=="
+      },
+      "minimumAppVersion" : "0.1.0",
+      "name" : "AniKoto",
+      "releaseNotes" : "Initial signed repository release. Device-verified native Sub and Dub playback.",
+      "releaseTrack" : "beta",
+      "status" : "active",
+      "version" : "0.3.0"
+    },
+    {
+      "contentRating" : "unknown",
+      "contentType" : "video",
+      "familyID" : "senshi",
+      "id" : "senshi",
+      "language" : "en",
+      "manifest" : {
+        "path" : "connectors\/senshi\/connector.json",
+        "sha256" : "31d90ab78b192d7c1522ade0f5ab0bb5b76ea19a440773fb1f1adbd5d1144c9a",
+        "signature" : "PvC+FvRhMtk\/kVD1WEI7W3KEZZO+wVOglAJQvc8b8SD+nUuEh1mBt0b\/uwauAH4wSkrTRbk2w1vZzj+QCIFdDA=="
+      },
+      "minimumAppVersion" : "0.1.0",
+      "name" : "Senshi",
+      "releaseNotes" : "Initial signed repository release. Device-verified native playback.",
+      "releaseTrack" : "beta",
+      "status" : "active",
+      "version" : "1.0.0"
+    },
+    {
+      "contentRating" : "unknown",
+      "contentType" : "video",
+      "familyID" : "onepace",
+      "id" : "onepace",
+      "language" : "en",
+      "manifest" : {
+        "path" : "connectors\/onepace\/connector.json",
+        "sha256" : "a159b27b87d7557b75bf17447b6d8a7259af10275577a8572ec48b3069a1ad23",
+        "signature" : "qDs79OwCeO7GuUBFyMORXPDhnSjyVK\/NAf57GNudGPd5rbIt+oy4vvjSSSWOgxMozEbT49k7yJNFn2+zKStRAg=="
+      },
+      "minimumAppVersion" : "0.1.0",
+      "name" : "One Pace",
+      "releaseNotes" : "Initial signed repository release. Device-verified direct-media playback.",
+      "releaseTrack" : "stable",
+      "status" : "active",
+      "version" : "2.0.0"
+    },
+    {
+      "contentRating" : "unknown",
+      "contentType" : "video",
+      "familyID" : "toontales",
+      "id" : "toontales",
+      "language" : "en",
+      "manifest" : {
+        "path" : "connectors\/toontales\/connector.json",
+        "sha256" : "81d1113079010cfb5d026496a8131d70f309d7efe566c08531f65531de6d7b20",
+        "signature" : "1aBuuCiW3yQ7kE\/C7Kz26p2TKPpCyO06wNXtA2ldu7ZFUdOdxgvTqVltS2J6pb2CfKk3N0Yj+RA6INTKGlR5Cg=="
+      },
+      "minimumAppVersion" : "0.1.0",
+      "name" : "ToonTales",
+      "releaseNotes" : "Initial signed repository release. Device-verified direct-media playback.",
+      "releaseTrack" : "stable",
+      "status" : "active",
+      "version" : "1.0.1"
+    },
+    {
+      "contentRating" : "unknown",
+      "contentType" : "video",
+      "familyID" : "animegg",
+      "id" : "animegg",
+      "language" : "en",
+      "manifest" : {
+        "path" : "connectors\/animegg\/connector.json",
+        "sha256" : "d184dae9eeb9896110683914ef1f70c523fdcd25287c86b2b935b90e32da0a29",
+        "signature" : "TllBPbHegoDLtQ7i804qPvxHm6cZhcSgqZeQWQJV95+uMfsjx84ijJJOCkLQmNy\/s+Es0M+9Ztiu0MyeTzHeCA=="
+      },
+      "minimumAppVersion" : "0.1.0",
+      "name" : "AnimeGG",
+      "releaseNotes" : "Initial signed repository release. Device-verified native Sub and Dub playback.",
+      "releaseTrack" : "stable",
+      "status" : "active",
+      "version" : "1.1.0"
+    },
+    {
+      "contentRating" : "unknown",
+      "contentType" : "video",
+      "familyID" : "anilol",
+      "id" : "anilol",
+      "language" : "en",
+      "manifest" : {
+        "path" : "connectors\/anilol\/connector.json",
+        "sha256" : "e01fe46891d4327f2f4dcfab4eba347cc9ba029a5e48b5e38f02c402fc11f9a3",
+        "signature" : "VcWKE8VLbBQMAORWWXedfkXIJfN2UAaJHu8dpEppgvOxZhqgk3+bOIHpvjc7U0hNv78UNuWPQ8Ffo0GCpNNsCw=="
+      },
+      "minimumAppVersion" : "0.1.0",
+      "name" : "AniLol",
+      "releaseNotes" : "Initial signed repository release. Live HLS and simulator AVPlayer verified; physical iPhone verification remains pending.",
+      "releaseTrack" : "beta",
+      "status" : "active",
+      "version" : "1.1.0"
+    },
+    {
+      "contentRating" : "unknown",
+      "contentType" : "video",
+      "familyID" : "donghuaworld",
+      "id" : "donghuaworld",
+      "language" : "en",
+      "manifest" : {
+        "path" : "connectors\/donghuaworld\/connector.json",
+        "sha256" : "2d1d012f56a559a71ba90a71f8d1025d9f57b96f4907ffa23e7a4b6860016a72",
+        "signature" : "IlFcIe45dmcqaPE42E33Q3v\/LgG8gVffAyOcW6HRYPJabpbFbtfe3iQi4eStVCdmoEZZ+vErLXS0pxPMImukCg=="
+      },
+      "minimumAppVersion" : "0.1.0",
+      "name" : "DonghuaWorld",
+      "releaseNotes" : "Initial signed repository release. Live HLS and simulator AVPlayer verified; unsupported hosts fail safely.",
+      "releaseTrack" : "beta",
+      "status" : "active",
+      "version" : "1.1.0"
+    },
+    {
+      "contentRating" : "unknown",
+      "contentType" : "video",
+      "familyID" : "archive-classics",
+      "id" : "archive-classics",
+      "language" : "en",
+      "manifest" : {
+        "path" : "connectors\/archive-classics\/connector.json",
+        "sha256" : "3cfe7574ec4984cb5999ad0edeb339846d5f34fdefbbf00258bec987af54c100",
+        "signature" : "WRybgk+Ew44vjOpA7LKr7rgZtFImealdIwZO+SQjXOL\/nDSi6AgqHrj+DyO9YiiUwIkIXDofiqt2AnmzHKC5Bw=="
+      },
+      "minimumAppVersion" : "0.1.0",
+      "name" : "Archive Classics",
+      "releaseNotes" : "Initial signed repository release. Public-domain reference connector with device-verified playback.",
+      "releaseTrack" : "beta",
+      "status" : "active",
+      "version" : "1.0.0"
+    }
+  ],
+  "enabled" : true,
+  "generatedAt" : 1785416688,
+  "name" : "AROKI Connectors",
+  "publicKey" : "qt8oJY4xwc5\/uXLq8CYrSoHPCiVrybtCKZS8++d+CNg=",
+  "repositoryID" : "aroki-connectors",
+  "schemaVersion" : 1,
+  "signature" : "98f4o4hGLpmDOTP24+VuK7zlsNcyuf1y9RwLclaeZ09vPEE6kobFztscL\/6\/jo\/ozg01LNIVtlOJi1tz5Pu+BQ=="
+}

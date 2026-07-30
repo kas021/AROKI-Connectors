@@ -1,0 +1,612 @@
+{
+  "schemaVersion": 1,
+  "id": "anikoto",
+  "familyID": "anikoto",
+  "name": "AniKoto",
+  "version": "0.3.0",
+  "minimumAppVersion": "0.1.0",
+  "contentType": "video",
+  "language": "en",
+  "contentRating": "unknown",
+  "releaseTrack": "beta",
+  "status": "active",
+  "attribution": {
+    "author": "Vireo compatibility experiment",
+    "website": "https://anikototv.to"
+  },
+  "authorization": {
+    "basis": "owner-authorised",
+    "note": "EXPERIMENT ONLY. Basis asserted by the project owner for a compatibility test; this is NOT a rights determination and this connector must not ship without documented authorisation from the source operator.",
+    "evidenceURL": "https://anikototv.to/"
+  },
+  "allowedHosts": [
+    "anikototv.to",
+    "anikoto.cz",
+    "cdn.anipixcdn.co",
+    "vidtube.site",
+    "megaplay.buzz",
+    "*.kotocdn.site"
+  ],
+  "capabilities": [
+    "discovery",
+    "search",
+    "details",
+    "episodes",
+    "streams"
+  ],
+  "limits": {
+    "timeoutMilliseconds": 20000,
+    "maxConcurrentRequests": 2,
+    "maxResponseBytes": 8388608
+  },
+  "operations": {
+    "discovery": {
+      "sections": [
+        {
+          "id": "most-watched",
+          "title": "Most Watched",
+          "semantic": "popular",
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://anikototv.to/filter?sort=most_watched&page={page}",
+            "headers": {
+              "Accept": "text/html",
+              "Referer": "https://anikototv.to/"
+            }
+          },
+          "response": {
+            "format": "html"
+          },
+          "pagination": {
+            "type": "pageParam",
+            "start": 1,
+            "maxPages": 25
+          },
+          "items": {
+            "collection": "#list-items div.item",
+            "fields": {
+              "sourceID": {
+                "selector": "a.name.d-title",
+                "part": "attr",
+                "attr": "href",
+                "transforms": [
+                  {
+                    "op": "removePrefix",
+                    "value": "https://anikototv.to/watch/"
+                  },
+                  {
+                    "op": "removeSuffix",
+                    "value": "/ep-1"
+                  }
+                ]
+              },
+              "title": {
+                "selector": "a.name.d-title",
+                "part": "text",
+                "transforms": [
+                  {
+                    "op": "trim"
+                  }
+                ]
+              },
+              "posterURL": {
+                "selector": "div.poster img",
+                "part": "attr",
+                "attr": "src"
+              }
+            }
+          }
+        },
+        {
+          "id": "top-rated",
+          "title": "Top Rated",
+          "semantic": "popular",
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://anikototv.to/filter?sort=score&page={page}",
+            "headers": {
+              "Accept": "text/html",
+              "Referer": "https://anikototv.to/"
+            }
+          },
+          "response": {
+            "format": "html"
+          },
+          "pagination": {
+            "type": "pageParam",
+            "start": 1,
+            "maxPages": 25
+          },
+          "items": {
+            "collection": "#list-items div.item",
+            "fields": {
+              "sourceID": {
+                "selector": "a.name.d-title",
+                "part": "attr",
+                "attr": "href",
+                "transforms": [
+                  {
+                    "op": "removePrefix",
+                    "value": "https://anikototv.to/watch/"
+                  },
+                  {
+                    "op": "removeSuffix",
+                    "value": "/ep-1"
+                  }
+                ]
+              },
+              "title": {
+                "selector": "a.name.d-title",
+                "part": "text",
+                "transforms": [
+                  {
+                    "op": "trim"
+                  }
+                ]
+              },
+              "posterURL": {
+                "selector": "div.poster img",
+                "part": "attr",
+                "attr": "src"
+              }
+            }
+          }
+        },
+        {
+          "id": "action",
+          "title": "Action",
+          "semantic": "genre",
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://anikototv.to/genre/action?page={page}",
+            "headers": {
+              "Accept": "text/html",
+              "Referer": "https://anikototv.to/"
+            }
+          },
+          "response": {
+            "format": "html"
+          },
+          "pagination": {
+            "type": "pageParam",
+            "start": 1,
+            "maxPages": 25
+          },
+          "items": {
+            "collection": "#list-items div.item",
+            "fields": {
+              "sourceID": {
+                "selector": "a.name.d-title",
+                "part": "attr",
+                "attr": "href",
+                "transforms": [
+                  {
+                    "op": "removePrefix",
+                    "value": "https://anikototv.to/watch/"
+                  },
+                  {
+                    "op": "removeSuffix",
+                    "value": "/ep-1"
+                  }
+                ]
+              },
+              "title": {
+                "selector": "a.name.d-title",
+                "part": "text",
+                "transforms": [
+                  {
+                    "op": "trim"
+                  }
+                ]
+              },
+              "posterURL": {
+                "selector": "div.poster img",
+                "part": "attr",
+                "attr": "src"
+              }
+            }
+          }
+        },
+        {
+          "id": "adventure",
+          "title": "Adventure",
+          "semantic": "genre",
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://anikototv.to/genre/adventure?page={page}",
+            "headers": { "Accept": "text/html", "Referer": "https://anikototv.to/" }
+          },
+          "response": { "format": "html" },
+          "pagination": { "type": "pageParam", "start": 1, "maxPages": 25 },
+          "items": {
+            "collection": "#list-items div.item",
+            "fields": {
+              "sourceID": {
+                "selector": "a.name.d-title", "part": "attr", "attr": "href",
+                "transforms": [
+                  { "op": "removePrefix", "value": "https://anikototv.to/watch/" },
+                  { "op": "removeSuffix", "value": "/ep-1" }
+                ]
+              },
+              "title": { "selector": "a.name.d-title", "part": "text", "transforms": [{ "op": "trim" }] },
+              "posterURL": { "selector": "div.poster img", "part": "attr", "attr": "src" }
+            }
+          }
+        },
+        {
+          "id": "comedy",
+          "title": "Comedy",
+          "semantic": "genre",
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://anikototv.to/genre/comedy?page={page}",
+            "headers": { "Accept": "text/html", "Referer": "https://anikototv.to/" }
+          },
+          "response": { "format": "html" },
+          "pagination": { "type": "pageParam", "start": 1, "maxPages": 25 },
+          "items": {
+            "collection": "#list-items div.item",
+            "fields": {
+              "sourceID": {
+                "selector": "a.name.d-title", "part": "attr", "attr": "href",
+                "transforms": [
+                  { "op": "removePrefix", "value": "https://anikototv.to/watch/" },
+                  { "op": "removeSuffix", "value": "/ep-1" }
+                ]
+              },
+              "title": { "selector": "a.name.d-title", "part": "text", "transforms": [{ "op": "trim" }] },
+              "posterURL": { "selector": "div.poster img", "part": "attr", "attr": "src" }
+            }
+          }
+        },
+        {
+          "id": "fantasy",
+          "title": "Fantasy",
+          "semantic": "genre",
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://anikototv.to/genre/fantasy?page={page}",
+            "headers": { "Accept": "text/html", "Referer": "https://anikototv.to/" }
+          },
+          "response": { "format": "html" },
+          "pagination": { "type": "pageParam", "start": 1, "maxPages": 25 },
+          "items": {
+            "collection": "#list-items div.item",
+            "fields": {
+              "sourceID": {
+                "selector": "a.name.d-title", "part": "attr", "attr": "href",
+                "transforms": [
+                  { "op": "removePrefix", "value": "https://anikototv.to/watch/" },
+                  { "op": "removeSuffix", "value": "/ep-1" }
+                ]
+              },
+              "title": { "selector": "a.name.d-title", "part": "text", "transforms": [{ "op": "trim" }] },
+              "posterURL": { "selector": "div.poster img", "part": "attr", "attr": "src" }
+            }
+          }
+        },
+        {
+          "id": "romance",
+          "title": "Romance",
+          "semantic": "genre",
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://anikototv.to/genre/romance?page={page}",
+            "headers": { "Accept": "text/html", "Referer": "https://anikototv.to/" }
+          },
+          "response": { "format": "html" },
+          "pagination": { "type": "pageParam", "start": 1, "maxPages": 25 },
+          "items": {
+            "collection": "#list-items div.item",
+            "fields": {
+              "sourceID": {
+                "selector": "a.name.d-title", "part": "attr", "attr": "href",
+                "transforms": [
+                  { "op": "removePrefix", "value": "https://anikototv.to/watch/" },
+                  { "op": "removeSuffix", "value": "/ep-1" }
+                ]
+              },
+              "title": { "selector": "a.name.d-title", "part": "text", "transforms": [{ "op": "trim" }] },
+              "posterURL": { "selector": "div.poster img", "part": "attr", "attr": "src" }
+            }
+          }
+        },
+        {
+          "id": "sci-fi",
+          "title": "Sci-Fi",
+          "semantic": "genre",
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://anikototv.to/genre/sci-fi?page={page}",
+            "headers": { "Accept": "text/html", "Referer": "https://anikototv.to/" }
+          },
+          "response": { "format": "html" },
+          "pagination": { "type": "pageParam", "start": 1, "maxPages": 25 },
+          "items": {
+            "collection": "#list-items div.item",
+            "fields": {
+              "sourceID": {
+                "selector": "a.name.d-title", "part": "attr", "attr": "href",
+                "transforms": [
+                  { "op": "removePrefix", "value": "https://anikototv.to/watch/" },
+                  { "op": "removeSuffix", "value": "/ep-1" }
+                ]
+              },
+              "title": { "selector": "a.name.d-title", "part": "text", "transforms": [{ "op": "trim" }] },
+              "posterURL": { "selector": "div.poster img", "part": "attr", "attr": "src" }
+            }
+          }
+        }
+      ]
+    },
+    "search": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://anikototv.to/filter?keyword={query}&page={page}",
+        "headers": {
+          "Accept": "text/html",
+          "Referer": "https://anikototv.to/"
+        }
+      },
+      "response": {
+        "format": "html"
+      },
+      "items": {
+        "collection": "#list-items div.item",
+        "fields": {
+          "sourceID": {
+            "selector": "a.name.d-title",
+            "part": "attr",
+            "attr": "href",
+            "transforms": [
+              {
+                "op": "removePrefix",
+                "value": "https://anikototv.to/watch/"
+              },
+              {
+                "op": "removeSuffix",
+                "value": "/ep-1"
+              }
+            ]
+          },
+          "title": {
+            "selector": "a.name.d-title",
+            "part": "text",
+            "transforms": [
+              {
+                "op": "trim"
+              }
+            ]
+          },
+          "posterURL": {
+            "selector": "div.poster img",
+            "part": "attr",
+            "attr": "src"
+          }
+        }
+      },
+      "pagination": {
+        "type": "pageParam",
+        "start": 1,
+        "maxPages": 10
+      }
+    },
+    "details": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://anikototv.to/watch/{titleID}",
+        "headers": {
+          "Accept": "text/html",
+          "Referer": "https://anikototv.to/"
+        }
+      },
+      "response": {
+        "format": "html"
+      },
+      "extract": {
+        "sharedID": {
+          "selector": "#watch-main",
+          "part": "attr",
+          "attr": "data-id"
+        },
+        "title": {
+          "selector": "h1.d-title",
+          "part": "text",
+          "transforms": [
+            {
+              "op": "trim"
+            }
+          ]
+        },
+        "synopsis": {
+          "selector": "div.synopsis div.shorting",
+          "part": "text",
+          "transforms": [
+            {
+              "op": "trim"
+            }
+          ]
+        },
+        "posterURL": {
+          "selector": "div.poster img",
+          "part": "attr",
+          "attr": "src"
+        },
+        "genres": {
+          "collection": "div.bmeta div.meta a[href*=\"/genre/\"]"
+        }
+      }
+    },
+    "episodes": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://anikototv.to/ajax/episode/list/{sharedID}",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "X-Requested-With": "XMLHttpRequest",
+          "Referer": "https://anikototv.to/"
+        }
+      },
+      "response": {
+        "format": "json-wrapped-html",
+        "unwrapPath": "result"
+      },
+      "extract": {
+        "collection": ".episodes ul.ep-range li",
+        "fields": {
+          "episodeID": {
+            "selector": "a",
+            "part": "attr",
+            "attr": "data-ids"
+          },
+          "title": {
+            "selector": "span.d-title",
+            "part": "text"
+          },
+          "episodeNumber": {
+            "selector": "a",
+            "part": "attr",
+            "attr": "data-num",
+            "transforms": [
+              {
+                "op": "firstInteger"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "streams": {
+      "variants": ["sub", "dub"],
+      "playbackHeaders": {
+        "Referer": "https://vidtube.site/"
+      },
+      "steps": [
+        {
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://anikototv.to/ajax/server/list?servers={episodeID}",
+            "headers": {
+              "Accept": "application/json, text/plain, */*",
+              "X-Requested-With": "XMLHttpRequest",
+              "Referer": "https://anikototv.to/"
+            }
+          },
+          "response": {
+            "format": "json-wrapped-html",
+            "unwrapPath": "result"
+          },
+          "extract": {
+            "context": {
+              "linkID": {
+                "selector": "div.type[data-type=\"{variant}\"] li[data-sv-id=\"8e4\"]",
+                "part": "attr",
+                "attr": "data-link-id",
+                "fallbacks": [
+                  {
+                    "selector": "div.type[data-type=\"{variant}\"] li[data-sv-id=\"323\"]",
+                    "part": "attr",
+                    "attr": "data-link-id"
+                  },
+                  {
+                    "selector": "div.type[data-type=\"{variant}\"] li[data-sv-id=\"e54\"]",
+                    "part": "attr",
+                    "attr": "data-link-id"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://anikototv.to/ajax/server?get={linkID}",
+            "headers": {
+              "Accept": "application/json, text/plain, */*",
+              "X-Requested-With": "XMLHttpRequest",
+              "Referer": "https://anikototv.to/"
+            }
+          },
+          "response": {
+            "format": "json"
+          },
+          "extract": {
+            "context": {
+              "playerURL": {
+                "path": "result.url",
+                "kind": "url"
+              }
+            }
+          }
+        },
+        {
+          "request": {
+            "method": "GET",
+            "follow": "playerURL",
+            "headers": {
+              "Referer": "https://anikototv.to/",
+              "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+            }
+          },
+          "response": {
+            "format": "html"
+          },
+          "extract": {
+            "context": {
+              "playerID": {
+                "selector": "[data-id]",
+                "part": "attr",
+                "attr": "data-id",
+                "transforms": [
+                  {
+                    "op": "firstInteger"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "request": {
+            "method": "GET",
+            "originOf": "playerURL",
+            "pathTemplate": "/stream/getSources?id={playerID}&type={variant}",
+            "headers": {
+              "Accept": "application/json, text/plain, */*",
+              "X-Requested-With": "XMLHttpRequest"
+            }
+          },
+          "response": {
+            "format": "json"
+          },
+          "extract": {
+            "collection": "sources",
+            "fields": {
+              "url": {
+                "path": "file",
+                "fallbacks": [
+                  {
+                    "path": "url"
+                  }
+                ]
+              }
+            },
+            "subtitles": {
+              "collection": "tracks[*]",
+              "fields": {
+                "url": {
+                  "path": "file"
+                },
+                "label": {
+                  "path": "label"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "releaseNotes": "M19 adds eight honest, server-rendered discovery shelves with semantic labels and bounded page navigation through page 25. Existing Sub/Dub selection and the bounded four-step playback graph are unchanged; missing variants still fail safely and VidCloud-1 remains deliberately unselected."
+}

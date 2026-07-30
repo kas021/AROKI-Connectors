@@ -1,0 +1,188 @@
+{
+  "schemaVersion": 1,
+  "id": "anilol",
+  "familyID": "anilol",
+  "name": "AniLol",
+  "version": "1.1.0",
+  "minimumAppVersion": "0.1.0",
+  "contentType": "video",
+  "language": "en",
+  "contentRating": "unknown",
+  "releaseTrack": "beta",
+  "status": "active",
+  "attribution": {
+    "author": "AniLol",
+    "website": "https://ani.lol/"
+  },
+  "authorization": {
+    "basis": "owner-authorised",
+    "note": "EXPERIMENT ONLY. Basis asserted by the project owner for compatibility testing; this is not a rights determination and must not ship without documented source-operator authorisation.",
+    "evidenceURL": "https://ani.lol/"
+  },
+  "allowedHosts": [
+    "ani.lol",
+    "eng.animeapps.top",
+    "epeng.animeapps.top",
+    "playeng.animeapps.top",
+    "*.nukitashi.top",
+    "*.anilist.co",
+    "*.1imgdarr.top"
+  ],
+  "capabilities": ["discovery", "search", "details", "episodes", "streams"],
+  "limits": {
+    "timeoutMilliseconds": 20000,
+    "maxConcurrentRequests": 2,
+    "maxResponseBytes": 4194304
+  },
+  "operations": {
+    "discovery": {
+      "sections": [
+        {
+          "id": "popular-adventures",
+          "title": "Popular Adventures",
+          "semantic": "popular",
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://eng.animeapps.top/api/search3.php?keyword=one%20piece&limit=20&page=1",
+            "headers": {
+              "Accept": "application/json,*/*",
+              "Referer": "https://ani.lol/"
+            }
+          },
+          "response": { "format": "json" },
+          "items": {
+            "collection": "data[*]",
+            "fields": {
+              "sourceID": { "path": "postid" },
+              "title": { "path": "postname" },
+              "posterURL": { "path": "ani_cover_large" }
+            }
+          }
+        },
+        {
+          "id": "ninjas",
+          "title": "Ninja Stories",
+          "semantic": "genre",
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://eng.animeapps.top/api/search3.php?keyword=naruto&limit=20&page=1",
+            "headers": {
+              "Accept": "application/json,*/*",
+              "Referer": "https://ani.lol/"
+            }
+          },
+          "response": { "format": "json" },
+          "items": {
+            "collection": "data[*]",
+            "fields": {
+              "sourceID": { "path": "postid" },
+              "title": { "path": "postname" },
+              "posterURL": { "path": "ani_cover_large" }
+            }
+          }
+        }
+      ]
+    },
+    "search": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://eng.animeapps.top/api/search3.php?keyword={query}&limit=24&page={page}",
+        "headers": {
+          "Accept": "application/json,*/*",
+          "Referer": "https://ani.lol/"
+        }
+      },
+      "response": { "format": "json" },
+      "items": {
+        "collection": "data[*]",
+        "fields": {
+          "sourceID": { "path": "postid" },
+          "title": { "path": "postname" },
+          "posterURL": { "path": "ani_cover_large" }
+        }
+      },
+      "pagination": { "type": "pageParam", "start": 1, "maxPages": 10 }
+    },
+    "details": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://eng.animeapps.top/api/single.php?postid={titleID}",
+        "headers": {
+          "Accept": "application/json,*/*",
+          "Referer": "https://ani.lol/"
+        }
+      },
+      "response": { "format": "json" },
+      "extract": {
+        "title": { "path": "data.postname" },
+        "synopsis": { "path": "data.postcontent" },
+        "posterURL": { "path": "data.ani_cover_large" },
+        "year": { "path": "data.postyear", "transforms": [{ "op": "firstInteger" }] },
+        "sharedID": { "path": "data.anilist" }
+      }
+    },
+    "episodes": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://epeng.animeapps.top/api2.php?epid={sharedID}",
+        "headers": {
+          "Accept": "application/json,*/*",
+          "Referer": "https://ani.lol/"
+        }
+      },
+      "response": { "format": "json" },
+      "extract": {
+        "collection": "[0].server_data[*]",
+        "fields": {
+          "episodeID": { "path": "link" },
+          "title": {
+            "path": "name",
+            "transforms": [{ "op": "template", "value": "Episode {value}" }]
+          },
+          "episodeNumber": { "path": "name", "transforms": [{ "op": "firstInteger" }] }
+        }
+      }
+    },
+    "streams": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://epeng.animeapps.top/apilink.php?data={episodeID}",
+        "headers": {
+          "Accept": "application/json,*/*",
+          "Referer": "https://ani.lol/"
+        }
+      },
+      "response": { "format": "json" },
+      "extract": {
+        "collection": {
+          "path": "[*]",
+          "where": [{ "path": "server", "equals": "SR" }]
+        },
+        "fields": {
+          "url": {
+            "path": "link",
+            "transforms": [
+              { "op": "queryValue", "name": "url" },
+              {
+                "op": "template",
+                "value": "https://playeng.animeapps.top/r2/cachehd/{value}/index.m3u8",
+                "encodeValue": true
+              }
+            ]
+          },
+          "qualityLabel": {
+            "path": "server",
+            "transforms": [{ "op": "replaceFirst", "find": "SR", "with": "Auto" }]
+          }
+        }
+      },
+      "playbackHeaders": {
+        "Referer": "https://playeng.animeapps.top/",
+        "Origin": "https://playeng.animeapps.top",
+        "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Version/18.0 Mobile/15E148 Safari/604.1"
+      },
+      "variants": ["sub"]
+    }
+  },
+  "releaseNotes": "M19 labels public catalogue sections with fixed popular and genre semantics. The direct bounded HLS route remains declarative, with no JavaScript or backend resolver."
+}

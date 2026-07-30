@@ -1,0 +1,284 @@
+{
+  "schemaVersion": 1,
+  "id": "animegg",
+  "familyID": "animegg",
+  "name": "AnimeGG",
+  "version": "1.1.0",
+  "minimumAppVersion": "0.1.0",
+  "contentType": "video",
+  "language": "en",
+  "contentRating": "unknown",
+  "releaseTrack": "stable",
+  "status": "active",
+  "attribution": {
+    "author": "Vireo compatibility experiment",
+    "website": "https://www.animegg.org"
+  },
+  "authorization": {
+    "basis": "owner-authorised",
+    "note": "EXPERIMENT ONLY. Basis asserted by the project owner for a compatibility test; this is NOT a rights determination and this connector must not ship without documented authorisation from the source operator.",
+    "evidenceURL": "https://www.animegg.org/"
+  },
+  "allowedHosts": [
+    "www.animegg.org",
+    "vidcache.net",
+    "*.vidcache.net"
+  ],
+  "capabilities": [
+    "discovery",
+    "search",
+    "details",
+    "episodes",
+    "streams"
+  ],
+  "limits": {
+    "timeoutMilliseconds": 20000,
+    "maxConcurrentRequests": 2,
+    "maxResponseBytes": 8388608
+  },
+  "operations": {
+    "discovery": {
+      "sections": [
+        {
+          "id": "latest",
+          "title": "Recently Added",
+          "semantic": "recent",
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://www.animegg.org/releases",
+            "headers": { "Accept": "text/html", "Referer": "https://www.animegg.org/" }
+          },
+          "response": { "format": "html" },
+          "items": {
+            "collection": "ul.popanime.cats li.fea.release",
+            "fields": {
+              "sourceID": {
+                "selector": "a.releaseLink",
+                "part": "attr",
+                "attr": "href",
+                "transforms": [{ "op": "removePrefix", "value": "/series/" }]
+              },
+              "title": { "selector": "a.releaseLink", "part": "text", "transforms": [{ "op": "trim" }] },
+              "posterURL": { "selector": "div.releaseImg img", "part": "attr", "attr": "src" }
+            }
+          }
+        },
+        {
+          "id": "popular",
+          "title": "Popular",
+          "semantic": "popular",
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://www.animegg.org/",
+            "headers": { "Accept": "text/html", "Referer": "https://www.animegg.org/" }
+          },
+          "response": { "format": "html" },
+          "items": {
+            "collection": "ul.popanime li",
+            "fields": {
+              "sourceID": {
+                "selector": "div.rightpop > a",
+                "part": "attr",
+                "attr": "href",
+                "transforms": [{ "op": "removePrefix", "value": "/series/" }]
+              },
+              "title": { "selector": "div.rightpop > a", "part": "text", "transforms": [{ "op": "trim" }] },
+              "posterURL": { "selector": "div.img img", "part": "attr", "attr": "src" }
+            }
+          }
+        }
+      ]
+    },
+    "search": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://www.animegg.org/search?q={query}",
+        "headers": {
+          "Accept": "text/html",
+          "Referer": "https://www.animegg.org/"
+        }
+      },
+      "response": {
+        "format": "html"
+      },
+      "items": {
+        "collection": "a.mse",
+        "fields": {
+          "sourceID": {
+            "selector": "a.mse",
+            "part": "attr",
+            "attr": "href",
+            "transforms": [
+              {
+                "op": "removePrefix",
+                "value": "/series/"
+              }
+            ]
+          },
+          "title": {
+            "selector": "h2",
+            "part": "text",
+            "transforms": [
+              {
+                "op": "trim"
+              }
+            ]
+          },
+          "posterURL": {
+            "selector": "img",
+            "part": "attr",
+            "attr": "src"
+          }
+        }
+      }
+    },
+    "details": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://www.animegg.org/series/{titleID}",
+        "headers": {
+          "Accept": "text/html",
+          "Referer": "https://www.animegg.org/"
+        }
+      },
+      "response": {
+        "format": "html"
+      },
+      "extract": {
+        "title": {
+          "selector": "div.fattynav h1",
+          "part": "text",
+          "transforms": [
+            {
+              "op": "trim"
+            }
+          ]
+        },
+        "synopsis": {
+          "selector": "p.ptext",
+          "part": "text",
+          "transforms": [
+            {
+              "op": "trim"
+            }
+          ]
+        },
+        "posterURL": {
+          "selector": "div.fattynav img.media-object",
+          "part": "attr",
+          "attr": "src"
+        },
+        "genres": {
+          "collection": "ul.tagscat li a"
+        }
+      }
+    },
+    "episodes": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://www.animegg.org/series/{titleID}",
+        "headers": {
+          "Accept": "text/html",
+          "Referer": "https://www.animegg.org/"
+        }
+      },
+      "response": {
+        "format": "html"
+      },
+      "extract": {
+        "collection": "a.anm_det_pop",
+        "fields": {
+          "episodeID": {
+            "selector": "a.anm_det_pop",
+            "part": "attr",
+            "attr": "href",
+            "transforms": [
+              {
+                "op": "removePrefix",
+                "value": "/"
+              }
+            ]
+          },
+          "title": {
+            "selector": "strong",
+            "part": "text",
+            "transforms": [
+              {
+                "op": "trim"
+              }
+            ]
+          },
+          "episodeNumber": {
+            "selector": "a.anm_det_pop",
+            "part": "attr",
+            "attr": "href",
+            "transforms": [
+              {
+                "op": "firstInteger"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "streams": {
+      "variants": ["sub", "dub"],
+      "playbackHeaders": {
+        "Referer": "https://www.animegg.org/"
+      },
+      "steps": [
+        {
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://www.animegg.org/{episodeID}",
+            "headers": {
+              "Accept": "text/html",
+              "Referer": "https://www.animegg.org/"
+            }
+          },
+          "response": {
+            "format": "html"
+          },
+          "extract": {
+            "context": {
+              "embedID": {
+                "selector": "ul#videos a[data-version^=\"{variant}\"]",
+                "part": "attr",
+                "attr": "data-id"
+              }
+            }
+          }
+        },
+        {
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://www.animegg.org/embed/{embedID}",
+            "headers": {
+              "Accept": "text/html",
+              "Referer": "https://www.animegg.org/"
+            }
+          },
+          "response": {
+            "format": "html"
+          },
+          "extract": {
+            "collection": "html",
+            "fields": {
+              "url": {
+                "selector": "meta[property=\"og:video\"]",
+                "part": "attr",
+                "attr": "content",
+                "transforms": [
+                  {
+                    "op": "absolutize"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "releaseNotes": "M19 labels the server-rendered Latest and Popular discovery sections with fixed semantics for source-aware Home and Browse. The existing bounded per-variant MP4 graph and honest missing-variant failure remain unchanged."
+}

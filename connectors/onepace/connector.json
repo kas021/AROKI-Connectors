@@ -1,0 +1,174 @@
+{
+  "schemaVersion": 1,
+  "id": "onepace",
+  "familyID": "onepace",
+  "name": "One Pace",
+  "version": "2.0.0",
+  "minimumAppVersion": "0.1.0",
+  "contentType": "video",
+  "language": "en",
+  "contentRating": "unknown",
+  "releaseTrack": "stable",
+  "status": "active",
+  "attribution": {
+    "author": "Vireo Migration",
+    "website": "https://onepace.net"
+  },
+  "authorization": {
+    "basis": "owner-authorised",
+    "note": "Authorised by operator",
+    "evidenceURL": "https://onepace.net"
+  },
+  "allowedHosts": [
+    "onepace.net",
+    "www.onepace.net",
+    "pixeldrain.net",
+    "pixeldrain.com"
+  ],
+  "capabilities": [
+    "search",
+    "details",
+    "episodes",
+    "streams"
+  ],
+  "limits": {
+    "timeoutMilliseconds": 15000,
+    "maxConcurrentRequests": 2,
+    "maxResponseBytes": 8388608
+  },
+  "operations": {
+    "search": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://onepace.net/en/watch?q={query}"
+      },
+      "response": {
+        "format": "html"
+      },
+      "items": {
+        "collection": {
+          "selector": "li[id][aria-labelledby]",
+          "where": [
+            {
+              "field": "title",
+              "containsPlaceholder": "query"
+            }
+          ]
+        },
+        "fields": {
+          "sourceID": {
+            "selector": "a[href*=\"pixeldrain.net/l/\"]",
+            "part": "attr",
+            "attr": "href",
+            "transforms": [
+              {
+                "op": "removePrefix",
+                "value": "https://pixeldrain.net/l/"
+              }
+            ]
+          },
+          "title": {
+            "selector": "h2 a",
+            "part": "text",
+            "transforms": [
+              {
+                "op": "trim"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "details": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://pixeldrain.com/api/list/{titleID}"
+      },
+      "response": {
+        "format": "json"
+      },
+      "extract": {
+        "title": {
+          "path": "title"
+        },
+        "posterURL": {
+          "path": "files[0].thumbnail_href",
+          "transforms": [
+            {
+              "op": "absolutize"
+            }
+          ]
+        }
+      }
+    },
+    "episodes": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://pixeldrain.com/api/list/{titleID}"
+      },
+      "response": {
+        "format": "json"
+      },
+      "extract": {
+        "collection": "files[*]",
+        "fields": {
+          "episodeID": {
+            "path": "id"
+          },
+          "title": {
+            "path": "name",
+            "transforms": [
+              {
+                "op": "removeSuffix",
+                "value": ".mp4"
+              }
+            ]
+          },
+          "thumbnailURL": {
+            "path": "thumbnail_href",
+            "transforms": [
+              {
+                "op": "absolutize"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "streams": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://pixeldrain.com/api/list/{titleID}"
+      },
+      "response": {
+        "format": "json"
+      },
+      "playbackHeaders": {
+        "Referer": "https://pixeldrain.com/"
+      },
+      "extract": {
+        "collection": {
+          "path": "files[*]",
+          "where": [
+            {
+              "path": "id",
+              "equalsPlaceholder": "episodeID"
+            }
+          ]
+        },
+        "fields": {
+          "url": {
+            "path": "id",
+            "transforms": [
+              {
+                "op": "template",
+                "value": "https://pixeldrain.com/api/file/{value}"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "releaseNotes": "Remap for the redesigned onepace.net: search filters the /en/watch arc list client-side via an HTML field filter (the q param is ignored server-side); details/episodes/streams all read the pixeldrain list API keyed by the pixeldrain list ID from the first list link. Streams select the episode file with an equalsPlaceholder filter and assemble the direct /api/file URL."
+}
