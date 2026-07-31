@@ -21,24 +21,6 @@
     {
       "contentRating" : "unknown",
       "contentType" : "video",
-      "familyID" : "senshi",
-      "id" : "senshi",
-      "language" : "en",
-      "manifest" : {
-        "path" : "connectors\/senshi\/connector.json",
-        "sha256" : "31d90ab78b192d7c1522ade0f5ab0bb5b76ea19a440773fb1f1adbd5d1144c9a",
-        "signature" : "PvC+FvRhMtk\/kVD1WEI7W3KEZZO+wVOglAJQvc8b8SD+nUuEh1mBt0b\/uwauAH4wSkrTRbk2w1vZzj+QCIFdDA=="
-      },
-      "minimumAppVersion" : "0.1.0",
-      "name" : "Senshi",
-      "releaseNotes" : "Initial signed repository release. Device-verified native playback.",
-      "releaseTrack" : "beta",
-      "status" : "active",
-      "version" : "1.0.0"
-    },
-    {
-      "contentRating" : "unknown",
-      "contentType" : "video",
       "familyID" : "onepace",
       "id" : "onepace",
       "language" : "en",
@@ -53,24 +35,6 @@
       "releaseTrack" : "stable",
       "status" : "active",
       "version" : "2.0.0"
-    },
-    {
-      "contentRating" : "unknown",
-      "contentType" : "video",
-      "familyID" : "toontales",
-      "id" : "toontales",
-      "language" : "en",
-      "manifest" : {
-        "path" : "connectors\/toontales\/connector.json",
-        "sha256" : "81d1113079010cfb5d026496a8131d70f309d7efe566c08531f65531de6d7b20",
-        "signature" : "1aBuuCiW3yQ7kE\/C7Kz26p2TKPpCyO06wNXtA2ldu7ZFUdOdxgvTqVltS2J6pb2CfKk3N0Yj+RA6INTKGlR5Cg=="
-      },
-      "minimumAppVersion" : "0.1.0",
-      "name" : "ToonTales",
-      "releaseNotes" : "Initial signed repository release. Device-verified direct-media playback.",
-      "releaseTrack" : "stable",
-      "status" : "active",
-      "version" : "1.0.1"
     },
     {
       "contentRating" : "unknown",
@@ -146,10 +110,10 @@
     }
   ],
   "enabled" : true,
-  "generatedAt" : 1785444193,
+  "generatedAt" : 1785461778,
   "name" : "AROKI Connectors",
   "publicKey" : "qt8oJY4xwc5\/uXLq8CYrSoHPCiVrybtCKZS8++d+CNg=",
   "repositoryID" : "aroki-connectors",
   "schemaVersion" : 1,
-  "signature" : "3PEFW4TZSUYSMXy3YfVbtrf1AG3CPOXgzgnAbYQ6Dqdk7l3KIl\/sZfhmc5cYpb08\/OpqF6GKBdVJr3w\/YUcQBA=="
+  "signature" : "0bz2STYlnZZMwWiZGzp7DZILJjwJ8rDRBokJ\/0aVaR7auzs7EqAYOAeBHUlAIeCVxxFCael+wdmUhd5fJEvkBw=="
 }

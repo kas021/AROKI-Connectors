@@ -26,10 +26,9 @@ source at any time.
 ## Published connectors
 
 - AniKoto
-- Senshi
 - One Pace
-- ToonTales
 - AnimeGG
+- AniNeko
 - AniLol
 - Archive Classics
 
@@ -37,6 +36,9 @@ The index contains the exact compatibility track for every connector. A source
 can change independently of AROKI, so availability is not guaranteed. Users
 and source publishers remain responsible for ensuring they have permission to
 access and distribute the content they configure.
+
+Senshi and ToonTales were withdrawn after reliability review. Previously
+installed copies remain under the user's control and can be removed on-device.
 
 ## Safety boundary
 
