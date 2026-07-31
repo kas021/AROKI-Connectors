@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "id": "update-flow-test",
+  "familyID": "update-flow-test",
+  "name": "Update Flow Test",
+  "version": "1.0.0",
+  "minimumAppVersion": "0.1.0",
+  "contentType": "video",
+  "language": "en",
+  "contentRating": "unknown",
+  "releaseTrack": "beta",
+  "status": "active",
+  "attribution": {
+    "author": "Synthetiq",
+    "website": "https://synthetiq.uk"
+  },
+  "authorization": {
+    "basis": "owner-authorised",
+    "note": "First-party diagnostic source used only to verify Aroki's signed update flow.",
+    "evidenceURL": "https://synthetiq.uk"
+  },
+  "allowedHosts": [
+    "raw.githubusercontent.com",
+    "download.blender.org"
+  ],
+  "capabilities": [
+    "discovery",
+    "search",
+    "details",
+    "episodes",
+    "streams"
+  ],
+  "limits": {
+    "timeoutMilliseconds": 15000,
+    "maxConcurrentRequests": 2,
+    "maxResponseBytes": 1048576
+  },
+  "operations": {
+    "discovery": {
+      "sections": [
+        {
+          "id": "update-version",
+          "title": "Update Test Version",
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://raw.githubusercontent.com/kas021/AROKI-Connectors/main/connectors/update-flow-test/catalog-1.0.0.json",
+            "headers": { "Accept": "application/json" }
+          },
+          "response": { "format": "json" },
+          "items": {
+            "collection": "items[*]",
+            "fields": {
+              "sourceID": { "path": "id" },
+              "title": { "path": "title" }
+            }
+          }
+        }
+      ]
+    },
+    "search": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://raw.githubusercontent.com/kas021/AROKI-Connectors/main/connectors/update-flow-test/catalog-1.0.0.json?q={query}",
+        "headers": { "Accept": "application/json" }
+      },
+      "response": { "format": "json" },
+      "items": {
+        "collection": "items[*]",
+        "fields": {
+          "sourceID": { "path": "id" },
+          "title": { "path": "title" }
+        }
+      }
+    },
+    "details": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://raw.githubusercontent.com/kas021/AROKI-Connectors/main/connectors/update-flow-test/catalog-1.0.0.json?titleID={titleID}",
+        "headers": { "Accept": "application/json" }
+      },
+      "response": { "format": "json" },
+      "extract": {
+        "title": { "path": "details.title" },
+        "synopsis": { "path": "details.synopsis" }
+      }
+    },
+    "episodes": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://raw.githubusercontent.com/kas021/AROKI-Connectors/main/connectors/update-flow-test/catalog-1.0.0.json?titleID={titleID}",
+        "headers": { "Accept": "application/json" }
+      },
+      "response": { "format": "json" },
+      "extract": {
+        "collection": "episodes[*]",
+        "fields": {
+          "episodeID": { "path": "id" },
+          "title": { "path": "title" },
+          "episodeNumber": { "path": "number" }
+        }
+      }
+    },
+    "streams": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://raw.githubusercontent.com/kas021/AROKI-Connectors/main/connectors/update-flow-test/catalog-1.0.0.json?titleID={titleID}&episodeID={episodeID}",
+        "headers": { "Accept": "application/json" }
+      },
+      "response": { "format": "json" },
+      "extract": {
+        "collection": "streams[*]",
+        "fields": {
+          "url": { "path": "url" },
+          "qualityLabel": { "path": "quality" }
+        }
+      }
+    }
+  },
+  "releaseNotes": "Version 1.0.0 for validating Aroki's signed source-update flow."
+}

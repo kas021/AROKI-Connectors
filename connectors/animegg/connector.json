@@ -3,7 +3,7 @@
   "id": "animegg",
   "familyID": "animegg",
   "name": "AnimeGG",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "minimumAppVersion": "0.1.0",
   "contentType": "video",
   "language": "en",
@@ -186,7 +186,7 @@
         "format": "html"
       },
       "extract": {
-        "collection": "a.anm_det_pop",
+        "collection": "ul.newmanga > li > div",
         "fields": {
           "episodeID": {
             "selector": "a.anm_det_pop",
@@ -216,6 +216,14 @@
               {
                 "op": "firstInteger"
               }
+            ]
+          },
+          "availableVariants": {
+            "collection": "span.btn-subbed, span.btn-dubbed",
+            "transforms": [
+              { "op": "lowercased" },
+              { "op": "replaceFirst", "find": "subbed", "with": "sub" },
+              { "op": "replaceFirst", "find": "dubbed", "with": "dub" }
             ]
           }
         }

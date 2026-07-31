@@ -1,0 +1,25 @@
+{
+  "items": [
+    {
+      "id": "update-flow-test",
+      "title": "Update Flow Test 1.0.0"
+    }
+  ],
+  "details": {
+    "title": "Update Flow Test 1.0.0",
+    "synopsis": "A harmless diagnostic title for confirming that source updates arrive correctly."
+  },
+  "episodes": [
+    {
+      "id": "sample",
+      "title": "Update Flow Sample",
+      "number": 1
+    }
+  ],
+  "streams": [
+    {
+      "url": "https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4",
+      "quality": "480p"
+    }
+  ]
+}
