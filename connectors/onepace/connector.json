@@ -3,7 +3,7 @@
   "id": "onepace",
   "familyID": "onepace",
   "name": "One Pace",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "minimumAppVersion": "0.1.0",
   "contentType": "video",
   "language": "en",
@@ -41,8 +41,8 @@
     "discovery": {
       "sections": [
         {
-          "id": "one-pace-arcs",
-          "title": "One Pace Arcs",
+          "id": "one-pace",
+          "title": "One Piece (One Pace)",
           "semantic": "all",
           "request": {
             "method": "GET",
@@ -57,22 +57,18 @@
             },
             "fields": {
               "sourceID": {
-                "selector": "a[href*=\"pixeldrain.net/l/\"]",
-                "part": "attr",
-                "attr": "href",
-                "transforms": [
-                  {
-                    "op": "removePrefix",
-                    "value": "https://pixeldrain.net/l/"
-                  }
-                ]
+                "literal": "one-pace"
               },
               "title": {
-                "selector": "h2 a",
-                "part": "text",
+                "literal": "One Piece (One Pace)"
+              },
+              "posterURL": {
+                "selector": "img",
+                "part": "attr",
+                "attr": "src",
                 "transforms": [
                   {
-                    "op": "trim"
+                    "op": "absolutize"
                   }
                 ]
               }
@@ -101,75 +97,15 @@
         },
         "fields": {
           "sourceID": {
-            "selector": "a[href*=\"pixeldrain.net/l/\"]",
+            "literal": "one-pace"
+          },
+          "title": {
+            "literal": "One Piece (One Pace)"
+          },
+          "posterURL": {
+            "selector": "img",
             "part": "attr",
-            "attr": "href",
-            "transforms": [
-              {
-                "op": "removePrefix",
-                "value": "https://pixeldrain.net/l/"
-              }
-            ]
-          },
-          "title": {
-            "selector": "h2 a",
-            "part": "text",
-            "transforms": [
-              {
-                "op": "trim"
-              }
-            ]
-          }
-        }
-      }
-    },
-    "details": {
-      "request": {
-        "method": "GET",
-        "urlTemplate": "https://pixeldrain.com/api/list/{titleID}"
-      },
-      "response": {
-        "format": "json"
-      },
-      "extract": {
-        "title": {
-          "path": "title"
-        },
-        "posterURL": {
-          "path": "files[0].thumbnail_href",
-          "transforms": [
-            {
-              "op": "absolutize"
-            }
-          ]
-        }
-      }
-    },
-    "episodes": {
-      "request": {
-        "method": "GET",
-        "urlTemplate": "https://pixeldrain.com/api/list/{titleID}"
-      },
-      "response": {
-        "format": "json"
-      },
-      "extract": {
-        "collection": "files[*]",
-        "fields": {
-          "episodeID": {
-            "path": "id"
-          },
-          "title": {
-            "path": "name",
-            "transforms": [
-              {
-                "op": "removeSuffix",
-                "value": ".mp4"
-              }
-            ]
-          },
-          "thumbnailURL": {
-            "path": "thumbnail_href",
+            "attr": "src",
             "transforms": [
               {
                 "op": "absolutize"
@@ -179,40 +115,168 @@
         }
       }
     },
-    "streams": {
+    "details": {
       "request": {
         "method": "GET",
-        "urlTemplate": "https://pixeldrain.com/api/list/{titleID}"
+        "urlTemplate": "https://onepace.net/en/watch?titleID={titleID}"
       },
       "response": {
-        "format": "json"
-      },
-      "playbackHeaders": {
-        "Referer": "https://pixeldrain.com/"
+        "format": "html"
       },
       "extract": {
-        "collection": {
-          "path": "files[*]",
-          "where": [
+        "title": {
+          "selector": "title",
+          "part": "text",
+          "transforms": [
             {
-              "path": "id",
-              "equalsPlaceholder": "episodeID"
+              "op": "removeSuffix",
+              "value": " — The Definitive One Piece Viewing Experience"
+            },
+            {
+              "op": "trim"
             }
           ]
         },
-        "fields": {
-          "url": {
-            "path": "id",
+        "synopsis": {
+          "selector": "meta[name=description]",
+          "part": "attr",
+          "attr": "content"
+        },
+        "posterURL": {
+          "selector": "meta[property=og:image][content*=.png]",
+          "part": "attr",
+          "attr": "content",
+          "transforms": [
+            {
+              "op": "absolutize"
+            }
+          ]
+        }
+      }
+    },
+    "episodes": {
+      "aggregation": {
+        "index": {
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://onepace.net/en/watch"
+          },
+          "response": {
+            "format": "html"
+          },
+          "extract": {
+            "collection": {
+              "selector": "a[href*=\"pixeldrain.net/l/\"]"
+            },
+            "fields": {
+              "listURL": {
+                "selector": "a[href*=\"pixeldrain.net/l/\"]",
+                "part": "attr",
+                "attr": "href",
+                "transforms": [
+                  {
+                    "op": "replaceFirst",
+                    "find": "https://pixeldrain.net/l/",
+                    "with": "https://pixeldrain.com/api/list/"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "lists": {
+          "response": {
+            "format": "json"
+          },
+          "listVariant": {
+            "path": "title",
             "transforms": [
               {
-                "op": "template",
-                "value": "https://pixeldrain.com/api/file/{value}"
+                "op": "lowercased"
               }
             ]
+          },
+          "extract": {
+            "collection": "files[*]",
+            "fields": {
+              "episodeID": {
+                "path": "id"
+              },
+              "groupingKey": {
+                "path": "name",
+                "transforms": [
+                  {
+                    "op": "removeSuffix",
+                    "value": ".mp4"
+                  },
+                  {
+                    "op": "removeBracketedSegments"
+                  },
+                  {
+                    "op": "trim"
+                  },
+                  {
+                    "op": "lowercased"
+                  }
+                ]
+              },
+              "title": {
+                "path": "name",
+                "transforms": [
+                  {
+                    "op": "removeSuffix",
+                    "value": ".mp4"
+                  },
+                  {
+                    "op": "removeBracketedSegments"
+                  },
+                  {
+                    "op": "trim"
+                  }
+                ]
+              },
+              "thumbnailURL": {
+                "path": "thumbnail_href",
+                "transforms": [
+                  {
+                    "op": "absolutize"
+                  }
+                ]
+              },
+              "fileVariant": {
+                "path": "name",
+                "transforms": [
+                  {
+                    "op": "lowercased"
+                  }
+                ]
+              },
+              "streamURL": {
+                "path": "id",
+                "transforms": [
+                  {
+                    "op": "template",
+                    "value": "https://pixeldrain.com/api/file/{value}"
+                  }
+                ]
+              },
+              "mediaTypeHint": {
+                "literal": "auto"
+              }
+            }
           }
+        },
+        "playbackHeaders": {
+          "Referer": "https://pixeldrain.com/"
+        },
+        "limits": {
+          "maxLists": 200,
+          "maxEpisodes": 2000,
+          "maxTotalResponseBytes": 67108864,
+          "flattenToSingleSeason": true
         }
       }
     }
   },
-  "releaseNotes": "M20 adds a discovery section listing the full One Pace arc catalogue from /en/watch (the q param is ignored server-side, so the section is unfiltered and covers every arc; 111 list items observed). Search remains arc-keyword-based — 'one piece' itself resolves to the Fan Letter special, arcs are the real catalogue units. Remap for the redesigned onepace.net: search filters the /en/watch arc list client-side via an HTML field filter; details/episodes/streams all read the pixeldrain list API keyed by the pixeldrain list ID from the first list link. Streams select the episode file with an equalsPlaceholder filter and assemble the direct /api/file URL."
+  "releaseNotes": "M21 represents One Pace as one stable title. Its details use the public watch page, while the native bounded episode aggregation reads the finite Pixeldrain list links, deduplicates them, merges Sub/Dub files by a fixed filename normalisation, and presents one flat episode list. No executable module, WebView, or browser automation is used."
 }

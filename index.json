@@ -39,24 +39,6 @@
     {
       "contentRating" : "unknown",
       "contentType" : "video",
-      "familyID" : "onepace",
-      "id" : "onepace",
-      "language" : "en",
-      "manifest" : {
-        "path" : "connectors\/onepace\/connector.json",
-        "sha256" : "2ef2612fb61f5e13e654aad29adb116e7bbf4ec4a02790d0524f12eaae45e25f",
-        "signature" : "\/VX6s8CzUJ9PlI5Hsm+tcp7Mo+CWHQIc+rZY+HCriBu+SdtqCqs6v5rw\/ndn1ikbiLBpC5qv4V\/E1hBaAWlLDA=="
-      },
-      "minimumAppVersion" : "0.1.0",
-      "name" : "One Pace",
-      "releaseNotes" : "Signed onepace connector update for Aroki beta.",
-      "releaseTrack" : "stable",
-      "status" : "active",
-      "version" : "2.1.0"
-    },
-    {
-      "contentRating" : "unknown",
-      "contentType" : "video",
       "familyID" : "anikoto",
       "id" : "anikoto",
       "language" : "en",
@@ -107,13 +89,31 @@
       "releaseTrack" : "beta",
       "status" : "active",
       "version" : "1.0.0"
+    },
+    {
+      "contentRating" : "unknown",
+      "contentType" : "video",
+      "familyID" : "onepace",
+      "id" : "onepace",
+      "language" : "en",
+      "manifest" : {
+        "path" : "connectors\/onepace\/connector.json",
+        "sha256" : "a40aacccfa33f78debacdc6cf56f38016ff06d7641c66aff19a08c3fb097e7a3",
+        "signature" : "6SgU5u5BYT4kCZYxyFBne6YO44jyE6R\/aBcovx5yLxQ+ZB+aFlvrpyuPKur9EIoGcQegKulCzfLHRhqE985eAw=="
+      },
+      "minimumAppVersion" : "0.1.0",
+      "name" : "One Pace",
+      "releaseNotes" : "M21: One Pace is one stable title (One Piece (One Pace)) with a single flat episode list via native bounded episode aggregation over the finite Pixeldrain child lists; Sub\/Dub merged by fixed filename grouping; Spanish lists skipped, never mislabelled. Verified live 2026-08-01 (first\/middle\/last, Sub+Dub, MP4 bytes).",
+      "releaseTrack" : "stable",
+      "status" : "active",
+      "version" : "2.2.0"
     }
   ],
   "enabled" : true,
-  "generatedAt" : 1785549538,
+  "generatedAt" : 1785593986,
   "name" : "AROKI Connectors",
   "publicKey" : "BYKainAr2pxVfWxSSQJHG79Xl\/mnkTuIl1ujEmR+1V4=",
   "repositoryID" : "aroki-connectors",
   "schemaVersion" : 1,
-  "signature" : "DitwoEJTHXcvze4lKZsd+KoY3htKzz\/3IE7oWjNh0eYPy0Cgl10siSSn6BBeSER7Dm4Gm6Pt2ZacMxMyvwAgBQ=="
+  "signature" : "wkDRD2x5UNoA8LYPCFwS66hjO294ZwEmsaTt+DzOMYkKObLIbibzlLXQ4NbWUCQcMBcwWmenL0\/2fn6E3S58Cw=="
 }
