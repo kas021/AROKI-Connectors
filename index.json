@@ -3,13 +3,67 @@
     {
       "contentRating" : "unknown",
       "contentType" : "video",
+      "familyID" : "anineko",
+      "id" : "anineko",
+      "language" : "en",
+      "manifest" : {
+        "path" : "connectors\/anineko\/connector.json",
+        "sha256" : "6ebd21dea6a04a017c9bafa187f6a457300b808ac8e3bc760f8f3098f42781e9",
+        "signature" : "mUDgv6w9CQNVNyVVJhp8DYu+esh7KJOG2b2APhCu00fQbghCWrwSdWFi7nc14wfaKqP2otGLecboT\/eGSQmFDA=="
+      },
+      "minimumAppVersion" : "0.1.0",
+      "name" : "AniNeko",
+      "releaseNotes" : "Signed anineko connector update for Aroki beta.",
+      "releaseTrack" : "beta",
+      "status" : "active",
+      "version" : "1.1.0"
+    },
+    {
+      "contentRating" : "unknown",
+      "contentType" : "video",
+      "familyID" : "anilol",
+      "id" : "anilol",
+      "language" : "en",
+      "manifest" : {
+        "path" : "connectors\/anilol\/connector.json",
+        "sha256" : "d70eafa11e00e99e2d183b2062c324e75f851c46fee3744a378105982da6d206",
+        "signature" : "gLKGJqO0+LmmIh4jjW9QOvEbtN85r8jUAS1iGtJYCBTyMSPIdnxl2hG5t2BaKOQo0FAQgdMfk4uK9fBZDjWXBw=="
+      },
+      "minimumAppVersion" : "0.1.0",
+      "name" : "AniLol",
+      "releaseNotes" : "Signed anilol connector update for Aroki beta.",
+      "releaseTrack" : "beta",
+      "status" : "active",
+      "version" : "1.2.0"
+    },
+    {
+      "contentRating" : "unknown",
+      "contentType" : "video",
+      "familyID" : "onepace",
+      "id" : "onepace",
+      "language" : "en",
+      "manifest" : {
+        "path" : "connectors\/onepace\/connector.json",
+        "sha256" : "2ef2612fb61f5e13e654aad29adb116e7bbf4ec4a02790d0524f12eaae45e25f",
+        "signature" : "\/VX6s8CzUJ9PlI5Hsm+tcp7Mo+CWHQIc+rZY+HCriBu+SdtqCqs6v5rw\/ndn1ikbiLBpC5qv4V\/E1hBaAWlLDA=="
+      },
+      "minimumAppVersion" : "0.1.0",
+      "name" : "One Pace",
+      "releaseNotes" : "Signed onepace connector update for Aroki beta.",
+      "releaseTrack" : "stable",
+      "status" : "active",
+      "version" : "2.1.0"
+    },
+    {
+      "contentRating" : "unknown",
+      "contentType" : "video",
       "familyID" : "anikoto",
       "id" : "anikoto",
       "language" : "en",
       "manifest" : {
         "path" : "connectors\/anikoto\/connector.json",
         "sha256" : "83640d8b6eb511fecf088b612dbeb161bca839d56442730cec8593cc3abdc4cf",
-        "signature" : "xm69bD9JMEt4g1bDa0D5FaNTTSGE+sr7LNrc5kKgR73uNoNeQayl9qZzTCboBG+eqlM84t+drD45F5mKO86ECA=="
+        "signature" : "SiKejVgiGASRgIwPMgrGXVeIGPn2V8mbTY0G9G2FMkqM2pPNNxxWq9O5mYRuxKjSdZC\/qgdc1NWFlp2oRE3GAg=="
       },
       "minimumAppVersion" : "0.1.0",
       "name" : "AniKoto",
@@ -27,7 +81,7 @@
       "manifest" : {
         "path" : "connectors\/animegg\/connector.json",
         "sha256" : "fba5860444a3e3bf42f9712e515634a228a0975d1df9433421bcff9a578a6dee",
-        "signature" : "SjxgutBI4lu95+XA4GRQ9yUGZ4RR7OqQFSGlrsPI3KTv3nJ9OKMOjfqiyqg5bfpzNUrajNtGpPqmKoM2lRPFDA=="
+        "signature" : "0Xs0UAb5U3c392VSgbF526Vjcsg45EBwJVV5YRJh6DbzRrWV4lAq+iUR08\/a5bHMHPBsl\/gdzbwHuXPrxM5oAA=="
       },
       "minimumAppVersion" : "0.1.0",
       "name" : "AnimeGG",
@@ -39,49 +93,13 @@
     {
       "contentRating" : "unknown",
       "contentType" : "video",
-      "familyID" : "anineko",
-      "id" : "anineko",
-      "language" : "en",
-      "manifest" : {
-        "path" : "connectors\/anineko\/connector.json",
-        "sha256" : "39a2a930ad1b7b82399224f55971848ef17b2897207fcc101bf992ed05a58023",
-        "signature" : "xV9whGG90JBelndUxVZko46wXcRrNcov8XV9plW\/9bMNZP++U2E9ft11pV1ceGvtCS9EN1x\/GoIfyh2qIkoSDQ=="
-      },
-      "minimumAppVersion" : "0.1.0",
-      "name" : "AniNeko",
-      "releaseNotes" : "Beta. Live Sub\/Dub HLS (#EXTM3U) verified 2026-07-30; physical AVPlayer verification pending.",
-      "releaseTrack" : "beta",
-      "status" : "active",
-      "version" : "1.0.0"
-    },
-    {
-      "contentRating" : "unknown",
-      "contentType" : "video",
-      "familyID" : "anilol",
-      "id" : "anilol",
-      "language" : "en",
-      "manifest" : {
-        "path" : "connectors\/anilol\/connector.json",
-        "sha256" : "e01fe46891d4327f2f4dcfab4eba347cc9ba029a5e48b5e38f02c402fc11f9a3",
-        "signature" : "VcWKE8VLbBQMAORWWXedfkXIJfN2UAaJHu8dpEppgvOxZhqgk3+bOIHpvjc7U0hNv78UNuWPQ8Ffo0GCpNNsCw=="
-      },
-      "minimumAppVersion" : "0.1.0",
-      "name" : "AniLol",
-      "releaseNotes" : "Initial signed repository release. Live HLS and simulator AVPlayer verified; physical iPhone verification remains pending.",
-      "releaseTrack" : "beta",
-      "status" : "active",
-      "version" : "1.1.0"
-    },
-    {
-      "contentRating" : "unknown",
-      "contentType" : "video",
       "familyID" : "update-flow-test",
       "id" : "update-flow-test",
       "language" : "en",
       "manifest" : {
         "path" : "connectors\/update-flow-test\/connector.json",
         "sha256" : "d5147401029b3bbd1bcdc5e7b50c3cc074ea66952eeaf5eca3f565fffbc1a5d6",
-        "signature" : "iJu8Pt\/l91Rp7IMeIYUYcpZQfUctrh4vXW\/allAXfD0PhPeXQTmRQbrbkHAR0UHhJAW3xCcqdpY7IqT4Y0crBg=="
+        "signature" : "hJcQnoYyBFGJTFIwbyxLcZPFZo74cYjnXIYCXJaq0JqTyMHW+QA6A+thgAzltQtAK3vLG3\/kuSQR3pgRcEQ\/Ag=="
       },
       "minimumAppVersion" : "0.1.0",
       "name" : "Update Flow Test",
@@ -92,10 +110,10 @@
     }
   ],
   "enabled" : true,
-  "generatedAt" : 1785537200,
+  "generatedAt" : 1785549538,
   "name" : "AROKI Connectors",
-  "publicKey" : "qt8oJY4xwc5\/uXLq8CYrSoHPCiVrybtCKZS8++d+CNg=",
+  "publicKey" : "BYKainAr2pxVfWxSSQJHG79Xl\/mnkTuIl1ujEmR+1V4=",
   "repositoryID" : "aroki-connectors",
   "schemaVersion" : 1,
-  "signature" : "mrx8FhysZU\/Y8G2kDdgkNk\/JbfDERSwJp1b\/fkA1VmJk+2JQIzjCUGnX7FsGkn1DL5Xzra3\/Vjx+xYJLTmn6Cw=="
+  "signature" : "DitwoEJTHXcvze4lKZsd+KoY3htKzz\/3IE7oWjNh0eYPy0Cgl10siSSn6BBeSER7Dm4Gm6Pt2ZacMxMyvwAgBQ=="
 }

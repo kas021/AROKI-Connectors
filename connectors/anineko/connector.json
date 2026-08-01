@@ -3,7 +3,7 @@
   "id": "anineko",
   "familyID": "anineko",
   "name": "AniNeko",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "minimumAppVersion": "0.1.0",
   "contentType": "video",
   "language": "en",
@@ -221,26 +221,31 @@
       "extract": {
         "collection": "html",
         "fields": {
-          "url": {
-            "selector": "div.lang-group[data-id*=\"{variant}\"] button.nv-server-btn.server-video.default",
-            "part": "attr",
-            "attr": "data-video",
+   "url": {
+    "selector": "div.lang-group[data-id*=\"{variant}\"] button.nv-server-btn.server-video.default",
+    "part": "attr",
+    "attr": "data-video",
             "transforms": [
               { "op": "removePrefix", "value": "https://vivibebe.site/" },
               {
                 "op": "template",
                 "value": "https://vivibebe.site/public/stream/{value}/master.m3u8"
+              },
+              {
+                "op": "replaceFirst",
+                "find": "?sub=",
+                "with": "/master.m3u8?sub="
               }
             ]
           },
-          "qualityLabel": {
-            "selector": "div.lang-group[data-id*=\"{variant}\"] button.nv-server-btn.server-video.default",
-            "part": "text",
+   "qualityLabel": {
+    "selector": "div.lang-group[data-id*=\"{variant}\"] button.nv-server-btn.server-video.default",
+    "part": "text",
             "transforms": [{ "op": "trim" }]
           }
         }
       }
     }
   },
-  "releaseNotes": "Initial AniNeko experiment. JSON ajax search, SSR details/episodes, and HD-1 vivibebe HLS constructed from data-video IDs. Sub maps via data-id*=sub (hsub first, clean ID). StreamHG/Earnvids/Doodstream hosts are deliberately unselected."
+  "releaseNotes": "M20 fixes late-series playback: some episode pages (e.g. Naruto ep 220) embed the subtitle into the server button's data-video ('?sub=' query), and the site rotates which server buttons are served per request. The constructed URL used to put the query before /master.m3u8, which 301-redirected to a non-HTTPS address the engine's policy rejects. The url transform now moves '?sub=' after /master.m3u8 (the server serves the same master either way), so both the clean and the subtitle-embedded vivibebe buttons produce a playable playlist regardless of rotation."
 }

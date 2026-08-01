@@ -3,7 +3,7 @@
   "id": "anilol",
   "familyID": "anilol",
   "name": "AniLol",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "minimumAppVersion": "0.1.0",
   "contentType": "video",
   "language": "en",
@@ -60,12 +60,100 @@
           }
         },
         {
-          "id": "ninjas",
-          "title": "Ninja Stories",
+          "id": "bleach-souls",
+          "title": "Bleach & Souls",
           "semantic": "genre",
           "request": {
             "method": "GET",
-            "urlTemplate": "https://eng.animeapps.top/api/search3.php?keyword=naruto&limit=20&page=1",
+            "urlTemplate": "https://eng.animeapps.top/api/search3.php?keyword=bleach&limit=20&page=1",
+            "headers": {
+              "Accept": "application/json,*/*",
+              "Referer": "https://ani.lol/"
+            }
+          },
+          "response": { "format": "json" },
+          "items": {
+            "collection": "data[*]",
+            "fields": {
+              "sourceID": { "path": "postid" },
+              "title": { "path": "postname" },
+              "posterURL": { "path": "ani_cover_large" }
+            }
+          }
+        },
+        {
+          "id": "fullmetal-alchemists",
+          "title": "Fullmetal & Alchemists",
+          "semantic": "genre",
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://eng.animeapps.top/api/search3.php?keyword=fullmetal&limit=20&page=1",
+            "headers": {
+              "Accept": "application/json,*/*",
+              "Referer": "https://ani.lol/"
+            }
+          },
+          "response": { "format": "json" },
+          "items": {
+            "collection": "data[*]",
+            "fields": {
+              "sourceID": { "path": "postid" },
+              "title": { "path": "postname" },
+              "posterURL": { "path": "ani_cover_large" }
+            }
+          }
+        },
+        {
+          "id": "jujutsu-sorcerers",
+          "title": "Jujutsu & Sorcerers",
+          "semantic": "genre",
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://eng.animeapps.top/api/search3.php?keyword=jujutsu%20kaisen&limit=20&page=1",
+            "headers": {
+              "Accept": "application/json,*/*",
+              "Referer": "https://ani.lol/"
+            }
+          },
+          "response": { "format": "json" },
+          "items": {
+            "collection": "data[*]",
+            "fields": {
+              "sourceID": { "path": "postid" },
+              "title": { "path": "postname" },
+              "posterURL": { "path": "ani_cover_large" }
+            }
+          }
+        },
+        {
+          "id": "spy-family",
+          "title": "Spy × Family",
+          "semantic": "genre",
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://eng.animeapps.top/api/search3.php?keyword=spy%20x%20family&limit=20&page=1",
+            "headers": {
+              "Accept": "application/json,*/*",
+              "Referer": "https://ani.lol/"
+            }
+          },
+          "response": { "format": "json" },
+          "items": {
+            "collection": "data[*]",
+            "fields": {
+              "sourceID": { "path": "postid" },
+              "title": { "path": "postname" },
+              "posterURL": { "path": "ani_cover_large" }
+            }
+          }
+        },
+        {
+          "id": "solo-levelers",
+          "title": "Solo Leveling",
+          "semantic": "genre",
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://eng.animeapps.top/api/search3.php?keyword=solo%20leveling&limit=20&page=1",
             "headers": {
               "Accept": "application/json,*/*",
               "Referer": "https://ani.lol/"
@@ -184,5 +272,5 @@
       "variants": ["sub"]
     }
   },
-  "releaseNotes": "M19 labels public catalogue sections with fixed popular and genre semantics. The direct bounded HLS route remains declarative, with no JavaScript or backend resolver."
+  "releaseNotes": "M20 replaces the fixed 'ninja' (naruto) discovery section with five keyword sections verified live to land on full playable series sets (Bleach Sennen Kessen BD 1-26, FMA BD, JJK Shimetsu Kaiyuu, SPY×FAMILY BD, Solo Leveling BD). Source reality documented: AniLol's catalogue is keyword-only with no browse endpoint, and its search for 'naruto' returns only movies/BD sets (the TV series is not in the catalogue). The direct bounded HLS route remains declarative, with no JavaScript or backend resolver."
 }

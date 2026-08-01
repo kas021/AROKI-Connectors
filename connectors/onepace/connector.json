@@ -3,7 +3,7 @@
   "id": "onepace",
   "familyID": "onepace",
   "name": "One Pace",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "minimumAppVersion": "0.1.0",
   "contentType": "video",
   "language": "en",
@@ -26,6 +26,7 @@
     "pixeldrain.com"
   ],
   "capabilities": [
+    "discovery",
     "search",
     "details",
     "episodes",
@@ -37,6 +38,49 @@
     "maxResponseBytes": 8388608
   },
   "operations": {
+    "discovery": {
+      "sections": [
+        {
+          "id": "one-pace-arcs",
+          "title": "One Pace Arcs",
+          "semantic": "all",
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://onepace.net/en/watch"
+          },
+          "response": {
+            "format": "html"
+          },
+          "items": {
+            "collection": {
+              "selector": "li[id][aria-labelledby]"
+            },
+            "fields": {
+              "sourceID": {
+                "selector": "a[href*=\"pixeldrain.net/l/\"]",
+                "part": "attr",
+                "attr": "href",
+                "transforms": [
+                  {
+                    "op": "removePrefix",
+                    "value": "https://pixeldrain.net/l/"
+                  }
+                ]
+              },
+              "title": {
+                "selector": "h2 a",
+                "part": "text",
+                "transforms": [
+                  {
+                    "op": "trim"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ]
+    },
     "search": {
       "request": {
         "method": "GET",
@@ -170,5 +214,5 @@
       }
     }
   },
-  "releaseNotes": "Remap for the redesigned onepace.net: search filters the /en/watch arc list client-side via an HTML field filter (the q param is ignored server-side); details/episodes/streams all read the pixeldrain list API keyed by the pixeldrain list ID from the first list link. Streams select the episode file with an equalsPlaceholder filter and assemble the direct /api/file URL."
+  "releaseNotes": "M20 adds a discovery section listing the full One Pace arc catalogue from /en/watch (the q param is ignored server-side, so the section is unfiltered and covers every arc; 111 list items observed). Search remains arc-keyword-based — 'one piece' itself resolves to the Fan Letter special, arcs are the real catalogue units. Remap for the redesigned onepace.net: search filters the /en/watch arc list client-side via an HTML field filter; details/episodes/streams all read the pixeldrain list API keyed by the pixeldrain list ID from the first list link. Streams select the episode file with an equalsPlaceholder filter and assemble the direct /api/file URL."
 }
