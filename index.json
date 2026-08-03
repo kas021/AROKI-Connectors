@@ -44,15 +44,15 @@
       "language" : "en",
       "manifest" : {
         "path" : "connectors\/anikoto\/connector.json",
-        "sha256" : "83640d8b6eb511fecf088b612dbeb161bca839d56442730cec8593cc3abdc4cf",
-        "signature" : "SiKejVgiGASRgIwPMgrGXVeIGPn2V8mbTY0G9G2FMkqM2pPNNxxWq9O5mYRuxKjSdZC\/qgdc1NWFlp2oRE3GAg=="
+        "sha256" : "087706a4450d6b4982bcf1475fd13fc98dcfc2f803c5c4594d53bc0803cf6977",
+        "signature" : "DEYCbqBCL0BUZ8zGSNfgyln5nPM1M+grsO9DIUC1nChY3vVPZBPQACbPfbCP25coAFN0ldjjBTQR3uzE\/mu5Aw=="
       },
       "minimumAppVersion" : "0.1.0",
       "name" : "AniKoto",
-      "releaseNotes" : "Initial signed repository release. Device-verified native Sub and Dub playback.",
+      "releaseNotes" : "Compatibility hotfix: includes the currently observed AniKoto final media hosts. No engine-only fields or request steps were added; existing Sub\/Dub discovery and playback behavior is unchanged.",
       "releaseTrack" : "beta",
       "status" : "active",
-      "version" : "0.3.0"
+      "version" : "0.3.1"
     },
     {
       "contentRating" : "unknown",
@@ -110,10 +110,10 @@
     }
   ],
   "enabled" : true,
-  "generatedAt" : 1785593986,
+  "generatedAt" : 1785767802,
   "name" : "AROKI Connectors",
   "publicKey" : "BYKainAr2pxVfWxSSQJHG79Xl\/mnkTuIl1ujEmR+1V4=",
   "repositoryID" : "aroki-connectors",
   "schemaVersion" : 1,
-  "signature" : "wkDRD2x5UNoA8LYPCFwS66hjO294ZwEmsaTt+DzOMYkKObLIbibzlLXQ4NbWUCQcMBcwWmenL0\/2fn6E3S58Cw=="
+  "signature" : "tSLS2hZcnZ4LApg4YwUkDokVzGnmpKVN0PkZpzsrahEVFyPjim77oY1w3496QwX4zWY0yX2MCJtysEJ2L1HOAg=="
 }

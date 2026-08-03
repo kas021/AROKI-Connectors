@@ -3,7 +3,7 @@
   "id": "anikoto",
   "familyID": "anikoto",
   "name": "AniKoto",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "minimumAppVersion": "0.1.0",
   "contentType": "video",
   "language": "en",
@@ -25,7 +25,12 @@
     "cdn.anipixcdn.co",
     "vidtube.site",
     "megaplay.buzz",
-    "*.kotocdn.site"
+    "*.kotocdn.site",
+    "*.norami.top",
+    "*.mikora.top",
+    "*.shiora.site",
+    "*.shiora.top",
+    "*.akirax.buzz"
   ],
   "capabilities": [
     "discovery",
@@ -608,5 +613,5 @@
       ]
     }
   },
-  "releaseNotes": "M19 adds eight honest, server-rendered discovery shelves with semantic labels and bounded page navigation through page 25. Existing Sub/Dub selection and the bounded four-step playback graph are unchanged; missing variants still fail safely and VidCloud-1 remains deliberately unselected."
+  "releaseNotes": "Compatibility hotfix: includes the currently observed AniKoto final media hosts. No engine-only fields or request steps were added; existing Sub/Dub discovery and playback behavior is unchanged."
 }
