@@ -1,0 +1,335 @@
+{
+  "schemaVersion": 1,
+  "id": "animeav1",
+  "familyID": "animeav1",
+  "name": "AnimeAV1",
+  "version": "1.1.0",
+  "minimumAppVersion": "0.1.0",
+  "contentType": "video",
+  "language": "es",
+  "contentRating": "unknown",
+  "releaseTrack": "beta",
+  "status": "active",
+  "attribution": {
+    "author": "Synthetiq",
+    "website": "https://animeav1.com"
+  },
+  "authorization": {
+    "basis": "documented-public-api",
+    "note": "Public catalogue, search and episode pages on animeav1.com; HLS served by player.zilla-networks.com with ordinary public GETs.",
+    "evidenceURL": "https://animeav1.com/catalogo"
+  },
+  "allowedHosts": [
+    "animeav1.com",
+    "cdn.animeav1.com",
+    "player.zilla-networks.com"
+  ],
+  "capabilities": [
+    "discovery",
+    "search",
+    "details",
+    "episodes",
+    "streams"
+  ],
+  "limits": {
+    "timeoutMilliseconds": 30000,
+    "maxConcurrentRequests": 2,
+    "maxResponseBytes": 2000000
+  },
+  "operations": {
+    "discovery": {
+      "sections": [
+        {
+          "id": "trending",
+          "title": "Tendencias",
+          "semantic": "popular",
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://animeav1.com/catalogo?page={page}",
+            "headers": {
+              "Accept-Language": "es-ES,es;q=0.9,en;q=0.8"
+            }
+          },
+          "response": { "format": "html" },
+          "pagination": { "type": "pageParam", "start": 1, "maxPages": 25 },
+          "items": {
+            "collection": "article.group\\/item",
+            "fields": {
+              "sourceID": {
+                "selector": "a[href*=\"/media/\"]",
+                "part": "attr",
+                "attr": "href",
+                "transforms": [
+                  { "op": "replaceFirst", "find": "/media/", "with": "" },
+                  { "op": "trim" }
+                ]
+              },
+              "title": {
+                "selector": "h3",
+                "part": "text",
+                "transforms": [ { "op": "trim" } ]
+              },
+              "posterURL": {
+                "selector": "img[src*=\"cdn.animeav1.com\"]",
+                "part": "attr",
+                "attr": "src"
+              }
+            }
+          }
+        },
+        {
+          "id": "popular",
+          "title": "Top 10 Populares",
+          "semantic": "popular",
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://animeav1.com/catalogo?order=popular&page={page}",
+            "headers": {
+              "Accept-Language": "es-ES,es;q=0.9,en;q=0.8"
+            }
+          },
+          "response": { "format": "html" },
+          "pagination": { "type": "pageParam", "start": 1, "maxPages": 25 },
+          "items": {
+            "collection": "article.group\\/item",
+            "fields": {
+              "sourceID": {
+                "selector": "a[href*=\"/media/\"]",
+                "part": "attr",
+                "attr": "href",
+                "transforms": [
+                  { "op": "replaceFirst", "find": "/media/", "with": "" },
+                  { "op": "trim" }
+                ]
+              },
+              "title": {
+                "selector": "h3",
+                "part": "text",
+                "transforms": [ { "op": "trim" } ]
+              },
+              "posterURL": {
+                "selector": "img[src*=\"cdn.animeav1.com\"]",
+                "part": "attr",
+                "attr": "src"
+              }
+            }
+          }
+        },
+        {
+          "id": "score",
+          "title": "Mejor Valorados",
+          "semantic": "popular",
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://animeav1.com/catalogo?order=score&page={page}",
+            "headers": {
+              "Accept-Language": "es-ES,es;q=0.9,en;q=0.8"
+            }
+          },
+          "response": { "format": "html" },
+          "pagination": { "type": "pageParam", "start": 1, "maxPages": 25 },
+          "items": {
+            "collection": "article.group\\/item",
+            "fields": {
+              "sourceID": {
+                "selector": "a[href*=\"/media/\"]",
+                "part": "attr",
+                "attr": "href",
+                "transforms": [
+                  { "op": "replaceFirst", "find": "/media/", "with": "" },
+                  { "op": "trim" }
+                ]
+              },
+              "title": {
+                "selector": "h3",
+                "part": "text",
+                "transforms": [ { "op": "trim" } ]
+              },
+              "posterURL": {
+                "selector": "img[src*=\"cdn.animeav1.com\"]",
+                "part": "attr",
+                "attr": "src"
+              }
+            }
+          }
+        },
+        {
+          "id": "latest",
+          "title": "Últimas Novedades",
+          "semantic": "recent",
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://animeav1.com/catalogo?order=latest&page={page}",
+            "headers": {
+              "Accept-Language": "es-ES,es;q=0.9,en;q=0.8"
+            }
+          },
+          "response": { "format": "html" },
+          "pagination": { "type": "pageParam", "start": 1, "maxPages": 25 },
+          "items": {
+            "collection": "article.group\\/item",
+            "fields": {
+              "sourceID": {
+                "selector": "a[href*=\"/media/\"]",
+                "part": "attr",
+                "attr": "href",
+                "transforms": [
+                  { "op": "replaceFirst", "find": "/media/", "with": "" },
+                  { "op": "trim" }
+                ]
+              },
+              "title": {
+                "selector": "h3",
+                "part": "text",
+                "transforms": [ { "op": "trim" } ]
+              },
+              "posterURL": {
+                "selector": "img[src*=\"cdn.animeav1.com\"]",
+                "part": "attr",
+                "attr": "src"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "search": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://animeav1.com/catalogo?search={query}&page={page}",
+        "headers": {
+          "Accept-Language": "es-ES,es;q=0.9,en;q=0.8"
+        }
+      },
+      "response": { "format": "html" },
+      "pagination": { "type": "pageParam", "start": 1, "maxPages": 25 },
+      "items": {
+        "collection": "article.group\\/item",
+        "fields": {
+          "sourceID": {
+            "selector": "a[href*=\"/media/\"]",
+            "part": "attr",
+            "attr": "href",
+            "transforms": [
+              { "op": "replaceFirst", "find": "/media/", "with": "" },
+              { "op": "trim" }
+            ]
+          },
+          "title": {
+            "selector": "h3",
+            "part": "text",
+            "transforms": [ { "op": "trim" } ]
+          },
+          "posterURL": {
+            "selector": "img[src*=\"cdn.animeav1.com\"]",
+            "part": "attr",
+            "attr": "src"
+          }
+        }
+      }
+    },
+    "details": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://animeav1.com/media/{titleID}",
+        "headers": {
+          "Accept-Language": "es-ES,es;q=0.9,en;q=0.8"
+        }
+      },
+      "response": { "format": "html" },
+      "extract": {
+        "title": {
+          "selector": "h1",
+          "part": "text",
+          "transforms": [ { "op": "trim" } ]
+        },
+        "synopsis": {
+          "selector": "meta[name=\"description\"]",
+          "part": "attr",
+          "attr": "content",
+          "transforms": [ { "op": "trim" } ]
+        },
+        "posterURL": {
+          "selector": "img[src*=\"cdn.animeav1.com\"]",
+          "part": "attr",
+          "attr": "src"
+        }
+      }
+    },
+    "episodes": {
+      "aggregation": {
+        "index": {
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://animeav1.com/media/{titleID}",
+            "headers": {
+              "Accept-Language": "es-ES,es;q=0.9,en;q=0.8"
+            }
+          },
+          "response": { "format": "html" },
+          "extract": {
+            "collection": "article.group\\/item",
+            "fields": {
+              "listURL": {
+                "selector": "a[href*=\"/media/\"]",
+                "part": "attr",
+                "attr": "href",
+                "transforms": [ { "op": "absolutize" } ]
+              }
+            }
+          }
+        },
+        "lists": {
+          "headers": {
+            "Accept-Language": "es-ES,es;q=0.9,en;q=0.8"
+          },
+          "response": { "format": "html" },
+          "extract": {
+            "collection": "div.overflow-hidden.rounded-lg.bg-black",
+            "fields": {
+              "episodeID": {
+                "selector": "iframe[src*=\"player.zilla-networks.com\"]",
+                "part": "attr",
+                "attr": "src",
+                "transforms": [
+                  { "op": "replaceFirst", "find": "https://player.zilla-networks.com/play/", "with": "" },
+                  { "op": "trim" }
+                ]
+              },
+              "groupingKey": {
+                "selector": "iframe[src*=\"player.zilla-networks.com\"]",
+                "part": "attr",
+                "attr": "src",
+                "transforms": [
+                  { "op": "replaceFirst", "find": "https://player.zilla-networks.com/play/", "with": "" },
+                  { "op": "trim" }
+                ]
+              },
+              "streamURL": {
+                "selector": "iframe[src*=\"player.zilla-networks.com\"]",
+                "part": "attr",
+                "attr": "src",
+                "transforms": [
+                  { "op": "replaceFirst", "find": "https://player.zilla-networks.com/play/", "with": "https://player.zilla-networks.com/m3u8/" }
+                ]
+              },
+              "mediaTypeHint": {
+                "literal": "hls"
+              }
+            }
+          }
+        },
+        "playbackHeaders": {
+          "Referer": "https://player.zilla-networks.com/"
+        },
+        "limits": {
+          "maxLists": 200,
+          "maxEpisodes": 2000,
+          "maxTotalResponseBytes": 16777216,
+          "flattenToSingleSeason": true
+        }
+      }
+    }
+  },
+  "releaseNotes": "Transformed from the Synthetiq Player module SP-VID-060-ANIMEAV1 (contract v4, AnimeAV1 1.1.0) into a declarative AROKI connector with no JavaScript."
+}

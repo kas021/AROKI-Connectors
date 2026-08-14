@@ -107,13 +107,31 @@
       "releaseTrack" : "stable",
       "status" : "active",
       "version" : "2.2.0"
+    },
+    {
+      "contentRating" : "unknown",
+      "contentType" : "video",
+      "familyID" : "animeav1",
+      "id" : "animeav1",
+      "language" : "es",
+      "manifest" : {
+        "path" : "connectors\/animeav1\/connector.json",
+        "sha256" : "bbabe3cc97ac79b3cf373a540846e0b92eda5aa98cfdae63891ab5b5505a1df1",
+        "signature" : "uToA7L66TNNo+GfXhCUFh98zC6sLB5FSw3KbO3czX4UNoN6UqfTEJTmP2tkpSGADl9uYo1IVPP3HMOLvAq+LBw=="
+      },
+      "minimumAppVersion" : "0.1.0",
+      "name" : "AnimeAV1",
+      "releaseNotes" : "Spanish anime source. Declarative port of the Synthetiq module SP-VID-060-ANIMEAV1. Live Sub HLS verified 2026-08-14; 88\/88 unit tests incl. deterministic extraction fixtures.",
+      "releaseTrack" : "beta",
+      "status" : "active",
+      "version" : "1.1.0"
     }
   ],
   "enabled" : true,
-  "generatedAt" : 1785767802,
+  "generatedAt" : 1786724695,
   "name" : "AROKI Connectors",
   "publicKey" : "BYKainAr2pxVfWxSSQJHG79Xl\/mnkTuIl1ujEmR+1V4=",
   "repositoryID" : "aroki-connectors",
   "schemaVersion" : 1,
-  "signature" : "tSLS2hZcnZ4LApg4YwUkDokVzGnmpKVN0PkZpzsrahEVFyPjim77oY1w3496QwX4zWY0yX2MCJtysEJ2L1HOAg=="
+  "signature" : "gRlg126lp\/WLIqiBUmsSV1XE1bng5croCGQcfjnY6pbOGIyJxDVuWv55\/NLuW4tY2fgFWf4W1poeFssvK1vpCQ=="
 }
