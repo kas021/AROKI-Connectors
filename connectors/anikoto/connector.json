@@ -3,7 +3,7 @@
   "id": "anikoto",
   "familyID": "anikoto",
   "name": "AniKoto",
-  "version": "0.3.1",
+  "version": "0.3.3",
   "minimumAppVersion": "0.1.0",
   "contentType": "video",
   "language": "en",
@@ -26,11 +26,7 @@
     "vidtube.site",
     "megaplay.buzz",
     "*.kotocdn.site",
-    "*.norami.top",
-    "*.mikora.top",
-    "*.shiora.site",
-    "*.shiora.top",
-    "*.akirax.buzz"
+    "vidtub.norami.top"
   ],
   "capabilities": [
     "discovery",
@@ -482,9 +478,10 @@
       }
     },
     "streams": {
+      "finalMediaPolicy": "public-https",
       "variants": ["sub", "dub"],
       "playbackHeaders": {
-        "Referer": "https://vidtube.site/"
+        "Referer": "https://megaplay.buzz/"
       },
       "steps": [
         {
@@ -601,10 +598,26 @@
               "collection": "tracks[*]",
               "fields": {
                 "url": {
-                  "path": "file"
+                  "path": "file",
+                  "fallbacks": [
+                    { "path": "url" },
+                    { "path": "src" }
+                  ]
                 },
                 "label": {
-                  "path": "label"
+                  "path": "label",
+                  "fallbacks": [
+                    { "path": "name" }
+                  ]
+                },
+                "languageCode": {
+                  "path": "srclang",
+                  "fallbacks": [
+                    { "path": "language" }
+                  ]
+                },
+                "format": {
+                  "path": "format"
                 }
               }
             }
@@ -613,5 +626,5 @@
       ]
     }
   },
-  "releaseNotes": "Compatibility hotfix: includes the currently observed AniKoto final media hosts. No engine-only fields or request steps were added; existing Sub/Dub discovery and playback behavior is unchanged."
+  "releaseNotes": "M24 updates the native playback Referer for the current AniKoto player host after a One Piece episode-one live probe. The bounded four-step graph and final HTTPS media policy remain unchanged."
 }

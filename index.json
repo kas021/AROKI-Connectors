@@ -44,15 +44,15 @@
       "language" : "en",
       "manifest" : {
         "path" : "connectors\/anikoto\/connector.json",
-        "sha256" : "087706a4450d6b4982bcf1475fd13fc98dcfc2f803c5c4594d53bc0803cf6977",
-        "signature" : "DEYCbqBCL0BUZ8zGSNfgyln5nPM1M+grsO9DIUC1nChY3vVPZBPQACbPfbCP25coAFN0ldjjBTQR3uzE\/mu5Aw=="
+        "sha256" : "0f12a4b31934c76f19b9ea684ad7c07e5d9583fa9e66c381a367e36da8604ae4",
+        "signature" : "POp6FxV5AL313mJsww+dJUtY+6MSZn1CKhtbw3SO4hOyjYdZLeO+Rj4Bh\/GgRFpoEvlZdsq5rqdIsY7uXhftBw=="
       },
       "minimumAppVersion" : "0.1.0",
       "name" : "AniKoto",
-      "releaseNotes" : "Compatibility hotfix: includes the currently observed AniKoto final media hosts. No engine-only fields or request steps were added; existing Sub\/Dub discovery and playback behavior is unchanged.",
+      "releaseNotes" : "M24 updates the native playback Referer for the current AniKoto player host after a One Piece episode-one live probe. The bounded four-step graph and final HTTPS media policy remain unchanged.",
       "releaseTrack" : "beta",
       "status" : "active",
-      "version" : "0.3.1"
+      "version" : "0.3.3"
     },
     {
       "contentRating" : "unknown",
@@ -128,10 +128,10 @@
     }
   ],
   "enabled" : true,
-  "generatedAt" : 1786724695,
+  "generatedAt" : 1787001184,
   "name" : "AROKI Connectors",
   "publicKey" : "BYKainAr2pxVfWxSSQJHG79Xl\/mnkTuIl1ujEmR+1V4=",
   "repositoryID" : "aroki-connectors",
   "schemaVersion" : 1,
-  "signature" : "gRlg126lp\/WLIqiBUmsSV1XE1bng5croCGQcfjnY6pbOGIyJxDVuWv55\/NLuW4tY2fgFWf4W1poeFssvK1vpCQ=="
+  "signature" : "0rHGqjlFxmOI7F2SEvzpc8dgknKDHkJMKMzbLtWGn6EVE7Yaahpz5Dk5MAeNnJvBaBR2GD+c1M3sbGmI+qnjAw=="
 }
