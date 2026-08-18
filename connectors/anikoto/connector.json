@@ -28,7 +28,8 @@
     "*.kotocdn.site",
     "vidtub.norami.top",
     "cdn.watching.onl",
-    "vidtub.shiora.site"
+    "vidtub.shiora.site",
+    "vidtub.shiora.top"
   ],
   "capabilities": [
     "discovery",
