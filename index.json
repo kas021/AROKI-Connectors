@@ -44,15 +44,15 @@
       "language" : "en",
       "manifest" : {
         "path" : "connectors\/anikoto\/connector.json",
-        "sha256" : "0f12a4b31934c76f19b9ea684ad7c07e5d9583fa9e66c381a367e36da8604ae4",
-        "signature" : "POp6FxV5AL313mJsww+dJUtY+6MSZn1CKhtbw3SO4hOyjYdZLeO+Rj4Bh\/GgRFpoEvlZdsq5rqdIsY7uXhftBw=="
+        "sha256" : "170d834a8c3d865d7cd8151fe1000b9c130ae08595f7899ba850c3c4107a0bfa",
+        "signature" : "Z+jqXPbbbzgB4Y0A8iOeJ4oNv8HQIt8GLDjf6T8Ld+S+3cY8ebV55IX0EETQ0dPqvpCvuY2PW+1zuYtlfKYgDg=="
       },
       "minimumAppVersion" : "0.1.0",
       "name" : "AniKoto",
       "releaseNotes" : "M24 updates the native playback Referer for the current AniKoto player host after a One Piece episode-one live probe. The bounded four-step graph and final HTTPS media policy remain unchanged.",
       "releaseTrack" : "beta",
       "status" : "active",
-      "version" : "0.3.3"
+      "version" : "0.3.5"
     },
     {
       "contentRating" : "unknown",
@@ -128,10 +128,10 @@
     }
   ],
   "enabled" : true,
-  "generatedAt" : 1787001184,
+  "generatedAt" : 1787087512,
   "name" : "AROKI Connectors",
   "publicKey" : "BYKainAr2pxVfWxSSQJHG79Xl\/mnkTuIl1ujEmR+1V4=",
   "repositoryID" : "aroki-connectors",
   "schemaVersion" : 1,
-  "signature" : "0rHGqjlFxmOI7F2SEvzpc8dgknKDHkJMKMzbLtWGn6EVE7Yaahpz5Dk5MAeNnJvBaBR2GD+c1M3sbGmI+qnjAw=="
+  "signature" : "IJpGvFXCQg10wGWFKc76nZWu1ecwLuzbe8BdN3KLijyijArEhfyxBMlX6vaYPVXQkBknVgaslPyJfz1ri729AQ=="
 }
