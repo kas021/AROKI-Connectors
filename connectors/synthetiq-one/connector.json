@@ -1,0 +1,194 @@
+{
+  "schemaVersion": 1,
+  "id": "synthetiq-one",
+  "familyID": "synthetiq-one",
+  "name": "Synthetiq One",
+  "version": "1.2.11",
+  "minimumAppVersion": "0.1.0",
+  "contentType": "video",
+  "language": "en",
+  "contentRating": "unknown",
+  "releaseTrack": "beta",
+  "status": "active",
+  "attribution": {
+    "author": "Synthetiq",
+    "website": "https://one.synthetiq.uk"
+  },
+  "authorization": {
+    "basis": "owner-authorised",
+    "note": "First-party Synthetiq One API integration. This engineering connector uses documented API routes only and is not a rights determination.",
+    "evidenceURL": "https://one.synthetiq.uk"
+  },
+  "allowedHosts": [
+    "one.synthetiq.uk",
+    "cdn.myanimelist.net",
+    "megap.kotocdn.site",
+    "cdn.watching.onl",
+    "s1.akirax.buzz"
+  ],
+  "capabilities": [
+    "discovery",
+    "search",
+    "details",
+    "episodes",
+    "streams"
+  ],
+  "limits": {
+    "timeoutMilliseconds": 20000,
+    "maxConcurrentRequests": 2,
+    "maxResponseBytes": 1048576
+  },
+  "operations": {
+    "discovery": {
+      "sections": [
+        {
+          "id": "fast-featured",
+          "title": "Featured",
+          "semantic": "custom",
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://one.synthetiq.uk/v1/discovery/home",
+            "headers": { "Accept": "application/json" }
+          },
+          "response": { "format": "json" },
+          "items": {
+            "collection": "sections[0].items[*]",
+            "fields": {
+              "sourceID": { "path": "malId" },
+              "title": { "path": "title" },
+              "posterURL": { "path": "image" }
+            }
+          }
+        },
+        {
+          "id": "fast-top",
+          "title": "Top Picks",
+          "semantic": "popular",
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://one.synthetiq.uk/v1/discovery/home",
+            "headers": { "Accept": "application/json" }
+          },
+          "response": { "format": "json" },
+          "items": {
+            "collection": "sections[1].items[*]",
+            "fields": {
+              "sourceID": { "path": "malId" },
+              "title": { "path": "title" },
+              "posterURL": { "path": "image" }
+            }
+          }
+        },
+        {
+          "id": "fast-available",
+          "title": "Available Now",
+          "semantic": "all",
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://one.synthetiq.uk/v1/discovery/home",
+            "headers": { "Accept": "application/json" }
+          },
+          "response": { "format": "json" },
+          "items": {
+            "collection": "sections[2].items[*]",
+            "fields": {
+              "sourceID": { "path": "malId" },
+              "title": { "path": "title" },
+              "posterURL": { "path": "image" }
+            }
+          }
+        },
+        {
+          "id": "more-fast",
+          "title": "More",
+          "semantic": "recent",
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://one.synthetiq.uk/v1/discovery/feed?feedId=more-fast&page={page}",
+            "headers": { "Accept": "application/json" }
+          },
+          "response": { "format": "json" },
+          "items": {
+            "collection": "items[*]",
+            "fields": {
+              "sourceID": { "path": "malId" },
+              "title": { "path": "title" },
+              "posterURL": { "path": "image" }
+            }
+          },
+          "pagination": { "type": "pageParam", "start": 1, "maxPages": 5 }
+        }
+      ]
+    },
+    "search": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://one.synthetiq.uk/v1/search?q={query}",
+        "headers": { "Accept": "application/json" }
+      },
+      "response": { "format": "json" },
+      "items": {
+        "collection": "items[*]",
+        "fields": {
+          "sourceID": { "path": "malId" },
+          "title": { "path": "title" },
+          "posterURL": { "path": "image" }
+        }
+      }
+    },
+    "details": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://one.synthetiq.uk/v1/anime/{titleID}",
+        "headers": { "Accept": "application/json" }
+      },
+      "response": { "format": "json" },
+      "extract": {
+        "title": { "path": "title" },
+        "synopsis": { "path": "description" },
+        "posterURL": { "path": "image" },
+        "year": { "path": "year" },
+        "sharedID": { "path": "malId" }
+      }
+    },
+    "episodes": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://one.synthetiq.uk/v1/anime/{titleID}/episodes",
+        "headers": { "Accept": "application/json" }
+      },
+      "response": { "format": "json" },
+      "extract": {
+        "collection": "items[*]",
+        "fields": {
+          "episodeID": { "path": "number" },
+          "title": { "path": "title" },
+          "episodeNumber": { "path": "number" }
+        }
+      }
+    },
+    "streams": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://one.synthetiq.uk/v1/stream?mal_id={titleID}&ep={episodeID}&lang=dub",
+        "headers": { "Accept": "application/json" }
+      },
+      "response": { "format": "json" },
+      "extract": {
+        "collection": "@",
+        "fields": {
+          "url": { "path": "url" },
+          "qualityLabel": { "path": "quality" },
+          "mediaTypeHint": { "path": "streamType" }
+        }
+      },
+      "playbackHeaders": {
+        "Referer": "https://megaplay.buzz/",
+        "Origin": "https://megaplay.buzz",
+        "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Version/18.0 Mobile/15E148 Safari/604.1"
+      },
+      "variants": ["dub"]
+    }
+  },
+  "releaseNotes": "Engineering opt-in connector v1.2.11 for the owner-operated Synthetiq One API. Adds the currently returned cdn.watching.onl and s1.akirax.buzz HLS hosts; native API-only search, details, episodes, discovery and DUB playback remain unchanged. No JavaScript, WebView or VPS changes."
+}

@@ -71,13 +71,31 @@
       "releaseTrack" : "stable",
       "status" : "active",
       "version" : "2.2.0"
+    },
+    {
+      "contentRating" : "unknown",
+      "contentType" : "video",
+      "familyID" : "synthetiq-one",
+      "id" : "synthetiq-one",
+      "language" : "en",
+      "manifest" : {
+        "path" : "connectors\/synthetiq-one\/connector.json",
+        "sha256" : "9a1ebfcd775cb7fbe0e671e617c7a309b4889728fc6dd2869a512607cb110c15",
+        "signature" : "0c5hICDww7anM+5KQmP9DlHsgCacRxSeoldunMKfORkGgjZyObuVSRPPrGX2Gmy97LOMzlq8b8wAuuygRy4ECw=="
+      },
+      "minimumAppVersion" : "0.1.0",
+      "name" : "Synthetiq One",
+      "releaseNotes" : "Engineering opt-in connector v1.2.11 for the owner-operated Synthetiq One API. Adds the currently returned cdn.watching.onl and s1.akirax.buzz HLS hosts; native API-only search, details, episodes, discovery and DUB playback remain unchanged. No JavaScript, WebView or VPS changes.",
+      "releaseTrack" : "beta",
+      "status" : "active",
+      "version" : "1.2.11"
     }
   ],
   "enabled" : true,
-  "generatedAt" : 1787667265,
+  "generatedAt" : 1787696580,
   "name" : "AROKI Connectors",
   "publicKey" : "BYKainAr2pxVfWxSSQJHG79Xl\/mnkTuIl1ujEmR+1V4=",
   "repositoryID" : "aroki-connectors",
   "schemaVersion" : 1,
-  "signature" : "20wRTQTaTgYLnaaVnR1ZBaid2dpTaDHSxP4hXldCHfLAcTVnl37ndP+AmgOPOSetdX+M8zvkEFdgijkfHem2AA=="
+  "signature" : "JnHtSW8WFrmeAcdcpV6HSEtixIsXS8884XYTibt8VTsJpyJgAQuwt4WXipVHA4s7JTHtIfotbkkM8k2F02efCA=="
 }
