@@ -28,17 +28,23 @@ source at any time.
 - AniKoto
 - One Pace
 - AnimeGG
-- AniNeko
-- AniLol
-- Archive Classics
+
+The repository also contains **Update Flow Test**, a non-catalogue fixture used
+to verify source-update handling. It is not a recommended content source.
 
 The index contains the exact compatibility track for every connector. A source
 can change independently of AROKI, so availability is not guaranteed. Users
 and source publishers remain responsible for ensuring they have permission to
 access and distribute the content they configure.
 
-Senshi and ToonTales were withdrawn after reliability review. Previously
-installed copies remain under the user's control and can be removed on-device.
+AniNeko, AniLol, and AnimeAV1 were retired from the public index after the
+August 2026 Aroki certification sweep found no Aroki-compatible playback path.
+Previously installed copies remain under the user's control and can be removed
+on-device. Their historical manifests remain recoverable through Git history.
+
+Senshi, ToonTales, DonghuaWorld, and Archive Classics were withdrawn in earlier
+reviews. Previously installed copies remain under the user's control and can be
+removed on-device.
 
 ## Safety boundary
 

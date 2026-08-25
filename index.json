@@ -3,42 +3,6 @@
     {
       "contentRating" : "unknown",
       "contentType" : "video",
-      "familyID" : "anineko",
-      "id" : "anineko",
-      "language" : "en",
-      "manifest" : {
-        "path" : "connectors\/anineko\/connector.json",
-        "sha256" : "6ebd21dea6a04a017c9bafa187f6a457300b808ac8e3bc760f8f3098f42781e9",
-        "signature" : "mUDgv6w9CQNVNyVVJhp8DYu+esh7KJOG2b2APhCu00fQbghCWrwSdWFi7nc14wfaKqP2otGLecboT\/eGSQmFDA=="
-      },
-      "minimumAppVersion" : "0.1.0",
-      "name" : "AniNeko",
-      "releaseNotes" : "Signed anineko connector update for Aroki beta.",
-      "releaseTrack" : "beta",
-      "status" : "active",
-      "version" : "1.1.0"
-    },
-    {
-      "contentRating" : "unknown",
-      "contentType" : "video",
-      "familyID" : "anilol",
-      "id" : "anilol",
-      "language" : "en",
-      "manifest" : {
-        "path" : "connectors\/anilol\/connector.json",
-        "sha256" : "d70eafa11e00e99e2d183b2062c324e75f851c46fee3744a378105982da6d206",
-        "signature" : "gLKGJqO0+LmmIh4jjW9QOvEbtN85r8jUAS1iGtJYCBTyMSPIdnxl2hG5t2BaKOQo0FAQgdMfk4uK9fBZDjWXBw=="
-      },
-      "minimumAppVersion" : "0.1.0",
-      "name" : "AniLol",
-      "releaseNotes" : "Signed anilol connector update for Aroki beta.",
-      "releaseTrack" : "beta",
-      "status" : "active",
-      "version" : "1.2.0"
-    },
-    {
-      "contentRating" : "unknown",
-      "contentType" : "video",
       "familyID" : "anikoto",
       "id" : "anikoto",
       "language" : "en",
@@ -107,31 +71,13 @@
       "releaseTrack" : "stable",
       "status" : "active",
       "version" : "2.2.0"
-    },
-    {
-      "contentRating" : "unknown",
-      "contentType" : "video",
-      "familyID" : "animeav1",
-      "id" : "animeav1",
-      "language" : "es",
-      "manifest" : {
-        "path" : "connectors\/animeav1\/connector.json",
-        "sha256" : "bbabe3cc97ac79b3cf373a540846e0b92eda5aa98cfdae63891ab5b5505a1df1",
-        "signature" : "uToA7L66TNNo+GfXhCUFh98zC6sLB5FSw3KbO3czX4UNoN6UqfTEJTmP2tkpSGADl9uYo1IVPP3HMOLvAq+LBw=="
-      },
-      "minimumAppVersion" : "0.1.0",
-      "name" : "AnimeAV1",
-      "releaseNotes" : "Spanish anime source. Declarative port of the Synthetiq module SP-VID-060-ANIMEAV1. Live Sub HLS verified 2026-08-14; 88\/88 unit tests incl. deterministic extraction fixtures.",
-      "releaseTrack" : "beta",
-      "status" : "active",
-      "version" : "1.1.0"
     }
   ],
   "enabled" : true,
-  "generatedAt" : 1787087512,
+  "generatedAt" : 1787667265,
   "name" : "AROKI Connectors",
   "publicKey" : "BYKainAr2pxVfWxSSQJHG79Xl\/mnkTuIl1ujEmR+1V4=",
   "repositoryID" : "aroki-connectors",
   "schemaVersion" : 1,
-  "signature" : "IJpGvFXCQg10wGWFKc76nZWu1ecwLuzbe8BdN3KLijyijArEhfyxBMlX6vaYPVXQkBknVgaslPyJfz1ri729AQ=="
+  "signature" : "20wRTQTaTgYLnaaVnR1ZBaid2dpTaDHSxP4hXldCHfLAcTVnl37ndP+AmgOPOSetdX+M8zvkEFdgijkfHem2AA=="
 }
