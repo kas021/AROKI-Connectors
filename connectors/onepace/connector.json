@@ -3,7 +3,7 @@
   "id": "onepace",
   "familyID": "onepace",
   "name": "One Pace",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "minimumAppVersion": "0.1.0",
   "contentType": "video",
   "language": "en",
@@ -33,8 +33,8 @@
     "streams"
   ],
   "limits": {
-    "timeoutMilliseconds": 15000,
-    "maxConcurrentRequests": 2,
+    "timeoutMilliseconds": 30000,
+    "maxConcurrentRequests": 4,
     "maxResponseBytes": 8388608
   },
   "operations": {
@@ -53,7 +53,7 @@
           },
           "items": {
             "collection": {
-              "selector": "li[id][aria-labelledby]"
+              "selector": "main"
             },
             "fields": {
               "sourceID": {
@@ -87,7 +87,7 @@
       },
       "items": {
         "collection": {
-          "selector": "li[id][aria-labelledby]",
+          "selector": "main",
           "where": [
             {
               "field": "title",
@@ -278,5 +278,5 @@
       }
     }
   },
-  "releaseNotes": "M21 represents One Pace as one stable title. Its details use the public watch page, while the native bounded episode aggregation reads the finite Pixeldrain list links, deduplicates them, merges Sub/Dub files by a fixed filename normalisation, and presents one flat episode list. No executable module, WebView, or browser automation is used."
+  "releaseNotes": "M25: Consolidates One Pace into a single stable title on discovery and search. Increases concurrency to 4 workers and raises timeout to 30s so all 485+ episodes across all arcs load smoothly."
 }
