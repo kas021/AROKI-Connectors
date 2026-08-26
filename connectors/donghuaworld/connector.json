@@ -1,0 +1,337 @@
+{
+  "schemaVersion": 1,
+  "id": "donghuaworld",
+  "familyID": "donghuaworld",
+  "name": "DonghuaWorld",
+  "version": "1.1.1",
+  "minimumAppVersion": "0.1.0",
+  "contentType": "video",
+  "language": "en",
+  "contentRating": "unknown",
+  "releaseTrack": "beta",
+  "status": "active",
+  "attribution": {
+    "author": "Vireo compatibility experiment",
+    "website": "https://donghuaworld.com/"
+  },
+  "authorization": {
+    "basis": "owner-authorised",
+    "note": "EXPERIMENT ONLY. Basis asserted by the project owner for compatibility testing; this is not a rights determination and must not ship without documented source-operator authorisation.",
+    "evidenceURL": "https://donghuaworld.com/"
+  },
+  "allowedHosts": [
+    "donghuaworld.com",
+    "i0.wp.com",
+    "geo.dailymotion.com",
+    "www.dailymotion.com",
+    "cdndirector.dailymotion.com",
+    "*.dailymotion.com",
+    "*.dmcdn.net"
+  ],
+  "capabilities": [
+    "discovery",
+    "search",
+    "details",
+    "episodes",
+    "streams"
+  ],
+  "limits": {
+    "timeoutMilliseconds": 20000,
+    "maxConcurrentRequests": 2,
+    "maxResponseBytes": 8388608
+  },
+  "operations": {
+    "discovery": {
+      "sections": [
+        {
+          "id": "all-series",
+          "title": "All Series",
+          "semantic": "all",
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://donghuaworld.com/anime/?page={page}",
+            "headers": {
+              "Accept": "text/html",
+              "Referer": "https://donghuaworld.com/"
+            }
+          },
+          "response": {
+            "format": "html"
+          },
+          "pagination": {
+            "type": "pageParam",
+            "start": 1,
+            "maxPages": 25
+          },
+          "items": {
+            "collection": "div.listupd article.bs",
+            "fields": {
+              "sourceID": {
+                "selector": "a.tip",
+                "part": "attr",
+                "attr": "href",
+                "transforms": [
+                  {
+                    "op": "removePrefix",
+                    "value": "https://donghuaworld.com/anime/"
+                  },
+                  {
+                    "op": "removeSuffix",
+                    "value": "/"
+                  }
+                ]
+              },
+              "title": {
+                "selector": "h2[itemprop=headline]",
+                "part": "text",
+                "transforms": [
+                  {
+                    "op": "trim"
+                  }
+                ]
+              },
+              "posterURL": {
+                "selector": "img.ts-post-image",
+                "part": "attr",
+                "attr": "data-src"
+              }
+            },
+            "metadata": {
+              "status": {
+                "selector": "span.epx",
+                "part": "text",
+                "transforms": [
+                  {
+                    "op": "trim"
+                  }
+                ]
+              },
+              "audioVariants": {
+                "collection": "span.sb",
+                "transforms": [
+                  {
+                    "op": "trim"
+                  },
+                  {
+                    "op": "lowercased"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ]
+    },
+    "search": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://donghuaworld.com/?s={query}",
+        "headers": {
+          "Accept": "text/html",
+          "Referer": "https://donghuaworld.com/"
+        }
+      },
+      "response": {
+        "format": "html"
+      },
+      "items": {
+        "collection": "div.bsx a.tip",
+        "fields": {
+          "sourceID": {
+            "selector": "a.tip",
+            "part": "attr",
+            "attr": "href",
+            "transforms": [
+              {
+                "op": "removePrefix",
+                "value": "https://donghuaworld.com/anime/"
+              },
+              {
+                "op": "removeSuffix",
+                "value": "/"
+              }
+            ]
+          },
+          "title": {
+            "selector": "h2",
+            "part": "text",
+            "transforms": [
+              {
+                "op": "trim"
+              }
+            ]
+          },
+          "posterURL": {
+            "selector": "img",
+            "part": "attr",
+            "attr": "src"
+          }
+        }
+      }
+    },
+    "details": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://donghuaworld.com/anime/{titleID}/",
+        "headers": {
+          "Accept": "text/html",
+          "Referer": "https://donghuaworld.com/"
+        }
+      },
+      "response": {
+        "format": "html"
+      },
+      "extract": {
+        "title": {
+          "selector": "h1.entry-title",
+          "part": "text",
+          "transforms": [
+            {
+              "op": "trim"
+            }
+          ]
+        },
+        "synopsis": {
+          "selector": "div.entry-content[itemprop=description]",
+          "part": "text",
+          "transforms": [
+            {
+              "op": "trim"
+            }
+          ]
+        },
+        "posterURL": {
+          "selector": "div.thumb img",
+          "part": "attr",
+          "attr": "src"
+        },
+        "genres": {
+          "collection": "div.genxed a"
+        }
+      }
+    },
+    "episodes": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://donghuaworld.com/anime/{titleID}/",
+        "headers": {
+          "Accept": "text/html",
+          "Referer": "https://donghuaworld.com/"
+        }
+      },
+      "response": {
+        "format": "html"
+      },
+      "extract": {
+        "collection": "div.eplister li a",
+        "fields": {
+          "episodeID": {
+            "selector": "a",
+            "part": "attr",
+            "attr": "href",
+            "transforms": [
+              {
+                "op": "removePrefix",
+                "value": "https://donghuaworld.com/"
+              },
+              {
+                "op": "removeSuffix",
+                "value": "/"
+              }
+            ]
+          },
+          "title": {
+            "selector": "div.epl-title",
+            "part": "text",
+            "transforms": [
+              {
+                "op": "trim"
+              }
+            ]
+          },
+          "episodeNumber": {
+            "selector": "div.epl-num",
+            "part": "text",
+            "transforms": [
+              {
+                "op": "firstInteger"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "streams": {
+      "variants": [
+        "sub"
+      ],
+      "playbackHeaders": {
+        "Referer": "https://www.dailymotion.com/",
+        "Origin": "https://www.dailymotion.com",
+        "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Version/18.0 Mobile/15E148 Safari/604.1"
+      },
+      "steps": [
+        {
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://donghuaworld.com/{episodeID}/",
+            "headers": {
+              "Accept": "text/html",
+              "Referer": "https://donghuaworld.com/"
+            }
+          },
+          "response": {
+            "format": "html"
+          },
+          "extract": {
+            "context": {
+              "videoID": {
+                "selector": "iframe[src*=dailymotion.com]",
+                "part": "attr",
+                "attr": "src",
+                "transforms": [
+                  {
+                    "op": "queryValue",
+                    "name": "video"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://www.dailymotion.com/player/metadata/video/{videoID}",
+            "headers": {
+              "Accept": "application/json,*/*",
+              "Referer": "https://geo.dailymotion.com/"
+            }
+          },
+          "response": {
+            "format": "json"
+          },
+          "extract": {
+            "collection": "qualities.auto[0]",
+            "fields": {
+              "url": {
+                "path": "url"
+              },
+              "qualityLabel": {
+                "path": "type",
+                "transforms": [
+                  {
+                    "op": "replaceFirst",
+                    "find": "application/x-mpegURL",
+                    "with": "Auto"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "releaseNotes": "M19 extends the server-rendered All Series archive through page 25 and extracts fixed status and Sub/Dub metadata for native filters. The bounded Dailymotion route is unchanged; unsupported embeds still fail safely."
+}

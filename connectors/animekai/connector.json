@@ -1,0 +1,250 @@
+{
+  "schemaVersion": 1,
+  "id": "animekai",
+  "familyID": "animekai",
+  "name": "AnimeKai",
+  "version": "1.0.0",
+  "minimumAppVersion": "0.1.0",
+  "contentType": "video",
+  "language": "en",
+  "contentRating": "unknown",
+  "releaseTrack": "beta",
+  "status": "active",
+  "attribution": {
+    "author": "Vireo compatibility experiment",
+    "website": "https://animekai.be/"
+  },
+  "authorization": {
+    "basis": "documented-public-api",
+    "note": "EXPERIMENT ONLY. Public JSON endpoints documented by the Synthetiq module; this is NOT a rights determination and this connector must not ship without documented authorisation from the source operator.",
+    "evidenceURL": "https://animekai.be/"
+  },
+  "allowedHosts": [
+    "animekai.be",
+    "megaplay.buzz",
+    "cdn.watching.onl",
+    "cdn.myanimelist.net"
+  ],
+  "capabilities": [
+    "search",
+    "details",
+    "episodes",
+    "streams"
+  ],
+  "limits": {
+    "timeoutMilliseconds": 20000,
+    "maxConcurrentRequests": 2,
+    "maxResponseBytes": 8388608
+  },
+  "operations": {
+    "search": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://animekai.be/browse?keyword={query}",
+        "headers": {
+          "Accept": "text/html",
+          "Referer": "https://animekai.be/"
+        }
+      },
+      "response": {
+        "format": "html"
+      },
+      "items": {
+        "collection": "div.aitem",
+        "fields": {
+          "sourceID": {
+            "selector": "a.title",
+            "part": "attr",
+            "attr": "href",
+            "transforms": [
+              {
+                "op": "removePrefix",
+                "value": "https://animekai.be/watch/"
+              }
+            ]
+          },
+          "title": {
+            "selector": "a.title",
+            "part": "text",
+            "transforms": [
+              {
+                "op": "trim"
+              }
+            ]
+          },
+          "posterURL": {
+            "selector": "a.poster img",
+            "part": "attr",
+            "attr": "src"
+          }
+        }
+      }
+    },
+    "details": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://animekai.be/watch/{titleID}/ep-1",
+        "headers": {
+          "Accept": "text/html",
+          "Referer": "https://animekai.be/"
+        }
+      },
+      "response": {
+        "format": "html"
+      },
+      "extract": {
+        "title": {
+          "selector": "h1",
+          "part": "text",
+          "transforms": [
+            {
+              "op": "trim"
+            }
+          ]
+        },
+        "synopsis": {
+          "selector": "div.desc.text-expand",
+          "part": "text"
+        },
+        "posterURL": {
+          "selector": "meta[property=\"og:image\"]",
+          "part": "attr",
+          "attr": "content"
+        }
+      }
+    },
+    "episodes": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://animekai.be/watch/{titleID}/ep-1",
+        "headers": {
+          "Accept": "text/html",
+          "Referer": "https://animekai.be/"
+        }
+      },
+      "response": {
+        "format": "html"
+      },
+      "extract": {
+        "collection": "div.eplist ul.range li a",
+        "fields": {
+          "episodeID": {
+            "selector": "a[num]",
+            "part": "attr",
+            "attr": "num"
+          },
+          "episodeNumber": {
+            "selector": "a[num]",
+            "part": "attr",
+            "attr": "num"
+          },
+          "title": {
+            "selector": "a[num]",
+            "part": "attr",
+            "attr": "num",
+            "transforms": [
+              {
+                "op": "template",
+                "value": "Episode {value}"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "streams": {
+      "variants": [
+        "sub",
+        "dub"
+      ],
+      "playbackHeaders": {
+        "Referer": "https://megaplay.buzz/"
+      },
+      "steps": [
+        {
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://animekai.be/watch/{titleID}/ep-{episodeID}",
+            "headers": {
+              "Accept": "text/html",
+              "Referer": "https://animekai.be/"
+            }
+          },
+          "response": {
+            "format": "html"
+          },
+          "extract": {
+            "context": {
+              "embedURL": {
+                "selector": "div.lang-group[data-id=\"{variant}\"] span.server",
+                "part": "attr",
+                "attr": "data-url",
+                "kind": "url"
+              }
+            }
+          }
+        },
+        {
+          "request": {
+            "method": "GET",
+            "follow": "embedURL",
+            "headers": {
+              "Accept": "text/html,*/*",
+              "Referer": "https://animekai.be/"
+            }
+          },
+          "response": {
+            "format": "html"
+          },
+          "extract": {
+            "context": {
+              "playerID": {
+                "selector": "div#megaplay-player",
+                "part": "attr",
+                "attr": "data-id"
+              }
+            }
+          }
+        },
+        {
+          "request": {
+            "method": "GET",
+            "originOf": "embedURL",
+            "pathTemplate": "/stream/getSources?id={playerID}",
+            "headers": {
+              "Accept": "application/json, text/plain, */*",
+              "X-Requested-With": "XMLHttpRequest",
+              "Referer": "https://megaplay.buzz/"
+            }
+          },
+          "response": {
+            "format": "json"
+          },
+          "extract": {
+            "collection": "sources",
+            "fields": {
+              "url": {
+                "path": "file"
+              }
+            },
+            "subtitles": {
+              "collection": "tracks[*]",
+              "fields": {
+                "url": {
+                  "path": "file"
+                },
+                "label": {
+                  "path": "label"
+                },
+                "format": {
+                  "path": "kind"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "releaseNotes": "Initial Aroki-compatible connector: AnimeKai browse/search + MegaPlay HLS via the bounded 3-step graph; sub/dub from the sources JSON; English captions."
+}
