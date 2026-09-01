@@ -3,7 +3,7 @@
   "id": "anikage",
   "familyID": "anikage",
   "name": "AniKage (BETA)",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "minimumAppVersion": "0.1.0",
   "contentType": "video",
   "language": "en",
@@ -75,9 +75,6 @@
                   },
                   {
                     "path": "title.romaji"
-                  },
-                  {
-                    "path": "title.native"
                   }
                 ]
               },
@@ -130,9 +127,6 @@
                   },
                   {
                     "path": "title.romaji"
-                  },
-                  {
-                    "path": "title.native"
                   }
                 ]
               },
@@ -185,9 +179,6 @@
                   },
                   {
                     "path": "title.romaji"
-                  },
-                  {
-                    "path": "title.native"
                   }
                 ]
               },
@@ -234,9 +225,6 @@
               },
               {
                 "path": "title.romaji"
-              },
-              {
-                "path": "title.native"
               }
             ]
           },
@@ -281,12 +269,6 @@
             },
             {
               "path": "anime.title.romaji"
-            },
-            {
-              "path": "anime.title.native"
-            },
-            {
-              "path": "anime.slug"
             }
           ]
         },
@@ -337,18 +319,7 @@
             "path": "number"
           },
           "title": {
-            "path": "title",
-            "fallbacks": [
-              {
-                "path": "number",
-                "transforms": [
-                  {
-                    "op": "template",
-                    "value": "Episode {value}"
-                  }
-                ]
-              }
-            ]
+            "path": "title"
           },
           "episodeNumber": {
             "path": "number"
@@ -405,5 +376,5 @@
       }
     }
   },
-  "releaseNotes": "Experimental native candidate converted from the AniKage Player module. Uses the public AniKage JSON catalogue and selects the finite Megg provider, whose opaque source token is assembled into the fixed AniKage proxy URL with a native template transform. Sub and Dub return distinct finite MP4 identities in live probes. Koto, Kiwi, and MegaPlay HLS paths were rejected after bounded integrity checks as incomplete or mis-associated. External subtitles are intentionally not declared because the returned caption contract was inconsistent. Native iOS playback, file download, simulator, device, and AirPlay evidence remain unverified."
+  "releaseNotes": "Beta candidate converted from the AniKage Player module. Uses the public AniKage JSON catalogue and selects the finite Megg provider, whose opaque source token is assembled into the fixed AniKage proxy URL with a native template transform. Sub and Dub return distinct finite MP4 identities in live probes. Title fallback chains are bounded for Aroki schema compatibility. Koto, Kiwi, and MegaPlay HLS paths were rejected after bounded integrity checks as incomplete or mis-associated. External subtitles are intentionally not declared because the returned caption contract was inconsistent. Native iOS playback, file download, simulator, device, and AirPlay evidence remain unverified."
 }
