@@ -43,14 +43,14 @@ jobs:
           }
 
       - name: Check out the public connector repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           path: AROKI-Connectors
           ref: main
           fetch-depth: 0
 
       - name: Check out the private Vireo validator
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: kas021/Vireo
           ref: feature/aroki-quality-diagnostics
