@@ -8,15 +8,15 @@
       "language" : "en",
       "manifest" : {
         "path" : "connectors\/anikoto\/connector.json",
-        "sha256" : "170d834a8c3d865d7cd8151fe1000b9c130ae08595f7899ba850c3c4107a0bfa",
-        "signature" : "Z+jqXPbbbzgB4Y0A8iOeJ4oNv8HQIt8GLDjf6T8Ld+S+3cY8ebV55IX0EETQ0dPqvpCvuY2PW+1zuYtlfKYgDg=="
+        "sha256" : "af70a87c473e5143bf8c4eaa605dfffb196686d561c65778ac289b1e1828b478",
+        "signature" : "0SmfpbqI4AunHUYXZs4bxYHJI8ad37A+URKZgVYtrce39eOiVQHlFKcszIJXJZOe4w0c3EUYg\/hsf4Kd0fu3Ag=="
       },
       "minimumAppVersion" : "0.1.0",
       "name" : "AniKoto",
-      "releaseNotes" : "M24 updates the native playback Referer for the current AniKoto player host after a One Piece episode-one live probe. The bounded four-step graph and final HTTPS media policy remain unchanged.",
+      "releaseNotes" : "Restores external English captions after AniKoto rotated subtitle delivery to cdn.kryntal.top and vidtub.akirax.buzz. The native four-step stream graph and media policy are unchanged.",
       "releaseTrack" : "beta",
       "status" : "active",
-      "version" : "0.3.5"
+      "version" : "0.3.6"
     },
     {
       "contentRating" : "unknown",
@@ -62,15 +62,15 @@
       "language" : "en",
       "manifest" : {
         "path" : "connectors\/onepace\/connector.json",
-        "sha256" : "a40aacccfa33f78debacdc6cf56f38016ff06d7641c66aff19a08c3fb097e7a3",
-        "signature" : "6SgU5u5BYT4kCZYxyFBne6YO44jyE6R\/aBcovx5yLxQ+ZB+aFlvrpyuPKur9EIoGcQegKulCzfLHRhqE985eAw=="
+        "sha256" : "97c91e3f297dfdf3c39bed23209da241149eabfe98f12d52b23ea69a01fa4238",
+        "signature" : "nMucuSENeFN+nfS4\/UtsxMZ7V8NyxrJKkKviItwLIRYmLCqfNsquzs0hIfbtol8ZNrYSw+\/tgELbeCLCBJEYDw=="
       },
       "minimumAppVersion" : "0.1.0",
       "name" : "One Pace",
-      "releaseNotes" : "M21: One Pace is one stable title (One Piece (One Pace)) with a single flat episode list via native bounded episode aggregation over the finite Pixeldrain child lists; Sub\/Dub merged by fixed filename grouping; Spanish lists skipped, never mislabelled. Verified live 2026-08-01 (first\/middle\/last, Sub+Dub, MP4 bytes).",
+      "releaseNotes" : "M25: Consolidates One Pace into a single stable title on discovery and search. Increases concurrency to 4 workers and raises timeout to 30s so all 485+ episodes across all arcs load smoothly.",
       "releaseTrack" : "stable",
       "status" : "active",
-      "version" : "2.2.0"
+      "version" : "2.2.1"
     },
     {
       "contentRating" : "unknown",
@@ -92,10 +92,10 @@
     }
   ],
   "enabled" : true,
-  "generatedAt" : 1787696580,
+  "generatedAt" : 1788227608,
   "name" : "AROKI Connectors",
   "publicKey" : "BYKainAr2pxVfWxSSQJHG79Xl\/mnkTuIl1ujEmR+1V4=",
   "repositoryID" : "aroki-connectors",
   "schemaVersion" : 1,
-  "signature" : "JnHtSW8WFrmeAcdcpV6HSEtixIsXS8884XYTibt8VTsJpyJgAQuwt4WXipVHA4s7JTHtIfotbkkM8k2F02efCA=="
+  "signature" : "1mj39YAcmMFfzb7OWsTnX1Ym8DHoc1nNEiubFRmrEnIq9E4RwjMmEAdAeLbw4DSq1TfN4UsbgFAsO9SCMeHOAQ=="
 }

@@ -3,7 +3,7 @@
   "id": "anikoto",
   "familyID": "anikoto",
   "name": "AniKoto",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "minimumAppVersion": "0.1.0",
   "contentType": "video",
   "language": "en",
@@ -28,6 +28,8 @@
     "*.kotocdn.site",
     "vidtub.norami.top",
     "cdn.watching.onl",
+    "cdn.kryntal.top",
+    "vidtub.akirax.buzz",
     "vidtub.shiora.site",
     "vidtub.shiora.top"
   ],
@@ -645,5 +647,5 @@
       ]
     }
   },
-  "releaseNotes": "M24 updates the native playback Referer for the current AniKoto player host after a One Piece episode-one live probe. The bounded four-step graph and final HTTPS media policy remain unchanged."
+  "releaseNotes": "Restores external English captions after AniKoto rotated subtitle delivery to cdn.kryntal.top and vidtub.akirax.buzz. The native four-step stream graph and media policy are unchanged."
 }
