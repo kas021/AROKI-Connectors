@@ -21,6 +21,24 @@
     {
       "contentRating" : "unknown",
       "contentType" : "video",
+      "familyID" : "anikage",
+      "id" : "anikage",
+      "language" : "en",
+      "manifest" : {
+        "path" : "connectors\/anikage\/connector.json",
+        "sha256" : "a04e12dc5ce94bcd5b0b37148bab402eb17072bcbaf78902fb0cb8e080f1ab1c",
+        "signature" : "uQNwSkC8X03G\/OV1CvPK13zd1oyZkppEvkw3AwqjgyzrEBR1AvWqMcrM\/Xg4YdPcLb7VDSQDKd4UvPOuXvsFCA=="
+      },
+      "minimumAppVersion" : "0.1.0",
+      "name" : "AniKage (BETA)",
+      "releaseNotes" : "Beta candidate converted from the AniKage Player module. Uses the public AniKage JSON catalogue and selects the finite Megg provider, whose opaque source token is assembled into the fixed AniKage proxy URL with a native template transform. Sub and Dub return distinct finite MP4 identities in live probes. Title fallback chains are bounded for Aroki schema compatibility. Koto, Kiwi, and MegaPlay HLS paths were rejected after bounded integrity checks as incomplete or mis-associated. External subtitles are intentionally not declared because the returned caption contract was inconsistent. Native iOS playback, file download, simulator, device, and AirPlay evidence remain unverified.",
+      "releaseTrack" : "beta",
+      "status" : "active",
+      "version" : "0.2.1"
+    },
+    {
+      "contentRating" : "unknown",
+      "contentType" : "video",
       "familyID" : "animegg",
       "id" : "animegg",
       "language" : "en",
@@ -92,10 +110,10 @@
     }
   ],
   "enabled" : true,
-  "generatedAt" : 1788227608,
+  "generatedAt" : 1788276261,
   "name" : "AROKI Connectors",
   "publicKey" : "BYKainAr2pxVfWxSSQJHG79Xl\/mnkTuIl1ujEmR+1V4=",
   "repositoryID" : "aroki-connectors",
   "schemaVersion" : 1,
-  "signature" : "1mj39YAcmMFfzb7OWsTnX1Ym8DHoc1nNEiubFRmrEnIq9E4RwjMmEAdAeLbw4DSq1TfN4UsbgFAsO9SCMeHOAQ=="
+  "signature" : "SClu4aqVNOEVLe5tWhfGi1zuy1CIsMdQjy3FtOMGq0R8ntCK6L3\/krGotU3Pppa8aDr2qyQDvtajPsThM0B1DQ=="
 }
