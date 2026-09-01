@@ -1,0 +1,102 @@
+name: Publish Aroki connector
+
+on:
+  workflow_dispatch:
+    inputs:
+      connector_id:
+        description: Lowercase connector ID, for example anikage
+        required: true
+        type: string
+      candidate_ref:
+        description: Candidate branch, tag, or commit in AROKI-Connectors
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: aroki-connector-publication
+  cancel-in-progress: false
+
+jobs:
+  validate-sign-publish:
+    name: Validate, sign, and publish
+    runs-on: macos-15
+    environment: connector-publishing
+    timeout-minutes: 30
+
+    steps:
+      - name: Validate workflow input
+        env:
+          CONNECTOR_ID: ${{ inputs.connector_id }}
+          CANDIDATE_REF: ${{ inputs.candidate_ref }}
+        run: |
+          set -euo pipefail
+          [[ "$CONNECTOR_ID" =~ ^[a-z0-9-]+$ ]] || {
+            echo "Connector ID must contain only lowercase letters, numbers, and hyphens." >&2
+            exit 64
+          }
+          [[ -n "$CANDIDATE_REF" && ${#CANDIDATE_REF} -le 160 ]] || {
+            echo "Candidate ref is missing or too long." >&2
+            exit 64
+          }
+
+      - name: Check out the public connector repository
+        uses: actions/checkout@v4
+        with:
+          path: AROKI-Connectors
+          ref: main
+          fetch-depth: 0
+
+      - name: Check out the private Vireo validator
+        uses: actions/checkout@v4
+        with:
+          repository: kas021/Vireo
+          ref: feature/aroki-quality-diagnostics
+          path: Vireo
+          ssh-key: ${{ secrets.VIREO_READONLY_DEPLOY_KEY }}
+          persist-credentials: false
+
+      - name: Import only the requested candidate manifest
+        env:
+          CONNECTOR_ID: ${{ inputs.connector_id }}
+          CANDIDATE_REF: ${{ inputs.candidate_ref }}
+        run: |
+          set -euo pipefail
+          git -C AROKI-Connectors fetch --no-tags origin "$CANDIDATE_REF"
+          git -C AROKI-Connectors show "FETCH_HEAD:connectors/$CONNECTOR_ID/connector.json" \
+            > "Vireo/connectors/$CONNECTOR_ID.json"
+          test "$(jq -r '.id' "Vireo/connectors/$CONNECTOR_ID.json")" = "$CONNECTOR_ID"
+
+      - name: Build the native validator and run deterministic tests
+        run: |
+          set -euo pipefail
+          swift build --package-path Vireo/VireoCore --product vireo-tool
+          swift test --package-path Vireo/VireoCore
+
+      - name: Sign and verify the complete public repository
+        env:
+          AROKI_CONNECTOR_PRIVATE_KEY: ${{ secrets.AROKI_CONNECTOR_PRIVATE_KEY }}
+          CONNECTOR_ID: ${{ inputs.connector_id }}
+        run: |
+          set -euo pipefail
+          test -n "$AROKI_CONNECTOR_PRIVATE_KEY"
+          bash Vireo/scripts/publish-connector.sh "$CONNECTOR_ID"
+
+      - name: Commit and push the verified publication
+        env:
+          CONNECTOR_ID: ${{ inputs.connector_id }}
+        run: |
+          set -euo pipefail
+          cd AROKI-Connectors
+          git config user.name "Aroki Connector Publisher"
+          git config user.email "actions@users.noreply.github.com"
+          git add "connectors/$CONNECTOR_ID/connector.json" index.json
+          git diff --cached --check
+          if git diff --cached --quiet; then
+            echo "Nothing changed; the requested version is already published."
+            exit 0
+          fi
+          git commit -m "Publish signed $CONNECTOR_ID update."
+          git push origin HEAD:main
