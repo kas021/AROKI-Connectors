@@ -1,0 +1,409 @@
+{
+  "schemaVersion": 1,
+  "id": "anikage",
+  "familyID": "anikage",
+  "name": "AniKage (BETA)",
+  "version": "0.2.0",
+  "minimumAppVersion": "0.1.0",
+  "contentType": "video",
+  "language": "en",
+  "contentRating": "unknown",
+  "releaseTrack": "beta",
+  "status": "active",
+  "attribution": {
+    "author": "Vireo compatibility experiment",
+    "website": "https://anikage.cc"
+  },
+  "authorization": {
+    "basis": "owner-authorised",
+    "note": "EXPERIMENT ONLY. Basis asserted by the project owner for a compatibility test; this is NOT a rights determination and this connector must not ship without documented authorisation from the source operator.",
+    "evidenceURL": "https://anikage.cc/"
+  },
+  "allowedHosts": [
+    "anikage.cc",
+    "og.bakayaro.live",
+    "s4.anilist.co"
+  ],
+  "capabilities": [
+    "discovery",
+    "search",
+    "details",
+    "episodes",
+    "streams"
+  ],
+  "limits": {
+    "timeoutMilliseconds": 30000,
+    "maxConcurrentRequests": 1,
+    "maxResponseBytes": 8388608
+  },
+  "downloadSupport": "file",
+  "operations": {
+    "discovery": {
+      "sections": [
+        {
+          "id": "trending",
+          "title": "Trending",
+          "semantic": "popular",
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://anikage.cc/api/media/anime/browse?sort=TRENDING_DESC&page={page}",
+            "headers": {
+              "Accept": "application/json",
+              "Referer": "https://anikage.cc/",
+              "Origin": "https://anikage.cc"
+            }
+          },
+          "response": {
+            "format": "json"
+          },
+          "pagination": {
+            "type": "pageParam",
+            "start": 1,
+            "maxPages": 10
+          },
+          "items": {
+            "collection": "data[*]",
+            "fields": {
+              "sourceID": {
+                "path": "slug"
+              },
+              "title": {
+                "path": "title.english",
+                "fallbacks": [
+                  {
+                    "path": "title.userPreferred"
+                  },
+                  {
+                    "path": "title.romaji"
+                  },
+                  {
+                    "path": "title.native"
+                  }
+                ]
+              },
+              "posterURL": {
+                "path": "coverImage.extraLarge",
+                "fallbacks": [
+                  {
+                    "path": "coverImage.large"
+                  },
+                  {
+                    "path": "coverImage.medium"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "id": "popular",
+          "title": "Most Popular",
+          "semantic": "popular",
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://anikage.cc/api/media/anime/browse?sort=POPULARITY_DESC&page={page}",
+            "headers": {
+              "Accept": "application/json",
+              "Referer": "https://anikage.cc/",
+              "Origin": "https://anikage.cc"
+            }
+          },
+          "response": {
+            "format": "json"
+          },
+          "pagination": {
+            "type": "pageParam",
+            "start": 1,
+            "maxPages": 10
+          },
+          "items": {
+            "collection": "data[*]",
+            "fields": {
+              "sourceID": {
+                "path": "slug"
+              },
+              "title": {
+                "path": "title.english",
+                "fallbacks": [
+                  {
+                    "path": "title.userPreferred"
+                  },
+                  {
+                    "path": "title.romaji"
+                  },
+                  {
+                    "path": "title.native"
+                  }
+                ]
+              },
+              "posterURL": {
+                "path": "coverImage.extraLarge",
+                "fallbacks": [
+                  {
+                    "path": "coverImage.large"
+                  },
+                  {
+                    "path": "coverImage.medium"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "id": "top-rated",
+          "title": "Top Rated",
+          "semantic": "popular",
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://anikage.cc/api/media/anime/browse?sort=SCORE_DESC&page={page}",
+            "headers": {
+              "Accept": "application/json",
+              "Referer": "https://anikage.cc/",
+              "Origin": "https://anikage.cc"
+            }
+          },
+          "response": {
+            "format": "json"
+          },
+          "pagination": {
+            "type": "pageParam",
+            "start": 1,
+            "maxPages": 10
+          },
+          "items": {
+            "collection": "data[*]",
+            "fields": {
+              "sourceID": {
+                "path": "slug"
+              },
+              "title": {
+                "path": "title.english",
+                "fallbacks": [
+                  {
+                    "path": "title.userPreferred"
+                  },
+                  {
+                    "path": "title.romaji"
+                  },
+                  {
+                    "path": "title.native"
+                  }
+                ]
+              },
+              "posterURL": {
+                "path": "coverImage.extraLarge",
+                "fallbacks": [
+                  {
+                    "path": "coverImage.large"
+                  },
+                  {
+                    "path": "coverImage.medium"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ]
+    },
+    "search": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://anikage.cc/api/media/anime/browse?q={query}&page={page}",
+        "headers": {
+          "Accept": "application/json",
+          "Referer": "https://anikage.cc/",
+          "Origin": "https://anikage.cc"
+        }
+      },
+      "response": {
+        "format": "json"
+      },
+      "items": {
+        "collection": "data[*]",
+        "fields": {
+          "sourceID": {
+            "path": "slug"
+          },
+          "title": {
+            "path": "title.english",
+            "fallbacks": [
+              {
+                "path": "title.userPreferred"
+              },
+              {
+                "path": "title.romaji"
+              },
+              {
+                "path": "title.native"
+              }
+            ]
+          },
+          "posterURL": {
+            "path": "coverImage.extraLarge",
+            "fallbacks": [
+              {
+                "path": "coverImage.large"
+              },
+              {
+                "path": "coverImage.medium"
+              }
+            ]
+          }
+        }
+      },
+      "pagination": {
+        "type": "pageParam",
+        "start": 1,
+        "maxPages": 10
+      }
+    },
+    "details": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://anikage.cc/api/media/anime/{titleID}",
+        "headers": {
+          "Accept": "application/json",
+          "Referer": "https://anikage.cc/",
+          "Origin": "https://anikage.cc"
+        }
+      },
+      "response": {
+        "format": "json"
+      },
+      "extract": {
+        "title": {
+          "path": "anime.title.english",
+          "fallbacks": [
+            {
+              "path": "anime.title.userPreferred"
+            },
+            {
+              "path": "anime.title.romaji"
+            },
+            {
+              "path": "anime.title.native"
+            },
+            {
+              "path": "anime.slug"
+            }
+          ]
+        },
+        "synopsis": {
+          "path": "anime.malDescription",
+          "fallbacks": [
+            {
+              "path": "anime.description"
+            }
+          ]
+        },
+        "posterURL": {
+          "path": "anime.coverImage.extraLarge",
+          "fallbacks": [
+            {
+              "path": "anime.coverImage.large"
+            },
+            {
+              "path": "anime.coverImage.medium"
+            }
+          ]
+        },
+        "year": {
+          "path": "anime.year"
+        },
+        "genres": {
+          "collection": "anime.genres[*]"
+        }
+      }
+    },
+    "episodes": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://anikage.cc/api/media/anime/{titleID}/episodes",
+        "headers": {
+          "Accept": "application/json",
+          "Referer": "https://anikage.cc/",
+          "Origin": "https://anikage.cc"
+        }
+      },
+      "response": {
+        "format": "json"
+      },
+      "extract": {
+        "collection": "[*]",
+        "fields": {
+          "episodeID": {
+            "path": "number"
+          },
+          "title": {
+            "path": "title",
+            "fallbacks": [
+              {
+                "path": "number",
+                "transforms": [
+                  {
+                    "op": "template",
+                    "value": "Episode {value}"
+                  }
+                ]
+              }
+            ]
+          },
+          "episodeNumber": {
+            "path": "number"
+          }
+        }
+      }
+    },
+    "streams": {
+      "variants": [
+        "sub",
+        "dub"
+      ],
+      "finalMediaPolicy": "allowlisted",
+      "playbackHeaders": {
+        "Referer": "https://anikage.cc/",
+        "Origin": "https://anikage.cc",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+      },
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://anikage.cc/api/media/anime/{titleID}/episodes/{episodeID}/sources?provider=megg&lang={variant}",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "Accept-Language": "en-US,en;q=0.9",
+          "X-Requested-With": "XMLHttpRequest",
+          "Referer": "https://anikage.cc/",
+          "Origin": "https://anikage.cc",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+        }
+      },
+      "response": {
+        "format": "json"
+      },
+      "extract": {
+        "collection": "sources[*]",
+        "fields": {
+          "url": {
+            "path": "url",
+            "transforms": [
+              {
+                "op": "template",
+                "value": "https://og.bakayaro.live/{value}",
+                "encodeValue": false
+              }
+            ]
+          },
+          "qualityLabel": {
+            "path": "quality"
+          },
+          "mediaTypeHint": {
+            "literal": "mp4"
+          }
+        }
+      }
+    }
+  },
+  "releaseNotes": "Experimental native candidate converted from the AniKage Player module. Uses the public AniKage JSON catalogue and selects the finite Megg provider, whose opaque source token is assembled into the fixed AniKage proxy URL with a native template transform. Sub and Dub return distinct finite MP4 identities in live probes. Koto, Kiwi, and MegaPlay HLS paths were rejected after bounded integrity checks as incomplete or mis-associated. External subtitles are intentionally not declared because the returned caption contract was inconsistent. Native iOS playback, file download, simulator, device, and AirPlay evidence remain unverified."
+}
