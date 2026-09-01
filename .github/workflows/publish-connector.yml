@@ -59,6 +59,7 @@ jobs:
           persist-credentials: false
 
       - name: Import only the requested candidate manifest
+        id: candidate
         env:
           CONNECTOR_ID: ${{ inputs.connector_id }}
           CANDIDATE_REF: ${{ inputs.candidate_ref }}
@@ -68,14 +69,23 @@ jobs:
           git -C AROKI-Connectors show "FETCH_HEAD:connectors/$CONNECTOR_ID/connector.json" \
             > "Vireo/connectors/$CONNECTOR_ID.json"
           test "$(jq -r '.id' "Vireo/connectors/$CONNECTOR_ID.json")" = "$CONNECTOR_ID"
+          if cmp -s "Vireo/connectors/$CONNECTOR_ID.json" \
+            "AROKI-Connectors/connectors/$CONNECTOR_ID/connector.json"; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "The requested connector bytes are already published."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Build the native validator and run deterministic tests
+        if: steps.candidate.outputs.changed == 'true'
         run: |
           set -euo pipefail
           swift build --package-path Vireo/VireoCore --product vireo-tool
           swift test --package-path Vireo/VireoCore
 
       - name: Sign and verify the complete public repository
+        if: steps.candidate.outputs.changed == 'true'
         env:
           AROKI_CONNECTOR_PRIVATE_KEY: ${{ secrets.AROKI_CONNECTOR_PRIVATE_KEY }}
           CONNECTOR_ID: ${{ inputs.connector_id }}
@@ -85,6 +95,7 @@ jobs:
           bash Vireo/scripts/publish-connector.sh "$CONNECTOR_ID"
 
       - name: Commit and push the verified publication
+        if: steps.candidate.outputs.changed == 'true'
         env:
           CONNECTOR_ID: ${{ inputs.connector_id }}
         run: |
