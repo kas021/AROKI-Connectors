@@ -3,7 +3,7 @@
   "id": "anikage",
   "familyID": "anikage",
   "name": "AniKage (BETA)",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "minimumAppVersion": "0.1.0",
   "contentType": "video",
   "language": "en",
@@ -36,7 +36,7 @@
     "maxConcurrentRequests": 1,
     "maxResponseBytes": 8388608
   },
-  "downloadSupport": "file",
+  "downloadSupport": "hls",
   "operations": {
     "discovery": {
       "sections": [
@@ -340,7 +340,7 @@
       },
       "request": {
         "method": "GET",
-        "urlTemplate": "https://anikage.cc/api/media/anime/{titleID}/episodes/{episodeID}/sources?provider=megg&lang={variant}",
+          "urlTemplate": "https://anikage.cc/api/media/anime/{titleID}/episodes/{episodeID}/sources?provider=kiwi&lang={variant}",
         "headers": {
           "Accept": "application/json, text/plain, */*",
           "Accept-Language": "en-US,en;q=0.9",
@@ -370,11 +370,11 @@
             "path": "quality"
           },
           "mediaTypeHint": {
-            "literal": "mp4"
+            "literal": "hls"
           }
         }
       }
     }
   },
-  "releaseNotes": "Beta candidate converted from the AniKage Player module. Uses the public AniKage JSON catalogue and selects the finite Megg provider, whose opaque source token is assembled into the fixed AniKage proxy URL with a native template transform. Sub and Dub return distinct finite MP4 identities in live probes. Title fallback chains are bounded for Aroki schema compatibility. Koto, Kiwi, and MegaPlay HLS paths were rejected after bounded integrity checks as incomplete or mis-associated. External subtitles are intentionally not declared because the returned caption contract was inconsistent. Native iOS playback, file download, simulator, device, and AirPlay evidence remain unverified."
+  "releaseNotes": "Beta candidate converted from the AniKage Player module. Uses the public AniKage JSON catalogue and selects the Kiwi provider, whose opaque source token is assembled into the fixed AniKage proxy URL with a native template transform. Kiwi returns an Apple HLS playlist with a finite child playlist in bounded live probes. Title fallback chains are bounded for Aroki schema compatibility. The Megg MP4 route was rejected because it can return stale or unauthorized sources and has returned MP4 bytes mislabeled as image/jpeg. External subtitles are intentionally not declared because the returned caption contract was inconsistent. Native iOS playback, file download, simulator, device, and AirPlay evidence remain unverified."
 }
