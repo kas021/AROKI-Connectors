@@ -53,3 +53,10 @@ They cannot add executable behavior to AROKI. The native app continues to own
 validation, request limits, host policy, parsing, caching and AVPlayer playback.
 
 The repository signing key is held outside Git and is never committed here.
+
+## Windows publishing
+
+Windows contributors do not need the signing key for the official feed. Push a
+candidate branch, run the structural preflight, then dispatch the protected
+GitHub publishing workflow. For the optional bridge-build unsigned-feed path,
+see [Windows connector workflow](docs/WINDOWS_CONNECTOR_WORKFLOW.md).

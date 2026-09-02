@@ -1,0 +1,43 @@
+name: Validate Aroki connector candidate
+
+on:
+  workflow_dispatch:
+    inputs:
+      connector_id:
+        description: Lowercase connector ID, for example anikage
+        required: true
+        type: string
+      candidate_ref:
+        description: Candidate branch, tag, or commit in AROKI-Connectors
+        required: true
+        type: string
+  pull_request:
+    paths:
+      - "connectors/**"
+      - "scripts/validate-unsigned-connector.py"
+
+permissions:
+  contents: read
+
+jobs:
+  structural-preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ inputs.candidate_ref || github.sha }}
+          fetch-depth: 1
+      - name: Validate requested connector
+        if: ${{ inputs.connector_id != '' }}
+        run: python3 scripts/validate-unsigned-connector.py "${{ inputs.connector_id }}"
+      - name: Validate changed connector manifests
+        if: ${{ inputs.connector_id == '' }}
+        run: |
+          set -euo pipefail
+          changed="$(git diff --name-only "${{ github.event.pull_request.base.sha }}" HEAD -- 'connectors/*/connector.json' || true)"
+          test -n "$changed" || exit 0
+          while IFS= read -r manifest; do
+            connector_id="$(basename "$(dirname "$manifest")")"
+            python3 scripts/validate-unsigned-connector.py "$connector_id"
+          done <<< "$changed"
