@@ -26,15 +26,15 @@
       "language" : "en",
       "manifest" : {
         "path" : "connectors\/anikage\/connector.json",
-        "sha256" : "a04e12dc5ce94bcd5b0b37148bab402eb17072bcbaf78902fb0cb8e080f1ab1c",
-        "signature" : "uQNwSkC8X03G\/OV1CvPK13zd1oyZkppEvkw3AwqjgyzrEBR1AvWqMcrM\/Xg4YdPcLb7VDSQDKd4UvPOuXvsFCA=="
+        "sha256" : "e331804c9536717657e5ddfcc500078e53e6ab878e38757acbd075563785352b",
+        "signature" : "8AiXYtqlUiOuXlLe3gUtvfPjvW\/2HtxzKMJIOtJvblngRh\/ktQbEOUKlmbd7gDwOUPs4JrZrFAuWdjfQ\/0nUBA=="
       },
       "minimumAppVersion" : "0.1.0",
       "name" : "AniKage (BETA)",
-      "releaseNotes" : "Beta candidate converted from the AniKage Player module. Uses the public AniKage JSON catalogue and selects the finite Megg provider, whose opaque source token is assembled into the fixed AniKage proxy URL with a native template transform. Sub and Dub return distinct finite MP4 identities in live probes. Title fallback chains are bounded for Aroki schema compatibility. Koto, Kiwi, and MegaPlay HLS paths were rejected after bounded integrity checks as incomplete or mis-associated. External subtitles are intentionally not declared because the returned caption contract was inconsistent. Native iOS playback, file download, simulator, device, and AirPlay evidence remain unverified.",
+      "releaseNotes" : "Beta candidate converted from the AniKage Player module. Uses the public AniKage JSON catalogue and selects the Kiwi provider, whose opaque source token is assembled into the fixed AniKage proxy URL with a native template transform. Kiwi returns an Apple HLS playlist with a finite child playlist in bounded live probes. Title fallback chains are bounded for Aroki schema compatibility. The Megg MP4 route was rejected because it can return stale or unauthorized sources and has returned MP4 bytes mislabeled as image\/jpeg. External subtitles are intentionally not declared because the returned caption contract was inconsistent. Native iOS playback, file download, simulator, device, and AirPlay evidence remain unverified.",
       "releaseTrack" : "beta",
       "status" : "active",
-      "version" : "0.2.1"
+      "version" : "0.2.2"
     },
     {
       "contentRating" : "unknown",
@@ -110,10 +110,10 @@
     }
   ],
   "enabled" : true,
-  "generatedAt" : 1788276261,
+  "generatedAt" : 1788385184,
   "name" : "AROKI Connectors",
   "publicKey" : "BYKainAr2pxVfWxSSQJHG79Xl\/mnkTuIl1ujEmR+1V4=",
   "repositoryID" : "aroki-connectors",
   "schemaVersion" : 1,
-  "signature" : "SClu4aqVNOEVLe5tWhfGi1zuy1CIsMdQjy3FtOMGq0R8ntCK6L3\/krGotU3Pppa8aDr2qyQDvtajPsThM0B1DQ=="
+  "signature" : "7miYz4bSsmK8yF8l4mR1zmMhJfYYsdBl3RGsNQvDQE\/OO+aa8Mm4Y1oRR6xfjMsgmoYWg\/pl4JQXfWfDvuvlBA=="
 }
