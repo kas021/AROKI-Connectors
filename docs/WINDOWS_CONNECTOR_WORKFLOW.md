@@ -32,6 +32,19 @@ key is required. In the bridge build, the person installing it must paste the
 exact raw GitHub `index.json` URL, enable **Allow unsigned collection**, and
 confirm the warning.
 
+Build the keyless index from explicitly named connectors:
+
+```powershell
+py scripts/validate-unsigned-connector.py <id>
+py scripts/build-unsigned-index.py <id> --repository-id my-aroki-feed --name "My AROKI Feed"
+git add connectors/<id>/connector.json index.json
+git commit -m "Publish unsigned <id> <version>"
+git push
+```
+
+Do not run this command in the official signed repository's `main` branch.
+Use a separate test repository or a clearly named non-main branch.
+
 Unsigned feeds are not compatible with older AROKI builds. They never replace
 or weaken the signed feed automatically. AROKI still validates JSON structure,
 HTTPS hosts, checksums, request bounds and native media rules, but cannot prove
