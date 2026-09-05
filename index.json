@@ -8,15 +8,15 @@
       "language" : "en",
       "manifest" : {
         "path" : "connectors\/anikoto\/connector.json",
-        "sha256" : "af70a87c473e5143bf8c4eaa605dfffb196686d561c65778ac289b1e1828b478",
-        "signature" : "0SmfpbqI4AunHUYXZs4bxYHJI8ad37A+URKZgVYtrce39eOiVQHlFKcszIJXJZOe4w0c3EUYg\/hsf4Kd0fu3Ag=="
+        "sha256" : "516a55d60390e51fd38b85cf26cb8a1671b0cdefbd4990ceb053da1fb8ee84ab",
+        "signature" : "Rj7x+k9XQhYHpD7fYjSM962IiHIWd3vPN8dOMX5wpmTsN6DBVsDfmqR+IKk06dkDFISSufz02U2PcnkXIIrBCg=="
       },
       "minimumAppVersion" : "0.1.0",
       "name" : "AniKoto",
-      "releaseNotes" : "Restores external English captions after AniKoto rotated subtitle delivery to cdn.kryntal.top and vidtub.akirax.buzz. The native four-step stream graph and media policy are unchanged.",
+      "releaseNotes" : "Prioritize fast VidPlay stream servers over MegaPlay, whitelist new CDN origins (imgnex.top, kryntal.top), and ensure robust subtitle and audio variant resolution.",
       "releaseTrack" : "beta",
       "status" : "active",
-      "version" : "0.3.6"
+      "version" : "0.3.7"
     },
     {
       "contentRating" : "unknown",
@@ -110,10 +110,10 @@
     }
   ],
   "enabled" : true,
-  "generatedAt" : 1788628708,
+  "generatedAt" : 1788628967,
   "name" : "AROKI Connectors",
   "publicKey" : "BYKainAr2pxVfWxSSQJHG79Xl\/mnkTuIl1ujEmR+1V4=",
   "repositoryID" : "aroki-connectors",
   "schemaVersion" : 1,
-  "signature" : "QjMHt2CfZct+MdvYKcwMHR\/NWXsCLEAn15u5g7LGUjeJO7x3Wz7nQz6QL4\/pNpJkgAPQFTOKuywS9UdRa0CPAg=="
+  "signature" : "Z9WCJr5imTtEzlP2S\/oPBZIJcKMCHOOqSYzKNYfiML8g+ME2PvIWdZARd4gdFaF1e\/OkY26Gn9soTyFAKtw4BA=="
 }

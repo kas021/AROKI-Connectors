@@ -3,7 +3,7 @@
   "id": "anikoto",
   "familyID": "anikoto",
   "name": "AniKoto",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "minimumAppVersion": "0.1.0",
   "contentType": "video",
   "language": "en",
@@ -26,12 +26,14 @@
     "vidtube.site",
     "megaplay.buzz",
     "*.kotocdn.site",
-    "vidtub.norami.top",
-    "cdn.watching.onl",
-    "cdn.kryntal.top",
-    "vidtub.akirax.buzz",
-    "vidtub.shiora.site",
-    "vidtub.shiora.top"
+    "*.norami.top",
+    "*.akirax.buzz",
+    "*.kryntal.top",
+    "*.thaloryn.top",
+    "*.imgnex.top",
+    "*.shiora.site",
+    "*.shiora.top",
+    "*.watching.onl"
   ],
   "capabilities": [
     "discovery",
@@ -41,7 +43,7 @@
     "streams"
   ],
   "limits": {
-    "timeoutMilliseconds": 20000,
+    "timeoutMilliseconds": 8000,
     "maxConcurrentRequests": 2,
     "maxResponseBytes": 8388608
   },
@@ -220,22 +222,51 @@
           "request": {
             "method": "GET",
             "urlTemplate": "https://anikototv.to/genre/adventure?page={page}",
-            "headers": { "Accept": "text/html", "Referer": "https://anikototv.to/" }
+            "headers": {
+              "Accept": "text/html",
+              "Referer": "https://anikototv.to/"
+            }
           },
-          "response": { "format": "html" },
-          "pagination": { "type": "pageParam", "start": 1, "maxPages": 25 },
+          "response": {
+            "format": "html"
+          },
+          "pagination": {
+            "type": "pageParam",
+            "start": 1,
+            "maxPages": 25
+          },
           "items": {
             "collection": "#list-items div.item",
             "fields": {
               "sourceID": {
-                "selector": "a.name.d-title", "part": "attr", "attr": "href",
+                "selector": "a.name.d-title",
+                "part": "attr",
+                "attr": "href",
                 "transforms": [
-                  { "op": "removePrefix", "value": "https://anikototv.to/watch/" },
-                  { "op": "removeSuffix", "value": "/ep-1" }
+                  {
+                    "op": "removePrefix",
+                    "value": "https://anikototv.to/watch/"
+                  },
+                  {
+                    "op": "removeSuffix",
+                    "value": "/ep-1"
+                  }
                 ]
               },
-              "title": { "selector": "a.name.d-title", "part": "text", "transforms": [{ "op": "trim" }] },
-              "posterURL": { "selector": "div.poster img", "part": "attr", "attr": "src" }
+              "title": {
+                "selector": "a.name.d-title",
+                "part": "text",
+                "transforms": [
+                  {
+                    "op": "trim"
+                  }
+                ]
+              },
+              "posterURL": {
+                "selector": "div.poster img",
+                "part": "attr",
+                "attr": "src"
+              }
             }
           }
         },
@@ -246,22 +277,51 @@
           "request": {
             "method": "GET",
             "urlTemplate": "https://anikototv.to/genre/comedy?page={page}",
-            "headers": { "Accept": "text/html", "Referer": "https://anikototv.to/" }
+            "headers": {
+              "Accept": "text/html",
+              "Referer": "https://anikototv.to/"
+            }
           },
-          "response": { "format": "html" },
-          "pagination": { "type": "pageParam", "start": 1, "maxPages": 25 },
+          "response": {
+            "format": "html"
+          },
+          "pagination": {
+            "type": "pageParam",
+            "start": 1,
+            "maxPages": 25
+          },
           "items": {
             "collection": "#list-items div.item",
             "fields": {
               "sourceID": {
-                "selector": "a.name.d-title", "part": "attr", "attr": "href",
+                "selector": "a.name.d-title",
+                "part": "attr",
+                "attr": "href",
                 "transforms": [
-                  { "op": "removePrefix", "value": "https://anikototv.to/watch/" },
-                  { "op": "removeSuffix", "value": "/ep-1" }
+                  {
+                    "op": "removePrefix",
+                    "value": "https://anikototv.to/watch/"
+                  },
+                  {
+                    "op": "removeSuffix",
+                    "value": "/ep-1"
+                  }
                 ]
               },
-              "title": { "selector": "a.name.d-title", "part": "text", "transforms": [{ "op": "trim" }] },
-              "posterURL": { "selector": "div.poster img", "part": "attr", "attr": "src" }
+              "title": {
+                "selector": "a.name.d-title",
+                "part": "text",
+                "transforms": [
+                  {
+                    "op": "trim"
+                  }
+                ]
+              },
+              "posterURL": {
+                "selector": "div.poster img",
+                "part": "attr",
+                "attr": "src"
+              }
             }
           }
         },
@@ -272,22 +332,51 @@
           "request": {
             "method": "GET",
             "urlTemplate": "https://anikototv.to/genre/fantasy?page={page}",
-            "headers": { "Accept": "text/html", "Referer": "https://anikototv.to/" }
+            "headers": {
+              "Accept": "text/html",
+              "Referer": "https://anikototv.to/"
+            }
           },
-          "response": { "format": "html" },
-          "pagination": { "type": "pageParam", "start": 1, "maxPages": 25 },
+          "response": {
+            "format": "html"
+          },
+          "pagination": {
+            "type": "pageParam",
+            "start": 1,
+            "maxPages": 25
+          },
           "items": {
             "collection": "#list-items div.item",
             "fields": {
               "sourceID": {
-                "selector": "a.name.d-title", "part": "attr", "attr": "href",
+                "selector": "a.name.d-title",
+                "part": "attr",
+                "attr": "href",
                 "transforms": [
-                  { "op": "removePrefix", "value": "https://anikototv.to/watch/" },
-                  { "op": "removeSuffix", "value": "/ep-1" }
+                  {
+                    "op": "removePrefix",
+                    "value": "https://anikototv.to/watch/"
+                  },
+                  {
+                    "op": "removeSuffix",
+                    "value": "/ep-1"
+                  }
                 ]
               },
-              "title": { "selector": "a.name.d-title", "part": "text", "transforms": [{ "op": "trim" }] },
-              "posterURL": { "selector": "div.poster img", "part": "attr", "attr": "src" }
+              "title": {
+                "selector": "a.name.d-title",
+                "part": "text",
+                "transforms": [
+                  {
+                    "op": "trim"
+                  }
+                ]
+              },
+              "posterURL": {
+                "selector": "div.poster img",
+                "part": "attr",
+                "attr": "src"
+              }
             }
           }
         },
@@ -298,22 +387,51 @@
           "request": {
             "method": "GET",
             "urlTemplate": "https://anikototv.to/genre/romance?page={page}",
-            "headers": { "Accept": "text/html", "Referer": "https://anikototv.to/" }
+            "headers": {
+              "Accept": "text/html",
+              "Referer": "https://anikototv.to/"
+            }
           },
-          "response": { "format": "html" },
-          "pagination": { "type": "pageParam", "start": 1, "maxPages": 25 },
+          "response": {
+            "format": "html"
+          },
+          "pagination": {
+            "type": "pageParam",
+            "start": 1,
+            "maxPages": 25
+          },
           "items": {
             "collection": "#list-items div.item",
             "fields": {
               "sourceID": {
-                "selector": "a.name.d-title", "part": "attr", "attr": "href",
+                "selector": "a.name.d-title",
+                "part": "attr",
+                "attr": "href",
                 "transforms": [
-                  { "op": "removePrefix", "value": "https://anikototv.to/watch/" },
-                  { "op": "removeSuffix", "value": "/ep-1" }
+                  {
+                    "op": "removePrefix",
+                    "value": "https://anikototv.to/watch/"
+                  },
+                  {
+                    "op": "removeSuffix",
+                    "value": "/ep-1"
+                  }
                 ]
               },
-              "title": { "selector": "a.name.d-title", "part": "text", "transforms": [{ "op": "trim" }] },
-              "posterURL": { "selector": "div.poster img", "part": "attr", "attr": "src" }
+              "title": {
+                "selector": "a.name.d-title",
+                "part": "text",
+                "transforms": [
+                  {
+                    "op": "trim"
+                  }
+                ]
+              },
+              "posterURL": {
+                "selector": "div.poster img",
+                "part": "attr",
+                "attr": "src"
+              }
             }
           }
         },
@@ -324,22 +442,51 @@
           "request": {
             "method": "GET",
             "urlTemplate": "https://anikototv.to/genre/sci-fi?page={page}",
-            "headers": { "Accept": "text/html", "Referer": "https://anikototv.to/" }
+            "headers": {
+              "Accept": "text/html",
+              "Referer": "https://anikototv.to/"
+            }
           },
-          "response": { "format": "html" },
-          "pagination": { "type": "pageParam", "start": 1, "maxPages": 25 },
+          "response": {
+            "format": "html"
+          },
+          "pagination": {
+            "type": "pageParam",
+            "start": 1,
+            "maxPages": 25
+          },
           "items": {
             "collection": "#list-items div.item",
             "fields": {
               "sourceID": {
-                "selector": "a.name.d-title", "part": "attr", "attr": "href",
+                "selector": "a.name.d-title",
+                "part": "attr",
+                "attr": "href",
                 "transforms": [
-                  { "op": "removePrefix", "value": "https://anikototv.to/watch/" },
-                  { "op": "removeSuffix", "value": "/ep-1" }
+                  {
+                    "op": "removePrefix",
+                    "value": "https://anikototv.to/watch/"
+                  },
+                  {
+                    "op": "removeSuffix",
+                    "value": "/ep-1"
+                  }
                 ]
               },
-              "title": { "selector": "a.name.d-title", "part": "text", "transforms": [{ "op": "trim" }] },
-              "posterURL": { "selector": "div.poster img", "part": "attr", "attr": "src" }
+              "title": {
+                "selector": "a.name.d-title",
+                "part": "text",
+                "transforms": [
+                  {
+                    "op": "trim"
+                  }
+                ]
+              },
+              "posterURL": {
+                "selector": "div.poster img",
+                "part": "attr",
+                "attr": "src"
+              }
             }
           }
         }
@@ -500,7 +647,10 @@
     },
     "streams": {
       "finalMediaPolicy": "public-https",
-      "variants": ["sub", "dub"],
+      "variants": [
+        "sub",
+        "dub"
+      ],
       "playbackHeaders": {
         "Referer": "https://megaplay.buzz/"
       },
@@ -532,7 +682,7 @@
                     "attr": "data-link-id"
                   },
                   {
-                    "selector": "div.type[data-type=\"{variant}\"] li[data-sv-id=\"e54\"]",
+                    "selector": "div.type[data-type=\"{variant}\"] li[data-sv-id=\"e54\"], div.type[data-type=\"{variant}\"] li[data-link-id]",
                     "part": "attr",
                     "attr": "data-link-id"
                   }
@@ -621,20 +771,28 @@
                 "url": {
                   "path": "file",
                   "fallbacks": [
-                    { "path": "url" },
-                    { "path": "src" }
+                    {
+                      "path": "url"
+                    },
+                    {
+                      "path": "src"
+                    }
                   ]
                 },
                 "label": {
                   "path": "label",
                   "fallbacks": [
-                    { "path": "name" }
+                    {
+                      "path": "name"
+                    }
                   ]
                 },
                 "languageCode": {
                   "path": "srclang",
                   "fallbacks": [
-                    { "path": "language" }
+                    {
+                      "path": "language"
+                    }
                   ]
                 },
                 "format": {
@@ -647,5 +805,5 @@
       ]
     }
   },
-  "releaseNotes": "Restores external English captions after AniKoto rotated subtitle delivery to cdn.kryntal.top and vidtub.akirax.buzz. The native four-step stream graph and media policy are unchanged."
+  "releaseNotes": "Prioritize fast VidPlay stream servers over MegaPlay, whitelist new CDN origins (imgnex.top, kryntal.top), and ensure robust subtitle and audio variant resolution."
 }
