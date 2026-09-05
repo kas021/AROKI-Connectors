@@ -3,7 +3,7 @@
   "id": "anikage",
   "familyID": "anikage",
   "name": "AniKage (BETA)",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "minimumAppVersion": "0.1.0",
   "contentType": "video",
   "language": "en",
@@ -22,7 +22,11 @@
   "allowedHosts": [
     "anikage.cc",
     "og.bakayaro.live",
-    "s4.anilist.co"
+    "*.bakayaro.live",
+    "bibiemb.xyz",
+    "*.bibiemb.xyz",
+    "s4.anilist.co",
+    "artworks.thetvdb.com"
   ],
   "capabilities": [
     "discovery",
@@ -32,11 +36,10 @@
     "streams"
   ],
   "limits": {
-    "timeoutMilliseconds": 30000,
+    "timeoutMilliseconds": 8000,
     "maxConcurrentRequests": 1,
     "maxResponseBytes": 8388608
   },
-  "downloadSupport": "hls",
   "operations": {
     "discovery": {
       "sections": [
@@ -88,17 +91,6 @@
                     "path": "coverImage.medium"
                   }
                 ]
-              }
-            },
-            "metadata": {
-              "genres": {
-                "collection": "genres[*]"
-              },
-              "year": {
-                "path": "year"
-              },
-              "status": {
-                "path": "status"
               }
             }
           }
@@ -152,17 +144,6 @@
                   }
                 ]
               }
-            },
-            "metadata": {
-              "genres": {
-                "collection": "genres[*]"
-              },
-              "year": {
-                "path": "year"
-              },
-              "status": {
-                "path": "status"
-              }
             }
           }
         },
@@ -215,17 +196,6 @@
                   }
                 ]
               }
-            },
-            "metadata": {
-              "genres": {
-                "collection": "genres[*]"
-              },
-              "year": {
-                "path": "year"
-              },
-              "status": {
-                "path": "status"
-              }
             }
           }
         }
@@ -271,17 +241,6 @@
                 "path": "coverImage.medium"
               }
             ]
-          }
-        },
-        "metadata": {
-          "genres": {
-            "collection": "genres[*]"
-          },
-          "year": {
-            "path": "year"
-          },
-          "status": {
-            "path": "status"
           }
         }
       },
@@ -367,12 +326,6 @@
           },
           "episodeNumber": {
             "path": "number"
-          },
-          "seasonNumber": {
-            "path": "seasonNumber"
-          },
-          "thumbnailURL": {
-            "path": "image"
           }
         }
       }
@@ -382,7 +335,6 @@
         "sub",
         "dub"
       ],
-      "finalMediaPolicy": "allowlisted",
       "playbackHeaders": {
         "Referer": "https://anikage.cc/",
         "Origin": "https://anikage.cc",
@@ -390,7 +342,7 @@
       },
       "request": {
         "method": "GET",
-        "urlTemplate": "https://anikage.cc/api/media/anime/{titleID}/episodes/{episodeID}/sources?provider=koto&lang={variant}",
+        "urlTemplate": "https://anikage.cc/api/media/anime/{titleID}/episodes/{episodeID}/sources?provider=neko&lang={variant}",
         "headers": {
           "Accept": "application/json, text/plain, */*",
           "Accept-Language": "en-US,en;q=0.9",
@@ -422,33 +374,9 @@
           "mediaTypeHint": {
             "literal": "hls"
           }
-        },
-        "subtitles": {
-          "collection": "subtitles[*]",
-          "fields": {
-            "url": {
-              "path": "file",
-              "transforms": [
-                {
-                  "op": "template",
-                  "value": "https://og.bakayaro.live/{value}",
-                  "encodeValue": false
-                }
-              ]
-            },
-            "languageCode": {
-              "literal": "en"
-            },
-            "label": {
-              "path": "label"
-            },
-            "format": {
-              "literal": "vtt"
-            }
-          }
         }
       }
     }
   },
-  "releaseNotes": "Repair candidate using AniKage's finite Koto JSON provider. Koto returned genuine bounded HLS media for titles where the previous Kiwi route returned 403, and exposes multiple quality candidates plus English WebVTT captions for both Sub and Dub. Discovery and search now include source-provided genres, year, and status; episodes include season numbers and thumbnails. The fixed AniKage proxy URL is assembled with the native template transform. Native iOS playback, offline download, AirPlay, and physical-device evidence remain unverified."
+  "releaseNotes": "Prioritized healthy neko stream provider over dead megg/koto origins. Added bibiemb.xyz and bakayaro.live mirrors. Validated HLS playback across sub and dub."
 }
