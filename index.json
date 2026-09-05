@@ -26,15 +26,15 @@
       "language" : "en",
       "manifest" : {
         "path" : "connectors\/anikage\/connector.json",
-        "sha256" : "a04a960e4580e87125a836c5887d6ea1a1e32b7131a5b1ead749ac96ba6077a7",
-        "signature" : "XVvY73++zMjhTaf5HXCHK0KtFfIqTCOFw322EqHAu6cHZAAy4qbJpmSBsCo+EPlDdkus8aGUzhkAyp\/b4kjIAg=="
+        "sha256" : "316dccf33f565dcf1357ef07f8e15c17aafa88961033754e1655b1dba8368b6d",
+        "signature" : "YYHtvMvGdVePcK6dvuJWbBjXbLMvr+WwCFeZidv8ahVcKKtsOmH4SpG6T9vhu\/mBR3G8ZD3Nj6v\/\/RohG76wCw=="
       },
       "minimumAppVersion" : "0.1.0",
       "name" : "AniKage (BETA)",
-      "releaseNotes" : "Repair candidate using AniKage's finite Koto JSON provider. Koto returned genuine bounded HLS media for titles where the previous Kiwi route returned 403, and exposes multiple quality candidates plus English WebVTT captions for both Sub and Dub. Discovery and search now include source-provided genres, year, and status; episodes include season numbers and thumbnails. The fixed AniKage proxy URL is assembled with the native template transform. Native iOS playback, offline download, AirPlay, and physical-device evidence remain unverified.",
+      "releaseNotes" : "Prioritized healthy neko stream provider over dead megg\/koto origins. Added bibiemb.xyz and bakayaro.live mirrors. Validated HLS playback across sub and dub.",
       "releaseTrack" : "beta",
       "status" : "active",
-      "version" : "0.3.0"
+      "version" : "0.3.1"
     },
     {
       "contentRating" : "unknown",
@@ -110,10 +110,10 @@
     }
   ],
   "enabled" : true,
-  "generatedAt" : 1788483089,
+  "generatedAt" : 1788628708,
   "name" : "AROKI Connectors",
   "publicKey" : "BYKainAr2pxVfWxSSQJHG79Xl\/mnkTuIl1ujEmR+1V4=",
   "repositoryID" : "aroki-connectors",
   "schemaVersion" : 1,
-  "signature" : "CsrwmnsVlLmZsUcTx7uvs6n\/CYqc5xWUogQ8WsFwcaXjDrkVJ6bCutLjz\/\/h0v2wIVvl3fU68cpJaaCiD3R9Ag=="
+  "signature" : "QjMHt2CfZct+MdvYKcwMHR\/NWXsCLEAn15u5g7LGUjeJO7x3Wz7nQz6QL4\/pNpJkgAPQFTOKuywS9UdRa0CPAg=="
 }
