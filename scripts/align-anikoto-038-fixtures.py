@@ -19,13 +19,13 @@ if hashlib.sha256(candidate).hexdigest() != "c58e0ab74c384c3d52c43d1380be8dfc956
 path = root / "VireoCore/Tests/VireoCoreTests/AniKotoConnectorTests.swift"
 source = path.read_text()
 replacements = {
-    'SemanticVersion("0.3.6")': 'SemanticVersion("0.3.8")',
-    '/stream/getSources?id=98765&type=sub': '/stream/getSourcesNew?id=98765&type=sub',
-    '/stream/getSources?id=54321&type=dub': '/stream/getSourcesNew?id=54321&type=dub',
+    'SemanticVersion("0.3.6")': ('SemanticVersion("0.3.8")', 1),
+    '/stream/getSources?id=98765&type=sub': ('/stream/getSourcesNew?id=98765&type=sub', 2),
+    '/stream/getSources?id=54321&type=dub': ('/stream/getSourcesNew?id=54321&type=dub', 2),
 }
-for old, new in replacements.items():
-    if source.count(old) != 1:
+for old, (new, expected_count) in replacements.items():
+    if source.count(old) != expected_count:
         raise SystemExit("Pinned AniKoto fixture changed; manual review required")
     source = source.replace(old, new)
 path.write_text(source)
-print("Aligned three AniKoto fixture literals; all test assertions retained")
+print("Aligned version, two stub routes and two expected request URLs; all assertions retained")
