@@ -3,7 +3,7 @@
   "id": "anikoto",
   "familyID": "anikoto",
   "name": "AniKoto",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "minimumAppVersion": "0.1.0",
   "contentType": "video",
   "language": "en",
@@ -744,7 +744,7 @@
           "request": {
             "method": "GET",
             "originOf": "playerURL",
-            "pathTemplate": "/stream/getSources?id={playerID}&type={variant}",
+            "pathTemplate": "/stream/getSourcesNew?id={playerID}&type={variant}",
             "headers": {
               "Accept": "application/json, text/plain, */*",
               "X-Requested-With": "XMLHttpRequest"
@@ -805,5 +805,5 @@
       ]
     }
   },
-  "releaseNotes": "Prioritize fast VidPlay stream servers over MegaPlay, whitelist new CDN origins (imgnex.top, kryntal.top), and ensure robust subtitle and audio variant resolution."
+  "releaseNotes": "Restores stream resolution using MegaPlay's current source endpoint. Preserves SUB/DUB selection, subtitle mappings, existing AniKoto identity and the existing connector schema. No app update or JavaScript runtime is introduced by this module change."
 }
