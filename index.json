@@ -7,16 +7,16 @@
       "id" : "anikoto",
       "language" : "en",
       "manifest" : {
-        "path" : "connectors\/anikoto\/connector.json",
-        "sha256" : "516a55d60390e51fd38b85cf26cb8a1671b0cdefbd4990ceb053da1fb8ee84ab",
-        "signature" : "Rj7x+k9XQhYHpD7fYjSM962IiHIWd3vPN8dOMX5wpmTsN6DBVsDfmqR+IKk06dkDFISSufz02U2PcnkXIIrBCg=="
+        "path" : "connectors\/anikoto\/releases\/c58e0ab74c384c3d52c43d1380be8dfc956b7522d88a417d7bcc89f2600bd51d\/connector.json",
+        "sha256" : "c58e0ab74c384c3d52c43d1380be8dfc956b7522d88a417d7bcc89f2600bd51d",
+        "signature" : "8X1rkVaIfztns5T1OS5YPJGY2AYiR6KShFdXZ\/gLe5Hjy9P11oGknh\/pDxnnSunMqdfNgvw6sBBGzHtc2rDzAw=="
       },
       "minimumAppVersion" : "0.1.0",
       "name" : "AniKoto",
-      "releaseNotes" : "Prioritize fast VidPlay stream servers over MegaPlay, whitelist new CDN origins (imgnex.top, kryntal.top), and ensure robust subtitle and audio variant resolution.",
+      "releaseNotes" : "Restores stream resolution using MegaPlay's current source endpoint. Preserves SUB\/DUB selection, subtitle mappings, existing AniKoto identity and the existing connector schema. No app update or JavaScript runtime is introduced by this module change.",
       "releaseTrack" : "beta",
       "status" : "active",
-      "version" : "0.3.7"
+      "version" : "0.3.8"
     },
     {
       "contentRating" : "unknown",
@@ -110,10 +110,10 @@
     }
   ],
   "enabled" : true,
-  "generatedAt" : 1788628967,
+  "generatedAt" : 1788900868,
   "name" : "AROKI Connectors",
   "publicKey" : "BYKainAr2pxVfWxSSQJHG79Xl\/mnkTuIl1ujEmR+1V4=",
   "repositoryID" : "aroki-connectors",
   "schemaVersion" : 1,
-  "signature" : "Z9WCJr5imTtEzlP2S\/oPBZIJcKMCHOOqSYzKNYfiML8g+ME2PvIWdZARd4gdFaF1e\/OkY26Gn9soTyFAKtw4BA=="
+  "signature" : "evZsaDwpdgJN7N6E1KPXQJyGY6suGf3wPhAzL8zKdHChK2X7godqw8zXYMxcaDZ7MyPiBcEqOx58STNdsVh+Dg=="
 }
