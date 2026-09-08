@@ -78,6 +78,10 @@ jobs:
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
 
+      - name: Align reviewed AniKoto 0.3.8 fixture expectations
+        if: steps.candidate.outputs.changed == 'true' && inputs.connector_id == 'anikoto'
+        run: python3 AROKI-Connectors/scripts/align-anikoto-038-fixtures.py Vireo
+
       - name: Build the native validator and run deterministic tests
         if: steps.candidate.outputs.changed == 'true'
         run: |
