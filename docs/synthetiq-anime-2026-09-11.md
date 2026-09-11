@@ -44,7 +44,7 @@ access-control workaround or AniCrowd/MegaPlay fallback is introduced.
 ## Publication safeguards
 
 Native validator pinned to reviewed private Vireo commit
-`7765c852157944201fdc07d1712b8be7ecccc05e`. It supports the declared features;
+`8906a009606d392846e205917af4ebcd002c2cc1`. It supports the declared features;
 the previous publisher did not. Signing stays in the existing protected GitHub
 environment; no key is placed in candidate files or logs. Existing signed
 artifacts are retained, the new artifact is content-addressed, and the root
