@@ -107,13 +107,31 @@
       "releaseTrack" : "beta",
       "status" : "active",
       "version" : "1.2.11"
+    },
+    {
+      "contentRating" : "unknown",
+      "contentType" : "video",
+      "familyID" : "synthetiq-anime-testing",
+      "id" : "synthetiq-anime-testing",
+      "language" : "en",
+      "manifest" : {
+        "path" : "connectors\/synthetiq-anime-testing\/releases\/f83d4fb3a28b69f275e388b62c4816c74c93bfce5eee5ea2f3163b175b1a8fed\/connector.json",
+        "sha256" : "f83d4fb3a28b69f275e388b62c4816c74c93bfce5eee5ea2f3163b175b1a8fed",
+        "signature" : "hVB9jaQPitPs7CHc2EmBlWZ4jmbKEqlVFr99eftNz\/Dgkl06BELXn2BwJ9exEvyKMON0VFu8nDR3ntRiut0oAQ=="
+      },
+      "minimumAppVersion" : "2.0.38",
+      "name" : "Synthetiq Anime (BETA - Testing only)",
+      "releaseNotes" : "Experimental native AniList\/MAL catalogue and fresh Vidhawk Flow\/Zuri tickets. Catalogue counts do not prove playback. Provider Dub labels and subtitle rendering need independent verification. Local testing only.",
+      "releaseTrack" : "beta",
+      "status" : "active",
+      "version" : "0.1.0"
     }
   ],
   "enabled" : true,
-  "generatedAt" : 1788900868,
+  "generatedAt" : 1789158130,
   "name" : "AROKI Connectors",
   "publicKey" : "BYKainAr2pxVfWxSSQJHG79Xl\/mnkTuIl1ujEmR+1V4=",
   "repositoryID" : "aroki-connectors",
   "schemaVersion" : 1,
-  "signature" : "evZsaDwpdgJN7N6E1KPXQJyGY6suGf3wPhAzL8zKdHChK2X7godqw8zXYMxcaDZ7MyPiBcEqOx58STNdsVh+Dg=="
+  "signature" : "fl79G3qqZN6Rd9OSue5s3CD51ZFKWd6BOjwK9zmDW\/UHHmudj\/wgzA+SBAoYpMbvb31J5SkP4CuJ2Vbuto5iAA=="
 }
