@@ -24,6 +24,8 @@ replacements = {
     '/stream/getSources?id=54321&type=dub': ('/stream/getSourcesNew?id=54321&type=dub', 2),
 }
 for old, (new, expected_count) in replacements.items():
+    if source.count(old) == 0 and source.count(new) == expected_count:
+        continue  # Reviewed expectation already exists in the newer validator.
     if source.count(old) != expected_count:
         raise SystemExit("Pinned AniKoto fixture changed; manual review required")
     source = source.replace(old, new)

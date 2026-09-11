@@ -1,0 +1,586 @@
+{
+  "schemaVersion": 1,
+  "id": "synthetiq-anime-testing",
+  "familyID": "synthetiq-anime-testing",
+  "name": "Synthetiq Anime (BETA - Testing only)",
+  "version": "0.1.0",
+  "minimumAppVersion": "2.0.38",
+  "contentType": "video",
+  "language": "en",
+  "contentRating": "unknown",
+  "releaseTrack": "beta",
+  "status": "active",
+  "attribution": {
+    "author": "Synthetiq",
+    "website": "https://anicrowd.xyz/"
+  },
+  "authorization": {
+    "basis": "owner-authorised",
+    "note": "Owner-authorised compatibility testing using the owned Player module. This is not a rights determination for provider media or approval for public distribution.",
+    "evidenceURL": "https://github.com/kas021/Synthetiq-Modules"
+  },
+  "allowedHosts": [
+    "graphql.anilist.co",
+    "api.jikan.moe",
+    "s4.anilist.co",
+    "cdn.myanimelist.net",
+    "vidhawk.buzz",
+    "*.vidhawk.buzz",
+    "anicrowd.xyz",
+    "raw.githubusercontent.com"
+  ],
+  "capabilities": [
+    "discovery",
+    "search",
+    "details",
+    "episodes",
+    "streams"
+  ],
+  "requiredEngineFeatures": [
+    "contextual-hls-v1",
+    "numbered-catalogue-v1",
+    "catalogue-fallback-v1"
+  ],
+  "downloadSupport": "hls",
+  "limits": {
+    "timeoutMilliseconds": 8000,
+    "maxConcurrentRequests": 2,
+    "maxResponseBytes": 2500000
+  },
+  "releaseNotes": "Experimental native AniList/MAL catalogue and fresh Vidhawk Flow/Zuri tickets. Catalogue counts do not prove playback. Provider Dub labels and subtitle rendering need independent verification. Local testing only.",
+  "operations": {
+    "discovery": {
+      "sections": [
+        {
+          "id": "trending",
+          "title": "Trending",
+          "semantic": "custom",
+          "request": {
+            "method": "POST",
+            "urlTemplate": "https://graphql.anilist.co",
+            "headers": {
+              "Accept": "application/json",
+              "Referer": "https://anicrowd.xyz/"
+            },
+            "body": "{\"query\":\"query{Page(page:{page},perPage:20){media(type:ANIME,sort:TRENDING_DESC,isAdult:false){id idMal title{english romaji} description(asHtml:false) coverImage{ large } seasonYear episodes status nextAiringEpisode{ episode }}}}\"}"
+          },
+          "response": {
+            "format": "json"
+          },
+          "pagination": {
+            "type": "pageParam",
+            "start": 1,
+            "maxPages": 25
+          },
+          "items": {
+            "collection": "data.Page.media[*]",
+            "fields": {
+              "sourceID": {
+                "path": "idMal"
+              },
+              "title": {
+                "path": "title.english",
+                "fallbacks": [
+                  {
+                    "path": "title.romaji"
+                  }
+                ]
+              },
+              "posterURL": {
+                "path": "coverImage.large"
+              }
+            }
+          }
+        },
+        {
+          "id": "popular",
+          "title": "Popular",
+          "semantic": "popular",
+          "request": {
+            "method": "POST",
+            "urlTemplate": "https://graphql.anilist.co",
+            "headers": {
+              "Accept": "application/json",
+              "Referer": "https://anicrowd.xyz/"
+            },
+            "body": "{\"query\":\"query{Page(page:{page},perPage:20){media(type:ANIME,sort:POPULARITY_DESC,isAdult:false){id idMal title{english romaji} description(asHtml:false) coverImage{ large } seasonYear episodes status nextAiringEpisode{ episode }}}}\"}"
+          },
+          "response": {
+            "format": "json"
+          },
+          "pagination": {
+            "type": "pageParam",
+            "start": 1,
+            "maxPages": 25
+          },
+          "items": {
+            "collection": "data.Page.media[*]",
+            "fields": {
+              "sourceID": {
+                "path": "idMal"
+              },
+              "title": {
+                "path": "title.english",
+                "fallbacks": [
+                  {
+                    "path": "title.romaji"
+                  }
+                ]
+              },
+              "posterURL": {
+                "path": "coverImage.large"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "search": {
+      "request": {
+        "method": "POST",
+        "urlTemplate": "https://graphql.anilist.co",
+        "headers": {
+          "Accept": "application/json",
+          "Referer": "https://anicrowd.xyz/"
+        },
+        "body": "{\"query\":\"query($q:String){Page(page:{page},perPage:20){media(search:$q,type:ANIME,sort:SEARCH_MATCH,isAdult:false){id idMal title{english romaji} description(asHtml:false) coverImage{ large } seasonYear episodes status nextAiringEpisode{ episode }}}}\",\"variables\":{\"q\":\"{query}\"}}"
+      },
+      "response": {
+        "format": "json"
+      },
+      "pagination": {
+        "type": "pageParam",
+        "start": 1,
+        "maxPages": 25
+      },
+      "items": {
+        "collection": "data.Page.media[*]",
+        "fields": {
+          "sourceID": {
+            "path": "idMal"
+          },
+          "title": {
+            "path": "title.english",
+            "fallbacks": [
+              {
+                "path": "title.romaji"
+              }
+            ]
+          },
+          "posterURL": {
+            "path": "coverImage.large"
+          }
+        }
+      }
+    },
+    "details": {
+      "request": {
+        "method": "POST",
+        "urlTemplate": "https://graphql.anilist.co",
+        "headers": {
+          "Accept": "application/json",
+          "Referer": "https://anicrowd.xyz/"
+        },
+        "body": "{\"query\":\"query{Media(idMal:{titleID},type:ANIME){id idMal title{english romaji} description(asHtml:false) coverImage{ large } seasonYear episodes status nextAiringEpisode{ episode }}}\"}"
+      },
+      "response": {
+        "format": "json"
+      },
+      "extract": {
+        "title": {
+          "path": "data.Media.title.english",
+          "fallbacks": [
+            {
+              "path": "data.Media.title.romaji"
+            }
+          ]
+        },
+        "synopsis": {
+          "path": "data.Media.description"
+        },
+        "posterURL": {
+          "path": "data.Media.coverImage.large"
+        },
+        "sharedID": {
+          "path": "data.Media.id"
+        },
+        "year": {
+          "path": "data.Media.seasonYear"
+        }
+      }
+    },
+    "episodes": {
+      "request": {
+        "method": "POST",
+        "urlTemplate": "https://graphql.anilist.co",
+        "headers": {
+          "Accept": "application/json",
+          "Referer": "https://anicrowd.xyz/"
+        },
+        "body": "{\"query\":\"query{Media(idMal:{titleID},type:ANIME){id idMal title{english romaji} description(asHtml:false) coverImage{ large } seasonYear episodes status nextAiringEpisode{ episode }}}\"}"
+      },
+      "response": {
+        "format": "json"
+      },
+      "numberedRange": {
+        "countPath": "data.Media.episodes",
+        "nextEpisodePath": "data.Media.nextAiringEpisode.episode",
+        "statusPath": "data.Media.status",
+        "allowedStatuses": [
+          "FINISHED",
+          "RELEASING"
+        ],
+        "identityPath": "data.Media.idMal"
+      },
+      "extract": {
+        "collection": "data.episodes[*]",
+        "fields": {
+          "episodeID": {
+            "path": "id"
+          }
+        }
+      }
+    },
+    "streams": {
+      "selection": "collect",
+      "mirrors": [
+        {
+          "variants": [
+            "sub",
+            "dub"
+          ],
+          "finalMediaPolicy": "public-https",
+          "playbackHeaders": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+          },
+          "contextualMedia": {
+            "contextURLTemplate": "https://vidhawk.buzz/embed/mal/{titleID}/{episodeID}/{variant}",
+            "serverLabel": "Flow",
+            "identity": {
+              "titleID": "malId",
+              "episodeID": "episode"
+            },
+            "introPath": "intro",
+            "outroPath": "outro",
+            "maxContextScalarBytes": 16384,
+            "serverLabelPath": "serverLabel"
+          },
+          "steps": [
+            {
+              "request": {
+                "method": "GET",
+                "urlTemplate": "https://vidhawk.buzz/api/stream/resolve?episode={episodeID}&audio={variant}&parentHost=anicrowd.xyz&fast=1&server=flow&malId={titleID}",
+                "headers": {
+                  "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
+                  "Accept": "application/json"
+                }
+              },
+              "response": {
+                "format": "json"
+              },
+              "extract": {
+                "context": {
+                  "ticket": {
+                    "path": "ticket"
+                  }
+                }
+              }
+            },
+            {
+              "request": {
+                "method": "GET",
+                "urlTemplate": "https://vidhawk.buzz/api/play?t={ticket}",
+                "headers": {
+                  "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
+                  "Accept": "application/json"
+                }
+              },
+              "response": {
+                "format": "json"
+              },
+              "extract": {
+                "collection": {
+                  "path": "tracks[*]",
+                  "where": [
+                    {
+                      "path": "id",
+                      "equalsPlaceholder": "variant"
+                    }
+                  ]
+                },
+                "fields": {
+                  "url": {
+                    "path": "src"
+                  }
+                },
+                "subtitles": {
+                  "variantCollections": {
+                    "sub": "captions.sub[*]",
+                    "dub": "captions.dub[*]"
+                  },
+                  "fields": {
+                    "url": {
+                      "path": "src",
+                      "fallbacks": [
+                        {
+                          "path": "file"
+                        },
+                        {
+                          "path": "url"
+                        }
+                      ]
+                    },
+                    "label": {
+                      "path": "label"
+                    },
+                    "languageCode": {
+                      "path": "lang"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "variants": [
+            "sub",
+            "dub"
+          ],
+          "finalMediaPolicy": "public-https",
+          "playbackHeaders": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+          },
+          "contextualMedia": {
+            "contextURLTemplate": "https://vidhawk.buzz/embed/mal/{titleID}/{episodeID}/{variant}",
+            "serverLabel": "Zuri",
+            "identity": {
+              "titleID": "malId",
+              "episodeID": "episode"
+            },
+            "introPath": "intro",
+            "outroPath": "outro",
+            "maxContextScalarBytes": 16384,
+            "serverLabelPath": "serverLabel"
+          },
+          "steps": [
+            {
+              "request": {
+                "method": "GET",
+                "urlTemplate": "https://vidhawk.buzz/api/stream/resolve?episode={episodeID}&audio={variant}&parentHost=anicrowd.xyz&fast=1&server=zuri&malId={titleID}",
+                "headers": {
+                  "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
+                  "Accept": "application/json"
+                }
+              },
+              "response": {
+                "format": "json"
+              },
+              "extract": {
+                "context": {
+                  "ticket": {
+                    "path": "ticket"
+                  }
+                }
+              }
+            },
+            {
+              "request": {
+                "method": "GET",
+                "urlTemplate": "https://vidhawk.buzz/api/play?t={ticket}",
+                "headers": {
+                  "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
+                  "Accept": "application/json"
+                }
+              },
+              "response": {
+                "format": "json"
+              },
+              "extract": {
+                "collection": {
+                  "path": "tracks[*]",
+                  "where": [
+                    {
+                      "path": "id",
+                      "equalsPlaceholder": "variant"
+                    }
+                  ]
+                },
+                "fields": {
+                  "url": {
+                    "path": "src"
+                  }
+                },
+                "subtitles": {
+                  "variantCollections": {
+                    "sub": "captions.sub[*]",
+                    "dub": "captions.dub[*]"
+                  },
+                  "fields": {
+                    "url": {
+                      "path": "src",
+                      "fallbacks": [
+                        {
+                          "path": "file"
+                        },
+                        {
+                          "path": "url"
+                        }
+                      ]
+                    },
+                    "label": {
+                      "path": "label"
+                    },
+                    "languageCode": {
+                      "path": "lang"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "catalogueFallback": {
+    "discovery": {
+      "sections": [
+        {
+          "id": "popular",
+          "title": "Popular",
+          "semantic": "popular",
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://api.jikan.moe/v4/top/anime?limit=20&page={page}",
+            "headers": {
+              "Accept": "application/json"
+            }
+          },
+          "response": {
+            "format": "json"
+          },
+          "items": {
+            "collection": "data[*]",
+            "fields": {
+              "sourceID": {
+                "path": "mal_id"
+              },
+              "title": {
+                "path": "title_english",
+                "fallbacks": [
+                  {
+                    "path": "title"
+                  }
+                ]
+              },
+              "posterURL": {
+                "path": "images.jpg.large_image_url"
+              }
+            }
+          },
+          "pagination": {
+            "type": "pageParam",
+            "start": 1,
+            "maxPages": 25
+          }
+        }
+      ]
+    },
+    "search": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://api.jikan.moe/v4/anime?q={query}&page={page}&limit=20&sfw=true",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "format": "json"
+      },
+      "items": {
+        "collection": "data[*]",
+        "fields": {
+          "sourceID": {
+            "path": "mal_id"
+          },
+          "title": {
+            "path": "title_english",
+            "fallbacks": [
+              {
+                "path": "title"
+              }
+            ]
+          },
+          "posterURL": {
+            "path": "images.jpg.large_image_url"
+          }
+        }
+      },
+      "pagination": {
+        "type": "pageParam",
+        "start": 1,
+        "maxPages": 25
+      }
+    },
+    "details": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://api.jikan.moe/v4/anime/{titleID}",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "format": "json"
+      },
+      "extract": {
+        "title": {
+          "path": "data.title_english",
+          "fallbacks": [
+            {
+              "path": "data.title"
+            }
+          ]
+        },
+        "synopsis": {
+          "path": "data.synopsis"
+        },
+        "posterURL": {
+          "path": "data.images.jpg.large_image_url"
+        },
+        "year": {
+          "path": "data.year"
+        }
+      }
+    },
+    "episodes": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://api.jikan.moe/v4/anime/{titleID}",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "format": "json"
+      },
+      "extract": {
+        "collection": "data.episodesList[*]",
+        "fields": {
+          "episodeID": {
+            "path": "id"
+          }
+        }
+      },
+      "numberedRange": {
+        "countPath": "data.episodes",
+        "statusPath": "data.status",
+        "allowedStatuses": [
+          "Finished Airing"
+        ],
+        "identityPath": "data.mal_id"
+      }
+    }
+  }
+}

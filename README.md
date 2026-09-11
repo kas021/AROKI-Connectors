@@ -60,3 +60,9 @@ Windows contributors do not need the signing key for the official feed. Push a
 candidate branch, run the structural preflight, then dispatch the protected
 GitHub publishing workflow. For the optional bridge-build unsigned-feed path,
 see [Windows connector workflow](docs/WINDOWS_CONNECTOR_WORKFLOW.md).
+# Synthetiq Anime beta — September 11, 2026
+
+After signed publication, refresh this collection and add **Synthetiq Anime
+(BETA - Testing only)**. Requires **Aroki 2.0.38 (51)+**. Older apps retain their
+existing modules but cannot use this new source. [Results and remaining
+limitations](docs/synthetiq-anime-2026-09-11.md).
