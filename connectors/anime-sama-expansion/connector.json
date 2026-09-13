@@ -1,0 +1,343 @@
+{
+  "schemaVersion": 1,
+  "id": "anime-sama-expansion",
+  "familyID": "anime-sama-expansion",
+  "name": "Anime-Sama",
+  "version": "0.3.1",
+  "minimumAppVersion": "2.0.36",
+  "requiredEngineFeatures": [
+    "literal-selection-v1",
+    "literal-declarations-v1",
+    "nested-array-data-v1",
+    "aligned-episode-panels-v1",
+    "unique-nested-call-v1",
+    "literal-text-encoding-v1",
+    "multiple-literal-scripts-v1",
+    "named-episode-groups-v1",
+    "literal-object-projection-v1",
+    "bounded-mirrors-v1",
+    "literal-tab-strings-v1"
+  ],
+  "contentType": "video",
+  "language": "fr",
+  "contentRating": "unknown",
+  "releaseTrack": "beta",
+  "status": "active",
+  "authorization": {
+    "basis": "personal",
+    "note": "Experimental declarative connector. Use only content you are entitled to access; no third-party content or distribution rights are supplied."
+  },
+  "allowedHosts": [
+    "anime-sama.to",
+    "cdn.jsdelivr.net",
+    "video.sibnet.ru",
+    "*.sibnet.ru",
+    "ansembed.net"
+  ],
+  "capabilities": [
+    "discovery",
+    "search",
+    "details",
+    "episodes",
+    "streams"
+  ],
+  "limits": {
+    "timeoutMilliseconds": 8000,
+    "maxConcurrentRequests": 2,
+    "maxResponseBytes": 4194304
+  },
+  "operations": {
+    "discovery": {
+      "sections": [
+        {
+          "id": "catalogue",
+          "title": "Catalogue",
+          "semantic": "all",
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://anime-sama.to/catalogue/?page={page}"
+          },
+          "response": {
+            "format": "html"
+          },
+          "pagination": {
+            "type": "pageParam",
+            "start": 1,
+            "maxPages": 25
+          },
+          "items": {
+            "collection": "a[href*=/catalogue/]",
+            "fields": {
+              "sourceID": {
+                "selector": "a",
+                "part": "attr",
+                "attr": "href",
+                "transforms": [
+                  {
+                    "op": "removePrefix",
+                    "value": "https://anime-sama.to/catalogue/"
+                  },
+                  {
+                    "op": "removeSuffix",
+                    "value": "/"
+                  }
+                ]
+              },
+              "title": {
+                "selector": "h2.card-title",
+                "part": "text"
+              },
+              "posterURL": {
+                "selector": "img",
+                "part": "attr",
+                "attr": "src"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "search": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://anime-sama.to/catalogue/?search={query}&page={page}"
+      },
+      "response": {
+        "format": "html"
+      },
+      "pagination": {
+        "type": "pageParam",
+        "start": 1,
+        "maxPages": 25
+      },
+      "items": {
+        "collection": "a[href*=/catalogue/]",
+        "fields": {
+          "sourceID": {
+            "selector": "a",
+            "part": "attr",
+            "attr": "href",
+            "transforms": [
+              {
+                "op": "removePrefix",
+                "value": "https://anime-sama.to/catalogue/"
+              },
+              {
+                "op": "removeSuffix",
+                "value": "/"
+              }
+            ]
+          },
+          "title": {
+            "selector": "h2.card-title",
+            "part": "text"
+          },
+          "posterURL": {
+            "selector": "img",
+            "part": "attr",
+            "attr": "src"
+          }
+        }
+      }
+    },
+    "details": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://anime-sama.to/catalogue/{titleID}/"
+      },
+      "response": {
+        "format": "html"
+      },
+      "extract": {
+        "title": {
+          "selector": "h1",
+          "part": "text"
+        },
+        "posterURL": {
+          "selector": "#imgOeuvre",
+          "part": "attr",
+          "attr": "src"
+        }
+      }
+    },
+    "episodes": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://anime-sama.to/catalogue/{titleID}/"
+      },
+      "response": {
+        "format": "literal-selection",
+        "maxScripts": 4,
+        "scriptSelector": "#sousBlocMiddle .flex-wrap > script:containsData(panneauAnime)",
+        "selection": {
+          "kind": "calls",
+          "name": "panneauAnime"
+        }
+      },
+      "extract": {
+        "collection": "calls[*]",
+        "fields": {
+          "episodeID": {
+            "path": "[0]"
+          },
+          "seasonNumber": {
+            "path": "[0]",
+            "transforms": [
+              {
+                "op": "firstInteger"
+              }
+            ],
+            "fallbacks": [
+              {
+                "literal": "0"
+              }
+            ]
+          }
+        }
+      },
+      "panels": {
+        "listURL": {
+          "path": "[1]",
+          "transforms": [
+            {
+              "op": "template",
+              "value": "{value}/episodes.js"
+            },
+            {
+              "op": "absolutize"
+            }
+          ]
+        },
+        "variant": {
+          "path": "[1]",
+          "transforms": [
+            {
+              "op": "lastPathComponent"
+            },
+            {
+              "op": "replaceFirst",
+              "find": "vostfr",
+              "with": "sub"
+            },
+            {
+              "op": "replaceFirst",
+              "find": "vf",
+              "with": "dub"
+            }
+          ]
+        },
+        "response": {
+          "format": "literal-tab-declarations"
+        },
+        "arrays": [
+          "eps3[*]",
+          "eps1[*]",
+          "eps2[*]"
+        ],
+        "maxPanels": 50,
+        "headers": {
+          "Referer": "https://anime-sama.to/"
+        }
+      }
+    },
+    "streams": {
+      "mirrors": [
+        {
+          "variants": [
+            "sub",
+            "dub"
+          ],
+          "inputHosts": [
+            "video.sibnet.ru"
+          ],
+          "finalMediaPolicy": "public-https",
+          "steps": [
+            {
+              "request": {
+                "method": "GET",
+                "follow": "episodeURL",
+                "headers": {
+                  "Referer": "https://anime-sama.to/"
+                }
+              },
+              "response": {
+                "format": "literal-selection",
+                "textEncoding": "windows-1251",
+                "scriptSelector": "script:containsData(player.src)",
+                "selection": {
+                  "kind": "unique-nested-call",
+                  "name": "player.src"
+                }
+              },
+              "extract": {
+                "collection": "calls[0][0][*]",
+                "fields": {
+                  "url": {
+                    "path": "src",
+                    "transforms": [
+                      {
+                        "op": "absolutize"
+                      }
+                    ]
+                  },
+                  "mediaTypeHint": {
+                    "literal": "mp4"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "variants": [
+            "sub",
+            "dub"
+          ],
+          "inputHosts": [
+            "ansembed.net"
+          ],
+          "finalMediaPolicy": "public-https",
+          "steps": [
+            {
+              "request": {
+                "method": "GET",
+                "follow": "episodeURL",
+                "headers": {
+                  "Referer": "https://anime-sama.to/"
+                }
+              },
+              "response": {
+                "format": "literal-selection",
+                "scriptSelector": "script:containsData(player.setup)",
+                "selection": {
+                  "kind": "call-object-fields",
+                  "name": "player.setup",
+                  "properties": [
+                    "sources"
+                  ]
+                }
+              },
+              "extract": {
+                "collection": "value.sources[*]",
+                "fields": {
+                  "url": {
+                    "path": "file",
+                    "transforms": [
+                      {
+                        "op": "absolutize"
+                      }
+                    ]
+                  },
+                  "mediaTypeHint": {
+                    "literal": "hls"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "releaseNotes": "Owner-approved public availability for Aroki 2.0.36+. Native panel, ordinal episode, Sibnet and literal Ansembed support. Playback and seeking have been demonstrated on selected titles; some routes, including the previously sampled Black Torch middle episode, may time out. Full device, language and offline certification remain incomplete."
+}

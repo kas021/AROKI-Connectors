@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "id": "synthetiq-anime-testing",
-  "familyID": "synthetiq-anime-testing",
-  "name": "Synthetiq Anime",
+  "id": "synthetiq-anime-direct",
+  "familyID": "synthetiq-anime-direct",
+  "name": "Synthetiq Flux",
   "version": "0.1.1",
   "minimumAppVersion": "2.0.38",
   "contentType": "video",
@@ -12,11 +12,11 @@
   "status": "active",
   "attribution": {
     "author": "Synthetiq",
-    "website": "https://anicrowd.xyz/"
+    "website": "https://github.com/kas021/Synthetiq-Modules"
   },
   "authorization": {
     "basis": "owner-authorised",
-    "note": "Owner-authorised compatibility testing using the owned Player module. This is not a rights determination for provider media or approval for public distribution.",
+    "note": "Owner-authorised testing publication of the native port. No third-party media rights are supplied.",
     "evidenceURL": "https://github.com/kas021/Synthetiq-Modules"
   },
   "allowedHosts": [
@@ -26,7 +26,6 @@
     "cdn.myanimelist.net",
     "vidhawk.buzz",
     "*.vidhawk.buzz",
-    "anicrowd.xyz",
     "raw.githubusercontent.com"
   ],
   "capabilities": [
@@ -41,13 +40,13 @@
     "numbered-catalogue-v1",
     "catalogue-fallback-v1"
   ],
-  "downloadSupport": "hls",
+  "downloadSupport": "none",
   "limits": {
     "timeoutMilliseconds": 8000,
     "maxConcurrentRequests": 2,
     "maxResponseBytes": 2500000
   },
-  "releaseNotes": "Owner-approved public availability for Aroki 2.0.38+. Native catalogue and fresh Flow/Zuri stream resolution. Basic owner-device playback and seeking have been demonstrated. Provider Dub/audio mismatches and missing captions remain possible; broad language and offline certification are incomplete. Existing source identity is preserved.",
+  "releaseNotes": "Owner-approved public availability for Aroki 2.0.38+. Basic playback and seeking have been demonstrated. Catalogue-derived episode counts are not provider-verified. Broad spoken-language, caption and offline certification remain incomplete. Downloads remain disabled. Not compatible with Aroki 1.2.",
   "operations": {
     "discovery": {
       "sections": [
@@ -59,8 +58,7 @@
             "method": "POST",
             "urlTemplate": "https://graphql.anilist.co",
             "headers": {
-              "Accept": "application/json",
-              "Referer": "https://anicrowd.xyz/"
+              "Accept": "application/json"
             },
             "body": "{\"query\":\"query{Page(page:{page},perPage:20){media(type:ANIME,sort:TRENDING_DESC,isAdult:false){id idMal title{english romaji} description(asHtml:false) coverImage{ large } seasonYear episodes status nextAiringEpisode{ episode }}}}\"}"
           },
@@ -100,8 +98,7 @@
             "method": "POST",
             "urlTemplate": "https://graphql.anilist.co",
             "headers": {
-              "Accept": "application/json",
-              "Referer": "https://anicrowd.xyz/"
+              "Accept": "application/json"
             },
             "body": "{\"query\":\"query{Page(page:{page},perPage:20){media(type:ANIME,sort:POPULARITY_DESC,isAdult:false){id idMal title{english romaji} description(asHtml:false) coverImage{ large } seasonYear episodes status nextAiringEpisode{ episode }}}}\"}"
           },
@@ -140,8 +137,7 @@
         "method": "POST",
         "urlTemplate": "https://graphql.anilist.co",
         "headers": {
-          "Accept": "application/json",
-          "Referer": "https://anicrowd.xyz/"
+          "Accept": "application/json"
         },
         "body": "{\"query\":\"query($q:String){Page(page:{page},perPage:20){media(search:$q,type:ANIME,sort:SEARCH_MATCH,isAdult:false){id idMal title{english romaji} description(asHtml:false) coverImage{ large } seasonYear episodes status nextAiringEpisode{ episode }}}}\",\"variables\":{\"q\":\"{query}\"}}"
       },
@@ -178,8 +174,7 @@
         "method": "POST",
         "urlTemplate": "https://graphql.anilist.co",
         "headers": {
-          "Accept": "application/json",
-          "Referer": "https://anicrowd.xyz/"
+          "Accept": "application/json"
         },
         "body": "{\"query\":\"query{Media(idMal:{titleID},type:ANIME){id idMal title{english romaji} description(asHtml:false) coverImage{ large } seasonYear episodes status nextAiringEpisode{ episode }}}\"}"
       },
@@ -214,8 +209,7 @@
         "method": "POST",
         "urlTemplate": "https://graphql.anilist.co",
         "headers": {
-          "Accept": "application/json",
-          "Referer": "https://anicrowd.xyz/"
+          "Accept": "application/json"
         },
         "body": "{\"query\":\"query{Media(idMal:{titleID},type:ANIME){id idMal title{english romaji} description(asHtml:false) coverImage{ large } seasonYear episodes status nextAiringEpisode{ episode }}}\"}"
       },
@@ -269,10 +263,12 @@
             {
               "request": {
                 "method": "GET",
-                "urlTemplate": "https://vidhawk.buzz/api/stream/resolve?episode={episodeID}&audio={variant}&parentHost=anicrowd.xyz&fast=1&server=flow&malId={titleID}",
+                "urlTemplate": "https://vidhawk.buzz/api/stream/resolve?episode={episodeID}&audio={variant}&fast=1&server=flow&malId={titleID}",
                 "headers": {
                   "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
-                  "Accept": "application/json"
+                  "Accept": "application/json",
+                  "Referer": "https://vidhawk.buzz/",
+                  "Origin": "https://vidhawk.buzz"
                 }
               },
               "response": {
@@ -292,7 +288,9 @@
                 "urlTemplate": "https://vidhawk.buzz/api/play?t={ticket}",
                 "headers": {
                   "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
-                  "Accept": "application/json"
+                  "Accept": "application/json",
+                  "Referer": "https://vidhawk.buzz/",
+                  "Origin": "https://vidhawk.buzz"
                 }
               },
               "response": {
@@ -367,10 +365,12 @@
             {
               "request": {
                 "method": "GET",
-                "urlTemplate": "https://vidhawk.buzz/api/stream/resolve?episode={episodeID}&audio={variant}&parentHost=anicrowd.xyz&fast=1&server=zuri&malId={titleID}",
+                "urlTemplate": "https://vidhawk.buzz/api/stream/resolve?episode={episodeID}&audio={variant}&fast=1&server=zuri&malId={titleID}",
                 "headers": {
                   "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
-                  "Accept": "application/json"
+                  "Accept": "application/json",
+                  "Referer": "https://vidhawk.buzz/",
+                  "Origin": "https://vidhawk.buzz"
                 }
               },
               "response": {
@@ -390,7 +390,9 @@
                 "urlTemplate": "https://vidhawk.buzz/api/play?t={ticket}",
                 "headers": {
                   "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
-                  "Accept": "application/json"
+                  "Accept": "application/json",
+                  "Referer": "https://vidhawk.buzz/",
+                  "Origin": "https://vidhawk.buzz"
                 }
               },
               "response": {
