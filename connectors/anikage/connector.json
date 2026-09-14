@@ -3,7 +3,7 @@
   "id": "anikage",
   "familyID": "anikage",
   "name": "AniKage (BETA)",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "minimumAppVersion": "0.1.0",
   "contentType": "video",
   "language": "en",
@@ -342,7 +342,7 @@
       },
       "request": {
         "method": "GET",
-        "urlTemplate": "https://anikage.cc/api/media/anime/{titleID}/episodes/{episodeID}/sources?provider=neko&lang={variant}",
+        "urlTemplate": "https://anikage.cc/api/media/anime/{titleID}/episodes/{episodeID}/sources?provider=koto&lang={variant}",
         "headers": {
           "Accept": "application/json, text/plain, */*",
           "Accept-Language": "en-US,en;q=0.9",
@@ -378,5 +378,5 @@
       }
     }
   },
-  "releaseNotes": "Prioritized healthy neko stream provider over dead megg/koto origins. Added bibiemb.xyz and bakayaro.live mirrors. Validated HLS playback across sub and dub."
+  "releaseNotes": "Provider retarget: neko -> koto after the September 2026 provider-health review. Sampled 8 titles (Sword Art Online, My Hero Academia S2, Assassination Classroom, ONE PIECE, Black Clover, Legend of the Galactic Heroes, Naruto, Death Note): koto returned sub and dub sources for all, resolving to live HLS via og.bakayaro.live, including titles where neko returned none. neko additionally showed domain-forbidden segment responses in testing. Structure, hosts, headers and episode model unchanged."
 }
