@@ -3,7 +3,7 @@
   "id": "anikage",
   "familyID": "anikage",
   "name": "AniKage (BETA)",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "minimumAppVersion": "0.1.0",
   "contentType": "video",
   "language": "en",
@@ -342,7 +342,7 @@
       },
       "request": {
         "method": "GET",
-        "urlTemplate": "https://anikage.cc/api/media/anime/{titleID}/episodes/{episodeID}/sources?provider=koto&lang={variant}",
+        "urlTemplate": "https://anikage.cc/api/media/anime/{titleID}/episodes/{episodeID}/sources?provider=koto&lang={variant}&refresh=1",
         "headers": {
           "Accept": "application/json, text/plain, */*",
           "Accept-Language": "en-US,en;q=0.9",
@@ -404,5 +404,5 @@
       }
     }
   },
-  "releaseNotes": "Restores provider-supplied external subtitles for Sub and Dub, preserving language labels. Fixes missing English captions on One Piece episode 1. Video resolution, provider, host permissions and audio selection are unchanged."
+  "releaseNotes": "Requests a fresh provider route during stream resolution so retries do not reuse an expired cached route. Keeps the existing Koto provider, Sub/Dub identity, external subtitle mapping, playback headers and host permissions unchanged."
 }
