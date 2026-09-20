@@ -25,16 +25,16 @@
       "id" : "anikage",
       "language" : "en",
       "manifest" : {
-        "path" : "connectors\/anikage\/releases\/70e5a37f0ea1a97c637f65be7b751be892b64b1bdbf520da70114fa5926fd657\/connector.json",
-        "sha256" : "70e5a37f0ea1a97c637f65be7b751be892b64b1bdbf520da70114fa5926fd657",
-        "signature" : "EfH1UsQ9SDl3a2BITaKQifNAOKpTvh00+UpWRg+cash8xbsai2Er7BPXxlkmxILcuzxURESBrbe64fvGte5vCg=="
+        "path" : "connectors\/anikage\/releases\/14091d5d0b319a3c0bd0e1a83e37c113d842ac72db4345496955fd5ca1f1f183\/connector.json",
+        "sha256" : "14091d5d0b319a3c0bd0e1a83e37c113d842ac72db4345496955fd5ca1f1f183",
+        "signature" : "USt1jBWhZDvmxwsbkFs6rqrGzpPN8zCV1s\/F975z5LM2cVMt62VZhcLoneMGAh6rXFdgBOGe\/ah2S1FAVGA2BA=="
       },
       "minimumAppVersion" : "0.1.0",
       "name" : "AniKage (BETA)",
-      "releaseNotes" : "Restores provider-supplied external subtitles for Sub and Dub, preserving language labels. Fixes missing English captions on One Piece episode 1. Video resolution, provider, host permissions and audio selection are unchanged.",
+      "releaseNotes" : "Requests a fresh provider route during stream resolution so retries do not reuse an expired cached route. Keeps the existing Koto provider, Sub\/Dub identity, external subtitle mapping, playback headers and host permissions unchanged.",
       "releaseTrack" : "beta",
       "status" : "active",
-      "version" : "0.3.3"
+      "version" : "0.3.4"
     },
     {
       "contentRating" : "unknown",
@@ -182,10 +182,10 @@
     }
   ],
   "enabled" : true,
-  "generatedAt" : 1789413964,
+  "generatedAt" : 1789904420,
   "name" : "AROKI Connectors",
   "publicKey" : "BYKainAr2pxVfWxSSQJHG79Xl\/mnkTuIl1ujEmR+1V4=",
   "repositoryID" : "aroki-connectors",
   "schemaVersion" : 1,
-  "signature" : "A8ZTsqkWY\/5VNheO\/512f4gFnJA+GYHP\/nOe0EDkWovoC4HsjBo\/+tf8Fj7dCk4H1IwjuKl+Zj8YK9OvOB8kDw=="
+  "signature" : "Y8E6xW+qUz+9ni5Q34Io6nqy61iuSjZJAURNReDEVqYJulKaYmNf94DU4xHjWpcMskO09li71dadv3FqvgmRDg=="
 }
