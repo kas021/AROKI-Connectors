@@ -4,7 +4,7 @@
   "familyID": "anikage",
   "name": "AniKage (BETA)",
   "version": "0.3.5",
-  "minimumAppVersion": "2.0.44",
+  "minimumAppVersion": "0.1.0",
   "contentType": "video",
   "language": "en",
   "contentRating": "unknown",
@@ -263,7 +263,6 @@
       "response": {
         "format": "json"
       },
-      "sharedIDNamespace": "anilist",
       "extract": {
         "title": {
           "path": "anime.title.english",
@@ -408,5 +407,5 @@
       }
     }
   },
-  "releaseNotes": "Adds the AniList shared identity needed for Aroki's explicit alternate-source recovery. Preserves the fresh-route request, existing Koto provider, Sub/Dub identity, subtitle mapping, headers and host permissions."
+  "releaseNotes": "Adds an AniList shared identity for Aroki's optional, user-selected source recovery. Keeps the published 0.3.4 playback route, provider, Sub/Dub mapping, subtitles, headers, and host permissions unchanged."
 }
