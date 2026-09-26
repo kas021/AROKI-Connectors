@@ -3,13 +3,13 @@
   "id": "anikoto",
   "familyID": "anikoto",
   "name": "AniKoto",
-  "version": "0.3.9",
+  "version": "0.3.10",
   "minimumAppVersion": "0.1.0",
   "contentType": "video",
   "language": "en",
   "contentRating": "unknown",
   "releaseTrack": "beta",
-  "status": "retired",
+  "status": "active",
   "attribution": {
     "author": "Vireo compatibility experiment",
     "website": "https://anikototv.to"
@@ -23,17 +23,9 @@
     "anikototv.to",
     "anikoto.cz",
     "cdn.anipixcdn.co",
-    "vidtube.site",
-    "megaplay.buzz",
-    "*.kotocdn.site",
-    "*.norami.top",
-    "*.akirax.buzz",
-    "*.kryntal.top",
-    "*.thaloryn.top",
-    "*.imgnex.top",
-    "*.shiora.site",
-    "*.shiora.top",
-    "*.watching.onl"
+    "anikage.cc",
+    "og.bakayaro.live",
+    "*.bakayaro.live"
   ],
   "capabilities": [
     "discovery",
@@ -646,15 +638,99 @@
       }
     },
     "streams": {
-      "finalMediaPolicy": "public-https",
       "variants": [
         "sub",
         "dub"
       ],
+      "finalMediaPolicy": "public-https",
       "playbackHeaders": {
-        "Referer": "https://megaplay.buzz/"
+        "Referer": "https://anikage.cc/",
+        "Origin": "https://anikage.cc",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
       },
       "steps": [
+        {
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://anikototv.to/watch/{titleID}",
+            "headers": {
+              "Accept": "text/html",
+              "Referer": "https://anikototv.to/"
+            }
+          },
+          "response": {
+            "format": "html"
+          },
+          "extract": {
+            "context": {
+              "title": {
+                "selector": "h1.title[data-jp]",
+                "part": "attr",
+                "attr": "data-jp",
+                "fallbacks": [
+                  {
+                    "selector": "h1.title",
+                    "part": "text"
+                  }
+                ]
+              },
+              "format": {
+                "selector": "#w-info .bmeta .meta div:containsOwn(Type:) span",
+                "part": "text",
+                "transforms": [
+                  {
+                    "op": "replaceFirst",
+                    "find": "Movie",
+                    "with": "MOVIE"
+                  },
+                  {
+                    "op": "replaceFirst",
+                    "find": "Special",
+                    "with": "SPECIAL"
+                  },
+                  {
+                    "op": "replaceFirst",
+                    "find": " Short",
+                    "with": "_SHORT"
+                  },
+                  {
+                    "op": "replaceFirst",
+                    "find": "Music",
+                    "with": "MUSIC"
+                  }
+                ]
+              },
+              "year": {
+                "selector": "#w-info .bmeta .meta a[href*=year]",
+                "part": "text",
+                "transforms": [
+                  {
+                    "op": "firstInteger"
+                  }
+                ]
+              },
+              "season": {
+                "selector": "#w-info .bmeta .meta a[href*=year]",
+                "part": "text",
+                "transforms": [
+                  {
+                    "op": "replaceFirst",
+                    "find": " ",
+                    "with": "&y="
+                  },
+                  {
+                    "op": "template",
+                    "value": "https://season.invalid/?s={value}"
+                  },
+                  {
+                    "op": "queryValue",
+                    "name": "s"
+                  }
+                ]
+              }
+            }
+          }
+        },
         {
           "request": {
             "method": "GET",
@@ -671,66 +747,9 @@
           },
           "extract": {
             "context": {
-              "linkID": {
-                "selector": "div.type[data-type=\"{variant}\"] li[data-sv-id=\"8e4\"]",
-                "part": "attr",
-                "attr": "data-link-id",
-                "fallbacks": [
-                  {
-                    "selector": "div.type[data-type=\"{variant}\"] li[data-sv-id=\"323\"]",
-                    "part": "attr",
-                    "attr": "data-link-id"
-                  },
-                  {
-                    "selector": "div.type[data-type=\"{variant}\"] li[data-sv-id=\"e54\"], div.type[data-type=\"{variant}\"] li[data-link-id]",
-                    "part": "attr",
-                    "attr": "data-link-id"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        {
-          "request": {
-            "method": "GET",
-            "urlTemplate": "https://anikototv.to/ajax/server?get={linkID}",
-            "headers": {
-              "Accept": "application/json, text/plain, */*",
-              "X-Requested-With": "XMLHttpRequest",
-              "Referer": "https://anikototv.to/"
-            }
-          },
-          "response": {
-            "format": "json"
-          },
-          "extract": {
-            "context": {
-              "playerURL": {
-                "path": "result.url",
-                "kind": "url"
-              }
-            }
-          }
-        },
-        {
-          "request": {
-            "method": "GET",
-            "follow": "playerURL",
-            "headers": {
-              "Referer": "https://anikototv.to/",
-              "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
-            }
-          },
-          "response": {
-            "format": "html"
-          },
-          "extract": {
-            "context": {
-              "playerID": {
-                "selector": "[data-id]",
-                "part": "attr",
-                "attr": "data-id",
+              "number": {
+                "selector": ".tip b",
+                "part": "text",
                 "transforms": [
                   {
                     "op": "firstInteger"
@@ -743,49 +762,74 @@
         {
           "request": {
             "method": "GET",
-            "originOf": "playerURL",
-            "pathTemplate": "/stream/getSourcesNew?id={playerID}&type={variant}",
+            "urlTemplate": "https://anikage.cc/api/media/anime/browse?q={title}&format={format}&season={season}&yearMin={year}&yearMax={year}&page=1",
             "headers": {
               "Accept": "application/json, text/plain, */*",
-              "X-Requested-With": "XMLHttpRequest"
+              "Referer": "https://anikage.cc/",
+              "Origin": "https://anikage.cc",
+              "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
             }
           },
           "response": {
             "format": "json"
           },
           "extract": {
-            "collection": "sources",
+            "context": {
+              "slug": {
+                "path": "data[0].slug"
+              }
+            }
+          }
+        },
+        {
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://anikage.cc/api/media/anime/{slug}/episodes/{number}/sources?provider=koto&lang={variant}&refresh=1",
+            "headers": {
+              "Accept": "application/json, text/plain, */*",
+              "Referer": "https://anikage.cc/",
+              "Origin": "https://anikage.cc",
+              "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+            }
+          },
+          "response": {
+            "format": "json"
+          },
+          "extract": {
+            "collection": "sources[*]",
             "fields": {
               "url": {
-                "path": "file",
-                "fallbacks": [
+                "path": "url",
+                "transforms": [
                   {
-                    "path": "url"
+                    "op": "template",
+                    "value": "https://og.bakayaro.live/{value}",
+                    "encodeValue": false
                   }
                 ]
+              },
+              "qualityLabel": {
+                "path": "quality"
+              },
+              "mediaTypeHint": {
+                "literal": "hls"
               }
             },
             "subtitles": {
-              "collection": "tracks[*]",
+              "collection": "subtitles[*]",
               "fields": {
                 "url": {
                   "path": "file",
-                  "fallbacks": [
+                  "transforms": [
                     {
-                      "path": "url"
-                    },
-                    {
-                      "path": "src"
+                      "op": "template",
+                      "value": "https://og.bakayaro.live/{value}",
+                      "encodeValue": false
                     }
                   ]
                 },
                 "label": {
-                  "path": "label",
-                  "fallbacks": [
-                    {
-                      "path": "name"
-                    }
-                  ]
+                  "path": "label"
                 },
                 "languageCode": {
                   "path": "srclang",
@@ -794,9 +838,6 @@
                       "path": "language"
                     }
                   ]
-                },
-                "format": {
-                  "path": "format"
                 }
               }
             }
@@ -805,5 +846,5 @@
       ]
     }
   },
-  "releaseNotes": "Retired on 2026-09-14: current provider routes do not return playable streams to Aroki. No new installations or updates are offered. Existing installed copies and user data are not deleted. Choose another available source."
+  "releaseNotes": "Restored in 0.3.10: AniKoto's own provider feed is now resolved through AniKage's public koto route (the direct MegaPlay responses became encrypted). Each title is matched by AniKoto's exact title, format, premiere season and year, and fails closed with no playable stream when that match is unavailable. Sub and Dub with all published caption languages."
 }

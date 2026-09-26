@@ -3,7 +3,7 @@
   "id": "synthetiq-anime-direct",
   "familyID": "synthetiq-anime-direct",
   "name": "Synthetiq Flux",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "minimumAppVersion": "2.0.38",
   "contentType": "video",
   "language": "en",
@@ -26,7 +26,10 @@
     "cdn.myanimelist.net",
     "vidhawk.buzz",
     "*.vidhawk.buzz",
-    "raw.githubusercontent.com"
+    "raw.githubusercontent.com",
+    "anikage.cc",
+    "og.bakayaro.live",
+    "*.bakayaro.live"
   ],
   "capabilities": [
     "discovery",
@@ -38,7 +41,8 @@
   "requiredEngineFeatures": [
     "contextual-hls-v1",
     "numbered-catalogue-v1",
-    "catalogue-fallback-v1"
+    "catalogue-fallback-v1",
+    "graph-post-v1"
   ],
   "downloadSupport": "none",
   "limits": {
@@ -46,7 +50,7 @@
     "maxConcurrentRequests": 2,
     "maxResponseBytes": 2500000
   },
-  "releaseNotes": "Owner-approved public availability for Aroki 2.0.38+. Basic playback and seeking have been demonstrated. Catalogue-derived episode counts are not provider-verified. Broad spoken-language, caption and offline certification remain incomplete. Downloads remain disabled. Not compatible with Aroki 1.2.",
+  "releaseNotes": "Owner-approved public availability for Aroki 2.0.38+. Basic playback and seeking have been demonstrated. Catalogue-derived episode counts are not provider-verified. Broad spoken-language, caption and offline certification remain incomplete. Downloads remain disabled. Not compatible with Aroki 1.2. 0.1.2: Vidhawk's media relay is down (HTTP 502 on every route), so streams now resolve through AniKage's public koto feed. The requested MyAnimeList ID is looked up on AniList and matched on AniKage by exact romaji title, format, season and year; titles without that match fail closed with no playable stream. Vidhawk can return in a later update if its relay recovers.",
   "operations": {
     "discovery": {
       "sections": [
@@ -236,211 +240,129 @@
       }
     },
     "streams": {
-      "selection": "collect",
-      "mirrors": [
+      "variants": [
+        "sub",
+        "dub"
+      ],
+      "finalMediaPolicy": "public-https",
+      "playbackHeaders": {
+        "Referer": "https://anikage.cc/",
+        "Origin": "https://anikage.cc",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+      },
+      "steps": [
         {
-          "variants": [
-            "sub",
-            "dub"
-          ],
-          "finalMediaPolicy": "public-https",
-          "playbackHeaders": {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
-          },
-          "contextualMedia": {
-            "contextURLTemplate": "https://vidhawk.buzz/embed/mal/{titleID}/{episodeID}/{variant}",
-            "serverLabel": "Flow",
-            "identity": {
-              "titleID": "malId",
-              "episodeID": "episode"
+          "request": {
+            "method": "POST",
+            "urlTemplate": "https://graphql.anilist.co",
+            "headers": {
+              "Accept": "application/json"
             },
-            "introPath": "intro",
-            "outroPath": "outro",
-            "maxContextScalarBytes": 16384,
-            "serverLabelPath": "serverLabel"
+            "body": "{\"query\":\"query{Media(idMal:{titleID},type:ANIME){ title{ romaji } format season seasonYear }}\"}"
           },
-          "steps": [
-            {
-              "request": {
-                "method": "GET",
-                "urlTemplate": "https://vidhawk.buzz/api/stream/resolve?episode={episodeID}&audio={variant}&fast=1&server=flow&malId={titleID}",
-                "headers": {
-                  "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
-                  "Accept": "application/json",
-                  "Referer": "https://vidhawk.buzz/",
-                  "Origin": "https://vidhawk.buzz"
-                }
+          "response": {
+            "format": "json"
+          },
+          "extract": {
+            "context": {
+              "title": {
+                "path": "data.Media.title.romaji"
               },
-              "response": {
-                "format": "json"
+              "format": {
+                "path": "data.Media.format"
               },
-              "extract": {
-                "context": {
-                  "ticket": {
-                    "path": "ticket"
-                  }
-                }
-              }
-            },
-            {
-              "request": {
-                "method": "GET",
-                "urlTemplate": "https://vidhawk.buzz/api/play?t={ticket}",
-                "headers": {
-                  "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
-                  "Accept": "application/json",
-                  "Referer": "https://vidhawk.buzz/",
-                  "Origin": "https://vidhawk.buzz"
-                }
+              "season": {
+                "path": "data.Media.season"
               },
-              "response": {
-                "format": "json"
-              },
-              "extract": {
-                "collection": {
-                  "path": "tracks[*]",
-                  "where": [
-                    {
-                      "path": "id",
-                      "equalsPlaceholder": "variant"
-                    }
-                  ]
-                },
-                "fields": {
-                  "url": {
-                    "path": "src"
-                  }
-                },
-                "subtitles": {
-                  "variantCollections": {
-                    "sub": "captions.sub[*]",
-                    "dub": "captions.dub[*]"
-                  },
-                  "fields": {
-                    "url": {
-                      "path": "src",
-                      "fallbacks": [
-                        {
-                          "path": "file"
-                        },
-                        {
-                          "path": "url"
-                        }
-                      ]
-                    },
-                    "label": {
-                      "path": "label"
-                    },
-                    "languageCode": {
-                      "path": "lang"
-                    }
-                  }
-                }
+              "year": {
+                "path": "data.Media.seasonYear"
               }
             }
-          ]
+          }
         },
         {
-          "variants": [
-            "sub",
-            "dub"
-          ],
-          "finalMediaPolicy": "public-https",
-          "playbackHeaders": {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://anikage.cc/api/media/anime/browse?q={title}&format={format}&season={season}&yearMin={year}&yearMax={year}&page=1",
+            "headers": {
+              "Accept": "application/json, text/plain, */*",
+              "Referer": "https://anikage.cc/",
+              "Origin": "https://anikage.cc",
+              "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+            }
           },
-          "contextualMedia": {
-            "contextURLTemplate": "https://vidhawk.buzz/embed/mal/{titleID}/{episodeID}/{variant}",
-            "serverLabel": "Zuri",
-            "identity": {
-              "titleID": "malId",
-              "episodeID": "episode"
-            },
-            "introPath": "intro",
-            "outroPath": "outro",
-            "maxContextScalarBytes": 16384,
-            "serverLabelPath": "serverLabel"
+          "response": {
+            "format": "json"
           },
-          "steps": [
-            {
-              "request": {
-                "method": "GET",
-                "urlTemplate": "https://vidhawk.buzz/api/stream/resolve?episode={episodeID}&audio={variant}&fast=1&server=zuri&malId={titleID}",
-                "headers": {
-                  "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
-                  "Accept": "application/json",
-                  "Referer": "https://vidhawk.buzz/",
-                  "Origin": "https://vidhawk.buzz"
-                }
-              },
-              "response": {
-                "format": "json"
-              },
-              "extract": {
-                "context": {
-                  "ticket": {
-                    "path": "ticket"
+          "extract": {
+            "context": {
+              "slug": {
+                "path": "data[0].slug"
+              }
+            }
+          }
+        },
+        {
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://anikage.cc/api/media/anime/{slug}/episodes/{episodeID}/sources?provider=koto&lang={variant}&refresh=1",
+            "headers": {
+              "Accept": "application/json, text/plain, */*",
+              "Referer": "https://anikage.cc/",
+              "Origin": "https://anikage.cc",
+              "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+            }
+          },
+          "response": {
+            "format": "json"
+          },
+          "extract": {
+            "collection": "sources[*]",
+            "fields": {
+              "url": {
+                "path": "url",
+                "transforms": [
+                  {
+                    "op": "template",
+                    "value": "https://og.bakayaro.live/{value}",
+                    "encodeValue": false
                   }
-                }
+                ]
+              },
+              "qualityLabel": {
+                "path": "quality"
+              },
+              "mediaTypeHint": {
+                "literal": "hls"
               }
             },
-            {
-              "request": {
-                "method": "GET",
-                "urlTemplate": "https://vidhawk.buzz/api/play?t={ticket}",
-                "headers": {
-                  "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
-                  "Accept": "application/json",
-                  "Referer": "https://vidhawk.buzz/",
-                  "Origin": "https://vidhawk.buzz"
-                }
-              },
-              "response": {
-                "format": "json"
-              },
-              "extract": {
-                "collection": {
-                  "path": "tracks[*]",
-                  "where": [
+            "subtitles": {
+              "collection": "subtitles[*]",
+              "fields": {
+                "url": {
+                  "path": "file",
+                  "transforms": [
                     {
-                      "path": "id",
-                      "equalsPlaceholder": "variant"
+                      "op": "template",
+                      "value": "https://og.bakayaro.live/{value}",
+                      "encodeValue": false
                     }
                   ]
                 },
-                "fields": {
-                  "url": {
-                    "path": "src"
-                  }
+                "label": {
+                  "path": "label"
                 },
-                "subtitles": {
-                  "variantCollections": {
-                    "sub": "captions.sub[*]",
-                    "dub": "captions.dub[*]"
-                  },
-                  "fields": {
-                    "url": {
-                      "path": "src",
-                      "fallbacks": [
-                        {
-                          "path": "file"
-                        },
-                        {
-                          "path": "url"
-                        }
-                      ]
-                    },
-                    "label": {
-                      "path": "label"
-                    },
-                    "languageCode": {
-                      "path": "lang"
+                "languageCode": {
+                  "path": "srclang",
+                  "fallbacks": [
+                    {
+                      "path": "language"
                     }
-                  }
+                  ]
                 }
               }
             }
-          ]
+          }
         }
       ]
     }
