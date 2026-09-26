@@ -3,8 +3,8 @@
   "id": "anikage",
   "familyID": "anikage",
   "name": "AniKage (BETA)",
-  "version": "0.3.3",
-  "minimumAppVersion": "0.1.0",
+  "version": "0.3.5",
+  "minimumAppVersion": "2.0.44",
   "contentType": "video",
   "language": "en",
   "contentRating": "unknown",
@@ -263,6 +263,7 @@
       "response": {
         "format": "json"
       },
+      "sharedIDNamespace": "anilist",
       "extract": {
         "title": {
           "path": "anime.title.english",
@@ -299,6 +300,9 @@
         },
         "genres": {
           "collection": "anime.genres[*]"
+        },
+        "sharedID": {
+          "path": "anime.anilistId"
         }
       }
     },
@@ -342,7 +346,7 @@
       },
       "request": {
         "method": "GET",
-        "urlTemplate": "https://anikage.cc/api/media/anime/{titleID}/episodes/{episodeID}/sources?provider=koto&lang={variant}",
+        "urlTemplate": "https://anikage.cc/api/media/anime/{titleID}/episodes/{episodeID}/sources?provider=koto&lang={variant}&refresh=1",
         "headers": {
           "Accept": "application/json, text/plain, */*",
           "Accept-Language": "en-US,en;q=0.9",
@@ -404,5 +408,5 @@
       }
     }
   },
-  "releaseNotes": "Restores provider-supplied external subtitles for Sub and Dub, preserving language labels. Fixes missing English captions on One Piece episode 1. Video resolution, provider, host permissions and audio selection are unchanged."
+  "releaseNotes": "Adds the AniList shared identity needed for Aroki's explicit alternate-source recovery. Preserves the fresh-route request, existing Koto provider, Sub/Dub identity, subtitle mapping, headers and host permissions."
 }
