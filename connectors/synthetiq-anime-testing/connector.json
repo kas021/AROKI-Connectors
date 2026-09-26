@@ -3,8 +3,8 @@
   "id": "synthetiq-anime-testing",
   "familyID": "synthetiq-anime-testing",
   "name": "Synthetiq Anime",
-  "version": "0.1.1",
-  "minimumAppVersion": "2.0.38",
+  "version": "0.1.2",
+  "minimumAppVersion": "2.0.44",
   "contentType": "video",
   "language": "en",
   "contentRating": "unknown",
@@ -47,7 +47,7 @@
     "maxConcurrentRequests": 2,
     "maxResponseBytes": 2500000
   },
-  "releaseNotes": "Owner-approved public availability for Aroki 2.0.38+. Native catalogue and fresh Flow/Zuri stream resolution. Basic owner-device playback and seeking have been demonstrated. Provider Dub/audio mismatches and missing captions remain possible; broad language and offline certification are incomplete. Existing source identity is preserved.",
+  "releaseNotes": "Declares the AniList shared-ID namespace for Aroki 2.0.44's explicit alternate-source recovery. Vidhawk remains the primary route; this metadata does not imply the upstream relay is healthy. Existing language, title and episode behavior is unchanged.",
   "operations": {
     "discovery": {
       "sections": [
@@ -186,6 +186,7 @@
       "response": {
         "format": "json"
       },
+      "sharedIDNamespace": "anilist",
       "extract": {
         "title": {
           "path": "data.Media.title.english",
