@@ -15,11 +15,19 @@ manifest = json.loads(candidate)
 reviewed = {
     "0.3.8": ("c58e0ab74c384c3d52c43d1380be8dfc956b7522d88a417d7bcc89f2600bd51d", "active"),
     "0.3.9": ("90756caaa5f97f990453fba6aa010d2ded009b87641a3f638eedbfc12169e0dc", "retired"),
+    "0.3.10": ("49e8a0f2baa49abf2534ad9522d86eafc0cca054c76ead2cff62e15823221413", "active"),
 }
+# Releases whose fixtures are committed in the pinned validator itself.
+prealigned = {"0.3.10"}
 version = manifest.get("version")
 if version not in reviewed:
     raise SystemExit("AniKoto fixtures require review for this release version")
 digest, status = reviewed[version]
+if version in prealigned:
+    if hashlib.sha256(candidate).hexdigest() != digest or manifest.get("status") != status:
+        raise SystemExit("AniKoto candidate differs from reviewed release")
+    print("Pinned validator already carries reviewed AniKage-route fixtures; no alignment needed")
+    raise SystemExit(0)
 if hashlib.sha256(candidate).hexdigest() != digest or manifest.get("status") != status:
     raise SystemExit("AniKoto candidate differs from reviewed release")
 path = root / "VireoCore/Tests/VireoCoreTests/AniKotoConnectorTests.swift"
