@@ -25,16 +25,16 @@
       "id" : "anikage",
       "language" : "en",
       "manifest" : {
-        "path" : "connectors\/anikage\/releases\/14091d5d0b319a3c0bd0e1a83e37c113d842ac72db4345496955fd5ca1f1f183\/connector.json",
-        "sha256" : "14091d5d0b319a3c0bd0e1a83e37c113d842ac72db4345496955fd5ca1f1f183",
-        "signature" : "USt1jBWhZDvmxwsbkFs6rqrGzpPN8zCV1s\/F975z5LM2cVMt62VZhcLoneMGAh6rXFdgBOGe\/ah2S1FAVGA2BA=="
+        "path" : "connectors\/anikage\/releases\/674b3f27fa68763c7e3515dc0d1cb6b917a3c5dcf5fbef0c528ec3b7ad1914f9\/connector.json",
+        "sha256" : "674b3f27fa68763c7e3515dc0d1cb6b917a3c5dcf5fbef0c528ec3b7ad1914f9",
+        "signature" : "g1cMhrSA\/uvpe1w+Adxudl0naJvfYJ\/H14CpyFKuLrfc8JRB1a6LWjm41cGStFKJq5+XjKWsLD\/oJesgCjK1Ag=="
       },
       "minimumAppVersion" : "0.1.0",
       "name" : "AniKage (BETA)",
-      "releaseNotes" : "Requests a fresh provider route during stream resolution so retries do not reuse an expired cached route. Keeps the existing Koto provider, Sub\/Dub identity, external subtitle mapping, playback headers and host permissions unchanged.",
+      "releaseNotes" : "Adds an AniList shared identity for Aroki's optional, user-selected source recovery. Keeps the published 0.3.4 playback route, provider, Sub\/Dub mapping, subtitles, headers, and host permissions unchanged.",
       "releaseTrack" : "beta",
       "status" : "active",
-      "version" : "0.3.4"
+      "version" : "0.3.5"
     },
     {
       "contentRating" : "unknown",
@@ -182,10 +182,10 @@
     }
   ],
   "enabled" : true,
-  "generatedAt" : 1789904420,
+  "generatedAt" : 1790438334,
   "name" : "AROKI Connectors",
   "publicKey" : "BYKainAr2pxVfWxSSQJHG79Xl\/mnkTuIl1ujEmR+1V4=",
   "repositoryID" : "aroki-connectors",
   "schemaVersion" : 1,
-  "signature" : "Y8E6xW+qUz+9ni5Q34Io6nqy61iuSjZJAURNReDEVqYJulKaYmNf94DU4xHjWpcMskO09li71dadv3FqvgmRDg=="
+  "signature" : "d3bz24Yfhwckt4w8NBFq7drDKQuER5BpEOjDYnQ9D5iOBZWZYUEK3SPmXQeNzA4fWU8AyvSs6gqE3UNEosR+Bw=="
 }
