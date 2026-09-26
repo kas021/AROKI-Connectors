@@ -7,16 +7,16 @@
       "id" : "anikoto",
       "language" : "en",
       "manifest" : {
-        "path" : "connectors\/anikoto\/releases\/90756caaa5f97f990453fba6aa010d2ded009b87641a3f638eedbfc12169e0dc\/connector.json",
-        "sha256" : "90756caaa5f97f990453fba6aa010d2ded009b87641a3f638eedbfc12169e0dc",
-        "signature" : "2S5IpVFskYQ0Nxlks7+TMhLWbMMI9sEvtvacEjPqMwOGKrgX3FSiNXXPQ2XM3L21kFN8zxHZiEjriU7R9zxVBw=="
+        "path" : "connectors\/anikoto\/releases\/49e8a0f2baa49abf2534ad9522d86eafc0cca054c76ead2cff62e15823221413\/connector.json",
+        "sha256" : "49e8a0f2baa49abf2534ad9522d86eafc0cca054c76ead2cff62e15823221413",
+        "signature" : "DV5+yGOavriBWbx2v6hDvr1JMxaIzT9Ly1PzfB0AROOqM4GdKucNRE+PYOMtDc25eQUzCLAHMTv1aeplg64GAg=="
       },
       "minimumAppVersion" : "0.1.0",
       "name" : "AniKoto",
-      "releaseNotes" : "Retired on 2026-09-14: current provider routes do not return playable streams to Aroki. No new installations or updates are offered. Existing installed copies and user data are not deleted. Choose another available source.",
+      "releaseNotes" : "Restored in 0.3.10: AniKoto's own provider feed is now resolved through AniKage's public koto route (the direct MegaPlay responses became encrypted). Each title is matched by AniKoto's exact title, format, premiere season and year, and fails closed with no playable stream when that match is unavailable. Sub and Dub with all published caption languages.",
       "releaseTrack" : "beta",
-      "status" : "retired",
-      "version" : "0.3.9"
+      "status" : "active",
+      "version" : "0.3.10"
     },
     {
       "contentRating" : "unknown",
@@ -182,10 +182,10 @@
     }
   ],
   "enabled" : true,
-  "generatedAt" : 1790462974,
+  "generatedAt" : 1790463085,
   "name" : "AROKI Connectors",
   "publicKey" : "BYKainAr2pxVfWxSSQJHG79Xl\/mnkTuIl1ujEmR+1V4=",
   "repositoryID" : "aroki-connectors",
   "schemaVersion" : 1,
-  "signature" : "vKxnco57XaDnqh0ss8K+YXnysxLq0OGT0Q+nZXFnbU4pyKPPVTPziUy4ohl0t3xRWuoxmaU4YHUmwLWMMqKVDQ=="
+  "signature" : "XdQ4XOR6J+GZluBEPyO8PbHDoVO3lhEjm71u\/9CrtN8ubCQBM1vKQHXSqcQoMEEYN7ra31v0yCeFQYDICljrCA=="
 }
