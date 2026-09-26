@@ -1,0 +1,510 @@
+{
+  "schemaVersion": 1,
+  "id": "synthetiq-anime-direct",
+  "familyID": "synthetiq-anime-direct",
+  "name": "Synthetiq Flux",
+  "version": "0.1.2",
+  "minimumAppVersion": "2.0.38",
+  "contentType": "video",
+  "language": "en",
+  "contentRating": "unknown",
+  "releaseTrack": "beta",
+  "status": "active",
+  "attribution": {
+    "author": "Synthetiq",
+    "website": "https://github.com/kas021/Synthetiq-Modules"
+  },
+  "authorization": {
+    "basis": "owner-authorised",
+    "note": "Owner-authorised testing publication of the native port. No third-party media rights are supplied.",
+    "evidenceURL": "https://github.com/kas021/Synthetiq-Modules"
+  },
+  "allowedHosts": [
+    "graphql.anilist.co",
+    "api.jikan.moe",
+    "s4.anilist.co",
+    "cdn.myanimelist.net",
+    "vidhawk.buzz",
+    "*.vidhawk.buzz",
+    "raw.githubusercontent.com",
+    "anikage.cc",
+    "og.bakayaro.live",
+    "*.bakayaro.live"
+  ],
+  "capabilities": [
+    "discovery",
+    "search",
+    "details",
+    "episodes",
+    "streams"
+  ],
+  "requiredEngineFeatures": [
+    "contextual-hls-v1",
+    "numbered-catalogue-v1",
+    "catalogue-fallback-v1",
+    "graph-post-v1"
+  ],
+  "downloadSupport": "none",
+  "limits": {
+    "timeoutMilliseconds": 8000,
+    "maxConcurrentRequests": 2,
+    "maxResponseBytes": 2500000
+  },
+  "releaseNotes": "Owner-approved public availability for Aroki 2.0.38+. Basic playback and seeking have been demonstrated. Catalogue-derived episode counts are not provider-verified. Broad spoken-language, caption and offline certification remain incomplete. Downloads remain disabled. Not compatible with Aroki 1.2. 0.1.2: Vidhawk's media relay is down (HTTP 502 on every route), so streams now resolve through AniKage's public koto feed. The requested MyAnimeList ID is looked up on AniList and matched on AniKage by exact romaji title, format, season and year; titles without that match fail closed with no playable stream. Vidhawk can return in a later update if its relay recovers.",
+  "operations": {
+    "discovery": {
+      "sections": [
+        {
+          "id": "trending",
+          "title": "Trending",
+          "semantic": "custom",
+          "request": {
+            "method": "POST",
+            "urlTemplate": "https://graphql.anilist.co",
+            "headers": {
+              "Accept": "application/json"
+            },
+            "body": "{\"query\":\"query{Page(page:{page},perPage:20){media(type:ANIME,sort:TRENDING_DESC,isAdult:false){id idMal title{english romaji} description(asHtml:false) coverImage{ large } seasonYear episodes status nextAiringEpisode{ episode }}}}\"}"
+          },
+          "response": {
+            "format": "json"
+          },
+          "pagination": {
+            "type": "pageParam",
+            "start": 1,
+            "maxPages": 25
+          },
+          "items": {
+            "collection": "data.Page.media[*]",
+            "fields": {
+              "sourceID": {
+                "path": "idMal"
+              },
+              "title": {
+                "path": "title.english",
+                "fallbacks": [
+                  {
+                    "path": "title.romaji"
+                  }
+                ]
+              },
+              "posterURL": {
+                "path": "coverImage.large"
+              }
+            }
+          }
+        },
+        {
+          "id": "popular",
+          "title": "Popular",
+          "semantic": "popular",
+          "request": {
+            "method": "POST",
+            "urlTemplate": "https://graphql.anilist.co",
+            "headers": {
+              "Accept": "application/json"
+            },
+            "body": "{\"query\":\"query{Page(page:{page},perPage:20){media(type:ANIME,sort:POPULARITY_DESC,isAdult:false){id idMal title{english romaji} description(asHtml:false) coverImage{ large } seasonYear episodes status nextAiringEpisode{ episode }}}}\"}"
+          },
+          "response": {
+            "format": "json"
+          },
+          "pagination": {
+            "type": "pageParam",
+            "start": 1,
+            "maxPages": 25
+          },
+          "items": {
+            "collection": "data.Page.media[*]",
+            "fields": {
+              "sourceID": {
+                "path": "idMal"
+              },
+              "title": {
+                "path": "title.english",
+                "fallbacks": [
+                  {
+                    "path": "title.romaji"
+                  }
+                ]
+              },
+              "posterURL": {
+                "path": "coverImage.large"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "search": {
+      "request": {
+        "method": "POST",
+        "urlTemplate": "https://graphql.anilist.co",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": "{\"query\":\"query($q:String){Page(page:{page},perPage:20){media(search:$q,type:ANIME,sort:SEARCH_MATCH,isAdult:false){id idMal title{english romaji} description(asHtml:false) coverImage{ large } seasonYear episodes status nextAiringEpisode{ episode }}}}\",\"variables\":{\"q\":\"{query}\"}}"
+      },
+      "response": {
+        "format": "json"
+      },
+      "pagination": {
+        "type": "pageParam",
+        "start": 1,
+        "maxPages": 25
+      },
+      "items": {
+        "collection": "data.Page.media[*]",
+        "fields": {
+          "sourceID": {
+            "path": "idMal"
+          },
+          "title": {
+            "path": "title.english",
+            "fallbacks": [
+              {
+                "path": "title.romaji"
+              }
+            ]
+          },
+          "posterURL": {
+            "path": "coverImage.large"
+          }
+        }
+      }
+    },
+    "details": {
+      "request": {
+        "method": "POST",
+        "urlTemplate": "https://graphql.anilist.co",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": "{\"query\":\"query{Media(idMal:{titleID},type:ANIME){id idMal title{english romaji} description(asHtml:false) coverImage{ large } seasonYear episodes status nextAiringEpisode{ episode }}}\"}"
+      },
+      "response": {
+        "format": "json"
+      },
+      "extract": {
+        "title": {
+          "path": "data.Media.title.english",
+          "fallbacks": [
+            {
+              "path": "data.Media.title.romaji"
+            }
+          ]
+        },
+        "synopsis": {
+          "path": "data.Media.description"
+        },
+        "posterURL": {
+          "path": "data.Media.coverImage.large"
+        },
+        "sharedID": {
+          "path": "data.Media.id"
+        },
+        "year": {
+          "path": "data.Media.seasonYear"
+        }
+      }
+    },
+    "episodes": {
+      "request": {
+        "method": "POST",
+        "urlTemplate": "https://graphql.anilist.co",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": "{\"query\":\"query{Media(idMal:{titleID},type:ANIME){id idMal title{english romaji} description(asHtml:false) coverImage{ large } seasonYear episodes status nextAiringEpisode{ episode }}}\"}"
+      },
+      "response": {
+        "format": "json"
+      },
+      "numberedRange": {
+        "countPath": "data.Media.episodes",
+        "nextEpisodePath": "data.Media.nextAiringEpisode.episode",
+        "statusPath": "data.Media.status",
+        "allowedStatuses": [
+          "FINISHED",
+          "RELEASING"
+        ],
+        "identityPath": "data.Media.idMal"
+      },
+      "extract": {
+        "collection": "data.episodes[*]",
+        "fields": {
+          "episodeID": {
+            "path": "id"
+          }
+        }
+      }
+    },
+    "streams": {
+      "variants": [
+        "sub",
+        "dub"
+      ],
+      "finalMediaPolicy": "public-https",
+      "playbackHeaders": {
+        "Referer": "https://anikage.cc/",
+        "Origin": "https://anikage.cc",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+      },
+      "steps": [
+        {
+          "request": {
+            "method": "POST",
+            "urlTemplate": "https://graphql.anilist.co",
+            "headers": {
+              "Accept": "application/json"
+            },
+            "body": "{\"query\":\"query{Media(idMal:{titleID},type:ANIME){ title{ romaji } format season seasonYear }}\"}"
+          },
+          "response": {
+            "format": "json"
+          },
+          "extract": {
+            "context": {
+              "title": {
+                "path": "data.Media.title.romaji"
+              },
+              "format": {
+                "path": "data.Media.format"
+              },
+              "season": {
+                "path": "data.Media.season"
+              },
+              "year": {
+                "path": "data.Media.seasonYear"
+              }
+            }
+          }
+        },
+        {
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://anikage.cc/api/media/anime/browse?q={title}&format={format}&season={season}&yearMin={year}&yearMax={year}&page=1",
+            "headers": {
+              "Accept": "application/json, text/plain, */*",
+              "Referer": "https://anikage.cc/",
+              "Origin": "https://anikage.cc",
+              "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+            }
+          },
+          "response": {
+            "format": "json"
+          },
+          "extract": {
+            "context": {
+              "slug": {
+                "path": "data[0].slug"
+              }
+            }
+          }
+        },
+        {
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://anikage.cc/api/media/anime/{slug}/episodes/{episodeID}/sources?provider=koto&lang={variant}&refresh=1",
+            "headers": {
+              "Accept": "application/json, text/plain, */*",
+              "Referer": "https://anikage.cc/",
+              "Origin": "https://anikage.cc",
+              "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+            }
+          },
+          "response": {
+            "format": "json"
+          },
+          "extract": {
+            "collection": "sources[*]",
+            "fields": {
+              "url": {
+                "path": "url",
+                "transforms": [
+                  {
+                    "op": "template",
+                    "value": "https://og.bakayaro.live/{value}",
+                    "encodeValue": false
+                  }
+                ]
+              },
+              "qualityLabel": {
+                "path": "quality"
+              },
+              "mediaTypeHint": {
+                "literal": "hls"
+              }
+            },
+            "subtitles": {
+              "collection": "subtitles[*]",
+              "fields": {
+                "url": {
+                  "path": "file",
+                  "transforms": [
+                    {
+                      "op": "template",
+                      "value": "https://og.bakayaro.live/{value}",
+                      "encodeValue": false
+                    }
+                  ]
+                },
+                "label": {
+                  "path": "label"
+                },
+                "languageCode": {
+                  "path": "srclang",
+                  "fallbacks": [
+                    {
+                      "path": "language"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "catalogueFallback": {
+    "discovery": {
+      "sections": [
+        {
+          "id": "popular",
+          "title": "Popular",
+          "semantic": "popular",
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://api.jikan.moe/v4/top/anime?limit=20&page={page}",
+            "headers": {
+              "Accept": "application/json"
+            }
+          },
+          "response": {
+            "format": "json"
+          },
+          "items": {
+            "collection": "data[*]",
+            "fields": {
+              "sourceID": {
+                "path": "mal_id"
+              },
+              "title": {
+                "path": "title_english",
+                "fallbacks": [
+                  {
+                    "path": "title"
+                  }
+                ]
+              },
+              "posterURL": {
+                "path": "images.jpg.large_image_url"
+              }
+            }
+          },
+          "pagination": {
+            "type": "pageParam",
+            "start": 1,
+            "maxPages": 25
+          }
+        }
+      ]
+    },
+    "search": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://api.jikan.moe/v4/anime?q={query}&page={page}&limit=20&sfw=true",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "format": "json"
+      },
+      "items": {
+        "collection": "data[*]",
+        "fields": {
+          "sourceID": {
+            "path": "mal_id"
+          },
+          "title": {
+            "path": "title_english",
+            "fallbacks": [
+              {
+                "path": "title"
+              }
+            ]
+          },
+          "posterURL": {
+            "path": "images.jpg.large_image_url"
+          }
+        }
+      },
+      "pagination": {
+        "type": "pageParam",
+        "start": 1,
+        "maxPages": 25
+      }
+    },
+    "details": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://api.jikan.moe/v4/anime/{titleID}",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "format": "json"
+      },
+      "extract": {
+        "title": {
+          "path": "data.title_english",
+          "fallbacks": [
+            {
+              "path": "data.title"
+            }
+          ]
+        },
+        "synopsis": {
+          "path": "data.synopsis"
+        },
+        "posterURL": {
+          "path": "data.images.jpg.large_image_url"
+        },
+        "year": {
+          "path": "data.year"
+        }
+      }
+    },
+    "episodes": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://api.jikan.moe/v4/anime/{titleID}",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "format": "json"
+      },
+      "extract": {
+        "collection": "data.episodesList[*]",
+        "fields": {
+          "episodeID": {
+            "path": "id"
+          }
+        }
+      },
+      "numberedRange": {
+        "countPath": "data.episodes",
+        "statusPath": "data.status",
+        "allowedStatuses": [
+          "Finished Airing"
+        ],
+        "identityPath": "data.mal_id"
+      }
+    }
+  }
+}
