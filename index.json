@@ -115,16 +115,16 @@
       "id" : "synthetiq-anime-testing",
       "language" : "en",
       "manifest" : {
-        "path" : "connectors\/synthetiq-anime-testing\/releases\/b0cc91a77b35d91bd2a05160acbc513d0f93da7a7e9fad436c3926e77fb29d72\/connector.json",
-        "sha256" : "b0cc91a77b35d91bd2a05160acbc513d0f93da7a7e9fad436c3926e77fb29d72",
-        "signature" : "FisuwDkFG3sgzzyLyCA0A9pUuQTUN6wjGeZrDcvbElxS3di67sC\/trI9aX34xeAQhXGX6HMul8rew9aba9I2Ag=="
+        "path" : "connectors\/synthetiq-anime-testing\/releases\/1053f57d2a2c897a8c7a5692fe239de2233da482feabda554e5308f9fde5576e\/connector.json",
+        "sha256" : "1053f57d2a2c897a8c7a5692fe239de2233da482feabda554e5308f9fde5576e",
+        "signature" : "N0Le4sR1pf6d4WW04dL\/6FWkUJ4awi3i55LxfrRbdVVPyqf+h6EGqavHFjbVc15yxDt7d5xucIzwE\/1bV6QjCA=="
       },
       "minimumAppVersion" : "2.0.38",
       "name" : "Synthetiq Anime",
-      "releaseNotes" : "Owner-approved public availability for Aroki 2.0.38+. Native catalogue and fresh Flow\/Zuri stream resolution. Basic owner-device playback and seeking have been demonstrated. Provider Dub\/audio mismatches and missing captions remain possible; broad language and offline certification are incomplete. Existing source identity is preserved.",
+      "releaseNotes" : "Owner-approved public availability for Aroki 2.0.38+. Native catalogue and fresh Flow\/Zuri stream resolution. Basic owner-device playback and seeking have been demonstrated. Provider Dub\/audio mismatches and missing captions remain possible; broad language and offline certification are incomplete. Existing source identity is preserved. 0.1.2: Vidhawk's media relay is down (HTTP 502 on every route), so streams now resolve through AniKage's public koto feed. The requested MyAnimeList ID is looked up on AniList and matched on AniKage by exact romaji title, format, season and year; titles without that match fail closed with no playable stream. Vidhawk can return in a later update if its relay recovers.",
       "releaseTrack" : "beta",
       "status" : "active",
-      "version" : "0.1.1"
+      "version" : "0.1.2"
     },
     {
       "contentRating" : "unknown",
@@ -182,10 +182,10 @@
     }
   ],
   "enabled" : true,
-  "generatedAt" : 1790463085,
+  "generatedAt" : 1790463208,
   "name" : "AROKI Connectors",
   "publicKey" : "BYKainAr2pxVfWxSSQJHG79Xl\/mnkTuIl1ujEmR+1V4=",
   "repositoryID" : "aroki-connectors",
   "schemaVersion" : 1,
-  "signature" : "XdQ4XOR6J+GZluBEPyO8PbHDoVO3lhEjm71u\/9CrtN8ubCQBM1vKQHXSqcQoMEEYN7ra31v0yCeFQYDICljrCA=="
+  "signature" : "JWMsrz3AhodYLIRyID1FKVe38hUwSY4DDP\/Vv6RTWIPnypjJn1n+WvxT0ol3XH2Rd01dQ3uJU\/dEO2T5uZAiDA=="
 }
