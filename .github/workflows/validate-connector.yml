@@ -2,20 +2,6 @@ name: Validate Aroki connector candidate
 
 on:
   workflow_dispatch:
-    inputs:
-      connector_id:
-        description: Lowercase connector ID, for example anikage
-        required: true
-        type: string
-      candidate_ref:
-        description: Candidate branch, tag, or commit in AROKI-Connectors
-        required: true
-        type: string
-  pull_request:
-    paths:
-      - "connectors/**"
-      - "scripts/validate-unsigned-connector.py"
-
 permissions:
   contents: read
 
