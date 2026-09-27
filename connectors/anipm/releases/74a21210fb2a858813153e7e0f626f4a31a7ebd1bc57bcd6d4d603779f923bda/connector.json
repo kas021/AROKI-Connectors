@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 1,
+  "id": "anipm",
+  "familyID": "anipm",
+  "name": "AniPM (BETA)",
+  "version": "0.1.1",
+  "minimumAppVersion": "1.2.0",
+  "contentType": "video",
+  "language": "en",
+  "contentRating": "unknown",
+  "releaseTrack": "beta",
+  "status": "active",
+  "attribution": { "author": "Synthetiq", "website": "https://ani.pm/" },
+  "authorization": {
+    "basis": "personal",
+    "note": "Owner-requested local compatibility testing. Public API reachability is not a determination of distribution or media rights.",
+    "evidenceURL": "https://github.com/kas021/Synthetiq-Modules"
+  },
+  "allowedHosts": ["ani.pm", "embed.settlar.io", "media.settlar.io"],
+  "capabilities": ["discovery", "search", "details", "episodes", "streams"],
+  "downloadSupport": "hls",
+  "limits": { "timeoutMilliseconds": 12000, "maxConcurrentRequests": 2, "maxResponseBytes": 2500000 },
+  "releaseNotes": "0.1.1 permits installation on Aroki 1.2.0 and newer. The unchanged native JSON/Settlar route passed Sub/Dub playback advancement, seeking and caption parsing against the 1.2 engine on macOS. Older readers retain their 500-episode listing limit; update Aroki for later episodes. No JavaScript or encrypted MegaPlay fallback. Physical-iPhone and offline certification remain separate.",
+  "operations": {
+    "discovery": {
+      "sections": [
+        {
+          "id": "featured", "title": "Featured", "semantic": "custom",
+          "request": { "method": "GET", "urlTemplate": "https://ani.pm/api/anime/home-bootstrap", "headers": { "Accept": "application/json" } },
+          "response": { "format": "json" },
+          "items": { "collection": "hero[*]", "fields": {
+            "sourceID": { "path": "id" }, "title": { "path": "title", "fallbacks": [{"path":"native"}] },
+            "posterURL": { "path": "poster", "transforms": [{"op":"absolutize"}] }
+          } }
+        },
+        {
+          "id": "trending", "title": "Top Weekly", "semantic": "popular",
+          "request": { "method": "GET", "urlTemplate": "https://ani.pm/api/anime/catalog?page={page}&limit=30&sort=trending", "headers": { "Accept": "application/json" } },
+          "response": { "format": "json" },
+          "pagination": { "type": "pageParam", "start": 1, "maxPages": 25 },
+          "items": { "collection": "items[*]", "fields": {
+            "sourceID": { "path": "id" }, "title": { "path": "title", "fallbacks": [{"path":"native"}] },
+            "posterURL": { "path": "poster", "transforms": [{"op":"absolutize"}] }
+          } }
+        },
+        {
+          "id": "latest", "title": "Latest Episodes", "semantic": "custom",
+          "request": { "method": "GET", "urlTemplate": "https://ani.pm/api/anime/home-bootstrap", "headers": { "Accept": "application/json" } },
+          "response": { "format": "json" },
+          "items": { "collection": "latest[*]", "fields": {
+            "sourceID": { "path": "id" }, "title": { "path": "title" },
+            "posterURL": { "path": "poster", "transforms": [{"op":"absolutize"}] }
+          } }
+        },
+        {
+          "id": "popular", "title": "Most Popular", "semantic": "popular",
+          "request": { "method": "GET", "urlTemplate": "https://ani.pm/api/anime/catalog?page={page}&limit=30&sort=popular", "headers": { "Accept": "application/json" } },
+          "response": { "format": "json" },
+          "pagination": { "type": "pageParam", "start": 1, "maxPages": 25 },
+          "items": { "collection": "items[*]", "fields": {
+            "sourceID": { "path": "id" }, "title": { "path": "title", "fallbacks": [{"path":"native"}] },
+            "posterURL": { "path": "poster", "transforms": [{"op":"absolutize"}] }
+          } }
+        },
+        {
+          "id": "all-anime", "title": "All Anime", "semantic": "all",
+          "request": { "method": "GET", "urlTemplate": "https://ani.pm/api/anime/catalog?page={page}&limit=30", "headers": { "Accept": "application/json" } },
+          "response": { "format": "json" },
+          "pagination": { "type": "pageParam", "start": 1, "maxPages": 25 },
+          "items": { "collection": "items[*]", "fields": {
+            "sourceID": { "path": "id" }, "title": { "path": "title", "fallbacks": [{"path":"native"}] },
+            "posterURL": { "path": "poster", "transforms": [{"op":"absolutize"}] }
+          } }
+        }
+      ]
+    },
+    "search": {
+      "request": { "method": "GET", "urlTemplate": "https://ani.pm/api/anime/search?q={query}", "headers": { "Accept": "application/json" } },
+      "response": { "format": "json" },
+      "items": { "collection": "items[*]", "fields": {
+        "sourceID": { "path": "id" }, "title": { "path": "title", "fallbacks": [{"path":"native"}] },
+        "posterURL": { "path": "poster", "transforms": [{"op":"absolutize"}] }
+      } }
+    },
+    "details": {
+      "request": { "method": "GET", "urlTemplate": "https://ani.pm/api/anime/series/{titleID}?phase=core", "headers": { "Accept": "application/json" } },
+      "response": { "format": "json" },
+      "extract": {
+        "title": { "path": "title", "fallbacks": [{"path":"native"}] },
+        "synopsis": { "path": "synopsis" },
+        "posterURL": { "path": "poster", "transforms": [{"op":"absolutize"}] },
+        "year": { "path": "year" }, "genres": { "collection": "genres[*]" }
+      }
+    },
+    "episodes": {
+      "request": { "method": "GET", "urlTemplate": "https://ani.pm/api/anime/series/{titleID}?phase=core", "headers": { "Accept": "application/json" } },
+      "response": { "format": "json" },
+      "extract": { "collection": "episodes[*]", "fields": {
+        "episodeID": { "path": "number" }, "episodeNumber": { "path": "number" },
+        "title": { "path": "title" }, "thumbnailURL": { "path": "thumbnail", "transforms": [{"op":"absolutize"}] }
+      } }
+    },
+    "streams": {
+      "variants": ["sub", "dub"],
+      "playbackHeaders": { "Referer": "https://embed.settlar.io/", "Origin": "https://embed.settlar.io" },
+      "steps": [
+        {
+          "request": { "method": "GET", "urlTemplate": "https://ani.pm/api/anime/series/{titleID}?phase=core", "headers": { "Accept": "application/json" } },
+          "response": { "format": "json" },
+          "extract": { "context": { "source": { "path": "source" } } }
+        },
+        {
+          "request": { "method": "GET", "urlTemplate": "https://ani.pm/api/anime/playback-bootstrap/{source}/{titleID}?ep={episodeID}&lang={variant}&backup=0", "headers": { "Accept": "application/json" } },
+          "response": { "format": "json" },
+          "extract": { "context": { "selection": { "path": "settlarSelection" } } }
+        },
+        {
+          "request": { "method": "GET", "urlTemplate": "https://ani.pm/api/anime/settlar/session?selection={selection}&provider=anipm&ep={episodeID}&channel={variant}&telemetry=0", "headers": { "Accept": "application/json" } },
+          "response": { "format": "json" },
+          "extract": { "context": { "token": { "path": "embedUrl", "transforms": [{"op":"queryValue", "name":"t"}] } } }
+        },
+        {
+          "request": { "method": "GET", "urlTemplate": "https://embed.settlar.io/api/embed/session?t={token}", "headers": { "Accept": "application/json", "Referer":"https://embed.settlar.io/", "Origin":"https://embed.settlar.io" } },
+          "response": { "format": "json" },
+          "extract": {
+            "collection": "@",
+            "fields": { "url": { "path": "source" }, "mediaTypeHint": { "path": "kind" }, "qualityLabel": {"literal":"Auto"} },
+            "subtitles": { "collection": "subtitles[*]", "fields": {
+              "url": {"path":"url"}, "label": {"path":"label", "fallbacks":[{"path":"name"}]},
+              "languageCode": {"path":"srclang", "fallbacks":[{"path":"lang"},{"path":"language"}]},
+              "format": {"literal":"vtt"}
+            } }
+          }
+        }
+      ]
+    }
+  }
+}
