@@ -3,8 +3,8 @@
   "id": "anipm",
   "familyID": "anipm",
   "name": "AniPM (BETA)",
-  "version": "0.1.0",
-  "minimumAppVersion": "2.0.42",
+  "version": "0.1.1",
+  "minimumAppVersion": "1.2.0",
   "contentType": "video",
   "language": "en",
   "contentRating": "unknown",
@@ -20,7 +20,7 @@
   "capabilities": ["discovery", "search", "details", "episodes", "streams"],
   "downloadSupport": "hls",
   "limits": { "timeoutMilliseconds": 12000, "maxConcurrentRequests": 2, "maxResponseBytes": 2500000 },
-  "releaseNotes": "Native JSON/Settlar port of AniPM Player 0.1.0-beta.3. Exact source episode numbers, explicit Sub/Dub requests and native captions. No JavaScript or encrypted MegaPlay fallback. Local candidate; device and offline certification are separate.",
+  "releaseNotes": "0.1.1 permits installation on Aroki 1.2.0 and newer. The unchanged native JSON/Settlar route passed Sub/Dub playback advancement, seeking and caption parsing against the 1.2 engine on macOS. Older readers retain their 500-episode listing limit; update Aroki for later episodes. No JavaScript or encrypted MegaPlay fallback. Physical-iPhone and offline certification remain separate.",
   "operations": {
     "discovery": {
       "sections": [
