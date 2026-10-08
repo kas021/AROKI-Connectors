@@ -3,7 +3,7 @@
   "id": "synthetiq-anime-direct",
   "familyID": "synthetiq-anime-direct",
   "name": "Synthetiq Flux",
-  "version": "0.1.1",
+  "version": "0.1.4",
   "minimumAppVersion": "2.0.38",
   "contentType": "video",
   "language": "en",
@@ -26,7 +26,13 @@
     "cdn.myanimelist.net",
     "vidhawk.buzz",
     "*.vidhawk.buzz",
-    "raw.githubusercontent.com"
+    "raw.githubusercontent.com",
+    "anikage.cc",
+    "og.bakayaro.live",
+    "*.bakayaro.live",
+    "ani.pm",
+    "embed.settlar.io",
+    "media.settlar.io"
   ],
   "capabilities": [
     "discovery",
@@ -38,7 +44,8 @@
   "requiredEngineFeatures": [
     "contextual-hls-v1",
     "numbered-catalogue-v1",
-    "catalogue-fallback-v1"
+    "catalogue-fallback-v1",
+    "graph-post-v1"
   ],
   "downloadSupport": "none",
   "limits": {
@@ -46,7 +53,7 @@
     "maxConcurrentRequests": 2,
     "maxResponseBytes": 2500000
   },
-  "releaseNotes": "Owner-approved public availability for Aroki 2.0.38+. Basic playback and seeking have been demonstrated. Catalogue-derived episode counts are not provider-verified. Broad spoken-language, caption and offline certification remain incomplete. Downloads remain disabled. Not compatible with Aroki 1.2.",
+  "releaseNotes": "Restore native playback through AniPM/Settlar using canonical AniList identifiers. Existing MyAnimeList title IDs, saved shows and episode numbers are preserved. Playback session expiry and supplied captions are retained. Provider availability varies; downloads remain disabled. Requires Aroki 2.0.38 or newer.",
   "operations": {
     "discovery": {
       "sections": [
@@ -236,211 +243,139 @@
       }
     },
     "streams": {
-      "selection": "collect",
-      "mirrors": [
+      "variants": [
+        "sub",
+        "dub"
+      ],
+      "playbackHeaders": {
+        "Referer": "https://embed.settlar.io/",
+        "Origin": "https://embed.settlar.io"
+      },
+      "steps": [
         {
-          "variants": [
-            "sub",
-            "dub"
-          ],
-          "finalMediaPolicy": "public-https",
-          "playbackHeaders": {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
-          },
-          "contextualMedia": {
-            "contextURLTemplate": "https://vidhawk.buzz/embed/mal/{titleID}/{episodeID}/{variant}",
-            "serverLabel": "Flow",
-            "identity": {
-              "titleID": "malId",
-              "episodeID": "episode"
+          "request": {
+            "method": "POST",
+            "urlTemplate": "https://graphql.anilist.co",
+            "headers": {
+              "Accept": "application/json"
             },
-            "introPath": "intro",
-            "outroPath": "outro",
-            "maxContextScalarBytes": 16384,
-            "serverLabelPath": "serverLabel"
+            "body": "{\"query\":\"query{Media(idMal:{titleID},type:ANIME){ id }}\"}"
           },
-          "steps": [
-            {
-              "request": {
-                "method": "GET",
-                "urlTemplate": "https://vidhawk.buzz/api/stream/resolve?episode={episodeID}&audio={variant}&fast=1&server=flow&malId={titleID}",
-                "headers": {
-                  "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
-                  "Accept": "application/json",
-                  "Referer": "https://vidhawk.buzz/",
-                  "Origin": "https://vidhawk.buzz"
-                }
-              },
-              "response": {
-                "format": "json"
-              },
-              "extract": {
-                "context": {
-                  "ticket": {
-                    "path": "ticket"
-                  }
-                }
-              }
-            },
-            {
-              "request": {
-                "method": "GET",
-                "urlTemplate": "https://vidhawk.buzz/api/play?t={ticket}",
-                "headers": {
-                  "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
-                  "Accept": "application/json",
-                  "Referer": "https://vidhawk.buzz/",
-                  "Origin": "https://vidhawk.buzz"
-                }
-              },
-              "response": {
-                "format": "json"
-              },
-              "extract": {
-                "collection": {
-                  "path": "tracks[*]",
-                  "where": [
-                    {
-                      "path": "id",
-                      "equalsPlaceholder": "variant"
-                    }
-                  ]
-                },
-                "fields": {
-                  "url": {
-                    "path": "src"
-                  }
-                },
-                "subtitles": {
-                  "variantCollections": {
-                    "sub": "captions.sub[*]",
-                    "dub": "captions.dub[*]"
-                  },
-                  "fields": {
-                    "url": {
-                      "path": "src",
-                      "fallbacks": [
-                        {
-                          "path": "file"
-                        },
-                        {
-                          "path": "url"
-                        }
-                      ]
-                    },
-                    "label": {
-                      "path": "label"
-                    },
-                    "languageCode": {
-                      "path": "lang"
-                    }
-                  }
-                }
+          "response": {
+            "format": "json"
+          },
+          "extract": {
+            "context": {
+              "anilist": {
+                "path": "data.Media.id"
               }
             }
-          ]
+          }
         },
         {
-          "variants": [
-            "sub",
-            "dub"
-          ],
-          "finalMediaPolicy": "public-https",
-          "playbackHeaders": {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://ani.pm/api/anime/playback-bootstrap/anilist/{anilist}?ep={episodeID}&lang={variant}&backup=0",
+            "headers": {
+              "Accept": "application/json"
+            }
           },
-          "contextualMedia": {
-            "contextURLTemplate": "https://vidhawk.buzz/embed/mal/{titleID}/{episodeID}/{variant}",
-            "serverLabel": "Zuri",
-            "identity": {
-              "titleID": "malId",
-              "episodeID": "episode"
-            },
-            "introPath": "intro",
-            "outroPath": "outro",
-            "maxContextScalarBytes": 16384,
-            "serverLabelPath": "serverLabel"
+          "response": {
+            "format": "json"
           },
-          "steps": [
-            {
-              "request": {
-                "method": "GET",
-                "urlTemplate": "https://vidhawk.buzz/api/stream/resolve?episode={episodeID}&audio={variant}&fast=1&server=zuri&malId={titleID}",
-                "headers": {
-                  "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
-                  "Accept": "application/json",
-                  "Referer": "https://vidhawk.buzz/",
-                  "Origin": "https://vidhawk.buzz"
-                }
-              },
-              "response": {
-                "format": "json"
-              },
-              "extract": {
-                "context": {
-                  "ticket": {
-                    "path": "ticket"
+          "extract": {
+            "context": {
+              "selection": {
+                "path": "settlarSelection"
+              }
+            }
+          }
+        },
+        {
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://ani.pm/api/anime/settlar/session?selection={selection}&provider=anipm&ep={episodeID}&channel={variant}&telemetry=0",
+            "headers": {
+              "Accept": "application/json"
+            }
+          },
+          "response": {
+            "format": "json"
+          },
+          "extract": {
+            "context": {
+              "token": {
+                "path": "embedUrl",
+                "transforms": [
+                  {
+                    "op": "queryValue",
+                    "name": "t"
                   }
-                }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://embed.settlar.io/api/embed/session?t={token}",
+            "headers": {
+              "Accept": "application/json",
+              "Referer": "https://embed.settlar.io/",
+              "Origin": "https://embed.settlar.io"
+            }
+          },
+          "response": {
+            "format": "json"
+          },
+          "extract": {
+            "collection": "@",
+            "fields": {
+              "url": {
+                "path": "source"
+              },
+              "mediaTypeHint": {
+                "path": "kind"
+              },
+              "qualityLabel": {
+                "literal": "Auto"
+              },
+              "expiresAtEpochSeconds": {
+                "path": "expiresAt"
               }
             },
-            {
-              "request": {
-                "method": "GET",
-                "urlTemplate": "https://vidhawk.buzz/api/play?t={ticket}",
-                "headers": {
-                  "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
-                  "Accept": "application/json",
-                  "Referer": "https://vidhawk.buzz/",
-                  "Origin": "https://vidhawk.buzz"
-                }
-              },
-              "response": {
-                "format": "json"
-              },
-              "extract": {
-                "collection": {
-                  "path": "tracks[*]",
-                  "where": [
+            "subtitles": {
+              "collection": "subtitles[*]",
+              "fields": {
+                "url": {
+                  "path": "url"
+                },
+                "label": {
+                  "path": "label",
+                  "fallbacks": [
                     {
-                      "path": "id",
-                      "equalsPlaceholder": "variant"
+                      "path": "name"
                     }
                   ]
                 },
-                "fields": {
-                  "url": {
-                    "path": "src"
-                  }
-                },
-                "subtitles": {
-                  "variantCollections": {
-                    "sub": "captions.sub[*]",
-                    "dub": "captions.dub[*]"
-                  },
-                  "fields": {
-                    "url": {
-                      "path": "src",
-                      "fallbacks": [
-                        {
-                          "path": "file"
-                        },
-                        {
-                          "path": "url"
-                        }
-                      ]
-                    },
-                    "label": {
-                      "path": "label"
-                    },
-                    "languageCode": {
+                "languageCode": {
+                  "path": "srclang",
+                  "fallbacks": [
+                    {
                       "path": "lang"
+                    },
+                    {
+                      "path": "language"
                     }
-                  }
+                  ]
+                },
+                "format": {
+                  "literal": "vtt"
                 }
               }
             }
-          ]
+          }
         }
       ]
     }
