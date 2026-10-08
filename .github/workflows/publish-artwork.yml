@@ -1,0 +1,43 @@
+name: Publish optional module artwork
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: aroki-connector-publication
+  cancel-in-progress: false
+jobs:
+  artwork:
+    runs-on: macos-15
+    environment: connector-publishing
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          path: Modules
+          ref: main
+      - uses: actions/checkout@v5
+        with:
+          repository: kas021/Vireo
+          ref: d153e1cd9862d97e48cc24110b2369363be575e4
+          path: Vireo
+          ssh-key: ${{ secrets.VIREO_READONLY_DEPLOY_KEY }}
+          persist-credentials: false
+      - name: Native artwork and repository regression tests
+        run: swift test --package-path Vireo/VireoCore --filter 'Repository|Icon'
+      - name: Sign, verify and simulate existing installations
+        env:
+          AROKI_CONNECTOR_PRIVATE_KEY: ${{ secrets.AROKI_CONNECTOR_PRIVATE_KEY }}
+        run: swift run --package-path Modules/scripts/artwork PublishArtwork "$PWD/Modules"
+      - name: Publish verified cosmetic sidecar only
+        run: |
+          set -euo pipefail
+          cd Modules
+          git diff --exit-code -- index.json connectors
+          git config user.name "Aroki Connector Publisher"
+          git config user.email "actions@users.noreply.github.com"
+          git add artwork.json
+          git diff --cached --check
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Publish signed artwork for existing production modules"
+          git push origin HEAD:main
