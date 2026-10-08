@@ -187,23 +187,23 @@
       "id" : "anipm",
       "language" : "en",
       "manifest" : {
-        "path" : "connectors\/anipm\/releases\/74a21210fb2a858813153e7e0f626f4a31a7ebd1bc57bcd6d4d603779f923bda\/connector.json",
-        "sha256" : "74a21210fb2a858813153e7e0f626f4a31a7ebd1bc57bcd6d4d603779f923bda",
-        "signature" : "E5EyN0tKHXKYICPCsGyw\/RR5ZUNI\/bBBYQQn9LHJmwGcV05EXb\/7t\/GNvIayYCVUx+eMrmyTQb81RlRqPDM\/DA=="
+        "path" : "connectors\/anipm\/releases\/85a888677f8f601978699f12f4ab64966f12a75ef13b646ecc5f1b12966f7e44\/connector.json",
+        "sha256" : "85a888677f8f601978699f12f4ab64966f12a75ef13b646ecc5f1b12966f7e44",
+        "signature" : "VfyEvExYwiLnd89WXWDElrZeP38QOHnFpn48uhAfnvl+uzFyMs+13PA19mVaznn5PKmzGFHBzFktS8snRd\/fDg=="
       },
       "minimumAppVersion" : "1.2.0",
       "name" : "AniPM (BETA)",
-      "releaseNotes" : "0.1.1 permits installation on Aroki 1.2.0 and newer. The unchanged native JSON\/Settlar route passed Sub\/Dub playback advancement, seeking and caption parsing against the 1.2 engine on macOS. Older readers retain their 500-episode listing limit; update Aroki for later episodes. No JavaScript or encrypted MegaPlay fallback. Physical-iPhone and offline certification remain separate.",
+      "releaseNotes" : "Preserve provider-declared playback session expiry so Aroki can refresh expired links. Existing saved titles, audio and subtitles are unchanged.",
       "releaseTrack" : "beta",
       "status" : "active",
-      "version" : "0.1.1"
+      "version" : "0.1.2"
     }
   ],
   "enabled" : true,
-  "generatedAt" : 1790516911,
+  "generatedAt" : 1791498698,
   "name" : "AROKI Connectors",
   "publicKey" : "BYKainAr2pxVfWxSSQJHG79Xl\/mnkTuIl1ujEmR+1V4=",
   "repositoryID" : "aroki-connectors",
   "schemaVersion" : 1,
-  "signature" : "IOgPXQABu\/zrfA9a4NIZ+LDrbATyxeIYDn7HDAm9L3oJ3XUYLeb9iDMRSJJZELdhKTENDfh8murS+1piXFnzAw=="
+  "signature" : "IYRQbQ8Xis+F1LmwA\/pnGtUh4zPzFyRvitiDND0\/fYaCAD3ko5XCmZkPerH12IwtlapMkiv\/A1P2HS+8a4P9DQ=="
 }
