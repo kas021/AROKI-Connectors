@@ -53,7 +53,7 @@ jobs:
         uses: actions/checkout@v5
         with:
           repository: kas021/Vireo
-          ref: 4ca89cdf0e5c6e3e53db6a9a4705673fce147254
+          ref: d153e1cd9862d97e48cc24110b2369363be575e4
           path: Vireo
           ssh-key: ${{ secrets.VIREO_READONLY_DEPLOY_KEY }}
           persist-credentials: false
@@ -99,6 +99,14 @@ jobs:
           test -n "$AROKI_CONNECTOR_PRIVATE_KEY"
           bash Vireo/scripts/publish-connector.sh "$CONNECTOR_ID"
 
+      - name: Refresh and verify artwork against the new signed manifest
+        if: steps.candidate.outputs.changed == 'true'
+        env:
+          AROKI_CONNECTOR_PRIVATE_KEY: ${{ secrets.AROKI_CONNECTOR_PRIVATE_KEY }}
+        run: |
+          set -euo pipefail
+          swift run --package-path AROKI-Connectors/scripts/artwork PublishArtwork "$PWD/AROKI-Connectors"
+
       - name: Commit and push the verified publication
         if: steps.candidate.outputs.changed == 'true'
         env:
@@ -110,7 +118,7 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
           ARTIFACT=$(jq -r --arg id "$CONNECTOR_ID" '.connectors[] | select(.id == $id) | .manifest.path' index.json)
           [[ "$ARTIFACT" == "connectors/$CONNECTOR_ID/releases/"*"/connector.json" ]] || exit 1
-          git add "$ARTIFACT" index.json
+          git add "$ARTIFACT" index.json artwork.json
           git diff --cached --check
           if git diff --cached --quiet; then
             echo "Nothing changed; the requested version is already published."
