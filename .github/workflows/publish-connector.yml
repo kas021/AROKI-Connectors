@@ -82,6 +82,10 @@ jobs:
         if: steps.candidate.outputs.changed == 'true' && inputs.connector_id == 'anikoto'
         run: python3 AROKI-Connectors/scripts/align-anikoto-038-fixtures.py Vireo
 
+      - name: Align reviewed Flux 0.1.4 strict-policy and route fixtures
+        if: steps.candidate.outputs.changed == 'true' && inputs.connector_id == 'synthetiq-anime-direct'
+        run: python3 AROKI-Connectors/scripts/align-flux-014-fixtures.py Vireo
+
       - name: Build the native validator and run deterministic tests
         if: steps.candidate.outputs.changed == 'true'
         run: |
