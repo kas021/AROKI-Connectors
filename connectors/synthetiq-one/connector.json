@@ -3,13 +3,13 @@
   "id": "synthetiq-one",
   "familyID": "synthetiq-one",
   "name": "Synthetiq One",
-  "version": "1.2.11",
+  "version": "1.2.12",
   "minimumAppVersion": "0.1.0",
   "contentType": "video",
   "language": "en",
   "contentRating": "unknown",
   "releaseTrack": "beta",
-  "status": "active",
+  "status": "retired",
   "attribution": {
     "author": "Synthetiq",
     "website": "https://one.synthetiq.uk"
@@ -190,5 +190,5 @@
       "variants": ["dub"]
     }
   },
-  "releaseNotes": "Engineering opt-in connector v1.2.11 for the owner-operated Synthetiq One API. Adds the currently returned cdn.watching.onl and s1.akirax.buzz HLS hosts; native API-only search, details, episodes, discovery and DUB playback remain unchanged. No JavaScript, WebView or VPS changes."
+  "releaseNotes": "Retired from new installation because current playback is unreliable. Existing saved data and historical connector releases are retained. Choose another active source; this retirement does not delete downloads or library entries."
 }
