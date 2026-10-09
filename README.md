@@ -28,10 +28,12 @@ source at any time.
 - One Pace
 - AnimeGG
 
-AniKoto was retired on September 14, 2026 after repeated native checks returned
-no playable stream. Refresh the collection to receive its retired status.
+Synthetiq One was retired on October 9, 2026 because current playback is
+unreliable. Refresh the collection to receive its retired status.
 Retirement stops new install/update offers; it does not remotely delete installed
-copies, downloads, saved titles or history. Synthetiq One is unchanged.
+copies, downloads, saved titles or history. Its historical manifests remain in
+the repository. AniKoto is active again; the signed index is authoritative for
+current versions and compatibility. Flux 0.1.4 and AniPM 0.1.2 are active.
 
 The repository also contains **Update Flow Test**, a non-catalogue fixture used
 to verify source-update handling. It is not a recommended content source.
