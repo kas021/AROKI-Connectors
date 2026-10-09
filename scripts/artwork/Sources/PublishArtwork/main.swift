@@ -34,6 +34,19 @@ let store = try ConnectorStore(rootDirectory: temporary, appVersion: SemanticVer
 for entry in index.connectors {
     let manifest = try Data(contentsOf: root.appendingPathComponent(entry.manifest.path))
     _ = try RepositoryIndexVerifier.verifyAndCrossCheck(manifestData: manifest, entry: entry, indexPublicKey: index.publicKey)
+    if entry.status == .retired {
+        var rejectedAsRetired = false
+        do {
+            _ = try store.install(manifestData: manifest, iconData: nil, entry: entry, index: index)
+        } catch {
+            rejectedAsRetired = String(describing: error).contains("is retired and cannot be installed")
+        }
+        guard rejectedAsRetired, store.loadInstalled(familyID: entry.familyID) == nil else {
+            throw ValidationError("artwork", "Retired connector installation was not safely rejected")
+        }
+        print("\(entry.id): signed retired manifest verified; new installation correctly blocked")
+        continue
+    }
     // Simulate existing no-logo installation, then upgrade artwork at the same identity/version.
     _ = try store.install(manifestData: manifest, iconData: nil, entry: entry, index: index)
     let image = try catalogue[RepositoryArtworkCatalogue.key(for: entry)].map { try Data(contentsOf: root.appendingPathComponent($0.path)) }
