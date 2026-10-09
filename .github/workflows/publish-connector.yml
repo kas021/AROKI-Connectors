@@ -86,6 +86,10 @@ jobs:
         if: steps.candidate.outputs.changed == 'true' && inputs.connector_id == 'synthetiq-anime-direct'
         run: python3 AROKI-Connectors/scripts/align-flux-014-fixtures.py Vireo
 
+      - name: Verify reviewed Synthetiq One retirement fixture
+        if: steps.candidate.outputs.changed == 'true' && inputs.connector_id == 'synthetiq-one'
+        run: python3 AROKI-Connectors/scripts/align-one-retirement-fixtures.py Vireo
+
       - name: Build the native validator and run deterministic tests
         if: steps.candidate.outputs.changed == 'true'
         run: |
