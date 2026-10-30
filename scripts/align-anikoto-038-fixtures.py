@@ -16,9 +16,11 @@ reviewed = {
     "0.3.8": ("c58e0ab74c384c3d52c43d1380be8dfc956b7522d88a417d7bcc89f2600bd51d", "active"),
     "0.3.9": ("90756caaa5f97f990453fba6aa010d2ded009b87641a3f638eedbfc12169e0dc", "retired"),
     "0.3.10": ("49e8a0f2baa49abf2534ad9522d86eafc0cca054c76ead2cff62e15823221413", "active"),
+    "0.3.11": ("7023da2a163aebd9850556ec80f8cc3b5396ed8d90a277ca64fbc008a8e01ac8", "active"),
 }
 # Releases whose fixtures are committed in the pinned validator itself.
 prealigned = {"0.3.10"}
+fixture_releases = {"0.3.11": "fixtures/AniKotoReleaseRouteTests.swift"}
 version = manifest.get("version")
 if version not in reviewed:
     raise SystemExit("AniKoto fixtures require review for this release version")
@@ -27,6 +29,14 @@ if version in prealigned:
     if hashlib.sha256(candidate).hexdigest() != digest or manifest.get("status") != status:
         raise SystemExit("AniKoto candidate differs from reviewed release")
     print("Pinned validator already carries reviewed AniKage-route fixtures; no alignment needed")
+    raise SystemExit(0)
+if version in fixture_releases:
+    if hashlib.sha256(candidate).hexdigest() != digest or manifest.get("status") != status:
+        raise SystemExit("AniKoto candidate differs from reviewed release")
+    fixture = Path(__file__).parent / fixture_releases[version]
+    target = root / "VireoCore/Tests/VireoCoreTests/AniKotoConnectorTests.swift"
+    target.write_bytes(fixture.read_bytes())
+    print(f"Installed reviewed AniKoto {version} route fixtures")
     raise SystemExit(0)
 if hashlib.sha256(candidate).hexdigest() != digest or manifest.get("status") != status:
     raise SystemExit("AniKoto candidate differs from reviewed release")
