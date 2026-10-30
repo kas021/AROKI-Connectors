@@ -3,7 +3,7 @@
   "id": "anime-sama-expansion",
   "familyID": "anime-sama-expansion",
   "name": "Anime-Sama",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "minimumAppVersion": "2.0.36",
   "requiredEngineFeatures": [
     "literal-selection-v1",
@@ -111,10 +111,10 @@
         "maxPages": 25
       },
       "items": {
-        "collection": "a[href*=/catalogue/]",
+        "collection": "div.as-carte-oeuvre",
         "fields": {
           "sourceID": {
-            "selector": "a",
+            "selector": "a.as-carte-lien",
             "part": "attr",
             "attr": "href",
             "transforms": [
@@ -129,8 +129,13 @@
             ]
           },
           "title": {
-            "selector": "h2.card-title",
-            "part": "text"
+            "selector": "h3.as-carte-titre",
+            "part": "text",
+            "transforms": [
+              {
+                "op": "trim"
+              }
+            ]
           },
           "posterURL": {
             "selector": "img",
@@ -339,5 +344,5 @@
       ]
     }
   },
-  "releaseNotes": "Owner-approved public availability for Aroki 2.0.36+. Native panel, ordinal episode, Sibnet and literal Ansembed support. Playback and seeking have been demonstrated on selected titles; some routes, including the previously sampled Black Torch middle episode, may time out. Full device, language and offline certification remain incomplete."
+  "releaseNotes": "0.3.2 aligns catalogue search with the site's current card markup. Search now reads the as-carte work cards (title from h3.as-carte-titre, source id from the card link) instead of the removed h2.card-title markup. Details, episode panels, variants and stream resolution are unchanged."
 }
