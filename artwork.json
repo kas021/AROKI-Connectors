@@ -11,16 +11,16 @@
       "id" : "anikoto",
       "language" : "en",
       "manifest" : {
-        "path" : "connectors\/anikoto\/releases\/49e8a0f2baa49abf2534ad9522d86eafc0cca054c76ead2cff62e15823221413\/connector.json",
-        "sha256" : "49e8a0f2baa49abf2534ad9522d86eafc0cca054c76ead2cff62e15823221413",
-        "signature" : "DV5+yGOavriBWbx2v6hDvr1JMxaIzT9Ly1PzfB0AROOqM4GdKucNRE+PYOMtDc25eQUzCLAHMTv1aeplg64GAg=="
+        "path" : "connectors\/anikoto\/releases\/7023da2a163aebd9850556ec80f8cc3b5396ed8d90a277ca64fbc008a8e01ac8\/connector.json",
+        "sha256" : "7023da2a163aebd9850556ec80f8cc3b5396ed8d90a277ca64fbc008a8e01ac8",
+        "signature" : "q7OuQFhS7htC7X0uk77bAteUd7TurYn9V1FOweJ58WoHS7\/BXcm55fnbHCGB\/91gE1h6VSwUJLnddgK5S\/k6DA=="
       },
       "minimumAppVersion" : "0.1.0",
       "name" : "AniKoto",
-      "releaseNotes" : "Restored in 0.3.10: AniKoto's own provider feed is now resolved through AniKage's public koto route (the direct MegaPlay responses became encrypted). Each title is matched by AniKoto's exact title, format, premiere season and year, and fails closed with no playable stream when that match is unavailable. Sub and Dub with all published caption languages.",
+      "releaseNotes" : "0.3.11 fixes stream matching for titles whose source-declared season disagrees with the provider index (for example One Piece: Adventure of Nebulandia, which failed with a response-parse error). The browse match now uses the exact title, format and year without a season filter; this also removes the season extraction that failed on pages rendering the premiere year with an NBSP entity (for example ONE PIECE). The match year is taken from the Aired start date because the Premiered block can omit the year (for example One Piece: Heart of Gold and One Piece 3D2Y). No change to catalogue identity, episodes, audio variants, subtitles or playback headers.",
       "releaseTrack" : "beta",
       "status" : "active",
-      "version" : "0.3.10"
+      "version" : "0.3.11"
     },
     {
       "contentRating" : "unknown",
@@ -240,10 +240,10 @@
     }
   ],
   "enabled" : true,
-  "generatedAt" : 1791506114,
+  "generatedAt" : 1793354621,
   "name" : "AROKI Connectors",
   "publicKey" : "BYKainAr2pxVfWxSSQJHG79Xl\/mnkTuIl1ujEmR+1V4=",
   "repositoryID" : "aroki-connectors",
   "schemaVersion" : 1,
-  "signature" : "TlMDWOgxsWg+LPQ5xSlQxXDvmICjbKBHukfF84F+Urb42vlkJO4wyWPlxX0qQ8cLaf1YJJir8QR6pg5gmj1gCw=="
+  "signature" : "OYVf\/uOoM6NbUy\/o\/iw2YC+9Q8ubfl3cEhPQJ51rGd1B0JaT53GGqf3vqEVzr1WRu\/KkhtngKhsAKw8ldW\/BDg=="
 }
