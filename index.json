@@ -169,16 +169,16 @@
       "id" : "anime-sama-expansion",
       "language" : "fr",
       "manifest" : {
-        "path" : "connectors\/anime-sama-expansion\/releases\/671258b736a3f857911c3aed0a0fb1ec5d3fd21d365fd023cfc01bd3279d692c\/connector.json",
-        "sha256" : "671258b736a3f857911c3aed0a0fb1ec5d3fd21d365fd023cfc01bd3279d692c",
-        "signature" : "oP4JC2+I7FSJhqGtWenzxOSXvRJZqJLX1HYbbgmlpgWDMrLuQON543ogt2dypJYAzDqNRBQByfgD6QcDjmVwDw=="
+        "path" : "connectors\/anime-sama-expansion\/releases\/ecfa3ce07a0bd165149ce81ca3e62c17b932592b77404d1b5f7140fb289a3929\/connector.json",
+        "sha256" : "ecfa3ce07a0bd165149ce81ca3e62c17b932592b77404d1b5f7140fb289a3929",
+        "signature" : "WRF0tNCmQ4STzAUFiv4afMsDVkmjBlKDBD4bRXZoAVP2OYppfWMykZo1A8CjeJIvzhXopYr9KtCXQXAvfKWTBQ=="
       },
       "minimumAppVersion" : "2.0.36",
       "name" : "Anime-Sama",
-      "releaseNotes" : "Owner-approved public availability for Aroki 2.0.36+. Native panel, ordinal episode, Sibnet and literal Ansembed support. Playback and seeking have been demonstrated on selected titles; some routes, including the previously sampled Black Torch middle episode, may time out. Full device, language and offline certification remain incomplete.",
+      "releaseNotes" : "0.3.2 aligns catalogue search with the site's current card markup. Search now reads the as-carte work cards (title from h3.as-carte-titre, source id from the card link) instead of the removed h2.card-title markup. Details, episode panels, variants and stream resolution are unchanged.",
       "releaseTrack" : "beta",
       "status" : "active",
-      "version" : "0.3.1"
+      "version" : "0.3.2"
     },
     {
       "contentRating" : "unknown",
@@ -200,10 +200,10 @@
     }
   ],
   "enabled" : true,
-  "generatedAt" : 1793354621,
+  "generatedAt" : 1793370793,
   "name" : "AROKI Connectors",
   "publicKey" : "BYKainAr2pxVfWxSSQJHG79Xl\/mnkTuIl1ujEmR+1V4=",
   "repositoryID" : "aroki-connectors",
   "schemaVersion" : 1,
-  "signature" : "Q\/IykXM+8SqvowaBV\/rdtVCU\/6Kjx7OjZTsGTUfKFXoQOsopxVuzyegPByF2q1MGhG8t6\/HGJNRhDYSVU7SDCQ=="
+  "signature" : "tzUWaUsPTrgIl7hHnyp88yyYNQcsHteuwnmU5F\/gmQL3e9raVI4LHNaqvgTghEYLAfOxOj7kLHMbBrWwsJ+BAg=="
 }
