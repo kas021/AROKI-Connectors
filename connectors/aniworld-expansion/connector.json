@@ -218,7 +218,7 @@
                 "context": {
                   "embed": {
                     "kind": "url",
-                    "selector": "li[data-lang-key='3'][data-link-target]:has(h4:contains(Vidmoly))",
+                    "selector": "li[data-lang-key='1'][data-link-target]:has(h4:contains(Vidmoly))",
                     "part": "attr",
                     "attr": "data-link-target",
                     "transforms": [
@@ -289,7 +289,7 @@
                 "context": {
                   "embed": {
                     "kind": "url",
-                    "selector": "li[data-lang-key='2'][data-link-target]:has(h4:contains(Vidmoly))",
+                    "selector": "li[data-lang-key='1'][data-link-target]:has(h4:contains(Vidmoly))",
                     "part": "attr",
                     "attr": "data-link-target",
                     "transforms": [
