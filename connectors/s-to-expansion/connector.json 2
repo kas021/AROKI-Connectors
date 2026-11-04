@@ -358,7 +358,7 @@
             "type": "none"
           },
           "items": {
-            "collection": "a[href^='/serien/stream/']:has(img[data-src]):has(h3):not([href*='/staffel-']):not([href*='/episode-'])",
+            "collection": "a[href^='/serie/stream/']:has(img[data-src]):has(h3):not([href*='/staffel-']):not([href*='/episode-'])",
             "fields": {
               "sourceID": {
                 "selector": "a",
