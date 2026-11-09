@@ -114,7 +114,7 @@ jobs:
         run: python3 AROKI-Connectors/scripts/align-reviewed-2136-fixtures.py Vireo "$CONNECTOR_ID"
 
       - name: Align reviewed Anime-Sama 0.3.2 policy fixture
-        if: steps.candidate.outputs.changed == 'true' && inputs.connector_id == 'anime-sama-expansion'
+        if: steps.candidate.outputs.changed == 'true' && inputs.connector_id == 'anime-sama-expansion' && inputs.compatibility_floor != '2.1.36'
         run: python3 AROKI-Connectors/scripts/align-anime-sama-032-fixtures.py Vireo
 
       - name: Add reviewed AniKage 0.3.6 URL-shape regressions
