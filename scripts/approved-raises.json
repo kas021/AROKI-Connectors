@@ -15,6 +15,20 @@
       "legacyIndexSHA256": "27f6300a9ac7e31efd50ca92170368eaf744f1cf223e049efba9b63b55eb95c8",
       "minimumAppVersion": "2.1.36",
       "publisherScriptSHA256": "4beeee75737bb3f22e190e2fa2a5205cd86b3569d0b640555302c84303dbf056"
+    },
+    {
+      "connectorID": "anikoto",
+      "familyID": "anikoto",
+      "candidateCommit": "9749d112c7004dd51286f3a3564e7de7e4264956",
+      "candidateSHA256": "dbfe00dcbd9c1841e26ebf76e120c99ee02306402b8f327d01855214f9aac25e",
+      "baselineVersion": "0.3.11",
+      "baselineMinimumAppVersion": "0.1.0",
+      "baselineIndexSHA256": "6facb591a9e1709f1cebb0a045805497d2dc1e8fe277b8bf6041c5c098438766",
+      "baseMainCommit": "043cd9ec0e5ba2402ea4742956de42db63ffdaca",
+      "legacyBranchCommit": "812a6cfd4d7a7f21bd08420803a6c19a2d5549c2",
+      "legacyIndexSHA256": "27f6300a9ac7e31efd50ca92170368eaf744f1cf223e049efba9b63b55eb95c8",
+      "minimumAppVersion": "2.1.36",
+      "publisherScriptSHA256": "4beeee75737bb3f22e190e2fa2a5205cd86b3569d0b640555302c84303dbf056"
     }
   ]
 }

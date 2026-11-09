@@ -1,0 +1,17 @@
+{
+  "module": "anikoto",
+  "version": "0.3.12",
+  "sha256": "dbfe00dcbd9c1841e26ebf76e120c99ee02306402b8f327d01855214f9aac25e",
+  "validatorCommit": "d153e1cd9862d97e48cc24110b2369363be575e4",
+  "runner": "Isolated QA CLI: strict title match before metadata; unique episodeNumber1 for first-episode cases; explicit requested audio; one chain per case,10-second gaps",
+  "reportedBy": "Dedicated Luna validation lane",
+  "results": [
+    {"title":"Sgt. Frog / Keroro","episodeNumber":1,"audio":"sub","state":"passed","httpMediaValidated":true,"macNativePlayheadSeconds":0.795},
+    {"title":"Komi Can't Communicate","episodeNumber":7,"audio":"sub","state":"passed","httpMediaValidated":true,"macNativePlayheadSeconds":1.187},
+    {"title":"Case Closed","episodeNumber":1,"audio":"dub","state":"unresolved-chain-failure","failureStage":"unknown; no media/native proof"},
+    {"title":"The Disastrous Life of Saiki K.","sample":"middle","audio":"sub","state":"unresolved-chain-failure","failureStage":"unknown; no media/native proof"},
+    {"title":"Yamada-kun to 7-nin no Majo: Mou Hitotsu no Suzaku-sai","state":"not-run","reason":"identity not independently corroborated in this lane"}
+  ],
+  "rateLimitOrAccessRefusalObserved": false,
+  "limitations": ["Does not establish every Dub route works", "No spoken-language or subtitle-sync verification", "No physical iPhone/iPad acceptance", "No stream URLs, server payloads, headers, cookies or tokens retained"]
+}

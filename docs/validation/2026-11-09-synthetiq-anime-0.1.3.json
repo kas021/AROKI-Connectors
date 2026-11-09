@@ -1002,7 +1002,7 @@
     }
   ],
   "testEngineCommit": "d153e1cd9862d97e48cc24110b2369363be575e4",
-  "evidenceBoundary": "Muted Mac AVPlayer start/playhead advancement and bounded media checks. Not physical iPhone/iPad, audible-language, sustained ten-minute, or complete subtitle validation.",
+  "evidenceBoundary": "36 cells passed bounded HTTP media validation plus muted Mac AVPlayer advancement;12 passed Mac AVPlayer advancement only. Not physical iPhone/iPad, audible-language, sustained ten-minute, or complete subtitle validation.",
   "readerCompatibility": {
     "current": "2.1.36",
     "next": "2.1.37",
