@@ -205,16 +205,16 @@
       "id" : "anime-sama-expansion",
       "language" : "fr",
       "manifest" : {
-        "path" : "connectors\/anime-sama-expansion\/releases\/ecfa3ce07a0bd165149ce81ca3e62c17b932592b77404d1b5f7140fb289a3929\/connector.json",
-        "sha256" : "ecfa3ce07a0bd165149ce81ca3e62c17b932592b77404d1b5f7140fb289a3929",
-        "signature" : "WRF0tNCmQ4STzAUFiv4afMsDVkmjBlKDBD4bRXZoAVP2OYppfWMykZo1A8CjeJIvzhXopYr9KtCXQXAvfKWTBQ=="
+        "path" : "connectors\/anime-sama-expansion\/releases\/3f4fd2b5b53454716f14438e60f47773189917bf048b5b66ea176032d6bd164b\/connector.json",
+        "sha256" : "3f4fd2b5b53454716f14438e60f47773189917bf048b5b66ea176032d6bd164b",
+        "signature" : "zffOz5qtJ3l2WI1xu8F5+wf8iw1WHIk7TAugBQ9iWWjuma+tTsoWuBtEfQkLJoLNvRhz1aXeh6xvK2Lkc1qNCw=="
       },
-      "minimumAppVersion" : "2.0.36",
+      "minimumAppVersion" : "2.1.36",
       "name" : "Anime-Sama",
-      "releaseNotes" : "0.3.2 aligns catalogue search with the site's current card markup. Search now reads the as-carte work cards (title from h3.as-carte-titre, source id from the card link) instead of the removed h2.card-title markup. Details, episode panels, variants and stream resolution are unchanged.",
+      "releaseNotes" : "0.3.3-r2 preserves the 2.1.36+ legacy panel-comment opt-in and all identity\/stream mappings; repairs Catalogue discovery to use the current source-owned as-carte cards and title\/link fields already used by Search.",
       "releaseTrack" : "beta",
       "status" : "active",
-      "version" : "0.3.2"
+      "version" : "0.3.3"
     },
     {
       "contentRating" : "unknown",
@@ -240,10 +240,10 @@
     }
   ],
   "enabled" : true,
-  "generatedAt" : 1794266784,
+  "generatedAt" : 1794267814,
   "name" : "AROKI Connectors",
   "publicKey" : "BYKainAr2pxVfWxSSQJHG79Xl\/mnkTuIl1ujEmR+1V4=",
   "repositoryID" : "aroki-connectors",
   "schemaVersion" : 1,
-  "signature" : "J5Tgb9w3niXDQELlaCMp1zxjzEfeyoEFgPF79oYpXkZNoR7MZ4mxtT17HL4PvrM\/FZw1hdwzaiT\/2iuu1GHkDw=="
+  "signature" : "ldckWUA6ak5dU1jjpwG8ItRzZbp\/FNmvZExBdzEKZlYEPrBrGCk0GHJkg9jHnOzoW8IR9NxMD2SeDhHqCJt0Cw=="
 }
