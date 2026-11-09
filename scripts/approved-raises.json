@@ -29,8 +29,8 @@
       "legacyIndexSHA256": "27f6300a9ac7e31efd50ca92170368eaf744f1cf223e049efba9b63b55eb95c8",
       "minimumAppVersion": "2.1.36",
       "publisherScriptSHA256": "4beeee75737bb3f22e190e2fa2a5205cd86b3569d0b640555302c84303dbf056"
-    }
-    ,{
+    },
+    {
       "connectorID": "anime-sama-expansion",
       "familyID": "anime-sama-expansion",
       "candidateCommit": "71b4a487e34dba9cbd737705a59f5ea96198e386",
@@ -39,6 +39,20 @@
       "baselineMinimumAppVersion": "2.0.36",
       "baselineIndexSHA256": "b0729c1382748024276b29caef86f79e7f748d82f6ad0e8a28e306df5738eb01",
       "baseMainCommit": "8a36b89bdb6ff0bb5375b5b6d938023dbafc5626",
+      "legacyBranchCommit": "812a6cfd4d7a7f21bd08420803a6c19a2d5549c2",
+      "legacyIndexSHA256": "27f6300a9ac7e31efd50ca92170368eaf744f1cf223e049efba9b63b55eb95c8",
+      "minimumAppVersion": "2.1.36",
+      "publisherScriptSHA256": "4beeee75737bb3f22e190e2fa2a5205cd86b3569d0b640555302c84303dbf056"
+    },
+    {
+      "connectorID": "anipm",
+      "familyID": "anipm",
+      "candidateCommit": "18cac3154e80f410e9fcae10ee5e918ab0f12475",
+      "candidateSHA256": "49ee962133d6963439c75a896a49c28b6acad1a4c4aaa0ecec332b8a5c88245d",
+      "baselineVersion": "0.1.2",
+      "baselineMinimumAppVersion": "1.2.0",
+      "baselineIndexSHA256": "8c40d4d721d31047c14a043053d5b6f6706ac9edae7ee3f1db7954456bc55085",
+      "baseMainCommit": "21eb4b5b7b8fd17d42d5cde5c303791483c08953",
       "legacyBranchCommit": "812a6cfd4d7a7f21bd08420803a6c19a2d5549c2",
       "legacyIndexSHA256": "27f6300a9ac7e31efd50ca92170368eaf744f1cf223e049efba9b63b55eb95c8",
       "minimumAppVersion": "2.1.36",

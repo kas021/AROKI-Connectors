@@ -122,7 +122,7 @@ jobs:
         run: python3 AROKI-Connectors/scripts/align-anikage-036-fixtures.py Vireo
 
       - name: Align reviewed Flux 0.1.4 strict-policy and route fixtures
-        if: steps.candidate.outputs.changed == 'true' && inputs.connector_id == 'synthetiq-anime-direct'
+        if: steps.candidate.outputs.changed == 'true' && inputs.connector_id == 'synthetiq-anime-direct' && inputs.compatibility_floor != '2.1.36'
         run: python3 AROKI-Connectors/scripts/align-flux-014-fixtures.py Vireo
 
       - name: Verify reviewed Synthetiq One retirement fixture
@@ -131,6 +131,8 @@ jobs:
 
       - name: Build the native validator and run deterministic tests
         if: steps.candidate.outputs.changed == 'true'
+        env:
+          AROKI_AUDIO_GUARD_MODULE: ${{ inputs.connector_id }}
         run: |
           set -euo pipefail
           swift build --package-path Vireo/VireoCore --product vireo-tool
