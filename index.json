@@ -25,16 +25,16 @@
       "id" : "anikage",
       "language" : "en",
       "manifest" : {
-        "path" : "connectors\/anikage\/releases\/674b3f27fa68763c7e3515dc0d1cb6b917a3c5dcf5fbef0c528ec3b7ad1914f9\/connector.json",
-        "sha256" : "674b3f27fa68763c7e3515dc0d1cb6b917a3c5dcf5fbef0c528ec3b7ad1914f9",
-        "signature" : "g1cMhrSA\/uvpe1w+Adxudl0naJvfYJ\/H14CpyFKuLrfc8JRB1a6LWjm41cGStFKJq5+XjKWsLD\/oJesgCjK1Ag=="
+        "path" : "connectors\/anikage\/releases\/11efcc77ff1e85383b55d776f9aaf9580554ba3c7b96d8fbd3c7eea4fe6406cd\/connector.json",
+        "sha256" : "11efcc77ff1e85383b55d776f9aaf9580554ba3c7b96d8fbd3c7eea4fe6406cd",
+        "signature" : "lU\/MEHrr5BVHQWuw9fLyoTdwVVEdr\/XjrSM75YMgbalvuDyc07P4b+6TIZ0S7jnQLyRD5L7qMI2eUqkHDDslCA=="
       },
       "minimumAppVersion" : "0.1.0",
       "name" : "AniKage (BETA)",
-      "releaseNotes" : "Adds an AniList shared identity for Aroki's optional, user-selected source recovery. Keeps the published 0.3.4 playback route, provider, Sub\/Dub mapping, subtitles, headers, and host permissions unchanged.",
+      "releaseNotes" : "Handles both opaque source tokens and absolute HTTPS source URLs from the source-owned Anikage response using existing bounded URL transforms. Preserves the existing minimum app version, Koto provider, Sub\/Dub mapping, subtitles, headers, and host allowlist. Pending live confirmation; no broad reliability claim.",
       "releaseTrack" : "beta",
       "status" : "active",
-      "version" : "0.3.5"
+      "version" : "0.3.6"
     },
     {
       "contentRating" : "unknown",
@@ -200,10 +200,10 @@
     }
   ],
   "enabled" : true,
-  "generatedAt" : 1794265432,
+  "generatedAt" : 1794266784,
   "name" : "AROKI Connectors",
   "publicKey" : "BYKainAr2pxVfWxSSQJHG79Xl\/mnkTuIl1ujEmR+1V4=",
   "repositoryID" : "aroki-connectors",
   "schemaVersion" : 1,
-  "signature" : "ZFjYM+pIJw4EM\/X4x+DcOHFeWqlyNJdkaz8hMzi7jt+MZjPnY1m1MUUDSF4pAGt3Q1yDdj915W6tqjdaqykIDg=="
+  "signature" : "Uo7uV6ptfJ6iOjES9V0Ra+wU4d8\/2e2mqnZdMDLD4V8Wt9oKrdp3yb6Fz6bYC6C4B6NpYoLlK6fqpohq0gv8CQ=="
 }
