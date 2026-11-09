@@ -11,16 +11,16 @@
       "id" : "anikoto",
       "language" : "en",
       "manifest" : {
-        "path" : "connectors\/anikoto\/releases\/7023da2a163aebd9850556ec80f8cc3b5396ed8d90a277ca64fbc008a8e01ac8\/connector.json",
-        "sha256" : "7023da2a163aebd9850556ec80f8cc3b5396ed8d90a277ca64fbc008a8e01ac8",
-        "signature" : "q7OuQFhS7htC7X0uk77bAteUd7TurYn9V1FOweJ58WoHS7\/BXcm55fnbHCGB\/91gE1h6VSwUJLnddgK5S\/k6DA=="
+        "path" : "connectors\/anikoto\/releases\/dbfe00dcbd9c1841e26ebf76e120c99ee02306402b8f327d01855214f9aac25e\/connector.json",
+        "sha256" : "dbfe00dcbd9c1841e26ebf76e120c99ee02306402b8f327d01855214f9aac25e",
+        "signature" : "WmIRKyckTRmVXs89kiZwY3ntJ\/PrDDf6i34fOWKmWnG76ZDGtEVSpxAOnE24+dlLKZBBjoX\/tY9MjB1p\/pGUCg=="
       },
-      "minimumAppVersion" : "0.1.0",
+      "minimumAppVersion" : "2.1.36",
       "name" : "AniKoto",
-      "releaseNotes" : "0.3.11 fixes stream matching for titles whose source-declared season disagrees with the provider index (for example One Piece: Adventure of Nebulandia, which failed with a response-parse error). The browse match now uses the exact title, format and year without a season filter; this also removes the season extraction that failed on pages rendering the premiere year with an NBSP entity (for example ONE PIECE). The match year is taken from the Aired start date because the Premiered block can omit the year (for example One Piece: Heart of Gold and One Piece 3D2Y). No change to catalogue identity, episodes, audio variants, subtitles or playback headers.",
+      "releaseNotes" : "0.3.12 candidate: uses the visible AniKoto heading as the primary AniKage browse title and falls back to data-jp only when the heading is unavailable. The existing AniList banner ID (when present), exact year and format remain selection constraints; duplicate or conflicting matches fail closed. The existing title, episode and koto source routes are unchanged. This candidate has not established broad live reliability, playback recovery or spoken-language verification.",
       "releaseTrack" : "beta",
       "status" : "active",
-      "version" : "0.3.11"
+      "version" : "0.3.12"
     },
     {
       "contentRating" : "unknown",
@@ -240,10 +240,10 @@
     }
   ],
   "enabled" : true,
-  "generatedAt" : 1794264007,
+  "generatedAt" : 1794265432,
   "name" : "AROKI Connectors",
   "publicKey" : "BYKainAr2pxVfWxSSQJHG79Xl\/mnkTuIl1ujEmR+1V4=",
   "repositoryID" : "aroki-connectors",
   "schemaVersion" : 1,
-  "signature" : "IjkU32Sd94EGVS1jHWkicOg3q+s3C1XFqsK3384rKLw4RwC3Qb1SHBYY1kzR9XFYx6tN0uJdpEzYAnJRG2LEAQ=="
+  "signature" : "fXABOjyroUqbR1iI7owxQf0DKHPCOC3O64t+XLQmiZCqXFvAYVjB+\/ICThnGRuCXbqz\/ZYj6ghGYuJ\/21BL6CQ=="
 }
