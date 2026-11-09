@@ -3,8 +3,8 @@
   "id": "anime-sama-expansion",
   "familyID": "anime-sama-expansion",
   "name": "Anime-Sama",
-  "version": "0.3.1",
-  "minimumAppVersion": "2.0.36",
+  "version": "0.3.3",
+  "minimumAppVersion": "2.1.36",
   "requiredEngineFeatures": [
     "literal-selection-v1",
     "literal-declarations-v1",
@@ -16,7 +16,8 @@
     "named-episode-groups-v1",
     "literal-object-projection-v1",
     "bounded-mirrors-v1",
-    "literal-tab-strings-v1"
+    "literal-tab-strings-v1",
+    "legacy-script-comments-v1"
   ],
   "contentType": "video",
   "language": "fr",
@@ -66,10 +67,10 @@
             "maxPages": 25
           },
           "items": {
-            "collection": "a[href*=/catalogue/]",
+            "collection": "div.as-carte-oeuvre:has(.as-carte-badges span.as-badge-anime),div.as-carte-oeuvre:has(.as-carte-badges span.as-badge-film)",
             "fields": {
               "sourceID": {
-                "selector": "a",
+                "selector": "a.as-carte-lien",
                 "part": "attr",
                 "attr": "href",
                 "transforms": [
@@ -84,8 +85,13 @@
                 ]
               },
               "title": {
-                "selector": "h2.card-title",
-                "part": "text"
+                "selector": "h3.as-carte-titre",
+                "part": "text",
+                "transforms": [
+                  {
+                    "op": "trim"
+                  }
+                ]
               },
               "posterURL": {
                 "selector": "img",
@@ -111,10 +117,10 @@
         "maxPages": 25
       },
       "items": {
-        "collection": "a[href*=/catalogue/]",
+        "collection": "div.as-carte-oeuvre:has(.as-carte-badges span.as-badge-anime),div.as-carte-oeuvre:has(.as-carte-badges span.as-badge-film)",
         "fields": {
           "sourceID": {
-            "selector": "a",
+            "selector": "a.as-carte-lien",
             "part": "attr",
             "attr": "href",
             "transforms": [
@@ -129,8 +135,13 @@
             ]
           },
           "title": {
-            "selector": "h2.card-title",
-            "part": "text"
+            "selector": "h3.as-carte-titre",
+            "part": "text",
+            "transforms": [
+              {
+                "op": "trim"
+              }
+            ]
           },
           "posterURL": {
             "selector": "img",
@@ -171,7 +182,8 @@
         "scriptSelector": "#sousBlocMiddle .flex-wrap > script:containsData(panneauAnime)",
         "selection": {
           "kind": "calls",
-          "name": "panneauAnime"
+          "name": "panneauAnime",
+          "legacyHTMLComments": true
         }
       },
       "extract": {
@@ -339,5 +351,5 @@
       ]
     }
   },
-  "releaseNotes": "Owner-approved public availability for Aroki 2.0.36+. Native panel, ordinal episode, Sibnet and literal Ansembed support. Playback and seeking have been demonstrated on selected titles; some routes, including the previously sampled Black Torch middle episode, may time out. Full device, language and offline certification remain incomplete."
+  "releaseNotes": "0.3.3-r2 preserves the 2.1.36+ legacy panel-comment opt-in and all identity/stream mappings; repairs Catalogue discovery to use the current source-owned as-carte cards and title/link fields already used by Search."
 }
