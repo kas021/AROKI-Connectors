@@ -117,6 +117,10 @@ jobs:
         if: steps.candidate.outputs.changed == 'true' && inputs.connector_id == 'anime-sama-expansion'
         run: python3 AROKI-Connectors/scripts/align-anime-sama-032-fixtures.py Vireo
 
+      - name: Add reviewed AniKage 0.3.6 URL-shape regressions
+        if: steps.candidate.outputs.changed == 'true' && inputs.connector_id == 'anikage'
+        run: python3 AROKI-Connectors/scripts/align-anikage-036-fixtures.py Vireo
+
       - name: Align reviewed Flux 0.1.4 strict-policy and route fixtures
         if: steps.candidate.outputs.changed == 'true' && inputs.connector_id == 'synthetiq-anime-direct'
         run: python3 AROKI-Connectors/scripts/align-flux-014-fixtures.py Vireo
