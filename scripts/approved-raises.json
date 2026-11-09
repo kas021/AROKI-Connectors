@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Exact-candidate minimum-raise approvals for a separately reviewed publisher migration.",
+  "approvedRaises": [
+    {
+      "connectorID": "synthetiq-anime-testing",
+      "familyID": "synthetiq-anime-testing",
+      "candidateCommit": "345cf533a40435427aa1110f2ad0e917e88f99ed",
+      "candidateSHA256": "67d5232e210d90873fb3dc04fdab4b576dfa2958fd4693e5476b0ac7821dd021",
+      "baselineVersion": "0.1.2",
+      "baselineMinimumAppVersion": "2.0.38",
+      "baselineIndexSHA256": "27f6300a9ac7e31efd50ca92170368eaf744f1cf223e049efba9b63b55eb95c8",
+      "baseMainCommit": "812a6cfd4d7a7f21bd08420803a6c19a2d5549c2",
+      "legacyBranchCommit": "812a6cfd4d7a7f21bd08420803a6c19a2d5549c2",
+      "legacyIndexSHA256": "27f6300a9ac7e31efd50ca92170368eaf744f1cf223e049efba9b63b55eb95c8",
+      "minimumAppVersion": "2.1.36",
+      "publisherScriptSHA256": "4beeee75737bb3f22e190e2fa2a5205cd86b3569d0b640555302c84303dbf056"
+    }
+  ]
+}

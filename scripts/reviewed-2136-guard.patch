@@ -1,0 +1,40 @@
+diff --git a/scripts/publish-connector.sh b/scripts/publish-connector.sh
+--- a/scripts/publish-connector.sh
++++ b/scripts/publish-connector.sh
+@@ -54,7 +54,7 @@ DEST="$DEST_DIR/connector.json"
+ # Raising an existing family's minimum would strand fresh installs on old apps.
+ # Until multi-track selection exists, require a separately reviewed migration.
+ python3 - "$INDEX" "$SRC" <<'PY'
+-import json, sys
++import json, os, subprocess, sys
+ index = json.load(open(sys.argv[1]))
+ manifest = json.load(open(sys.argv[2]))
+ def version(s):
+@@ -66,7 +67,26 @@ for old in index['connectors']:
+ for old in index['connectors']:
+     if old['id'] == manifest['id']:
+         if minimum > version(old['minimumAppVersion']):
+-            raise SystemExit('Refusing to raise an existing connector minimum: retain a legacy release track first.')
++            floor = os.environ.get('AROKI_COMPATIBILITY_FLOOR', '')
++            if floor != '2.1.36':
++                raise SystemExit('Refusing to raise an existing connector minimum without exact 2.1.36 opt-in.')
++            helper = os.environ['AROKI_MINIMUM_RAISE_HELPER']
++            command = [
++                sys.executable, helper,
++                '--connector-id', os.environ['CONNECTOR_ID'],
++                '--candidate', sys.argv[2],
++                '--index', sys.argv[1],
++                '--registry', os.environ['AROKI_MINIMUM_RAISE_REGISTRY'],
++                '--compatibility-floor', floor,
++                '--expected-candidate-commit', os.environ['AROKI_EXPECTED_CANDIDATE_COMMIT'],
++                '--observed-candidate-commit', os.environ['AROKI_OBSERVED_CANDIDATE_COMMIT'],
++                '--expected-manifest-sha256', os.environ['AROKI_EXPECTED_MANIFEST_SHA256'],
++                '--base-main-commit', os.environ['AROKI_BASE_MAIN_COMMIT'],
++                '--legacy-branch-commit', os.environ['AROKI_LEGACY_BRANCH_COMMIT'],
++                '--legacy-index-sha256', os.environ['AROKI_LEGACY_INDEX_SHA256'],
++                '--publisher-script', os.environ['AROKI_PUBLISHER_SCRIPT_PATH'],
++            ]
++            subprocess.run(command, check=True)
+         if version(manifest['version']) <= version(old['version']):
+             raise SystemExit('Publication requires a newer connector version.')
+ PY

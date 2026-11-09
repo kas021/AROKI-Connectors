@@ -8,9 +8,21 @@ on:
         required: true
         type: string
       candidate_ref:
-        description: Candidate branch, tag, or commit in AROKI-Connectors
+        description: Immutable full 40-character candidate commit in AROKI-Connectors
         required: true
         type: string
+      expected_manifest_sha256:
+        description: Reviewed SHA-256 of the exact candidate manifest bytes
+        required: true
+        type: string
+      compatibility_floor:
+        description: Keep normal minimum policy unless this exact migration was reviewed
+        required: true
+        default: unchanged
+        type: choice
+        options:
+          - unchanged
+          - 2.1.36
 
 permissions:
   contents: write
@@ -31,14 +43,19 @@ jobs:
         env:
           CONNECTOR_ID: ${{ inputs.connector_id }}
           CANDIDATE_REF: ${{ inputs.candidate_ref }}
+          EXPECTED_MANIFEST_SHA256: ${{ inputs.expected_manifest_sha256 }}
         run: |
           set -euo pipefail
           [[ "$CONNECTOR_ID" =~ ^[a-z0-9-]+$ ]] || {
             echo "Connector ID must contain only lowercase letters, numbers, and hyphens." >&2
             exit 64
           }
-          [[ -n "$CANDIDATE_REF" && ${#CANDIDATE_REF} -le 160 ]] || {
-            echo "Candidate ref is missing or too long." >&2
+          [[ "$CANDIDATE_REF" =~ ^[0-9a-f]{40}$ ]] || {
+            echo "Candidate must be an immutable full commit SHA." >&2
+            exit 64
+          }
+          [[ "$EXPECTED_MANIFEST_SHA256" =~ ^[0-9a-f]{64}$ ]] || {
+            echo "Expected manifest SHA-256 is required." >&2
             exit 64
           }
 
@@ -58,18 +75,26 @@ jobs:
           ssh-key: ${{ secrets.VIREO_READONLY_DEPLOY_KEY }}
           persist-credentials: false
 
+      - name: Test publication authorization gate
+        run: python3 -m unittest discover -s AROKI-Connectors/scripts -p test_check_minimum_raise.py -v
+
       - name: Import only the requested candidate manifest
         id: candidate
         env:
           CONNECTOR_ID: ${{ inputs.connector_id }}
           CANDIDATE_REF: ${{ inputs.candidate_ref }}
+          EXPECTED_MANIFEST_SHA256: ${{ inputs.expected_manifest_sha256 }}
         run: |
           set -euo pipefail
           git -C AROKI-Connectors fetch --no-tags origin "$CANDIDATE_REF"
+          OBSERVED_COMMIT=$(git -C AROKI-Connectors rev-parse FETCH_HEAD)
+          test "$OBSERVED_COMMIT" = "$CANDIDATE_REF"
+          echo "commit=$OBSERVED_COMMIT" >> "$GITHUB_OUTPUT"
           git -C AROKI-Connectors show "FETCH_HEAD:connectors/$CONNECTOR_ID/connector.json" \
             > "Vireo/connectors/$CONNECTOR_ID.json"
           test "$(jq -r '.id' "Vireo/connectors/$CONNECTOR_ID.json")" = "$CONNECTOR_ID"
           CANDIDATE_SHA=$(shasum -a 256 "Vireo/connectors/$CONNECTOR_ID.json" | awk '{print $1}')
+          test "$CANDIDATE_SHA" = "$EXPECTED_MANIFEST_SHA256"
           PUBLISHED_SHA=$(jq -r --arg id "$CONNECTOR_ID" '.connectors[] | select(.id == $id) | .manifest.sha256' AROKI-Connectors/index.json)
           if [[ "$CANDIDATE_SHA" == "$PUBLISHED_SHA" ]]; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
@@ -79,8 +104,14 @@ jobs:
           fi
 
       - name: Align reviewed AniKoto 0.3.8 fixture expectations
-        if: steps.candidate.outputs.changed == 'true' && inputs.connector_id == 'anikoto'
+        if: steps.candidate.outputs.changed == 'true' && inputs.connector_id == 'anikoto' && inputs.compatibility_floor != '2.1.36'
         run: python3 AROKI-Connectors/scripts/align-anikoto-038-fixtures.py Vireo
+
+      - name: Align exact reviewed 2.1.36 module fixtures
+        if: steps.candidate.outputs.changed == 'true' && inputs.compatibility_floor == '2.1.36'
+        env:
+          CONNECTOR_ID: ${{ inputs.connector_id }}
+        run: python3 AROKI-Connectors/scripts/align-reviewed-2136-fixtures.py Vireo "$CONNECTOR_ID"
 
       - name: Align reviewed Anime-Sama 0.3.2 policy fixture
         if: steps.candidate.outputs.changed == 'true' && inputs.connector_id == 'anime-sama-expansion'
@@ -100,6 +131,64 @@ jobs:
           set -euo pipefail
           swift build --package-path Vireo/VireoCore --product vireo-tool
           swift test --package-path Vireo/VireoCore
+
+      - name: Authorize an exact reviewed 2.1.36 migration
+        if: steps.candidate.outputs.changed == 'true' && inputs.compatibility_floor == '2.1.36'
+        env:
+          CONNECTOR_ID: ${{ inputs.connector_id }}
+          CANDIDATE_COMMIT: ${{ inputs.candidate_ref }}
+          OBSERVED_COMMIT: ${{ steps.candidate.outputs.commit }}
+          EXPECTED_MANIFEST_SHA256: ${{ inputs.expected_manifest_sha256 }}
+        run: |
+          set -euo pipefail
+          PUBLIC_ROOT="$PWD/AROKI-Connectors"
+          REGISTRY="$PUBLIC_ROOT/scripts/approved-raises.json"
+          TOOL=$(swift build --package-path Vireo/VireoCore --show-bin-path)/vireo-tool
+          "$TOOL" verify-repository "$PUBLIC_ROOT/index.json"
+          git -C AROKI-Connectors fetch --no-tags origin refs/heads/legacy-before-2.1.36
+          LEGACY_COMMIT=$(git -C AROKI-Connectors rev-parse FETCH_HEAD)
+          LEGACY_ROOT="$RUNNER_TEMP/aroki-legacy-before-2136"
+          git -C AROKI-Connectors worktree add --detach "$LEGACY_ROOT" "$LEGACY_COMMIT"
+          "$TOOL" verify-repository "$LEGACY_ROOT/index.json"
+          LEGACY_INDEX_SHA=$(shasum -a 256 "$LEGACY_ROOT/index.json" | awk '{print $1}')
+          BASE_MAIN_COMMIT=$(jq -er --arg id "$CONNECTOR_ID" '.approvedRaises[] | select(.connectorID == $id) | .baseMainCommit' "$REGISTRY")
+          [[ "$BASE_MAIN_COMMIT" =~ ^[0-9a-f]{40}$ ]]
+          git -C AROKI-Connectors merge-base --is-ancestor "$BASE_MAIN_COMMIT" HEAD
+          BASE_INDEX_SHA=$(git -C AROKI-Connectors show "$BASE_MAIN_COMMIT:index.json" | shasum -a 256 | awk '{print $1}')
+          CURRENT_INDEX_SHA=$(shasum -a 256 "$PUBLIC_ROOT/index.json" | awk '{print $1}')
+          APPROVED_INDEX_SHA=$(jq -er --arg id "$CONNECTOR_ID" '.approvedRaises[] | select(.connectorID == $id) | .baselineIndexSHA256' "$REGISTRY")
+          test "$BASE_INDEX_SHA" = "$CURRENT_INDEX_SHA"
+          test "$BASE_INDEX_SHA" = "$APPROVED_INDEX_SHA"
+          ORIGINAL_PUBLISHER="$RUNNER_TEMP/aroki-original-publisher.sh"
+          cp Vireo/scripts/publish-connector.sh "$ORIGINAL_PUBLISHER"
+          python3 "$PUBLIC_ROOT/scripts/check_minimum_raise.py" \
+            --connector-id "$CONNECTOR_ID" \
+            --candidate "Vireo/connectors/$CONNECTOR_ID.json" \
+            --index "$PUBLIC_ROOT/index.json" --registry "$REGISTRY" \
+            --compatibility-floor 2.1.36 \
+            --expected-candidate-commit "$CANDIDATE_COMMIT" \
+            --observed-candidate-commit "$OBSERVED_COMMIT" \
+            --expected-manifest-sha256 "$EXPECTED_MANIFEST_SHA256" \
+            --base-main-commit "$BASE_MAIN_COMMIT" \
+            --legacy-branch-commit "$LEGACY_COMMIT" \
+            --legacy-index-sha256 "$LEGACY_INDEX_SHA" \
+            --publisher-script "$ORIGINAL_PUBLISHER"
+          PATCH_SHA=$(shasum -a 256 "$PUBLIC_ROOT/scripts/reviewed-2136-guard.patch" | awk '{print $1}')
+          test "$PATCH_SHA" = face11a6e7d48cd490a9776112877366ab26b7d85871a97b23b97301b138ba8c
+          git -C Vireo apply --check "$PUBLIC_ROOT/scripts/reviewed-2136-guard.patch"
+          git -C Vireo apply "$PUBLIC_ROOT/scripts/reviewed-2136-guard.patch"
+          {
+            echo "AROKI_COMPATIBILITY_FLOOR=2.1.36"
+            echo "AROKI_MINIMUM_RAISE_HELPER=$PUBLIC_ROOT/scripts/check_minimum_raise.py"
+            echo "AROKI_MINIMUM_RAISE_REGISTRY=$REGISTRY"
+            echo "AROKI_EXPECTED_CANDIDATE_COMMIT=$CANDIDATE_COMMIT"
+            echo "AROKI_OBSERVED_CANDIDATE_COMMIT=$OBSERVED_COMMIT"
+            echo "AROKI_EXPECTED_MANIFEST_SHA256=$EXPECTED_MANIFEST_SHA256"
+            echo "AROKI_BASE_MAIN_COMMIT=$BASE_MAIN_COMMIT"
+            echo "AROKI_LEGACY_BRANCH_COMMIT=$LEGACY_COMMIT"
+            echo "AROKI_LEGACY_INDEX_SHA256=$LEGACY_INDEX_SHA"
+            echo "AROKI_PUBLISHER_SCRIPT_PATH=$ORIGINAL_PUBLISHER"
+          } >> "$GITHUB_ENV"
 
       - name: Sign and verify the complete public repository
         if: steps.candidate.outputs.changed == 'true'

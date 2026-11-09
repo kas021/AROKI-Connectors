@@ -1,0 +1,1018 @@
+{
+  "module": "synthetiq-anime-testing",
+  "version": "0.1.3",
+  "sha256": "67d5232e210d90873fb3dc04fdab4b576dfa2958fd4693e5476b0ac7821dd021",
+  "corpusSeed": 20261109,
+  "corpusSHA256": "5ecd35e3557b8946584029ed367077ed3feb17e5b6206de89dd83d83492ab3ee",
+  "profile": "50 frozen broad titles; strict title matching; primary group middle episode; automatic source-declared audio",
+  "nativeRequired": true,
+  "exactSourceIDRequired": false,
+  "appCompatibilityFloor": "2.1.36",
+  "counts": {
+    "passed": 48,
+    "failed": 2
+  },
+  "elapsedSeconds": 723.01,
+  "overallPassRate": 0.96,
+  "haltReason": null,
+  "unverified": [
+    "physical-device",
+    "spoken-language",
+    "complete-subtitle-sync",
+    "every-episode-or-quality"
+  ],
+  "results": [
+    {
+      "id": "mal:9253",
+      "title": "Steins;Gate",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1442.108,
+        "episodeCount": 24,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 1.175670582,
+        "proofMode": "avplayer-playhead",
+        "query": "Steins;Gate",
+        "returnedTitle": "Steins;Gate",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 7.17
+    },
+    {
+      "id": "mal:28851",
+      "title": "A Silent Voice",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 7782.8,
+        "episodeCount": 1,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 1.2611185,
+        "proofMode": "avplayer-playhead",
+        "query": "A Silent Voice",
+        "returnedTitle": "A Silent Voice",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 6.43
+    },
+    {
+      "id": "mal:46569",
+      "title": "Hell’s Paradise",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1465.117,
+        "episodeCount": 13,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 1.199186635,
+        "proofMode": "avplayer-playhead",
+        "query": "Hell’s Paradise",
+        "returnedTitle": "Hell’s Paradise",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 6.4
+    },
+    {
+      "id": "mal:34572",
+      "title": "Black Clover",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1432.1,
+        "episodeCount": 170,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 1.193495416,
+        "proofMode": "avplayer-playhead",
+        "query": "Black Clover",
+        "returnedTitle": "Black Clover",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 5.1
+    },
+    {
+      "id": "mal:269",
+      "title": "Bleach",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1474.058,
+        "episodeCount": 366,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 0.755760542,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "Bleach",
+        "returnedTitle": "Bleach",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 4.36
+    },
+    {
+      "id": "mal:20",
+      "title": "Naruto",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1396.398,
+        "episodeCount": 220,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 1.26498571,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "Naruto",
+        "returnedTitle": "Naruto",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 6
+    },
+    {
+      "id": "mal:19",
+      "title": "Monster",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1435.181,
+        "episodeCount": 74,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 1.189661625,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "Monster",
+        "returnedTitle": "Monster",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 5.45
+    },
+    {
+      "id": "mal:38826",
+      "title": "Weathering With You",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 6738.008,
+        "episodeCount": 1,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 1.225603541,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "Weathering With You",
+        "returnedTitle": "Weathering With You",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 6.28
+    },
+    {
+      "id": "mal:65350",
+      "title": "SPY×FAMILY Season 4",
+      "state": "failed",
+      "attempted": true,
+      "reason": "NO_VALID_MEDIA_OR_EPISODE",
+      "diagnostic": "error: EPISODE_MISS title=SPY×FAMILY Season 4",
+      "elapsedSeconds": 0.55
+    },
+    {
+      "id": "mal:41025",
+      "title": "To Your Eternity",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1500.073,
+        "episodeCount": 20,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 1.172401867,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "To Your Eternity",
+        "returnedTitle": "To Your Eternity",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 6.53
+    },
+    {
+      "id": "mal:30503",
+      "title": "Noragami Aragoto",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1450.003,
+        "episodeCount": 13,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 1.098851793,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "Noragami Aragoto",
+        "returnedTitle": "Noragami Aragoto",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 9.02
+    },
+    {
+      "id": "mal:249",
+      "title": "InuYasha",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1465.889,
+        "episodeCount": 167,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 0.974724082,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "InuYasha",
+        "returnedTitle": "InuYasha",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 7.9
+    },
+    {
+      "id": "mal:63367",
+      "title": "Dragon Ball Super: Beerus",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1397.771,
+        "episodeCount": 5,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 1.154696917,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "Dragon Ball Super: Beerus",
+        "returnedTitle": "Dragon Ball Super: Beerus",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 7.22
+    },
+    {
+      "id": "mal:63712",
+      "title": "So What's Wrong with Getting Reborn as a Goblin?",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1419.96,
+        "episodeCount": 6,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 1.162285375,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "So What's Wrong with Getting Reborn as a Goblin?",
+        "returnedTitle": "So What's Wrong with Getting Reborn as a Goblin?",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 8.34
+    },
+    {
+      "id": "mal:30654",
+      "title": "Assassination Classroom Second Season",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1382.016,
+        "episodeCount": 25,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 0.872631085,
+        "proofMode": "avplayer-playhead",
+        "query": "Assassination Classroom Second Season",
+        "returnedTitle": "Assassination Classroom Second Season",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 6.71
+    },
+    {
+      "id": "mal:245",
+      "title": "GTO: Great Teacher Onizuka",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1437.121,
+        "episodeCount": 43,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 0.872266148,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "GTO: Great Teacher Onizuka",
+        "returnedTitle": "GTO: Great Teacher Onizuka",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 7.28
+    },
+    {
+      "id": "mal:48926",
+      "title": "Komi Can’t Communicate",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1447.957,
+        "episodeCount": 12,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 0.860838459,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "Komi Can’t Communicate",
+        "returnedTitle": "Komi Can’t Communicate",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 6.81
+    },
+    {
+      "id": "mal:63098",
+      "title": "PSYREN",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1420.085,
+        "episodeCount": 5,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 1.157927208,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "PSYREN",
+        "returnedTitle": "PSYREN",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 8.01
+    },
+    {
+      "id": "mal:1535",
+      "title": "Death Note",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1376.917,
+        "episodeCount": 37,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 0.792527667,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "Death Note",
+        "returnedTitle": "Death Note",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 7.63
+    },
+    {
+      "id": "mal:62922",
+      "title": "Magic Repo Man: Dumped by My Party, I’ll Cash In With a Cute Support Fairy to Become the Strongest!",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1371.036,
+        "episodeCount": 6,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 1.002272417,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "Magic Repo Man: Dumped by My Party, I’ll Cash In With a Cute Support Fairy to Become the Strongest!",
+        "returnedTitle": "Magic Repo Man: Dumped by My Party, I’ll Cash In With a Cute Support Fairy to Become the Strongest!",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 8.13
+    },
+    {
+      "id": "mal:820",
+      "title": "Legend of the Galactic Heroes",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1624.326,
+        "episodeCount": 110,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 1.115903333,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "Legend of the Galactic Heroes",
+        "returnedTitle": "Legend of the Galactic Heroes",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 5.55
+    },
+    {
+      "id": "mal:51535",
+      "title": "Attack on Titan Final Season THE FINAL CHAPTERS Special 1",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 3655.139,
+        "episodeCount": 1,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 1.214623704,
+        "proofMode": "avplayer-playhead",
+        "query": "Attack on Titan Final Season THE FINAL CHAPTERS Special 1",
+        "returnedTitle": "Attack on Titan Final Season THE FINAL CHAPTERS Special 1",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 5.77
+    },
+    {
+      "id": "mal:33255",
+      "title": "The Disastrous Life of Saiki K.",
+      "state": "failed",
+      "attempted": true,
+      "reason": "NO_VALID_MEDIA_OR_EPISODE",
+      "diagnostic": "error: CERTIFY_FAILED query=The Disastrous Life of Saiki K. error=no playable stream candidate",
+      "elapsedSeconds": 0.79
+    },
+    {
+      "id": "mal:59970",
+      "title": "That Time I Got Reincarnated as a Slime Season 4",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1439.897,
+        "episodeCount": 24,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 1.230033542,
+        "proofMode": "avplayer-playhead",
+        "query": "That Time I Got Reincarnated as a Slime Season 4",
+        "returnedTitle": "That Time I Got Reincarnated as a Slime Season 4",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 7.58
+    },
+    {
+      "id": "mal:37999",
+      "title": "Kaguya-sama: Love is War",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1440.08,
+        "episodeCount": 12,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 1.194218223,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "Kaguya-sama: Love is War",
+        "returnedTitle": "Kaguya-sama: Love is War",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 5.65
+    },
+    {
+      "id": "mal:2236",
+      "title": "The Girl Who Leapt Through Time",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 5904.466,
+        "episodeCount": 1,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 0.779071501,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "The Girl Who Leapt Through Time",
+        "returnedTitle": "The Girl Who Leapt Through Time",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 5.52
+    },
+    {
+      "id": "mal:36511",
+      "title": "Tokyo Ghoul:re",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1450.097,
+        "episodeCount": 12,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 0.774297917,
+        "proofMode": "avplayer-playhead",
+        "query": "Tokyo Ghoul:re",
+        "returnedTitle": "Tokyo Ghoul:re",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 6.1
+    },
+    {
+      "id": "mal:35968",
+      "title": "Wotakoi: Love is Hard for Otaku",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1374.998,
+        "episodeCount": 11,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 0.762999792,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "Wotakoi: Love is Hard for Otaku",
+        "returnedTitle": "Wotakoi: Love is Hard for Otaku",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 6.58
+    },
+    {
+      "id": "mal:36475",
+      "title": "Sword Art Online Alternative: Gun Gale Online",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1420.096,
+        "episodeCount": 12,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 1.114461977,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "Sword Art Online Alternative: Gun Gale Online",
+        "returnedTitle": "Sword Art Online Alternative: Gun Gale Online",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 6.67
+    },
+    {
+      "id": "mal:11061",
+      "title": "Hunter x Hunter (2011)",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1417.352,
+        "episodeCount": 148,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 1.187605542,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "Hunter x Hunter (2011)",
+        "returnedTitle": "Hunter x Hunter (2011)",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 7.18
+    },
+    {
+      "id": "mal:5114",
+      "title": "Fullmetal Alchemist: Brotherhood",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1434.206,
+        "episodeCount": 64,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 1.134150292,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "Fullmetal Alchemist: Brotherhood",
+        "returnedTitle": "Fullmetal Alchemist: Brotherhood",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 6.62
+    },
+    {
+      "id": "mal:63292",
+      "title": "Full Clearing Another World under a Goddess with Zero Believers",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1420.043,
+        "episodeCount": 5,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 0.996153042,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "Full Clearing Another World under a Goddess with Zero Believers",
+        "returnedTitle": "Full Clearing Another World under a Goddess with Zero Believers",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 5.36
+    },
+    {
+      "id": "mal:37991",
+      "title": "JoJo's Bizarre Adventure: Golden Wind",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1420.018,
+        "episodeCount": 39,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 1.106354541,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "JoJo's Bizarre Adventure: Golden Wind",
+        "returnedTitle": "JoJo's Bizarre Adventure: Golden Wind",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 5.94
+    },
+    {
+      "id": "mal:57555",
+      "title": "Chainsaw Man – The Movie: Reze Arc",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 5451.759,
+        "episodeCount": 1,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 1.023277125,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "Chainsaw Man – The Movie: Reze Arc",
+        "returnedTitle": "Chainsaw Man – The Movie: Reze Arc",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 8.75
+    },
+    {
+      "id": "mal:37450",
+      "title": "Rascal Does Not Dream of Bunny Girl Senpai",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1500.058,
+        "episodeCount": 13,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 0.948268077,
+        "proofMode": "avplayer-playhead",
+        "query": "Rascal Does Not Dream of Bunny Girl Senpai",
+        "returnedTitle": "Rascal Does Not Dream of Bunny Girl Senpai",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 6.13
+    },
+    {
+      "id": "mal:4224",
+      "title": "Toradora!",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1416.049,
+        "episodeCount": 25,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 0.834496911,
+        "proofMode": "avplayer-playhead",
+        "query": "Toradora!",
+        "returnedTitle": "Toradora!",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 7.65
+    },
+    {
+      "id": "mal:36649",
+      "title": "BANANA FISH",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1374.927,
+        "episodeCount": 24,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 1.079587498,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "BANANA FISH",
+        "returnedTitle": "BANANA FISH",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 6.32
+    },
+    {
+      "id": "mal:918",
+      "title": "Gintama",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1481.034,
+        "episodeCount": 201,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 1.083570209,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "Gintama",
+        "returnedTitle": "Gintama",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 7.62
+    },
+    {
+      "id": "mal:62277",
+      "title": "Gintama the Movie 2026: Yoshiwara in Flames",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 7479.472,
+        "episodeCount": 1,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 1.154210416,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "Gintama the Movie 2026: Yoshiwara in Flames",
+        "returnedTitle": "Gintama the Movie 2026: Yoshiwara in Flames",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 7.72
+    },
+    {
+      "id": "mal:61153",
+      "title": "A Tale of the Secret Saint",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1419.96,
+        "episodeCount": 7,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 1.179532334,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "A Tale of the Secret Saint",
+        "returnedTitle": "A Tale of the Secret Saint",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 5.91
+    },
+    {
+      "id": "mal:13125",
+      "title": "From the New World",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1360.034,
+        "episodeCount": 25,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 0.900919333,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "From the New World",
+        "returnedTitle": "From the New World",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 6.83
+    },
+    {
+      "id": "mal:31933",
+      "title": "JoJo's Bizarre Adventure: Diamond is Unbreakable",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1422.031,
+        "episodeCount": 39,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 1.063183906,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "JoJo's Bizarre Adventure: Diamond is Unbreakable",
+        "returnedTitle": "JoJo's Bizarre Adventure: Diamond is Unbreakable",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 6.4
+    },
+    {
+      "id": "mal:63801",
+      "title": "Ranma1/2 (2024) Season 3",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1440.105,
+        "episodeCount": 6,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 1.058522501,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "Ranma1/2 (2024) Season 3",
+        "returnedTitle": "Ranma1/2 (2024) Season 3",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 5.52
+    },
+    {
+      "id": "mal:9969",
+      "title": "Gintama Season 2",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1441.074,
+        "episodeCount": 51,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 1.019827834,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "Gintama Season 2",
+        "returnedTitle": "Gintama Season 2",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 5.37
+    },
+    {
+      "id": "mal:39565",
+      "title": "My Hero Academia: Heroes Rising",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 6239.262,
+        "episodeCount": 1,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 0.964624127,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "My Hero Academia: Heroes Rising",
+        "returnedTitle": "My Hero Academia: Heroes Rising",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 6.32
+    },
+    {
+      "id": "mal:4181",
+      "title": "Clannad: After Story",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1451.462,
+        "episodeCount": 24,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 1.148266,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "Clannad: After Story",
+        "returnedTitle": "Clannad: After Story",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 6.73
+    },
+    {
+      "id": "mal:21",
+      "title": "ONE PIECE",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1439.981,
+        "episodeCount": 1180,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 0.852504631,
+        "proofMode": "avplayer-playhead",
+        "query": "ONE PIECE",
+        "returnedTitle": "ONE PIECE",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 7.36
+    },
+    {
+      "id": "mal:1735",
+      "title": "Naruto: Shippuden",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1389.691,
+        "episodeCount": 500,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 0.764650375,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "Naruto: Shippuden",
+        "returnedTitle": "Naruto: Shippuden",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 7.17
+    },
+    {
+      "id": "mal:40456",
+      "title": "Demon Slayer -Kimetsu no Yaiba- The Movie: Mugen Train",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 7008.087,
+        "episodeCount": 1,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 1.270718708,
+        "proofMode": "avplayer-playhead",
+        "query": "Demon Slayer -Kimetsu no Yaiba- The Movie: Mugen Train",
+        "returnedTitle": "Demon Slayer -Kimetsu no Yaiba- The Movie: Mugen Train",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 6.85
+    },
+    {
+      "id": "mal:2921",
+      "title": "Tomorrow's Joe 2",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1476.396,
+        "episodeCount": 47,
+        "familyID": "synthetiq-anime-testing",
+        "playheadSeconds": 1.225339592,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "Tomorrow's Joe 2",
+        "returnedTitle": "Tomorrow's Joe 2",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 7.45
+    }
+  ],
+  "testEngineCommit": "d153e1cd9862d97e48cc24110b2369363be575e4",
+  "evidenceBoundary": "Muted Mac AVPlayer start/playhead advancement and bounded media checks. Not physical iPhone/iPad, audible-language, sustained ten-minute, or complete subtitle validation.",
+  "readerCompatibility": {
+    "current": "2.1.36",
+    "next": "2.1.37",
+    "coreSourceDiff": "none",
+    "fixtureInstallUpgradeRestart": "passed for both; same family, one installed module, rollback bytes retained",
+    "belowFloor": "2.1.35 update rejected; existing module retained"
+  },
+  "regressionTests": {
+    "executed": 574,
+    "skipped": 22,
+    "failures": 0
+  }
+}
