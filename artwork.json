@@ -227,23 +227,23 @@
       "id" : "anipm",
       "language" : "en",
       "manifest" : {
-        "path" : "connectors\/anipm\/releases\/85a888677f8f601978699f12f4ab64966f12a75ef13b646ecc5f1b12966f7e44\/connector.json",
-        "sha256" : "85a888677f8f601978699f12f4ab64966f12a75ef13b646ecc5f1b12966f7e44",
-        "signature" : "VfyEvExYwiLnd89WXWDElrZeP38QOHnFpn48uhAfnvl+uzFyMs+13PA19mVaznn5PKmzGFHBzFktS8snRd\/fDg=="
+        "path" : "connectors\/anipm\/releases\/49ee962133d6963439c75a896a49c28b6acad1a4c4aaa0ecec332b8a5c88245d\/connector.json",
+        "sha256" : "49ee962133d6963439c75a896a49c28b6acad1a4c4aaa0ecec332b8a5c88245d",
+        "signature" : "ICv1CbB8zFN45JHyCaZBHIJsqDten3EyRYRAcb8M1fWYK9AckzdRkXlCSoTikrH70qg7P14nOnsAMbda9pWqCw=="
       },
-      "minimumAppVersion" : "1.2.0",
+      "minimumAppVersion" : "2.1.36",
       "name" : "AniPM (BETA)",
-      "releaseNotes" : "Preserve provider-declared playback session expiry so Aroki can refresh expired links. Existing saved titles, audio and subtitles are unchanged.",
+      "releaseNotes" : "Playback proceeds only when AniPM declares the requested Sub or Dub availability and matching effective language for the episode. Missing or conflicting declarations fail before session creation. Existing saved titles, episode mapping, request headers, supplied captions, and session-expiry handling are preserved. Requires Aroki 2.1.36 or newer.",
       "releaseTrack" : "beta",
       "status" : "active",
-      "version" : "0.1.2"
+      "version" : "0.1.3"
     }
   ],
   "enabled" : true,
-  "generatedAt" : 1794267814,
+  "generatedAt" : 1794268717,
   "name" : "AROKI Connectors",
   "publicKey" : "BYKainAr2pxVfWxSSQJHG79Xl\/mnkTuIl1ujEmR+1V4=",
   "repositoryID" : "aroki-connectors",
   "schemaVersion" : 1,
-  "signature" : "ldckWUA6ak5dU1jjpwG8ItRzZbp\/FNmvZExBdzEKZlYEPrBrGCk0GHJkg9jHnOzoW8IR9NxMD2SeDhHqCJt0Cw=="
+  "signature" : "PBM93GgDhf7hXc7\/xsfvCvkO6Xc6XiBcu1oX4DE2EP5a4KUdgmW4ptdr5nZVIYPuVgdJMWn9Ji0TsDkuQAdNAw=="
 }
