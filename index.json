@@ -115,16 +115,16 @@
       "id" : "synthetiq-anime-testing",
       "language" : "en",
       "manifest" : {
-        "path" : "connectors\/synthetiq-anime-testing\/releases\/1053f57d2a2c897a8c7a5692fe239de2233da482feabda554e5308f9fde5576e\/connector.json",
-        "sha256" : "1053f57d2a2c897a8c7a5692fe239de2233da482feabda554e5308f9fde5576e",
-        "signature" : "N0Le4sR1pf6d4WW04dL\/6FWkUJ4awi3i55LxfrRbdVVPyqf+h6EGqavHFjbVc15yxDt7d5xucIzwE\/1bV6QjCA=="
+        "path" : "connectors\/synthetiq-anime-testing\/releases\/67d5232e210d90873fb3dc04fdab4b576dfa2958fd4693e5476b0ac7821dd021\/connector.json",
+        "sha256" : "67d5232e210d90873fb3dc04fdab4b576dfa2958fd4693e5476b0ac7821dd021",
+        "signature" : "W1bssYgnDp4A+Cji9A4XGwkO5HVoXZslb56SpCVbmDNzqAOXx\/w3+Y+jGqr5Rv6rF5RV0AdmYL6+R7j9VckrDA=="
       },
-      "minimumAppVersion" : "2.0.38",
+      "minimumAppVersion" : "2.1.36",
       "name" : "Synthetiq Anime",
-      "releaseNotes" : "Owner-approved public availability for Aroki 2.0.38+. Native catalogue and fresh Flow\/Zuri stream resolution. Basic owner-device playback and seeking have been demonstrated. Provider Dub\/audio mismatches and missing captions remain possible; broad language and offline certification are incomplete. Existing source identity is preserved. 0.1.2: Vidhawk's media relay is down (HTTP 502 on every route), so streams now resolve through AniKage's public koto feed. The requested MyAnimeList ID is looked up on AniList and matched on AniKage by exact romaji title, format, season and year; titles without that match fail closed with no playable stream. Vidhawk can return in a later update if its relay recovers.",
+      "releaseNotes" : "Owner-authorized public availability for Aroki 2.1.36+. Existing MAL title IDs, episode IDs, catalogue fallback, and AniKage koto source route are preserved. Version 0.1.3 adds a typed graph selector that requires a unique AniKage row matching the canonical AniList ID plus exact normalized title, year and format before resolving the requested episode\/audio. Missing, conflicting or duplicate identity fails closed. Broad live reliability, provider-advertised audio agreement, and spoken-language verification remain pending.",
       "releaseTrack" : "beta",
       "status" : "active",
-      "version" : "0.1.2"
+      "version" : "0.1.3"
     },
     {
       "contentRating" : "unknown",
@@ -200,10 +200,10 @@
     }
   ],
   "enabled" : true,
-  "generatedAt" : 1793370793,
+  "generatedAt" : 1794264007,
   "name" : "AROKI Connectors",
   "publicKey" : "BYKainAr2pxVfWxSSQJHG79Xl\/mnkTuIl1ujEmR+1V4=",
   "repositoryID" : "aroki-connectors",
   "schemaVersion" : 1,
-  "signature" : "tzUWaUsPTrgIl7hHnyp88yyYNQcsHteuwnmU5F\/gmQL3e9raVI4LHNaqvgTghEYLAfOxOj7kLHMbBrWwsJ+BAg=="
+  "signature" : "cOTghnTpPSR2057W0Qo2SWpGwhZbtxF1r3k2PssIWK+WAVN3i7fhM\/b3\/ZIwBt3wkKVWtojKgmIrtYYOzCTiCQ=="
 }
