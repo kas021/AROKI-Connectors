@@ -1,0 +1,775 @@
+{
+  "module": "aniworld-expansion",
+  "version": "0.3.2",
+  "sha256": "29452d11051e21263d4cf344b8020099aecb000976120ce730f31326fe5c0e66",
+  "corpusSeed": 20261109,
+  "corpusSHA256": "27857cf9be9aed1df4add9425f38d350e4b225af006350bcfa34c77f00945314",
+  "profile": "50 frozen broad titles; strict title matching; primary group middle episode; automatic source-declared audio",
+  "nativeRequired": true,
+  "exactSourceIDRequired": false,
+  "appCompatibilityFloor": "2.1.36",
+  "counts": {
+    "unresolved": 21,
+    "passed": 26,
+    "failed": 3
+  },
+  "elapsedSeconds": 608.05,
+  "continuedFrom": null,
+  "overallPassRate": 0.52,
+  "haltReason": null,
+  "unverified": [
+    "physical-device",
+    "spoken-language",
+    "complete-subtitle-sync",
+    "every-episode-or-quality"
+  ],
+  "results": [
+    {
+      "id": "mal:64505",
+      "title": "Ace of the Diamond act II -Second Season-",
+      "state": "unresolved",
+      "attempted": true,
+      "reason": "NO_STRICT_TITLE_MATCH_NOT_CONFIRMED_ABSENT",
+      "diagnostic": "error: TITLE_MISS query=Ace of the Diamond act II -Second Season-",
+      "elapsedSeconds": 0.72
+    },
+    {
+      "id": "mal:62696",
+      "title": "Super Psychic Policeman Chojo",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1410.113,
+        "episodeCount": 5,
+        "familyID": "aniworld-expansion",
+        "playheadSeconds": 1.018641964,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "Super Psychic Policeman Chojo",
+        "returnedTitle": "Super Psychic Policeman Chojo",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 5.17
+    },
+    {
+      "id": "mal:44940",
+      "title": "World Trigger 3rd Season",
+      "state": "unresolved",
+      "attempted": true,
+      "reason": "NO_STRICT_TITLE_MATCH_NOT_CONFIRMED_ABSENT",
+      "diagnostic": "error: TITLE_MISS query=World Trigger 3rd Season",
+      "elapsedSeconds": 0.48
+    },
+    {
+      "id": "mal:40682",
+      "title": "Kingdom Season 3",
+      "state": "unresolved",
+      "attempted": true,
+      "reason": "NO_STRICT_TITLE_MATCH_NOT_CONFIRMED_ABSENT",
+      "diagnostic": "error: TITLE_MISS query=Kingdom Season 3",
+      "elapsedSeconds": 0.64
+    },
+    {
+      "id": "mal:9919",
+      "title": "Blue Exorcist",
+      "state": "failed",
+      "attempted": true,
+      "reason": "NO_VALID_MEDIA_OR_EPISODE",
+      "diagnostic": "error: CERTIFY_FAILED query=Blue Exorcist error=no playable stream candidate",
+      "elapsedSeconds": 2.36
+    },
+    {
+      "id": "mal:37379",
+      "title": "Chihayafuru 3",
+      "state": "unresolved",
+      "attempted": true,
+      "reason": "NO_STRICT_TITLE_MATCH_NOT_CONFIRMED_ABSENT",
+      "diagnostic": "error: TITLE_MISS query=Chihayafuru 3",
+      "elapsedSeconds": 0.82
+    },
+    {
+      "id": "mal:164",
+      "title": "Princess Mononoke",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 8002.976,
+        "episodeCount": 1,
+        "familyID": "aniworld-expansion",
+        "playheadSeconds": 0.966913792,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "Princess Mononoke",
+        "returnedTitle": "Princess Mononoke",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 49.29
+    },
+    {
+      "id": "mal:40028",
+      "title": "Attack on Titan Final Season",
+      "state": "unresolved",
+      "attempted": true,
+      "reason": "NO_STRICT_TITLE_MATCH_NOT_CONFIRMED_ABSENT",
+      "diagnostic": "error: TITLE_MISS query=Attack on Titan Final Season",
+      "elapsedSeconds": 0.61
+    },
+    {
+      "id": "mal:63292",
+      "title": "Full Clearing Another World under a Goddess with Zero Believers",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1420.119,
+        "episodeCount": 5,
+        "familyID": "aniworld-expansion",
+        "playheadSeconds": 1.249905901,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "Full Clearing Another World under a Goddess with Zero Believers",
+        "returnedTitle": "Full Clearing Another World under a Goddess with Zero Believers",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 3.83
+    },
+    {
+      "id": "mal:38524",
+      "title": "Attack on Titan Season 3 Part 2",
+      "state": "unresolved",
+      "attempted": true,
+      "reason": "NO_STRICT_TITLE_MATCH_NOT_CONFIRMED_ABSENT",
+      "diagnostic": "error: TITLE_MISS query=Attack on Titan Season 3 Part 2",
+      "elapsedSeconds": 0.71
+    },
+    {
+      "id": "mal:23273",
+      "title": "Your lie in April",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1382.261,
+        "episodeCount": 22,
+        "familyID": "aniworld-expansion",
+        "playheadSeconds": 1.240612501,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "Your lie in April",
+        "returnedTitle": "Your Lie in April",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 4.33
+    },
+    {
+      "id": "mal:36862",
+      "title": "Made in Abyss: Dawn of the Deep Soul",
+      "state": "unresolved",
+      "attempted": true,
+      "reason": "NO_STRICT_TITLE_MATCH_NOT_CONFIRMED_ABSENT",
+      "diagnostic": "error: TITLE_MISS query=Made in Abyss: Dawn of the Deep Soul",
+      "elapsedSeconds": 0.62
+    },
+    {
+      "id": "mal:21",
+      "title": "ONE PIECE",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1477.976,
+        "episodeCount": 61,
+        "familyID": "aniworld-expansion",
+        "playheadSeconds": 0.827946415,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "ONE PIECE",
+        "returnedTitle": "One Piece",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 10.98
+    },
+    {
+      "id": "mal:37779",
+      "title": "The Promised Neverland",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1380.725,
+        "episodeCount": 12,
+        "familyID": "aniworld-expansion",
+        "playheadSeconds": 1.020427,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "The Promised Neverland",
+        "returnedTitle": "The Promised Neverland",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 4.55
+    },
+    {
+      "id": "mal:58518",
+      "title": "Sasaki and Peeps Season 2",
+      "state": "unresolved",
+      "attempted": true,
+      "reason": "NO_STRICT_TITLE_MATCH_NOT_CONFIRMED_ABSENT",
+      "diagnostic": "error: TITLE_MISS query=Sasaki and Peeps Season 2",
+      "elapsedSeconds": 0.72
+    },
+    {
+      "id": "mal:30831",
+      "title": "KONOSUBA -God's blessing on this wonderful world!",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1433.191,
+        "episodeCount": 10,
+        "familyID": "aniworld-expansion",
+        "playheadSeconds": 1.055942625,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "KONOSUBA -God's blessing on this wonderful world!",
+        "returnedTitle": "KonoSuba: God’s blessing on this wonderful world!",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 5.15
+    },
+    {
+      "id": "mal:63382",
+      "title": "Nia Liston: The Merciless Maiden",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1440.066,
+        "episodeCount": 5,
+        "familyID": "aniworld-expansion",
+        "playheadSeconds": 1.091869767,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "Nia Liston: The Merciless Maiden",
+        "returnedTitle": "Nia Liston: The Merciless Maiden",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 4.34
+    },
+    {
+      "id": "mal:2921",
+      "title": "Tomorrow's Joe 2",
+      "state": "unresolved",
+      "attempted": true,
+      "reason": "NO_STRICT_TITLE_MATCH_NOT_CONFIRMED_ABSENT",
+      "diagnostic": "error: TITLE_MISS query=Tomorrow's Joe 2",
+      "elapsedSeconds": 0.68
+    },
+    {
+      "id": "mal:431",
+      "title": "Howl‘s Moving Castle",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 7149.173,
+        "episodeCount": 1,
+        "familyID": "aniworld-expansion",
+        "playheadSeconds": 1.041364917,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "Howl‘s Moving Castle",
+        "returnedTitle": "Howl's Moving Castle",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 5.24
+    },
+    {
+      "id": "mal:42941",
+      "title": "Umamusume: Pretty Derby Season 2",
+      "state": "unresolved",
+      "attempted": true,
+      "reason": "NO_STRICT_TITLE_MATCH_NOT_CONFIRMED_ABSENT",
+      "diagnostic": "error: TITLE_MISS query=Umamusume: Pretty Derby Season 2",
+      "elapsedSeconds": 0.61
+    },
+    {
+      "id": "mal:40787",
+      "title": "Josee, the Tiger and the Fish",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 5902.325,
+        "episodeCount": 1,
+        "familyID": "aniworld-expansion",
+        "playheadSeconds": 0.891587209,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "Josee, the Tiger and the Fish",
+        "returnedTitle": "Josee, the Tiger and the Fish",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 4.27
+    },
+    {
+      "id": "mal:62524",
+      "title": "#I'm Looking For a Zombie",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1417.111,
+        "episodeCount": 5,
+        "familyID": "aniworld-expansion",
+        "playheadSeconds": 1.197081987,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "#I'm Looking For a Zombie",
+        "returnedTitle": "#‌‌​I'm Looking For a Zombie",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 5.11
+    },
+    {
+      "id": "mal:13601",
+      "title": "PSYCHO-PASS",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1374.88,
+        "episodeCount": 22,
+        "familyID": "aniworld-expansion",
+        "playheadSeconds": 0.938509418,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "PSYCHO-PASS",
+        "returnedTitle": "Psycho-Pass",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 5.47
+    },
+    {
+      "id": "mal:63431",
+      "title": "The Laid-Off Cheat-Granting Mage Enjoys a Second Lease on Life",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1420.119,
+        "episodeCount": 5,
+        "familyID": "aniworld-expansion",
+        "playheadSeconds": 0.831627542,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "The Laid-Off Cheat-Granting Mage Enjoys a Second Lease on Life",
+        "returnedTitle": "The Laid-Off Cheat-Granting Mage Enjoys a Second Lease on Life",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 4.21
+    },
+    {
+      "id": "mal:31758",
+      "title": "Kizumonogatari Part 3: Reiketsu",
+      "state": "unresolved",
+      "attempted": true,
+      "reason": "NO_STRICT_TITLE_MATCH_NOT_CONFIRMED_ABSENT",
+      "diagnostic": "error: TITLE_MISS query=Kizumonogatari Part 3: Reiketsu",
+      "elapsedSeconds": 0.68
+    },
+    {
+      "id": "mal:61483",
+      "title": "Jaadugar: A Witch in Mongolia",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1423.084,
+        "episodeCount": 12,
+        "familyID": "aniworld-expansion",
+        "playheadSeconds": 0.768035093,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "Jaadugar: A Witch in Mongolia",
+        "returnedTitle": "Jaadugar: A Witch in Mongolia",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 8.5
+    },
+    {
+      "id": "mal:39741",
+      "title": "Violet Evergarden: Eternity and the Auto Memory Doll",
+      "state": "unresolved",
+      "attempted": true,
+      "reason": "NO_STRICT_TITLE_MATCH_NOT_CONFIRMED_ABSENT",
+      "diagnostic": "error: TITLE_MISS query=Violet Evergarden: Eternity and the Auto Memory Doll",
+      "elapsedSeconds": 0.77
+    },
+    {
+      "id": "mal:25777",
+      "title": "Attack on Titan Season 2",
+      "state": "unresolved",
+      "attempted": true,
+      "reason": "NO_STRICT_TITLE_MATCH_NOT_CONFIRMED_ABSENT",
+      "diagnostic": "error: TITLE_MISS query=Attack on Titan Season 2",
+      "elapsedSeconds": 0.72
+    },
+    {
+      "id": "mal:63367",
+      "title": "Dragon Ball Super: Beerus",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1397.761,
+        "episodeCount": 5,
+        "familyID": "aniworld-expansion",
+        "playheadSeconds": 1.178680999,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "Dragon Ball Super: Beerus",
+        "returnedTitle": "Dragon Ball Super: Beerus",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 4.15
+    },
+    {
+      "id": "mal:19",
+      "title": "Monster",
+      "state": "unresolved",
+      "attempted": true,
+      "reason": "NO_STRICT_TITLE_MATCH_NOT_CONFIRMED_ABSENT",
+      "diagnostic": "error: TITLE_MISS query=Monster",
+      "elapsedSeconds": 0.3
+    },
+    {
+      "id": "mal:8074",
+      "title": "High School of the Dead",
+      "state": "unresolved",
+      "attempted": true,
+      "reason": "NO_STRICT_TITLE_MATCH_NOT_CONFIRMED_ABSENT",
+      "diagnostic": "error: TITLE_MISS query=High School of the Dead",
+      "elapsedSeconds": 0.62
+    },
+    {
+      "id": "mal:22319",
+      "title": "Tokyo Ghoul",
+      "state": "failed",
+      "attempted": true,
+      "reason": "NO_VALID_MEDIA_OR_EPISODE",
+      "diagnostic": "error: CERTIFY_FAILED query=Tokyo Ghoul error=no playable stream candidate",
+      "elapsedSeconds": 2.24
+    },
+    {
+      "id": "mal:55823",
+      "title": "Natsume's Book of Friends Season 7",
+      "state": "unresolved",
+      "attempted": true,
+      "reason": "NO_STRICT_TITLE_MATCH_NOT_CONFIRMED_ABSENT",
+      "diagnostic": "error: TITLE_MISS query=Natsume's Book of Friends Season 7",
+      "elapsedSeconds": 0.7
+    },
+    {
+      "id": "mal:40456",
+      "title": "Demon Slayer -Kimetsu no Yaiba- The Movie: Mugen Train",
+      "state": "unresolved",
+      "attempted": true,
+      "reason": "NO_STRICT_TITLE_MATCH_NOT_CONFIRMED_ABSENT",
+      "diagnostic": "error: TITLE_MISS query=Demon Slayer -Kimetsu no Yaiba- The Movie: Mugen Train",
+      "elapsedSeconds": 0.67
+    },
+    {
+      "id": "mal:47",
+      "title": "Akira",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 7468.512,
+        "episodeCount": 1,
+        "episodeNumber": 1,
+        "familyID": "aniworld-expansion",
+        "playheadSeconds": 1.104706584,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "Akira",
+        "returnedTitle": "Akira",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 8.49
+    },
+    {
+      "id": "mal:22507",
+      "title": "Initial D Final Stage",
+      "state": "unresolved",
+      "attempted": true,
+      "reason": "NO_STRICT_TITLE_MATCH_NOT_CONFIRMED_ABSENT",
+      "diagnostic": "error: TITLE_MISS query=Initial D Final Stage",
+      "elapsedSeconds": 0.45
+    },
+    {
+      "id": "mal:37521",
+      "title": "Vinland Saga",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1484.064,
+        "episodeCount": 24,
+        "episodeNumber": 13,
+        "familyID": "aniworld-expansion",
+        "playheadSeconds": 1.239057376,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "Vinland Saga",
+        "returnedTitle": "Vinland Saga",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 4.78
+    },
+    {
+      "id": "mal:38000",
+      "title": "Demon Slayer: Kimetsu no Yaiba",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1419.97,
+        "episodeCount": 26,
+        "episodeNumber": 14,
+        "familyID": "aniworld-expansion",
+        "playheadSeconds": 0.923722411,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "Demon Slayer: Kimetsu no Yaiba",
+        "returnedTitle": "Demon Slayer: Kimetsu no Yaiba",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 6.5
+    },
+    {
+      "id": "mal:437",
+      "title": "Perfect Blue",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 4908.021,
+        "episodeCount": 1,
+        "episodeNumber": 1,
+        "familyID": "aniworld-expansion",
+        "playheadSeconds": 0.878670209,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "Perfect Blue",
+        "returnedTitle": "Perfect Blue",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 4.36
+    },
+    {
+      "id": "mal:18153",
+      "title": "Beyond the Boundary",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1420.512,
+        "episodeCount": 12,
+        "episodeNumber": 7,
+        "familyID": "aniworld-expansion",
+        "playheadSeconds": 1.063853209,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "Beyond the Boundary",
+        "returnedTitle": "Beyond the Boundary",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 5.57
+    },
+    {
+      "id": "mal:53223",
+      "title": "Kingdom Season 5",
+      "state": "unresolved",
+      "attempted": true,
+      "reason": "NO_STRICT_TITLE_MATCH_NOT_CONFIRMED_ABSENT",
+      "diagnostic": "error: TITLE_MISS query=Kingdom Season 5",
+      "elapsedSeconds": 0.63
+    },
+    {
+      "id": "mal:1689",
+      "title": "5 Centimeters per Second",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 3763.104,
+        "episodeCount": 1,
+        "episodeNumber": 1,
+        "familyID": "aniworld-expansion",
+        "playheadSeconds": 1.027586833,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "5 Centimeters per Second",
+        "returnedTitle": "5 Centimeters per Second",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 7.45
+    },
+    {
+      "id": "mal:50265",
+      "title": "SPY x FAMILY",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1450.049,
+        "episodeCount": 25,
+        "episodeNumber": 13,
+        "familyID": "aniworld-expansion",
+        "playheadSeconds": 1.092628834,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "SPY x FAMILY",
+        "returnedTitle": "SPY x FAMILY",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 6.89
+    },
+    {
+      "id": "mal:30",
+      "title": "Neon Genesis Evangelion",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1402.165,
+        "episodeCount": 26,
+        "episodeNumber": 14,
+        "familyID": "aniworld-expansion",
+        "playheadSeconds": 1.244654875,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "Neon Genesis Evangelion",
+        "returnedTitle": "Neon Genesis Evangelion",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 4.34
+    },
+    {
+      "id": "mal:63801",
+      "title": "Ranma1/2 (2024) Season 3",
+      "state": "unresolved",
+      "attempted": true,
+      "reason": "NO_STRICT_TITLE_MATCH_NOT_CONFIRMED_ABSENT",
+      "diagnostic": "error: TITLE_MISS query=Ranma1/2 (2024) Season 3",
+      "elapsedSeconds": 0.7
+    },
+    {
+      "id": "mal:38408",
+      "title": "My Hero Academia Season 4",
+      "state": "failed",
+      "attempted": true,
+      "reason": "NO_VALID_MEDIA_OR_EPISODE",
+      "diagnostic": "error: EPISODE_MISS title=My hero academia Season 4",
+      "elapsedSeconds": 2.61
+    },
+    {
+      "id": "mal:59204",
+      "title": "Magic Knight Rayearth (2026)",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1389.1,
+        "episodeCount": 5,
+        "episodeNumber": 3,
+        "familyID": "aniworld-expansion",
+        "playheadSeconds": 0.809866911,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "Magic Knight Rayearth (2026)",
+        "returnedTitle": "Magic Knight Rayearth (2026)",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 4.64
+    },
+    {
+      "id": "mal:61335",
+      "title": "Medalist Season 2",
+      "state": "unresolved",
+      "attempted": true,
+      "reason": "NO_STRICT_TITLE_MATCH_NOT_CONFIRMED_ABSENT",
+      "diagnostic": "error: TITLE_MISS query=Medalist Season 2",
+      "elapsedSeconds": 0.89
+    },
+    {
+      "id": "mal:5114",
+      "title": "Fullmetal Alchemist: Brotherhood",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1470.027,
+        "episodeCount": 64,
+        "episodeNumber": 33,
+        "familyID": "aniworld-expansion",
+        "playheadSeconds": 1.273622292,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "Fullmetal Alchemist: Brotherhood",
+        "returnedTitle": "Fullmetal Alchemist: Brotherhood",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 4.63
+    },
+    {
+      "id": "mal:5680",
+      "title": "K-ON!",
+      "state": "passed",
+      "attempted": true,
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1451.787,
+        "episodeCount": 12,
+        "episodeNumber": 7,
+        "familyID": "aniworld-expansion",
+        "playheadSeconds": 1.252802627,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "K-ON!",
+        "returnedTitle": "K-On!",
+        "similarity": 1,
+        "variant": "sub"
+      },
+      "reason": "MEDIA_OR_NATIVE_PROOF",
+      "elapsedSeconds": 4.58
+    }
+  ]
+}

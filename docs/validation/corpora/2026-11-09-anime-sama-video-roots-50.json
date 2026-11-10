@@ -1,0 +1,524 @@
+{
+  "schemaVersion": 1,
+  "kind": "anime",
+  "seed": 20261109,
+  "generatedAt": "2026-11-09T23:15:28.253565+00:00",
+  "source": "Positive source-owned video badges across catalogue pages1,7,13,19,25; Film-only form corroborates badge coverage",
+  "limitations": [
+    "Not a MAL-sequel search-coverage score",
+    "First25pages only, within released module pagination bounds",
+    "Source-advertised video classification does not prove released episodes"
+  ],
+  "sampling": "10/page where available, seeded metadata-only reserves if needed; frozen before playback",
+  "titles": [
+    {
+      "id": "sama:in-spectre",
+      "sourceID": "in-spectre",
+      "title": "In/Spectre",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime"
+      ]
+    },
+    {
+      "id": "sama:bureau-of-paranormal-investigation",
+      "sourceID": "bureau-of-paranormal-investigation",
+      "title": "Bureau of Paranormal Investigation",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime"
+      ]
+    },
+    {
+      "id": "sama:free",
+      "sourceID": "free",
+      "title": "Free!",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime"
+      ]
+    },
+    {
+      "id": "sama:7-jours",
+      "sourceID": "7-jours",
+      "title": "7 Jours",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime"
+      ]
+    },
+    {
+      "id": "sama:canaan",
+      "sourceID": "canaan",
+      "title": "Canaan",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime"
+      ]
+    },
+    {
+      "id": "sama:ill-become-a-villainess-that-will-go-down-in-history",
+      "sourceID": "ill-become-a-villainess-that-will-go-down-in-history",
+      "title": "I'll Become a Villainess That Will Go Down in History",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime"
+      ]
+    },
+    {
+      "id": "sama:chain-chronicle",
+      "sourceID": "chain-chronicle",
+      "title": "Chain Chronicle",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime"
+      ]
+    },
+    {
+      "id": "sama:from-overshadowed-to-overpowered",
+      "sourceID": "from-overshadowed-to-overpowered",
+      "title": "From Overshadowed to Overpowered",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime"
+      ]
+    },
+    {
+      "id": "sama:im-the-villainess-so-im-taming-the-final-boss",
+      "sourceID": "im-the-villainess-so-im-taming-the-final-boss",
+      "title": "I'm the Villainess, So I'm Taming the Final Boss",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime"
+      ]
+    },
+    {
+      "id": "sama:food-court-de-mata-ashita",
+      "sourceID": "food-court-de-mata-ashita",
+      "title": "Food Court de, Mata Ashita",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime"
+      ]
+    },
+    {
+      "id": "sama:a-condition-called-love",
+      "sourceID": "a-condition-called-love",
+      "title": "A Condition Called Love",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime"
+      ]
+    },
+    {
+      "id": "sama:ikoku-nikki",
+      "sourceID": "ikoku-nikki",
+      "title": "Ikoku Nikki",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime",
+        "as-badge-scan"
+      ]
+    },
+    {
+      "id": "sama:botsuraku-yotei-no-kizoku-dakedo-hima-datta-kara-mahou-wo-kiwametemita",
+      "sourceID": "botsuraku-yotei-no-kizoku-dakedo-hima-datta-kara-mahou-wo-kiwametemita",
+      "title": "Botsuraku Yotei no Kizoku dakedo, Hima Datta kara Mahou wo Kiwametemita",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime"
+      ]
+    },
+    {
+      "id": "sama:a-couple-of-cuckoos",
+      "sourceID": "a-couple-of-cuckoos",
+      "title": "A Couple of Cuckoos",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime",
+        "as-badge-scan"
+      ]
+    },
+    {
+      "id": "sama:bucket-list-of-the-dead",
+      "sourceID": "bucket-list-of-the-dead",
+      "title": "Bucket List of The Dead",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime",
+        "as-badge-scan"
+      ]
+    },
+    {
+      "id": "sama:fireworks",
+      "sourceID": "fireworks",
+      "title": "Fireworks",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime"
+      ]
+    },
+    {
+      "id": "sama:i-was-reincarnated-as-the-7th-prince",
+      "sourceID": "i-was-reincarnated-as-the-7th-prince",
+      "title": "I Was Reincarnated as the 7th Prince",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime",
+        "as-badge-scan"
+      ]
+    },
+    {
+      "id": "sama:candy-candy",
+      "sourceID": "candy-candy",
+      "title": "Candy Candy",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime"
+      ]
+    },
+    {
+      "id": "sama:a-certain-dark-item",
+      "sourceID": "a-certain-dark-item",
+      "title": "A Certain Dark Item",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime"
+      ]
+    },
+    {
+      "id": "sama:le-healer-rejete-est-invincible-au-combat",
+      "sourceID": "le-healer-rejete-est-invincible-au-combat",
+      "title": "Le healer rejeté est invincible au combat !",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime"
+      ]
+    },
+    {
+      "id": "sama:from-the-new-world",
+      "sourceID": "from-the-new-world",
+      "title": "From the New World",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime"
+      ]
+    },
+    {
+      "id": "sama:les-memoires-de-vanitas",
+      "sourceID": "les-memoires-de-vanitas",
+      "title": "Les Mémoires de Vanitas",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime",
+        "as-badge-scan"
+      ]
+    },
+    {
+      "id": "sama:ibitte-konai-gibo-to-gishi",
+      "sourceID": "ibitte-konai-gibo-to-gishi",
+      "title": "Ibitte Konai Gibo to Gishi",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime"
+      ]
+    },
+    {
+      "id": "sama:lets-play",
+      "sourceID": "lets-play",
+      "title": "Let's Play",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime",
+        "as-badge-scan"
+      ]
+    },
+    {
+      "id": "sama:fukigen-na-mononokean",
+      "sourceID": "fukigen-na-mononokean",
+      "title": "Fukigen na Mononokean",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime"
+      ]
+    },
+    {
+      "id": "sama:29-sai-dokushin-chuuken-boukensha-no-nichijou",
+      "sourceID": "29-sai-dokushin-chuuken-boukensha-no-nichijou",
+      "title": "29-Sai Dokushin Chuuken Boukensha no Nichijou",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime"
+      ]
+    },
+    {
+      "id": "sama:futari-solo-camp",
+      "sourceID": "futari-solo-camp",
+      "title": "Futari Solo Camp",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime",
+        "as-badge-scan"
+      ]
+    },
+    {
+      "id": "sama:a-returners-magic-should-be-special",
+      "sourceID": "a-returners-magic-should-be-special",
+      "title": "A Returner's Magic Should be Special",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime",
+        "as-badge-webtoon"
+      ]
+    },
+    {
+      "id": "sama:card-captor-sakura",
+      "sourceID": "card-captor-sakura",
+      "title": "Card Captor Sakura",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime"
+      ]
+    },
+    {
+      "id": "sama:a-certain-scientific-railgun",
+      "sourceID": "a-certain-scientific-railgun",
+      "title": "A Certain Scientific Railgun",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime"
+      ]
+    },
+    {
+      "id": "sama:busu-ni-hanataba-wo",
+      "sourceID": "busu-ni-hanataba-wo",
+      "title": "Busu ni Hanataba wo",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime"
+      ]
+    },
+    {
+      "id": "sama:can-a-boy-girl-friendship-survive",
+      "sourceID": "can-a-boy-girl-friendship-survive",
+      "title": "Can a Boy-Girl Friendship Survive?",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime"
+      ]
+    },
+    {
+      "id": "sama:tis-time-for-torture-princess",
+      "sourceID": "tis-time-for-torture-princess",
+      "title": "'Tis Time for \"Torture,\" Princess",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime"
+      ]
+    },
+    {
+      "id": "sama:a-centaurs-life",
+      "sourceID": "a-centaurs-life",
+      "title": "A Centaur's Life",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime"
+      ]
+    },
+    {
+      "id": "sama:les-fleurs-du-mal",
+      "sourceID": "les-fleurs-du-mal",
+      "title": "Les Fleurs du Mal",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime",
+        "as-badge-scan"
+      ]
+    },
+    {
+      "id": "sama:idoly-pride",
+      "sourceID": "idoly-pride",
+      "title": "Idoly Pride",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime"
+      ]
+    },
+    {
+      "id": "sama:flower-and-asura",
+      "sourceID": "flower-and-asura",
+      "title": "Flower and Asura",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime"
+      ]
+    },
+    {
+      "id": "sama:imouza",
+      "sourceID": "imouza",
+      "title": "ImoUza",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime"
+      ]
+    },
+    {
+      "id": "sama:let-this-grieving-soul-retire",
+      "sourceID": "let-this-grieving-soul-retire",
+      "title": "Let This Grieving Soul Retire!",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime"
+      ]
+    },
+    {
+      "id": "sama:365-days-to-the-wedding",
+      "sourceID": "365-days-to-the-wedding",
+      "title": "365 Days To The Wedding",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime"
+      ]
+    },
+    {
+      "id": "sama:ive-always-liked-you",
+      "sourceID": "ive-always-liked-you",
+      "title": "I've Always Liked You",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime"
+      ]
+    },
+    {
+      "id": "sama:les-mikails",
+      "sourceID": "les-mikails",
+      "title": "Les Mikails",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime"
+      ]
+    },
+    {
+      "id": "sama:lets-go-kaikigumi",
+      "sourceID": "lets-go-kaikigumi",
+      "title": "Let's Go Kaikigumi",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime"
+      ]
+    },
+    {
+      "id": "sama:level-1-dakedo-unique-skill-de-saikyou-desu",
+      "sourceID": "level-1-dakedo-unique-skill-de-saikyou-desu",
+      "title": "Level 1 dakedo Unique Skill de Saikyou desu",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime"
+      ]
+    },
+    {
+      "id": "sama:le-puissant-dragon-vegan",
+      "sourceID": "le-puissant-dragon-vegan",
+      "title": "Le Puissant Dragon Vegan",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime"
+      ]
+    },
+    {
+      "id": "sama:bye-bye-earth",
+      "sourceID": "bye-bye-earth",
+      "title": "Bye Bye, Earth",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime"
+      ]
+    },
+    {
+      "id": "sama:ikebukuro-west-gate-park",
+      "sourceID": "ikebukuro-west-gate-park",
+      "title": "Ikebukuro West Gate Park",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime"
+      ]
+    },
+    {
+      "id": "sama:fruits-basket",
+      "sourceID": "fruits-basket",
+      "title": "Fruits Basket",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime"
+      ]
+    },
+    {
+      "id": "sama:left-hand-layup",
+      "sourceID": "left-hand-layup",
+      "title": "Left Hand Layup!",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime"
+      ]
+    },
+    {
+      "id": "sama:fuguushoku-kanteishi-ga-jitsu-wa-saikyou-datta",
+      "sourceID": "fuguushoku-kanteishi-ga-jitsu-wa-saikyou-datta",
+      "title": "Fuguushoku \"Kanteishi\" ga Jitsu wa Saikyou Datta",
+      "aliases": [],
+      "sourceBadgeClasses": [
+        "as-badge",
+        "as-badge-anime"
+      ]
+    }
+  ]
+}

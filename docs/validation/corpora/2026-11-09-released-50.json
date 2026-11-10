@@ -1,0 +1,896 @@
+{
+  "schemaVersion": 1,
+  "kind": "anime",
+  "seed": 20261109,
+  "generatedAt": "2026-11-09T22:10:58.894638+00:00",
+  "source": "AniList public metadata, five predeclared strata, FINISHED or RELEASING only",
+  "purpose": "Supplement, not replacement for original frozen global50; frozen before playback probes",
+  "visibility": "controller",
+  "titles": [
+    {
+      "id": "mal:64505",
+      "anilistID": 213658,
+      "title": "Ace of the Diamond act II -Second Season-",
+      "aliases": [
+        "Diamond no Ace act II: Second Season Part 2",
+        "ダイヤのA actⅡ -Second Season- 第2クール"
+      ],
+      "episodes": null,
+      "mediaType": "TV",
+      "releaseStatus": "RELEASING",
+      "startDate": {
+        "year": 2026,
+        "month": 10,
+        "day": 11
+      },
+      "stratum": "current"
+    },
+    {
+      "id": "mal:62696",
+      "anilistID": 200294,
+      "title": "Super Psychic Policeman Chojo",
+      "aliases": [
+        "Choujun! Choujou Senpai",
+        "超巡！超条先輩"
+      ],
+      "episodes": 12,
+      "mediaType": "TV",
+      "releaseStatus": "RELEASING",
+      "startDate": {
+        "year": 2026,
+        "month": 10,
+        "day": 6
+      },
+      "stratum": "current"
+    },
+    {
+      "id": "mal:44940",
+      "anilistID": 127400,
+      "title": "World Trigger 3rd Season",
+      "aliases": [
+        "ワールドトリガー 3rdシーズン"
+      ],
+      "episodes": 14,
+      "mediaType": "TV",
+      "releaseStatus": "FINISHED",
+      "startDate": {
+        "year": 2021,
+        "month": 10,
+        "day": 10
+      },
+      "stratum": "niche"
+    },
+    {
+      "id": "mal:40682",
+      "anilistID": 113108,
+      "title": "Kingdom Season 3",
+      "aliases": [
+        "Kingdom 3rd Season",
+        "キングダム 第3シリーズ"
+      ],
+      "episodes": 26,
+      "mediaType": "TV",
+      "releaseStatus": "FINISHED",
+      "startDate": {
+        "year": 2020,
+        "month": 4,
+        "day": 6
+      },
+      "stratum": "niche"
+    },
+    {
+      "id": "mal:9919",
+      "anilistID": 9919,
+      "title": "Blue Exorcist",
+      "aliases": [
+        "Ao no Exorcist",
+        "青の祓魔師"
+      ],
+      "episodes": 25,
+      "mediaType": "TV",
+      "releaseStatus": "FINISHED",
+      "startDate": {
+        "year": 2011,
+        "month": 4,
+        "day": 17
+      },
+      "stratum": "classic"
+    },
+    {
+      "id": "mal:37379",
+      "anilistID": 101215,
+      "title": "Chihayafuru 3",
+      "aliases": [
+        "ちはやふる 3"
+      ],
+      "episodes": 24,
+      "mediaType": "TV",
+      "releaseStatus": "FINISHED",
+      "startDate": {
+        "year": 2019,
+        "month": 10,
+        "day": 23
+      },
+      "stratum": "niche"
+    },
+    {
+      "id": "mal:164",
+      "anilistID": 164,
+      "title": "Princess Mononoke",
+      "aliases": [
+        "Mononoke-hime",
+        "もののけ姫"
+      ],
+      "episodes": 1,
+      "mediaType": "MOVIE",
+      "releaseStatus": "FINISHED",
+      "startDate": {
+        "year": 1997,
+        "month": 7,
+        "day": 12
+      },
+      "stratum": "films"
+    },
+    {
+      "id": "mal:40028",
+      "anilistID": 110277,
+      "title": "Attack on Titan Final Season",
+      "aliases": [
+        "Shingeki no Kyojin: The Final Season",
+        "進撃の巨人 The Final Season"
+      ],
+      "episodes": 16,
+      "mediaType": "TV",
+      "releaseStatus": "FINISHED",
+      "startDate": {
+        "year": 2020,
+        "month": 12,
+        "day": 7
+      },
+      "stratum": "popular"
+    },
+    {
+      "id": "mal:63292",
+      "anilistID": 205896,
+      "title": "Full Clearing Another World under a Goddess with Zero Believers",
+      "aliases": [
+        "Shinja Zero no Megami-sama to Hajimeru Isekai Kouryaku",
+        "信者ゼロの女神サマと始める異世界攻略"
+      ],
+      "episodes": null,
+      "mediaType": "TV",
+      "releaseStatus": "RELEASING",
+      "startDate": {
+        "year": 2026,
+        "month": 10,
+        "day": 11
+      },
+      "stratum": "current"
+    },
+    {
+      "id": "mal:38524",
+      "anilistID": 104578,
+      "title": "Attack on Titan Season 3 Part 2",
+      "aliases": [
+        "Shingeki no Kyojin Season 3 Part 2",
+        "進撃の巨人 Season３ Part.2"
+      ],
+      "episodes": 10,
+      "mediaType": "TV",
+      "releaseStatus": "FINISHED",
+      "startDate": {
+        "year": 2019,
+        "month": 4,
+        "day": 29
+      },
+      "stratum": "popular"
+    },
+    {
+      "id": "mal:23273",
+      "anilistID": 20665,
+      "title": "Your lie in April",
+      "aliases": [
+        "Shigatsu wa Kimi no Uso",
+        "四月は君の嘘"
+      ],
+      "episodes": 22,
+      "mediaType": "TV",
+      "releaseStatus": "FINISHED",
+      "startDate": {
+        "year": 2014,
+        "month": 10,
+        "day": 10
+      },
+      "stratum": "popular"
+    },
+    {
+      "id": "mal:36862",
+      "anilistID": 100643,
+      "title": "Made in Abyss: Dawn of the Deep Soul",
+      "aliases": [
+        "Made in Abyss: Fukaki Tamashii no Reimei",
+        "メイドインアビス 深き魂の黎明"
+      ],
+      "episodes": 1,
+      "mediaType": "MOVIE",
+      "releaseStatus": "FINISHED",
+      "startDate": {
+        "year": 2020,
+        "month": 1,
+        "day": 17
+      },
+      "stratum": "films"
+    },
+    {
+      "id": "mal:21",
+      "anilistID": 21,
+      "title": "ONE PIECE",
+      "aliases": [],
+      "episodes": null,
+      "mediaType": "TV",
+      "releaseStatus": "RELEASING",
+      "startDate": {
+        "year": 1999,
+        "month": 10,
+        "day": 20
+      },
+      "stratum": "popular"
+    },
+    {
+      "id": "mal:37779",
+      "anilistID": 101759,
+      "title": "The Promised Neverland",
+      "aliases": [
+        "Yakusoku no Neverland",
+        "約束のネバーランド"
+      ],
+      "episodes": 12,
+      "mediaType": "TV",
+      "releaseStatus": "FINISHED",
+      "startDate": {
+        "year": 2019,
+        "month": 1,
+        "day": 10
+      },
+      "stratum": "popular"
+    },
+    {
+      "id": "mal:58518",
+      "anilistID": 176314,
+      "title": "Sasaki and Peeps Season 2",
+      "aliases": [
+        "Sasaki to Pii-chan Season 2",
+        "佐々木とピーちゃん シーズン２"
+      ],
+      "episodes": 12,
+      "mediaType": "TV",
+      "releaseStatus": "RELEASING",
+      "startDate": {
+        "year": 2026,
+        "month": 10,
+        "day": 7
+      },
+      "stratum": "current"
+    },
+    {
+      "id": "mal:30831",
+      "anilistID": 21202,
+      "title": "KONOSUBA -God's blessing on this wonderful world!",
+      "aliases": [
+        "Kono Subarashii Sekai ni Shukufuku wo!",
+        "この素晴らしい世界に祝福を！"
+      ],
+      "episodes": 10,
+      "mediaType": "TV",
+      "releaseStatus": "FINISHED",
+      "startDate": {
+        "year": 2016,
+        "month": 1,
+        "day": 14
+      },
+      "stratum": "popular"
+    },
+    {
+      "id": "mal:63382",
+      "anilistID": 206949,
+      "title": "Nia Liston: The Merciless Maiden",
+      "aliases": [
+        "Kyouran Reijou Nia Liston",
+        "凶乱令嬢ニア・リストン"
+      ],
+      "episodes": 25,
+      "mediaType": "TV",
+      "releaseStatus": "RELEASING",
+      "startDate": {
+        "year": 2026,
+        "month": 10,
+        "day": 6
+      },
+      "stratum": "current"
+    },
+    {
+      "id": "mal:2921",
+      "anilistID": 2921,
+      "title": "Tomorrow's Joe 2",
+      "aliases": [
+        "Ashita no Joe 2",
+        "あしたのジョー２"
+      ],
+      "episodes": 47,
+      "mediaType": "TV",
+      "releaseStatus": "FINISHED",
+      "startDate": {
+        "year": 1980,
+        "month": 10,
+        "day": 13
+      },
+      "stratum": "niche"
+    },
+    {
+      "id": "mal:431",
+      "anilistID": 431,
+      "title": "Howl‘s Moving Castle",
+      "aliases": [
+        "Howl no Ugoku Shiro",
+        "ハウルの動く城"
+      ],
+      "episodes": 1,
+      "mediaType": "MOVIE",
+      "releaseStatus": "FINISHED",
+      "startDate": {
+        "year": 2004,
+        "month": 11,
+        "day": 20
+      },
+      "stratum": "films"
+    },
+    {
+      "id": "mal:42941",
+      "anilistID": 124223,
+      "title": "Umamusume: Pretty Derby Season 2",
+      "aliases": [
+        "Uma Musume: Pretty Derby Season 2",
+        "ウマ娘 プリティーダービー Season 2"
+      ],
+      "episodes": 13,
+      "mediaType": "TV",
+      "releaseStatus": "FINISHED",
+      "startDate": {
+        "year": 2021,
+        "month": 1,
+        "day": 5
+      },
+      "stratum": "niche"
+    },
+    {
+      "id": "mal:40787",
+      "anilistID": 113596,
+      "title": "Josee, the Tiger and the Fish",
+      "aliases": [
+        "Josee to Tora to Sakanatachi",
+        "ジョゼと虎と魚たち"
+      ],
+      "episodes": 1,
+      "mediaType": "MOVIE",
+      "releaseStatus": "FINISHED",
+      "startDate": {
+        "year": 2020,
+        "month": 12,
+        "day": 25
+      },
+      "stratum": "films"
+    },
+    {
+      "id": "mal:62524",
+      "anilistID": 199007,
+      "title": "#I'm Looking For a Zombie",
+      "aliases": [
+        "#Zombie Sagashitemasu",
+        "#ゾンビさがしてます"
+      ],
+      "episodes": 12,
+      "mediaType": "TV",
+      "releaseStatus": "RELEASING",
+      "startDate": {
+        "year": 2026,
+        "month": 10,
+        "day": 3
+      },
+      "stratum": "current"
+    },
+    {
+      "id": "mal:13601",
+      "anilistID": 13601,
+      "title": "PSYCHO-PASS",
+      "aliases": [
+        "PSYCHO-PASS サイコパス"
+      ],
+      "episodes": 22,
+      "mediaType": "TV",
+      "releaseStatus": "FINISHED",
+      "startDate": {
+        "year": 2012,
+        "month": 10,
+        "day": 12
+      },
+      "stratum": "classic"
+    },
+    {
+      "id": "mal:63431",
+      "anilistID": 207329,
+      "title": "The Laid-Off Cheat-Granting Mage Enjoys a Second Lease on Life",
+      "aliases": [
+        "Tsuihou Sareta Cheat Fuyo Majutsushi wa Kimama na Second Life wo Ouka Suru.: Ore wa Buki dake ja Naku, Arayuru Mono ni \"Kyouka Point\" wo Fuyo Dekiru shi, Ore no Ishi de Itsudemo Kouka wo Kaijo Dekiru kedo, Nokotta Hitotachi Daijoubu?",
+        "追放されたチート付与魔術師は気ままなセカンドライフを謳歌する。　～俺は武器だけじゃなく、あらゆるものに『強化ポイント』を付与できるし、俺の意思でいつでも効果を解除できるけど、残った人たち大丈夫？～"
+      ],
+      "episodes": null,
+      "mediaType": "TV",
+      "releaseStatus": "RELEASING",
+      "startDate": {
+        "year": 2026,
+        "month": 10,
+        "day": 7
+      },
+      "stratum": "current"
+    },
+    {
+      "id": "mal:31758",
+      "anilistID": 21400,
+      "title": "Kizumonogatari Part 3: Reiketsu",
+      "aliases": [
+        "Kizumonogatari III: Reiketsu-hen",
+        "傷物語〈Ⅲ冷血篇〉"
+      ],
+      "episodes": 1,
+      "mediaType": "MOVIE",
+      "releaseStatus": "FINISHED",
+      "startDate": {
+        "year": 2017,
+        "month": 1,
+        "day": 6
+      },
+      "stratum": "films"
+    },
+    {
+      "id": "mal:61483",
+      "anilistID": 190569,
+      "title": "Jaadugar: A Witch in Mongolia",
+      "aliases": [
+        "Tenmaku no Jaadugar",
+        "天幕のジャードゥーガル"
+      ],
+      "episodes": 12,
+      "mediaType": "TV",
+      "releaseStatus": "FINISHED",
+      "startDate": {
+        "year": 2026,
+        "month": 7,
+        "day": 4
+      },
+      "stratum": "niche"
+    },
+    {
+      "id": "mal:39741",
+      "anilistID": 109190,
+      "title": "Violet Evergarden: Eternity and the Auto Memory Doll",
+      "aliases": [
+        "Violet Evergarden Gaiden: Eien to Jidou Shuki Ningyou",
+        "ヴァイオレット・エヴァーガーデン 外伝~永遠と自動手記人形~"
+      ],
+      "episodes": 1,
+      "mediaType": "MOVIE",
+      "releaseStatus": "FINISHED",
+      "startDate": {
+        "year": 2019,
+        "month": 9,
+        "day": 6
+      },
+      "stratum": "films"
+    },
+    {
+      "id": "mal:25777",
+      "anilistID": 20958,
+      "title": "Attack on Titan Season 2",
+      "aliases": [
+        "Shingeki no Kyojin Season 2",
+        "進撃の巨人 Season２"
+      ],
+      "episodes": 12,
+      "mediaType": "TV",
+      "releaseStatus": "FINISHED",
+      "startDate": {
+        "year": 2017,
+        "month": 4,
+        "day": 1
+      },
+      "stratum": "popular"
+    },
+    {
+      "id": "mal:63367",
+      "anilistID": 206814,
+      "title": "Dragon Ball Super: Beerus",
+      "aliases": [
+        "ドラゴンボール超 ビルス"
+      ],
+      "episodes": null,
+      "mediaType": "TV",
+      "releaseStatus": "RELEASING",
+      "startDate": {
+        "year": 2026,
+        "month": 10,
+        "day": 11
+      },
+      "stratum": "current"
+    },
+    {
+      "id": "mal:19",
+      "anilistID": 19,
+      "title": "Monster",
+      "aliases": [
+        "MONSTER"
+      ],
+      "episodes": 74,
+      "mediaType": "TV",
+      "releaseStatus": "FINISHED",
+      "startDate": {
+        "year": 2004,
+        "month": 4,
+        "day": 7
+      },
+      "stratum": "classic"
+    },
+    {
+      "id": "mal:8074",
+      "anilistID": 8074,
+      "title": "High School of the Dead",
+      "aliases": [
+        "Gakuen Mokushiroku: HIGHSCHOOL OF THE DEAD",
+        "学園黙示録HIGHSCHOOL OF THE DEAD"
+      ],
+      "episodes": 12,
+      "mediaType": "TV",
+      "releaseStatus": "FINISHED",
+      "startDate": {
+        "year": 2010,
+        "month": 7,
+        "day": 5
+      },
+      "stratum": "classic"
+    },
+    {
+      "id": "mal:22319",
+      "anilistID": 20605,
+      "title": "Tokyo Ghoul",
+      "aliases": [
+        "東京喰種 トーキョーグール"
+      ],
+      "episodes": 12,
+      "mediaType": "TV",
+      "releaseStatus": "FINISHED",
+      "startDate": {
+        "year": 2014,
+        "month": 7,
+        "day": 4
+      },
+      "stratum": "classic"
+    },
+    {
+      "id": "mal:55823",
+      "anilistID": 166611,
+      "title": "Natsume's Book of Friends Season 7",
+      "aliases": [
+        "Natsume Yuujinchou Shichi",
+        "夏目友人帳 漆"
+      ],
+      "episodes": 12,
+      "mediaType": "TV",
+      "releaseStatus": "FINISHED",
+      "startDate": {
+        "year": 2024,
+        "month": 10,
+        "day": 8
+      },
+      "stratum": "niche"
+    },
+    {
+      "id": "mal:40456",
+      "anilistID": 112151,
+      "title": "Demon Slayer -Kimetsu no Yaiba- The Movie: Mugen Train",
+      "aliases": [
+        "Kimetsu no Yaiba: Mugen Ressha-hen",
+        "鬼滅の刃 無限列車編"
+      ],
+      "episodes": 1,
+      "mediaType": "MOVIE",
+      "releaseStatus": "FINISHED",
+      "startDate": {
+        "year": 2020,
+        "month": 10,
+        "day": 16
+      },
+      "stratum": "films"
+    },
+    {
+      "id": "mal:47",
+      "anilistID": 47,
+      "title": "Akira",
+      "aliases": [
+        "AKIRA"
+      ],
+      "episodes": 1,
+      "mediaType": "MOVIE",
+      "releaseStatus": "FINISHED",
+      "startDate": {
+        "year": 1988,
+        "month": 7,
+        "day": 16
+      },
+      "stratum": "films"
+    },
+    {
+      "id": "mal:22507",
+      "anilistID": 19613,
+      "title": "Initial D Final Stage",
+      "aliases": [
+        "頭文字[イニシャル]D Final Stage"
+      ],
+      "episodes": 4,
+      "mediaType": "TV",
+      "releaseStatus": "FINISHED",
+      "startDate": {
+        "year": 2014,
+        "month": 5,
+        "day": 16
+      },
+      "stratum": "niche"
+    },
+    {
+      "id": "mal:37521",
+      "anilistID": 101348,
+      "title": "Vinland Saga",
+      "aliases": [
+        "VINLAND SAGA",
+        "ヴィンランド・サガ"
+      ],
+      "episodes": 24,
+      "mediaType": "TV",
+      "releaseStatus": "FINISHED",
+      "startDate": {
+        "year": 2019,
+        "month": 7,
+        "day": 8
+      },
+      "stratum": "popular"
+    },
+    {
+      "id": "mal:38000",
+      "anilistID": 101922,
+      "title": "Demon Slayer: Kimetsu no Yaiba",
+      "aliases": [
+        "Kimetsu no Yaiba",
+        "鬼滅の刃"
+      ],
+      "episodes": 26,
+      "mediaType": "TV",
+      "releaseStatus": "FINISHED",
+      "startDate": {
+        "year": 2019,
+        "month": 4,
+        "day": 6
+      },
+      "stratum": "popular"
+    },
+    {
+      "id": "mal:437",
+      "anilistID": 437,
+      "title": "Perfect Blue",
+      "aliases": [
+        "PERFECT BLUE"
+      ],
+      "episodes": 1,
+      "mediaType": "MOVIE",
+      "releaseStatus": "FINISHED",
+      "startDate": {
+        "year": 1998,
+        "month": 2,
+        "day": 28
+      },
+      "stratum": "films"
+    },
+    {
+      "id": "mal:18153",
+      "anilistID": 18153,
+      "title": "Beyond the Boundary",
+      "aliases": [
+        "Kyoukai no Kanata",
+        "境界の彼方"
+      ],
+      "episodes": 12,
+      "mediaType": "TV",
+      "releaseStatus": "FINISHED",
+      "startDate": {
+        "year": 2013,
+        "month": 10,
+        "day": 3
+      },
+      "stratum": "classic"
+    },
+    {
+      "id": "mal:53223",
+      "anilistID": 155227,
+      "title": "Kingdom Season 5",
+      "aliases": [
+        "Kingdom 5th Season",
+        "キングダム 第5シリーズ"
+      ],
+      "episodes": 13,
+      "mediaType": "TV",
+      "releaseStatus": "FINISHED",
+      "startDate": {
+        "year": 2024,
+        "month": 1,
+        "day": 14
+      },
+      "stratum": "niche"
+    },
+    {
+      "id": "mal:1689",
+      "anilistID": 1689,
+      "title": "5 Centimeters per Second",
+      "aliases": [
+        "Byousoku 5 Centimeter",
+        "秒速５センチメートル"
+      ],
+      "episodes": 3,
+      "mediaType": "MOVIE",
+      "releaseStatus": "FINISHED",
+      "startDate": {
+        "year": 2007,
+        "month": 2,
+        "day": 11
+      },
+      "stratum": "films"
+    },
+    {
+      "id": "mal:50265",
+      "anilistID": 140960,
+      "title": "SPY x FAMILY",
+      "aliases": [
+        "SPY×FAMILY"
+      ],
+      "episodes": 12,
+      "mediaType": "TV",
+      "releaseStatus": "FINISHED",
+      "startDate": {
+        "year": 2022,
+        "month": 4,
+        "day": 9
+      },
+      "stratum": "popular"
+    },
+    {
+      "id": "mal:30",
+      "anilistID": 30,
+      "title": "Neon Genesis Evangelion",
+      "aliases": [
+        "Shin Seiki Evangelion",
+        "新世紀エヴァンゲリオン"
+      ],
+      "episodes": 26,
+      "mediaType": "TV",
+      "releaseStatus": "FINISHED",
+      "startDate": {
+        "year": 1995,
+        "month": 10,
+        "day": 3
+      },
+      "stratum": "popular"
+    },
+    {
+      "id": "mal:63801",
+      "anilistID": 209872,
+      "title": "Ranma1/2 (2024) Season 3",
+      "aliases": [
+        "Ranma 1/2 (2024) 3rd Season",
+        "らんま1/2 (2024) 第3期"
+      ],
+      "episodes": null,
+      "mediaType": "TV",
+      "releaseStatus": "RELEASING",
+      "startDate": {
+        "year": 2026,
+        "month": 10,
+        "day": 4
+      },
+      "stratum": "current"
+    },
+    {
+      "id": "mal:38408",
+      "anilistID": 104276,
+      "title": "My Hero Academia Season 4",
+      "aliases": [
+        "Boku no Hero Academia 4",
+        "僕のヒーローアカデミア４"
+      ],
+      "episodes": 25,
+      "mediaType": "TV",
+      "releaseStatus": "FINISHED",
+      "startDate": {
+        "year": 2019,
+        "month": 10,
+        "day": 12
+      },
+      "stratum": "popular"
+    },
+    {
+      "id": "mal:59204",
+      "anilistID": 178868,
+      "title": "Magic Knight Rayearth (2026)",
+      "aliases": [
+        "魔法騎士レイアース (2026)"
+      ],
+      "episodes": null,
+      "mediaType": "TV",
+      "releaseStatus": "RELEASING",
+      "startDate": {
+        "year": 2026,
+        "month": 10,
+        "day": 7
+      },
+      "stratum": "current"
+    },
+    {
+      "id": "mal:61335",
+      "anilistID": 189275,
+      "title": "Medalist Season 2",
+      "aliases": [
+        "Medalist 2nd Season",
+        "メダリスト 第2期"
+      ],
+      "episodes": 9,
+      "mediaType": "TV",
+      "releaseStatus": "FINISHED",
+      "startDate": {
+        "year": 2026,
+        "month": 1,
+        "day": 25
+      },
+      "stratum": "niche"
+    },
+    {
+      "id": "mal:5114",
+      "anilistID": 5114,
+      "title": "Fullmetal Alchemist: Brotherhood",
+      "aliases": [
+        "Hagane no Renkinjutsushi: FULLMETAL ALCHEMIST",
+        "鋼の錬金術師 FULLMETAL ALCHEMIST"
+      ],
+      "episodes": 64,
+      "mediaType": "TV",
+      "releaseStatus": "FINISHED",
+      "startDate": {
+        "year": 2009,
+        "month": 4,
+        "day": 5
+      },
+      "stratum": "classic"
+    },
+    {
+      "id": "mal:5680",
+      "anilistID": 5680,
+      "title": "K-ON!",
+      "aliases": [
+        "けいおん!"
+      ],
+      "episodes": 13,
+      "mediaType": "TV",
+      "releaseStatus": "FINISHED",
+      "startDate": {
+        "year": 2009,
+        "month": 4,
+        "day": 3
+      },
+      "stratum": "classic"
+    }
+  ]
+}
