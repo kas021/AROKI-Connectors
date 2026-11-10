@@ -161,16 +161,16 @@
       "id" : "synthetiq-anime-direct",
       "language" : "en",
       "manifest" : {
-        "path" : "connectors\/synthetiq-anime-direct\/releases\/b7d2db21993d60d4ebe491f467b88247e377e536310d16c8dfd6299240311bf3\/connector.json",
-        "sha256" : "b7d2db21993d60d4ebe491f467b88247e377e536310d16c8dfd6299240311bf3",
-        "signature" : "geVEGgyNXtoS\/n7BiPKjjISU7BKzJbnCVh1er1cdlFJV32hXtNlDkbBFGJZWqH+EY4L4DL3RwPbEP8Vx5UkICw=="
+        "path" : "connectors\/synthetiq-anime-direct\/releases\/2a3a8ab6dedb955e3b348c8c03558f00591c341d653305fff6b99865eb84800b\/connector.json",
+        "sha256" : "2a3a8ab6dedb955e3b348c8c03558f00591c341d653305fff6b99865eb84800b",
+        "signature" : "liFsmC3IUbVkqwR9pyQFtTzz5H6TZVMeU5dQfR5BI3IV0ihgMrkNXSKDRmWOp9cBgPaLdnCY\/uYApMUri3sDBQ=="
       },
-      "minimumAppVersion" : "2.0.38",
+      "minimumAppVersion" : "2.1.36",
       "name" : "Synthetiq Flux",
-      "releaseNotes" : "Restore native playback through AniPM\/Settlar using canonical AniList identifiers. Existing MyAnimeList title IDs, saved shows and episode numbers are preserved. Playback session expiry and supplied captions are retained. Provider availability varies; downloads remain disabled. Requires Aroki 2.0.38 or newer.",
+      "releaseNotes" : "Playback through AniPM\/Settlar proceeds only when the provider declares the requested Sub or Dub availability and matching effective language for the episode. Missing or conflicting declarations fail before session creation. Existing AniList and MyAnimeList identity mapping, saved titles, episode mapping, request headers, supplied captions, and session-expiry handling are preserved. Downloads remain disabled. Requires Aroki 2.1.36 or newer.",
       "releaseTrack" : "beta",
       "status" : "active",
-      "version" : "0.1.4"
+      "version" : "0.1.5"
     },
     {
       "contentRating" : "unknown",
@@ -240,10 +240,10 @@
     }
   ],
   "enabled" : true,
-  "generatedAt" : 1794268717,
+  "generatedAt" : 1794269393,
   "name" : "AROKI Connectors",
   "publicKey" : "BYKainAr2pxVfWxSSQJHG79Xl\/mnkTuIl1ujEmR+1V4=",
   "repositoryID" : "aroki-connectors",
   "schemaVersion" : 1,
-  "signature" : "PBM93GgDhf7hXc7\/xsfvCvkO6Xc6XiBcu1oX4DE2EP5a4KUdgmW4ptdr5nZVIYPuVgdJMWn9Ji0TsDkuQAdNAw=="
+  "signature" : "m2JV43SkuH8vrTIg+kpAt3ePJUNVFWMNo+azEIBt3jBoW5Ry3nwVS843dezfHgW3aqWS7z5dd1mPwtbpuWSQCw=="
 }
