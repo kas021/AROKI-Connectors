@@ -1,0 +1,71 @@
+{
+  "results": [
+    {
+      "module": "anipm",
+      "title": "Naruto",
+      "variant": "dub",
+      "episode": 1,
+      "sha256": "49ee962133d6963439c75a896a49c28b6acad1a4c4aaa0ecec332b8a5c88245d",
+      "outcome": "native_started",
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1375.54,
+        "episodeCount": 220,
+        "episodeNumber": 1,
+        "familyID": "anipm",
+        "playheadSeconds": 1.08497975,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "Naruto",
+        "returnedTitle": "Naruto",
+        "similarity": 1,
+        "variant": "dub"
+      }
+    },
+    {
+      "module": "anipm",
+      "title": "Dawang Raoming",
+      "variant": "dub",
+      "episode": 1,
+      "sha256": "49ee962133d6963439c75a896a49c28b6acad1a4c4aaa0ecec332b8a5c88245d",
+      "outcome": "not_started",
+      "reason": "audio_contract_rejected:audioAvailable"
+    },
+    {
+      "module": "synthetiq-anime-direct",
+      "title": "Naruto",
+      "variant": "dub",
+      "episode": 1,
+      "sha256": "2a3a8ab6dedb955e3b348c8c03558f00591c341d653305fff6b99865eb84800b",
+      "outcome": "native_started",
+      "proof": {
+        "candidateNumber": 1,
+        "durationSeconds": 1375.51,
+        "episodeCount": 220,
+        "episodeNumber": 1,
+        "familyID": "synthetiq-anime-direct",
+        "playheadSeconds": 1.151844375,
+        "proofMode": "media-plus-macos-native-advancement",
+        "query": "Naruto",
+        "returnedTitle": "Naruto",
+        "similarity": 1,
+        "variant": "dub"
+      }
+    },
+    {
+      "module": "synthetiq-anime-direct",
+      "title": "Dawang Raoming",
+      "variant": "dub",
+      "episode": 1,
+      "sha256": "2a3a8ab6dedb955e3b348c8c03558f00591c341d653305fff6b99865eb84800b",
+      "outcome": "not_started",
+      "reason": "audio_contract_rejected:audioAvailable"
+    }
+  ],
+  "haltedForAccessOrRateLimit": false,
+  "unverified": [
+    "spoken language",
+    "physical device",
+    "full subtitle timing"
+  ],
+  "negativeCaseCaveat": "Dawang outcome is observed, not hardcoded: its source availability may change."
+}

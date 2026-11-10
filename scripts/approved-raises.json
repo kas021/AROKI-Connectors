@@ -57,6 +57,20 @@
       "legacyIndexSHA256": "27f6300a9ac7e31efd50ca92170368eaf744f1cf223e049efba9b63b55eb95c8",
       "minimumAppVersion": "2.1.36",
       "publisherScriptSHA256": "4beeee75737bb3f22e190e2fa2a5205cd86b3569d0b640555302c84303dbf056"
+    },
+    {
+      "connectorID": "synthetiq-anime-direct",
+      "familyID": "synthetiq-anime-direct",
+      "candidateCommit": "c54a9019c477b2c330a1cfb907b869d46f73cffc",
+      "candidateSHA256": "2a3a8ab6dedb955e3b348c8c03558f00591c341d653305fff6b99865eb84800b",
+      "baselineVersion": "0.1.4",
+      "baselineMinimumAppVersion": "2.0.38",
+      "baselineIndexSHA256": "f5a49e5c9d808851692e11fc4a1dcf7c2ce5e78b03322a30a679e6313d426ddc",
+      "baseMainCommit": "046ad4a01e67cc79d7ad4d0e8bbccad61e012ada",
+      "legacyBranchCommit": "812a6cfd4d7a7f21bd08420803a6c19a2d5549c2",
+      "legacyIndexSHA256": "27f6300a9ac7e31efd50ca92170368eaf744f1cf223e049efba9b63b55eb95c8",
+      "minimumAppVersion": "2.1.36",
+      "publisherScriptSHA256": "4beeee75737bb3f22e190e2fa2a5205cd86b3569d0b640555302c84303dbf056"
     }
   ]
 }

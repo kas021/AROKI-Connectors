@@ -1,0 +1,16 @@
+{
+  "query": "My Hero Academia Season 4",
+  "method": "Two bounded ordinary POST searches; no media or alternate routes",
+  "status": 200,
+  "returnedRows": 1,
+  "rowKeys": ["description", "link", "title"],
+  "sameOrigin": true,
+  "pathComponentCount": 3,
+  "isAnimeStreamRoute": false,
+  "hasQuery": false,
+  "hasFragment": false,
+  "typeDeclaration": null,
+  "linkFingerprint": "7ca0071a1fdf8596ffee46e28a9825ea258e66bb38b73eae681a7932a5c06ca6",
+  "finding": "Search can return a same-origin non-series page. Aroki maps its last path component into an anime/stream details URL; official Player rejects links lacking the anime/stream prefix.",
+  "limits": "No replacement series/season identity is inferred. No raw link, payload, header, cookie, token or media is retained. This is not a proof of an available MHA S4 video."
+}
