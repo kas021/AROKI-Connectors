@@ -11,16 +11,16 @@
       "id" : "anikoto",
       "language" : "en",
       "manifest" : {
-        "path" : "connectors\/anikoto\/releases\/dbfe00dcbd9c1841e26ebf76e120c99ee02306402b8f327d01855214f9aac25e\/connector.json",
-        "sha256" : "dbfe00dcbd9c1841e26ebf76e120c99ee02306402b8f327d01855214f9aac25e",
-        "signature" : "WmIRKyckTRmVXs89kiZwY3ntJ\/PrDDf6i34fOWKmWnG76ZDGtEVSpxAOnE24+dlLKZBBjoX\/tY9MjB1p\/pGUCg=="
+        "path" : "connectors\/anikoto\/releases\/4291e995260d78531c4f2546242cfd4fa74e6a2abdd92ae11e013be4d1e26279\/connector.json",
+        "sha256" : "4291e995260d78531c4f2546242cfd4fa74e6a2abdd92ae11e013be4d1e26279",
+        "signature" : "NwjVI7wtLnnZLqrotL2CNi4MtM2GnCUc1SeBwk9hgT2+edvsTgF6l4DBRQOf12OjsCrqQJetT3EX7a2UvjWfCA=="
       },
       "minimumAppVersion" : "2.1.36",
       "name" : "AniKoto",
-      "releaseNotes" : "0.3.12 candidate: uses the visible AniKoto heading as the primary AniKage browse title and falls back to data-jp only when the heading is unavailable. The existing AniList banner ID (when present), exact year and format remain selection constraints; duplicate or conflicting matches fail closed. The existing title, episode and koto source routes are unchanged. This candidate has not established broad live reliability, playback recovery or spoken-language verification.",
+      "releaseNotes" : "0.3.13: follows the source's move to anikototv.bz. Adds the new address to the allowed hosts and accepts saved title links from either address. Routes, title matching and audio handling are unchanged from 0.3.12. Measured on 14 Nov 2026 at 36 of 47 available titles (middle episode); spoken language and device playback were not verified.",
       "releaseTrack" : "beta",
       "status" : "active",
-      "version" : "0.3.12"
+      "version" : "0.3.13"
     },
     {
       "contentRating" : "unknown",
@@ -240,10 +240,10 @@
     }
   ],
   "enabled" : true,
-  "generatedAt" : 1794269393,
+  "generatedAt" : 1794701679,
   "name" : "AROKI Connectors",
   "publicKey" : "BYKainAr2pxVfWxSSQJHG79Xl\/mnkTuIl1ujEmR+1V4=",
   "repositoryID" : "aroki-connectors",
   "schemaVersion" : 1,
-  "signature" : "m2JV43SkuH8vrTIg+kpAt3ePJUNVFWMNo+azEIBt3jBoW5Ry3nwVS843dezfHgW3aqWS7z5dd1mPwtbpuWSQCw=="
+  "signature" : "KBactRkgJxxq1O8OCHx5LK4bQ7AbfulXsavj6YmL53YKuRTPmU6+3Lr7h3uENjfmDR4VLknUbfeJa3krsOP5CQ=="
 }
