@@ -161,16 +161,16 @@
       "id" : "synthetiq-anime-direct",
       "language" : "en",
       "manifest" : {
-        "path" : "connectors\/synthetiq-anime-direct\/releases\/2a3a8ab6dedb955e3b348c8c03558f00591c341d653305fff6b99865eb84800b\/connector.json",
-        "sha256" : "2a3a8ab6dedb955e3b348c8c03558f00591c341d653305fff6b99865eb84800b",
-        "signature" : "liFsmC3IUbVkqwR9pyQFtTzz5H6TZVMeU5dQfR5BI3IV0ihgMrkNXSKDRmWOp9cBgPaLdnCY\/uYApMUri3sDBQ=="
+        "path" : "connectors\/synthetiq-anime-direct\/releases\/71db638ec3b050502c2c7728d33fc17c98319e530a728ff41c2f77c3e4bb1981\/connector.json",
+        "sha256" : "71db638ec3b050502c2c7728d33fc17c98319e530a728ff41c2f77c3e4bb1981",
+        "signature" : "oeFnLeiwo4IE9leIDSopMeyHhxcdMuPAHGUewqulsMax3880SzHIWcGEJvxHet41RiG+66Yyb2iW6DoxDH8TBA=="
       },
       "minimumAppVersion" : "2.1.36",
       "name" : "Synthetiq Flux",
-      "releaseNotes" : "Playback through AniPM\/Settlar proceeds only when the provider declares the requested Sub or Dub availability and matching effective language for the episode. Missing or conflicting declarations fail before session creation. Existing AniList and MyAnimeList identity mapping, saved titles, episode mapping, request headers, supplied captions, and session-expiry handling are preserved. Downloads remain disabled. Requires Aroki 2.1.36 or newer.",
+      "releaseNotes" : "0.1.6 adds genres, year and status to Home, Browse and search cards so Find a niche can filter this source. Title identity, episode, Sub\/Dub and playback routes are unchanged from 0.1.5. Measured on 15 Nov 2026 on a Mac test run: 49 of 50 sampled titles reached playable video. The Niche screen and spoken language were not checked on a device. Requires Aroki 2.1.36 or newer.",
       "releaseTrack" : "beta",
       "status" : "active",
-      "version" : "0.1.5"
+      "version" : "0.1.6"
     },
     {
       "contentRating" : "unknown",
@@ -240,10 +240,10 @@
     }
   ],
   "enabled" : true,
-  "generatedAt" : 1794701679,
+  "generatedAt" : 1794705086,
   "name" : "AROKI Connectors",
   "publicKey" : "BYKainAr2pxVfWxSSQJHG79Xl\/mnkTuIl1ujEmR+1V4=",
   "repositoryID" : "aroki-connectors",
   "schemaVersion" : 1,
-  "signature" : "KBactRkgJxxq1O8OCHx5LK4bQ7AbfulXsavj6YmL53YKuRTPmU6+3Lr7h3uENjfmDR4VLknUbfeJa3krsOP5CQ=="
+  "signature" : "eJNQBgG8gb3AY9CADwhwT9NQhCGYxCUNXxEXFkNyDO9szoeK0FXuTFOEtfpCVC7ca0wdrD4haMxqN\/iKhZ68BQ=="
 }
