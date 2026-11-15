@@ -17,10 +17,14 @@ reviewed = {
     "0.3.9": ("90756caaa5f97f990453fba6aa010d2ded009b87641a3f638eedbfc12169e0dc", "retired"),
     "0.3.10": ("49e8a0f2baa49abf2534ad9522d86eafc0cca054c76ead2cff62e15823221413", "active"),
     "0.3.11": ("7023da2a163aebd9850556ec80f8cc3b5396ed8d90a277ca64fbc008a8e01ac8", "active"),
+    "0.3.13": ("4291e995260d78531c4f2546242cfd4fa74e6a2abdd92ae11e013be4d1e26279", "active"),
 }
 # Releases whose fixtures are committed in the pinned validator itself.
 prealigned = {"0.3.10"}
 fixture_releases = {"0.3.11": "fixtures/AniKotoReleaseRouteTests.swift"}
+# Releases with a reviewed pair of fixtures (route + candidate-graph) for the 2.1.36 reader.
+pair_fixture_releases = {"0.3.13": ("fixtures/AniKotoReleaseRouteTests-0.3.13.swift",
+                                    "fixtures/AniKotoCandidateGraphTests-0.3.13.swift")}
 version = manifest.get("version")
 if version not in reviewed:
     raise SystemExit("AniKoto fixtures require review for this release version")
@@ -29,6 +33,15 @@ if version in prealigned:
     if hashlib.sha256(candidate).hexdigest() != digest or manifest.get("status") != status:
         raise SystemExit("AniKoto candidate differs from reviewed release")
     print("Pinned validator already carries reviewed AniKage-route fixtures; no alignment needed")
+    raise SystemExit(0)
+if version in pair_fixture_releases:
+    if hashlib.sha256(candidate).hexdigest() != digest or manifest.get("status") != status or manifest.get("minimumAppVersion") != "2.1.36":
+        raise SystemExit("AniKoto candidate differs from reviewed release")
+    route, graph = (Path(__file__).parent / name for name in pair_fixture_releases[version])
+    tests = root / "VireoCore/Tests/VireoCoreTests"
+    (tests / "AniKotoConnectorTests.swift").write_bytes(route.read_bytes())
+    (tests / "RolloutAniKotoCandidateTests.swift").write_bytes(graph.read_bytes())
+    print(f"Installed reviewed AniKoto {version} route and candidate-graph fixtures")
     raise SystemExit(0)
 if version in fixture_releases:
     if hashlib.sha256(candidate).hexdigest() != digest or manifest.get("status") != status:
