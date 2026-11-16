@@ -3,7 +3,7 @@
   "id": "aniworld-expansion",
   "familyID": "aniworld-expansion",
   "name": "AniWorld",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "minimumAppVersion": "2.0.36",
   "requiredEngineFeatures": [
     "form-post-v1",
@@ -338,6 +338,77 @@
               }
             }
           ]
+        },
+        {
+          "variants": [
+            "dub"
+          ],
+          "inputHosts": [
+            "aniworld.to"
+          ],
+          "finalMediaPolicy": "public-https",
+          "steps": [
+            {
+              "request": {
+                "method": "GET",
+                "follow": "episodeURL"
+              },
+              "response": {
+                "format": "html"
+              },
+              "extract": {
+                "context": {
+                  "embed": {
+                    "kind": "url",
+                    "selector": "li[data-lang-key='1'][data-link-target]:has(h4:contains(Vidmoly))",
+                    "part": "attr",
+                    "attr": "data-link-target",
+                    "transforms": [
+                      {
+                        "op": "absolutize"
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "request": {
+                "method": "GET",
+                "follow": "embed",
+                "headers": {
+                  "Referer": "https://aniworld.to/"
+                }
+              },
+              "response": {
+                "format": "literal-selection",
+                "scriptSelector": "script:containsData(player.setup)",
+                "selection": {
+                  "kind": "call-object-fields",
+                  "name": "player.setup",
+                  "properties": [
+                    "sources"
+                  ]
+                }
+              },
+              "extract": {
+                "collection": "value.sources[*]",
+                "fields": {
+                  "url": {
+                    "path": "file",
+                    "transforms": [
+                      {
+                        "op": "absolutize"
+                      }
+                    ]
+                  },
+                  "mediaTypeHint": {
+                    "literal": "hls"
+                  }
+                }
+              }
+            }
+          ]
         }
       ]
     },
@@ -390,5 +461,5 @@
       ]
     }
   },
-  "releaseNotes": "Owner-approved public availability for Aroki 2.0.36+. Home/Browse discovery and native playback resolver are unchanged. Sub-only: German-subtitle mirror first, English-subtitle fallback; German Dub is not included. Visible captions, spoken language and offline remain unverified."
+  "releaseNotes": "Owner-approved public availability for Aroki 2.0.36+. Home/Browse discovery and native playback resolver are unchanged. Sub mirrors unchanged: German-subtitle mirror first, English-subtitle fallback. Adds a separate German Dub mirror (AniWorld language key 1). Visible captions, spoken language and offline remain unverified."
 }
