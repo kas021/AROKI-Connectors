@@ -1,0 +1,200 @@
+{
+  "schemaVersion": 1,
+  "id": "animeworld-it",
+  "familyID": "animeworld-it",
+  "name": "AnimeWorld (SUB ITA)",
+  "version": "0.1.0",
+  "minimumAppVersion": "2.1.36",
+  "contentType": "video",
+  "language": "it",
+  "contentRating": "unknown",
+  "releaseTrack": "beta",
+  "status": "active",
+  "authorization": {
+    "basis": "personal",
+    "note": "Owner-requested conversion of a Synthetiq Player source for testing; not a rights determination."
+  },
+  "allowedHosts": [
+    "www.animeworld.ac",
+    "img.animeworld.ac",
+    "*.sweetpixel.org"
+  ],
+  "capabilities": [
+    "search",
+    "details",
+    "episodes",
+    "streams"
+  ],
+  "limits": {
+    "timeoutMilliseconds": 10000,
+    "maxConcurrentRequests": 2,
+    "maxResponseBytes": 2097152
+  },
+  "operations": {
+    "search": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://www.animeworld.ac/search?keyword={query}",
+        "headers": {
+          "Accept-Language": "it-IT,it;q=0.9,en;q=0.6"
+        }
+      },
+      "response": {
+        "format": "html"
+      },
+      "items": {
+        "collection": "div.film-list > div.item:not(:has(div.dub)):not(:has(a.poster[href*='-ita.']))",
+        "fields": {
+          "sourceID": {
+            "selector": "a.poster",
+            "part": "attr",
+            "attr": "href",
+            "transforms": [
+              {
+                "op": "removePrefix",
+                "value": "/play/"
+              }
+            ]
+          },
+          "title": {
+            "selector": "a.name",
+            "part": "text",
+            "transforms": [
+              {
+                "op": "trim"
+              }
+            ]
+          },
+          "posterURL": {
+            "selector": "a.poster img",
+            "part": "attr",
+            "attr": "src"
+          }
+        }
+      }
+    },
+    "details": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://www.animeworld.ac/play/{titleID}"
+      },
+      "response": {
+        "format": "html"
+      },
+      "extract": {
+        "title": {
+          "selector": "h2.title",
+          "part": "text",
+          "transforms": [
+            {
+              "op": "trim"
+            }
+          ]
+        },
+        "synopsis": {
+          "selector": "div.desc",
+          "part": "text",
+          "transforms": [
+            {
+              "op": "trim"
+            }
+          ]
+        },
+        "posterURL": {
+          "selector": "#thumbnail-watch img",
+          "part": "attr",
+          "attr": "src"
+        },
+        "year": {
+          "selector": "dl.watchlist-edit-info div.year dd",
+          "part": "text",
+          "transforms": [
+            {
+              "op": "firstInteger"
+            }
+          ]
+        },
+        "genres": {
+          "collection": "dl.meta dd a[href^='/genre/']",
+          "transforms": [
+            {
+              "op": "trim"
+            }
+          ]
+        }
+      }
+    },
+    "episodes": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://www.animeworld.ac/play/{titleID}"
+      },
+      "response": {
+        "format": "html"
+      },
+      "extract": {
+        "collection": "body:not(:has(dl.meta a[href='/filter?language=it'])) div.server.active ul.episodes li.episode > a[data-id]",
+        "fields": {
+          "episodeID": {
+            "selector": "a",
+            "part": "attr",
+            "attr": "data-id"
+          },
+          "episodeNumber": {
+            "selector": "a",
+            "part": "attr",
+            "attr": "data-num",
+            "transforms": [
+              {
+                "op": "firstInteger"
+              }
+            ]
+          },
+          "title": {
+            "selector": "a",
+            "part": "attr",
+            "attr": "data-num",
+            "transforms": [
+              {
+                "op": "template",
+                "value": "Episodio {value}"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "streams": {
+      "variants": [
+        "sub"
+      ],
+      "playbackHeaders": {
+        "Referer": "https://www.animeworld.ac/"
+      },
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://www.animeworld.ac/api/episode/info?id={episodeID}&alt=0",
+        "headers": {
+          "Accept": "application/json, text/javascript, */*; q=0.01",
+          "X-Requested-With": "XMLHttpRequest",
+          "Referer": "https://www.animeworld.ac/"
+        }
+      },
+      "response": {
+        "format": "json"
+      },
+      "extract": {
+        "collection": "@",
+        "fields": {
+          "url": {
+            "path": "grabber"
+          },
+          "mediaTypeHint": {
+            "literal": "mp4"
+          }
+        }
+      }
+    }
+  },
+  "releaseNotes": "0.1.0 beta: AnimeWorld entries the site lists as SUB ITA (Japanese audio with Italian subtitles) only. ITA dub entries are a separate site entry and are excluded from search; an ITA page lists no episodes, and Dub requests return no stream. Measured 21 Nov 2026 with the 2.1.36 engine tool: in a 50-title sample, all 37 titles the source has reached a valid video file; 13 were not found under their sample names. The site uses Italian, English or romaji titles, so some names are not found. Device playback, subtitle presence and spoken language were not verified."
+}
