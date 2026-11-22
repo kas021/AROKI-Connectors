@@ -197,13 +197,31 @@
       "releaseTrack" : "beta",
       "status" : "active",
       "version" : "0.1.3"
+    },
+    {
+      "contentRating" : "unknown",
+      "contentType" : "video",
+      "familyID" : "kickassanime",
+      "id" : "kickassanime",
+      "language" : "en",
+      "manifest" : {
+        "path" : "connectors\/kickassanime\/releases\/450ae9145c424a7f2a5318e8668e2216dfaeb65cc41e177dad290e96371f626d\/connector.json",
+        "sha256" : "450ae9145c424a7f2a5318e8668e2216dfaeb65cc41e177dad290e96371f626d",
+        "signature" : "1QKi+kkYhIHx9FC78vJNPobTEvWZ6X6hpenyblmbj7FORI46lU7CGXz\/JwVPhbZi7NZ2XTRl32Os6x3Ngk8dAw=="
+      },
+      "minimumAppVersion" : "2.1.36",
+      "name" : "KickAssAnime",
+      "releaseNotes" : "Beta conversion of the KickAssAnime Player source (kaa.lt JSON catalogue, krussdomi player). Sub only: the site's HLS master carries several audio tracks (Japanese default plus English and others) and Aroki 2.1.36 cannot choose a track per request, so Dub is not offered. Measured: search, details, episodes and stream resolution against the live site and a corpus run. Not verified: playback on a device, which audio track the device plays, and subtitle timing.",
+      "releaseTrack" : "beta",
+      "status" : "active",
+      "version" : "0.1.1"
     }
   ],
   "enabled" : true,
-  "generatedAt" : 1794705299,
+  "generatedAt" : 1795308655,
   "name" : "AROKI Connectors",
   "publicKey" : "BYKainAr2pxVfWxSSQJHG79Xl\/mnkTuIl1ujEmR+1V4=",
   "repositoryID" : "aroki-connectors",
   "schemaVersion" : 1,
-  "signature" : "EkdpNrvE5smUNGP9fGog2aZhbNkJj\/0ymrbCoIz9JMJ7oRJtOz1371y3Czd8rxwG050W2BJWUQw5uL6VUpEvCA=="
+  "signature" : "c8oIs2VSDrd1+WdaIuzhFEdfWv4gUYfXaolVMPrsm7\/1iJyNAuE+HiA\/BHX2m8x7\/3q3bpxamWi3CMhyatIRBw=="
 }
