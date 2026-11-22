@@ -1,0 +1,209 @@
+{
+  "schemaVersion": 1,
+  "id": "toontales",
+  "familyID": "toontales",
+  "name": "ToonTales (Classic Cartoons)",
+  "version": "0.1.0",
+  "minimumAppVersion": "2.1.36",
+  "contentType": "video",
+  "language": "en",
+  "contentRating": "unknown",
+  "releaseTrack": "beta",
+  "status": "active",
+  "authorization": {
+    "basis": "personal",
+    "note": "Owner-requested conversion of a Synthetiq Player source for testing; not a rights determination."
+  },
+  "allowedHosts": [
+    "www.toontales.net",
+    "ww.toontales.net"
+  ],
+  "capabilities": [
+    "search",
+    "details",
+    "episodes",
+    "streams"
+  ],
+  "limits": {
+    "timeoutMilliseconds": 15000,
+    "maxConcurrentRequests": 2,
+    "maxResponseBytes": 1048576
+  },
+  "operations": {
+    "search": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://www.toontales.net/?s={query}",
+        "headers": {
+          "Accept": "text/html,application/xhtml+xml",
+          "Accept-Language": "en-US,en;q=0.9"
+        }
+      },
+      "response": {
+        "format": "html"
+      },
+      "items": {
+        "collection": "section#main article.type-video:has(a[href*='/short/'])",
+        "fields": {
+          "sourceID": {
+            "selector": "div.entry-title a[href*='/short/']",
+            "part": "attr",
+            "attr": "href",
+            "transforms": [
+              {
+                "op": "removePrefix",
+                "value": "https://www.toontales.net/short/"
+              },
+              {
+                "op": "removeSuffix",
+                "value": "/"
+              }
+            ]
+          },
+          "title": {
+            "selector": "h3.title",
+            "part": "text",
+            "transforms": [
+              {
+                "op": "trim"
+              }
+            ]
+          },
+          "posterURL": {
+            "selector": "div.image-holder img",
+            "part": "attr",
+            "attr": "src"
+          }
+        }
+      }
+    },
+    "details": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://www.toontales.net/short/{titleID}/",
+        "headers": {
+          "Accept": "text/html,application/xhtml+xml"
+        }
+      },
+      "response": {
+        "format": "html"
+      },
+      "extract": {
+        "title": {
+          "selector": "h1.post-title",
+          "part": "text",
+          "transforms": [
+            {
+              "op": "trim"
+            }
+          ]
+        },
+        "synopsis": {
+          "selector": "div.post-content > p",
+          "part": "text",
+          "transforms": [
+            {
+              "op": "trim"
+            }
+          ]
+        },
+        "posterURL": {
+          "selector": "meta[property='og:image']",
+          "part": "attr",
+          "attr": "content"
+        },
+        "genres": {
+          "collection": "ul.single-video-categories a",
+          "transforms": [
+            {
+              "op": "trim"
+            }
+          ]
+        }
+      }
+    },
+    "episodes": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://www.toontales.net/short/{titleID}/",
+        "headers": {
+          "Accept": "text/html,application/xhtml+xml"
+        }
+      },
+      "response": {
+        "format": "html"
+      },
+      "extract": {
+        "collection": "html:has(link[rel=canonical][href*='/short/']):has(script.yoast-schema-graph)",
+        "fields": {
+          "episodeID": {
+            "selector": "link[rel=canonical]",
+            "part": "attr",
+            "attr": "href",
+            "transforms": [
+              {
+                "op": "removePrefix",
+                "value": "https://www.toontales.net/short/"
+              },
+              {
+                "op": "removeSuffix",
+                "value": "/"
+              }
+            ]
+          },
+          "title": {
+            "selector": "h1.post-title",
+            "part": "text",
+            "transforms": [
+              {
+                "op": "trim"
+              }
+            ]
+          },
+          "episodeNumber": {
+            "literal": "1"
+          }
+        }
+      }
+    },
+    "streams": {
+      "variants": [
+        "sub"
+      ],
+      "playbackHeaders": {
+        "Referer": "https://www.toontales.net/"
+      },
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://www.toontales.net/short/{episodeID}/",
+        "headers": {
+          "Accept": "text/html,application/xhtml+xml"
+        }
+      },
+      "response": {
+        "format": "html-embedded-json",
+        "scriptSelector": "script.yoast-schema-graph"
+      },
+      "extract": {
+        "collection": {
+          "path": "@graph[*]",
+          "where": [
+            {
+              "path": "@type",
+              "equals": "VideoObject"
+            }
+          ]
+        },
+        "fields": {
+          "url": {
+            "path": "contentUrl"
+          },
+          "mediaTypeHint": {
+            "literal": "mp4"
+          }
+        }
+      }
+    }
+  },
+  "releaseNotes": "0.1.0 beta: classic theatrical cartoon shorts from ToonTales (Looney Tunes, Merrie Melodies, Tom and Jerry, Disney, Pink Panther and others). Each short is one title with one video: a single MP4 with its original English soundtrack. There is no Dub option and no subtitles. Measured 22 Nov 2026 with the 2.1.36 engine tool on 30 well-known shorts: all 23 that search found passed the search, details and MP4 file check; 7 were not found by search (mostly MGM Tex Avery, Fleischer and UPA titles). Search shows only the site's first page of results and uses the site's own short titles. Device playback, picture quality and sound were not verified."
+}
