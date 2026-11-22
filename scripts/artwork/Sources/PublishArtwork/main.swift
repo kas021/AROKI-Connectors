@@ -27,7 +27,7 @@ let canonical = try CanonicalJSON.canonicalData(fromJSONData: unsigned, removing
 object["signature"] = try PackageSignature.sign(payload: canonical, privateKeyBase64: key)
 let signed = try JSONSerialization.data(withJSONObject: object, options: [.sortedKeys, .prettyPrinted])
 let catalogue = try RepositoryArtworkCatalogue.verify(data: signed, for: index)
-guard catalogue.count == count, count == 11 else { throw ValidationError("artwork", "Unexpected logo coverage") }
+guard catalogue.count == count, count == 12 else { throw ValidationError("artwork", "Unexpected logo coverage") }
 let temporary = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
 defer { try? FileManager.default.removeItem(at: temporary) }
 let store = try ConnectorStore(rootDirectory: temporary, appVersion: SemanticVersion("2.1.36")!)
