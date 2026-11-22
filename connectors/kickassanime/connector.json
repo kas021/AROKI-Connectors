@@ -1,0 +1,321 @@
+{
+  "schemaVersion": 1,
+  "id": "kickassanime",
+  "familyID": "kickassanime",
+  "name": "KickAssAnime",
+  "version": "0.1.1",
+  "minimumAppVersion": "2.1.36",
+  "contentType": "video",
+  "language": "en",
+  "contentRating": "unknown",
+  "releaseTrack": "beta",
+  "status": "active",
+  "authorization": {
+    "basis": "personal",
+    "note": "Owner-requested conversion of a Synthetiq Player source for testing; not a rights determination."
+  },
+  "allowedHosts": [
+    "kaa.lt",
+    "krussdomi.com",
+    "*.krussdomi.com"
+  ],
+  "capabilities": [
+    "search",
+    "details",
+    "episodes",
+    "streams"
+  ],
+  "limits": {
+    "timeoutMilliseconds": 20000,
+    "maxConcurrentRequests": 2,
+    "maxResponseBytes": 2097152
+  },
+  "operations": {
+    "search": {
+      "request": {
+        "method": "POST",
+        "urlTemplate": "https://kaa.lt/api/fsearch",
+        "headers": {
+          "Accept": "application/json",
+          "Referer": "https://kaa.lt/",
+          "Origin": "https://kaa.lt"
+        },
+        "body": "{\"query\":\"{query}\",\"page\":1}"
+      },
+      "response": {
+        "format": "json"
+      },
+      "items": {
+        "collection": {
+          "path": "result[*]",
+          "where": [
+            {
+              "path": "locales[0]",
+              "oneOf": [
+                "ja-JP",
+                "en-US",
+                "es-419",
+                "es-ES",
+                "pt-BR",
+                "fr-FR",
+                "de-DE",
+                "it-IT"
+              ]
+            }
+          ]
+        },
+        "fields": {
+          "sourceID": {
+            "path": "slug"
+          },
+          "title": {
+            "path": "title_en",
+            "fallbacks": [
+              {
+                "path": "title"
+              }
+            ]
+          },
+          "posterURL": {
+            "path": "poster.hq",
+            "transforms": [
+              {
+                "op": "template",
+                "value": "https://kaa.lt/image/poster/{value}.webp",
+                "encodeValue": true
+              }
+            ]
+          }
+        },
+        "metadata": {
+          "genres": {
+            "collection": "genres[*]"
+          },
+          "year": {
+            "path": "year"
+          },
+          "status": {
+            "path": "status"
+          }
+        }
+      }
+    },
+    "details": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://kaa.lt/api/show/{titleID}",
+        "headers": {
+          "Accept": "application/json",
+          "Referer": "https://kaa.lt/"
+        }
+      },
+      "response": {
+        "format": "json"
+      },
+      "extract": {
+        "title": {
+          "path": "title_en",
+          "fallbacks": [
+            {
+              "path": "title"
+            }
+          ]
+        },
+        "synopsis": {
+          "path": "synopsis"
+        },
+        "posterURL": {
+          "path": "poster.hq",
+          "transforms": [
+            {
+              "op": "template",
+              "value": "https://kaa.lt/image/poster/{value}.webp",
+              "encodeValue": true
+            }
+          ]
+        },
+        "year": {
+          "path": "year"
+        },
+        "genres": {
+          "collection": "genres[*]"
+        }
+      }
+    },
+    "episodes": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://kaa.lt/api/show/{titleID}/episodes?page={page}&lang=ja-JP",
+        "headers": {
+          "Accept": "application/json",
+          "Referer": "https://kaa.lt/"
+        }
+      },
+      "response": {
+        "format": "json"
+      },
+      "pagination": {
+        "type": "pageParam",
+        "start": 1,
+        "maxPages": 25
+      },
+      "extract": {
+        "collection": "result[*]",
+        "fields": {
+          "episodeID": {
+            "path": "slug"
+          },
+          "title": {
+            "path": "title"
+          },
+          "episodeNumber": {
+            "path": "episode_number"
+          }
+        }
+      }
+    },
+    "streams": {
+      "variants": [
+        "sub"
+      ],
+      "playbackHeaders": {
+        "Referer": "https://krussdomi.com/",
+        "Origin": "https://krussdomi.com"
+      },
+      "steps": [
+        {
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://kaa.lt/api/show/{titleID}/episode/ep-x-{episodeID}",
+            "headers": {
+              "Accept": "application/json",
+              "Referer": "https://kaa.lt/"
+            }
+          },
+          "response": {
+            "format": "json"
+          },
+          "extract": {
+            "context": {
+              "episodePath": {
+                "path": "redirectUri",
+                "transforms": [
+                  {
+                    "op": "lastPathComponent"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "request": {
+            "method": "GET",
+            "urlTemplate": "https://kaa.lt/api/show/{titleID}/episode/{episodePath}",
+            "headers": {
+              "Accept": "application/json",
+              "Referer": "https://kaa.lt/"
+            }
+          },
+          "response": {
+            "format": "json"
+          },
+          "extract": {
+            "context": {
+              "player": {
+                "kind": "url",
+                "path": "servers[0].src"
+              },
+              "server": {
+                "path": "servers[0].src",
+                "transforms": [
+                  {
+                    "op": "queryValue",
+                    "name": "source"
+                  }
+                ],
+                "allowedValues": [
+                  "vidstream",
+                  "catstream"
+                ]
+              },
+              "audio": {
+                "path": "language",
+                "allowedValues": [
+                  "ja-JP"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "request": {
+            "method": "GET",
+            "follow": "player",
+            "headers": {
+              "Accept": "text/html",
+              "Referer": "https://kaa.lt/"
+            }
+          },
+          "response": {
+            "format": "html-attr-json",
+            "selector": "astro-island[props]",
+            "attribute": "props"
+          },
+          "extract": {
+            "collection": "@",
+            "fields": {
+              "url": {
+                "path": "manifest[1]",
+                "transforms": [
+                  {
+                    "op": "absolutize"
+                  }
+                ]
+              },
+              "mediaTypeHint": {
+                "literal": "hls"
+              }
+            },
+            "subtitles": {
+              "collection": "subtitles[1][*]",
+              "fields": {
+                "url": {
+                  "path": "[1].src[1]",
+                  "transforms": [
+                    {
+                      "op": "replaceFirst",
+                      "find": "https:///",
+                      "with": "https://"
+                    },
+                    {
+                      "op": "absolutize"
+                    }
+                  ]
+                },
+                "languageCode": {
+                  "path": "[1].language[1]"
+                },
+                "label": {
+                  "path": "[1].name[1]"
+                },
+                "format": {
+                  "path": "[1].format[1]",
+                  "fallbacks": [
+                    {
+                      "literal": "vtt"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "requiredEngineFeatures": [
+    "typed-graph-context-v1"
+  ],
+  "releaseNotes": "Beta conversion of the KickAssAnime Player source (kaa.lt JSON catalogue, krussdomi player). Sub only: the site's HLS master carries several audio tracks (Japanese default plus English and others) and Aroki 2.1.36 cannot choose a track per request, so Dub is not offered. Measured: search, details, episodes and stream resolution against the live site and a corpus run. Not verified: playback on a device, which audio track the device plays, and subtitle timing."
+}
