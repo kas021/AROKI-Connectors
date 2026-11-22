@@ -303,13 +303,35 @@
       "releaseTrack" : "beta",
       "status" : "active",
       "version" : "0.1.0"
+    },
+    {
+      "contentRating" : "unknown",
+      "contentType" : "video",
+      "familyID" : "animeunity-it",
+      "icon" : {
+        "path" : "logos\/animeunity-it.png",
+        "sha256" : "26b5087f75e5c67377335c3ac947f9886cd00066bb233d886142e9031a73bddb"
+      },
+      "id" : "animeunity-it",
+      "language" : "it",
+      "manifest" : {
+        "path" : "connectors\/animeunity-it\/releases\/b3357da92a9e36964e0c2a0490ec933c9250e2f3919f35dee6a5e9d82acb5072\/connector.json",
+        "sha256" : "b3357da92a9e36964e0c2a0490ec933c9250e2f3919f35dee6a5e9d82acb5072",
+        "signature" : "hloc0Opo1f5NR01LH8UsCiry9PkCHfRuUB8h21F988BfwKQM8AUfb9oLySOhQviuDsq0hyjrLIkGDGSSENn0CA=="
+      },
+      "minimumAppVersion" : "2.1.36",
+      "name" : "AnimeUnity (ITA)",
+      "releaseNotes" : "0.1.0 beta: AnimeUnity Italian anime catalogue. Sub plays the site's JPN version (Japanese audio, normally with Italian subtitles); Dub plays the site's ITA version (Italian audio). The audio version is picked from the site's own per-episode language list and checked again on the episode page, so a Dub request never returns the Japanese version and a Sub request never returns the Italian dub. If the requested version does not exist for an episode, no stream is offered. Only the JPN version is offered as Sub. Video is HLS from VixCloud. Measured 22 Nov 2026 with the 2.1.36 engine tool: search, details, episode lists, Sub and Dub stream resolution on sample titles, and a 50-title anime corpus run. Search uses the site's own titles and returns the first 30 matches, so some English names are not found. Genres are not shown. Device playback, subtitle presence and spoken language were not verified.",
+      "releaseTrack" : "beta",
+      "status" : "active",
+      "version" : "0.1.0"
     }
   ],
   "enabled" : true,
-  "generatedAt" : 1795360327,
+  "generatedAt" : 1795360897,
   "name" : "AROKI Connectors",
   "publicKey" : "BYKainAr2pxVfWxSSQJHG79Xl\/mnkTuIl1ujEmR+1V4=",
   "repositoryID" : "aroki-connectors",
   "schemaVersion" : 1,
-  "signature" : "ADXP41noXkwqbWQMucm6b\/Dzo88l85utwLJXnzEmQZZsmtaz06MLQfFBfulEv2FTK+VqwV43PA3YhWIRdUhTDQ=="
+  "signature" : "xZefW\/nX4IEPdWQP\/Tr6WChhuhrr0Eh2L9UuEL19B+gJSIhgsqaePCZsSDXBGnK9uCvbqQUFk3WgHJlRGG9fDg=="
 }
