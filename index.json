@@ -215,13 +215,31 @@
       "releaseTrack" : "beta",
       "status" : "active",
       "version" : "0.1.1"
+    },
+    {
+      "contentRating" : "unknown",
+      "contentType" : "video",
+      "familyID" : "animeworld-it",
+      "id" : "animeworld-it",
+      "language" : "it",
+      "manifest" : {
+        "path" : "connectors\/animeworld-it\/releases\/c4835a61ecb9653013aa932ed20c24ba7f5c2a4a64636bdbaf21ad48a9fe9b15\/connector.json",
+        "sha256" : "c4835a61ecb9653013aa932ed20c24ba7f5c2a4a64636bdbaf21ad48a9fe9b15",
+        "signature" : "BCUHaO\/JJYPcCXomNAIIiXswkRcHNPIoM+zDd+isEiD0\/4hXYLZdDkXIWZLaZCkETWb6eP6iAqas4zCbqFMAAw=="
+      },
+      "minimumAppVersion" : "2.1.36",
+      "name" : "AnimeWorld (SUB ITA)",
+      "releaseNotes" : "0.1.0 beta: AnimeWorld entries the site lists as SUB ITA (Japanese audio with Italian subtitles) only. ITA dub entries are a separate site entry and are excluded from search; an ITA page lists no episodes, and Dub requests return no stream. Measured 21 Nov 2026 with the 2.1.36 engine tool: in a 50-title sample, all 37 titles the source has reached a valid video file; 13 were not found under their sample names. The site uses Italian, English or romaji titles, so some names are not found. Device playback, subtitle presence and spoken language were not verified.",
+      "releaseTrack" : "beta",
+      "status" : "active",
+      "version" : "0.1.0"
     }
   ],
   "enabled" : true,
-  "generatedAt" : 1795308655,
+  "generatedAt" : 1795308829,
   "name" : "AROKI Connectors",
   "publicKey" : "BYKainAr2pxVfWxSSQJHG79Xl\/mnkTuIl1ujEmR+1V4=",
   "repositoryID" : "aroki-connectors",
   "schemaVersion" : 1,
-  "signature" : "c8oIs2VSDrd1+WdaIuzhFEdfWv4gUYfXaolVMPrsm7\/1iJyNAuE+HiA\/BHX2m8x7\/3q3bpxamWi3CMhyatIRBw=="
+  "signature" : "hYhfX2hSfRCKm2dYkYUS5m8QY6T9nQd6r18rhe3tn456cwiq8N7M2wajOBpl27QvBiD+HovAOcCwJVk3IJCBCA=="
 }
