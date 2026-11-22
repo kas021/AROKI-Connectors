@@ -281,13 +281,35 @@
       "releaseTrack" : "beta",
       "status" : "active",
       "version" : "0.1.0"
+    },
+    {
+      "contentRating" : "unknown",
+      "contentType" : "video",
+      "familyID" : "toontales",
+      "icon" : {
+        "path" : "logos\/toontales.png",
+        "sha256" : "4d296649d9aff5ed5ca13a4d45bcc0e818b818b23c05c2935568cc3af8e55632"
+      },
+      "id" : "toontales",
+      "language" : "en",
+      "manifest" : {
+        "path" : "connectors\/toontales\/releases\/7c8c0121abfbe5104aa4845cf677b2c365a7c58617e42a394aac3c8563a9eea3\/connector.json",
+        "sha256" : "7c8c0121abfbe5104aa4845cf677b2c365a7c58617e42a394aac3c8563a9eea3",
+        "signature" : "vnePjaTRyzsPrmPknC7jRmUi\/47ki5TIVjFvZ+LWcYL85IGAnoRwhfttg617Xdp2hmru8o0tYyGs0oCqPImvBw=="
+      },
+      "minimumAppVersion" : "2.1.36",
+      "name" : "ToonTales (Classic Cartoons)",
+      "releaseNotes" : "0.1.0 beta: classic theatrical cartoon shorts from ToonTales (Looney Tunes, Merrie Melodies, Tom and Jerry, Disney, Pink Panther and others). Each short is one title with one video: a single MP4 with its original English soundtrack. There is no Dub option and no subtitles. Measured 22 Nov 2026 with the 2.1.36 engine tool on 30 well-known shorts: all 23 that search found passed the search, details and MP4 file check; 7 were not found by search (mostly MGM Tex Avery, Fleischer and UPA titles). Search shows only the site's first page of results and uses the site's own short titles. Device playback, picture quality and sound were not verified.",
+      "releaseTrack" : "beta",
+      "status" : "active",
+      "version" : "0.1.0"
     }
   ],
   "enabled" : true,
-  "generatedAt" : 1795308829,
+  "generatedAt" : 1795360327,
   "name" : "AROKI Connectors",
   "publicKey" : "BYKainAr2pxVfWxSSQJHG79Xl\/mnkTuIl1ujEmR+1V4=",
   "repositoryID" : "aroki-connectors",
   "schemaVersion" : 1,
-  "signature" : "f6mFAeTDPM2aET5pzWmgmQLpd8NaeVLqjITWioeIIZ56Bs73LaJRF2NplnRScVfpZWjqKU51yF\/4B6xRZ3\/ODg=="
+  "signature" : "ADXP41noXkwqbWQMucm6b\/Dzo88l85utwLJXnzEmQZZsmtaz06MLQfFBfulEv2FTK+VqwV43PA3YhWIRdUhTDQ=="
 }
