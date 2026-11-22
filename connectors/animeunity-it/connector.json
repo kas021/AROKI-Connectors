@@ -1,0 +1,567 @@
+{
+  "schemaVersion": 1,
+  "id": "animeunity-it",
+  "familyID": "animeunity-it",
+  "name": "AnimeUnity (ITA)",
+  "version": "0.1.0",
+  "minimumAppVersion": "2.1.36",
+  "contentType": "video",
+  "language": "it",
+  "contentRating": "unknown",
+  "releaseTrack": "beta",
+  "status": "active",
+  "authorization": {
+    "basis": "personal",
+    "note": "Owner-requested conversion of a Synthetiq Player source for testing; not a rights determination."
+  },
+  "allowedHosts": [
+    "animeunity.cx",
+    "img.animeunity.cx",
+    "vixcloud.cc",
+    "*.vix-content.net"
+  ],
+  "capabilities": [
+    "search",
+    "details",
+    "episodes",
+    "streams"
+  ],
+  "limits": {
+    "timeoutMilliseconds": 15000,
+    "maxConcurrentRequests": 2,
+    "maxResponseBytes": 2097152
+  },
+  "requiredEngineFeatures": [
+    "bounded-mirrors-v1",
+    "literal-selection-v1",
+    "line-literal-assignment-v1",
+    "encoded-query-v1",
+    "typed-graph-context-v1",
+    "episode-pagination-v1"
+  ],
+  "operations": {
+    "search": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://animeunity.cx/api/archive?query={query}",
+        "headers": {
+          "Accept": "application/json",
+          "X-Requested-With": "XMLHttpRequest",
+          "Referer": "https://animeunity.cx/archive"
+        }
+      },
+      "response": {
+        "format": "json"
+      },
+      "items": {
+        "collection": "data[*]",
+        "fields": {
+          "sourceID": {
+            "path": "id"
+          },
+          "title": {
+            "path": "title"
+          },
+          "posterURL": {
+            "path": "images.poster"
+          }
+        },
+        "metadata": {
+          "year": {
+            "path": "year"
+          },
+          "status": {
+            "path": "default_status"
+          }
+        }
+      }
+    },
+    "details": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://animeunity.cx/anime/{titleID}-a",
+        "headers": {
+          "Accept": "text/html"
+        }
+      },
+      "response": {
+        "format": "html-attr-json",
+        "selector": "#app",
+        "attribute": "data-page"
+      },
+      "extract": {
+        "title": {
+          "path": "props.anime.title"
+        },
+        "synopsis": {
+          "path": "props.anime.plot"
+        },
+        "posterURL": {
+          "path": "props.anime.images.poster"
+        },
+        "year": {
+          "path": "props.anime.year"
+        }
+      }
+    },
+    "episodes": {
+      "request": {
+        "method": "GET",
+        "urlTemplate": "https://animeunity.cx/api/anime/{titleID}/episodes?start={offset}&limit={limit}",
+        "headers": {
+          "Accept": "application/json",
+          "X-Requested-With": "XMLHttpRequest",
+          "Referer": "https://animeunity.cx/"
+        }
+      },
+      "response": {
+        "format": "json"
+      },
+      "pagination": {
+        "type": "offset",
+        "start": 1,
+        "maxPages": 25,
+        "pageSize": 120,
+        "firstItem": 1
+      },
+      "extract": {
+        "collection": "episodes[*]",
+        "fields": {
+          "episodeID": {
+            "path": "id"
+          },
+          "episodeNumber": {
+            "path": "number",
+            "transforms": [
+              {
+                "op": "firstInteger"
+              }
+            ]
+          },
+          "title": {
+            "path": "number",
+            "transforms": [
+              {
+                "op": "template",
+                "value": "Episodio {value}"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "streams": {
+      "mirrors": [
+        {
+          "variants": [
+            "sub"
+          ],
+          "playbackHeaders": {
+            "Referer": "https://vixcloud.cc/",
+            "Origin": "https://vixcloud.cc"
+          },
+          "steps": [
+            {
+              "request": {
+                "method": "GET",
+                "urlTemplate": "https://animeunity.cx/api/episodes/{episodeID}/downloads",
+                "headers": {
+                  "Accept": "application/json",
+                  "X-Requested-With": "XMLHttpRequest",
+                  "Referer": "https://animeunity.cx/"
+                }
+              },
+              "response": {
+                "format": "json"
+              },
+              "extract": {
+                "context": {
+                  "video": {
+                    "path": "[1].id"
+                  },
+                  "audio": {
+                    "path": "[1].language",
+                    "allowedValues": [
+                      "jpn"
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "request": {
+                "method": "GET",
+                "urlTemplate": "https://animeunity.cx/anime/{titleID}-a/{video}",
+                "headers": {
+                  "Accept": "text/html",
+                  "Referer": "https://animeunity.cx/"
+                }
+              },
+              "response": {
+                "format": "html-attr-json",
+                "selector": "#app",
+                "attribute": "data-page"
+              },
+              "extract": {
+                "context": {
+                  "embed": {
+                    "kind": "url",
+                    "path": "props.embedUrl"
+                  },
+                  "pageaudio": {
+                    "path": "props.video.language",
+                    "allowedValues": [
+                      "jpn"
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "request": {
+                "method": "GET",
+                "follow": "embed",
+                "headers": {
+                  "Accept": "text/html",
+                  "Referer": "https://animeunity.cx/"
+                }
+              },
+              "response": {
+                "format": "literal-selection",
+                "scriptSelector": "script:containsData(window.masterPlaylist)",
+                "selection": {
+                  "kind": "assignment",
+                  "name": "window.masterPlaylist",
+                  "lineTerminatedAssignment": true
+                }
+              },
+              "extract": {
+                "context": {
+                  "token": {
+                    "path": "value.params.token"
+                  },
+                  "expires": {
+                    "path": "value.params.expires"
+                  }
+                }
+              }
+            },
+            {
+              "request": {
+                "method": "GET",
+                "follow": "embed",
+                "headers": {
+                  "Accept": "text/html",
+                  "Referer": "https://animeunity.cx/"
+                }
+              },
+              "response": {
+                "format": "literal-selection",
+                "scriptSelector": "script:containsData(window.masterPlaylist)",
+                "selection": {
+                  "kind": "assignment",
+                  "name": "window.masterPlaylist",
+                  "lineTerminatedAssignment": true
+                }
+              },
+              "extract": {
+                "collection": "@",
+                "fields": {
+                  "url": {
+                    "path": "value.url",
+                    "transforms": [
+                      {
+                        "op": "appendQuery",
+                        "items": {
+                          "token": "{token}",
+                          "expires": "{expires}",
+                          "h": "1"
+                        }
+                      }
+                    ]
+                  },
+                  "mediaTypeHint": {
+                    "literal": "hls"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "variants": [
+            "sub"
+          ],
+          "playbackHeaders": {
+            "Referer": "https://vixcloud.cc/",
+            "Origin": "https://vixcloud.cc"
+          },
+          "steps": [
+            {
+              "request": {
+                "method": "GET",
+                "urlTemplate": "https://animeunity.cx/api/episodes/{episodeID}/downloads",
+                "headers": {
+                  "Accept": "application/json",
+                  "X-Requested-With": "XMLHttpRequest",
+                  "Referer": "https://animeunity.cx/"
+                }
+              },
+              "response": {
+                "format": "json"
+              },
+              "extract": {
+                "context": {
+                  "video": {
+                    "path": "[0].id"
+                  },
+                  "audio": {
+                    "path": "[0].language",
+                    "allowedValues": [
+                      "jpn"
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "request": {
+                "method": "GET",
+                "urlTemplate": "https://animeunity.cx/anime/{titleID}-a/{video}",
+                "headers": {
+                  "Accept": "text/html",
+                  "Referer": "https://animeunity.cx/"
+                }
+              },
+              "response": {
+                "format": "html-attr-json",
+                "selector": "#app",
+                "attribute": "data-page"
+              },
+              "extract": {
+                "context": {
+                  "embed": {
+                    "kind": "url",
+                    "path": "props.embedUrl"
+                  },
+                  "pageaudio": {
+                    "path": "props.video.language",
+                    "allowedValues": [
+                      "jpn"
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "request": {
+                "method": "GET",
+                "follow": "embed",
+                "headers": {
+                  "Accept": "text/html",
+                  "Referer": "https://animeunity.cx/"
+                }
+              },
+              "response": {
+                "format": "literal-selection",
+                "scriptSelector": "script:containsData(window.masterPlaylist)",
+                "selection": {
+                  "kind": "assignment",
+                  "name": "window.masterPlaylist",
+                  "lineTerminatedAssignment": true
+                }
+              },
+              "extract": {
+                "context": {
+                  "token": {
+                    "path": "value.params.token"
+                  },
+                  "expires": {
+                    "path": "value.params.expires"
+                  }
+                }
+              }
+            },
+            {
+              "request": {
+                "method": "GET",
+                "follow": "embed",
+                "headers": {
+                  "Accept": "text/html",
+                  "Referer": "https://animeunity.cx/"
+                }
+              },
+              "response": {
+                "format": "literal-selection",
+                "scriptSelector": "script:containsData(window.masterPlaylist)",
+                "selection": {
+                  "kind": "assignment",
+                  "name": "window.masterPlaylist",
+                  "lineTerminatedAssignment": true
+                }
+              },
+              "extract": {
+                "collection": "@",
+                "fields": {
+                  "url": {
+                    "path": "value.url",
+                    "transforms": [
+                      {
+                        "op": "appendQuery",
+                        "items": {
+                          "token": "{token}",
+                          "expires": "{expires}",
+                          "h": "1"
+                        }
+                      }
+                    ]
+                  },
+                  "mediaTypeHint": {
+                    "literal": "hls"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "variants": [
+            "dub"
+          ],
+          "playbackHeaders": {
+            "Referer": "https://vixcloud.cc/",
+            "Origin": "https://vixcloud.cc"
+          },
+          "steps": [
+            {
+              "request": {
+                "method": "GET",
+                "urlTemplate": "https://animeunity.cx/api/episodes/{episodeID}/downloads",
+                "headers": {
+                  "Accept": "application/json",
+                  "X-Requested-With": "XMLHttpRequest",
+                  "Referer": "https://animeunity.cx/"
+                }
+              },
+              "response": {
+                "format": "json"
+              },
+              "extract": {
+                "context": {
+                  "video": {
+                    "path": "[0].id"
+                  },
+                  "audio": {
+                    "path": "[0].language",
+                    "allowedValues": [
+                      "ita"
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "request": {
+                "method": "GET",
+                "urlTemplate": "https://animeunity.cx/anime/{titleID}-a/{video}",
+                "headers": {
+                  "Accept": "text/html",
+                  "Referer": "https://animeunity.cx/"
+                }
+              },
+              "response": {
+                "format": "html-attr-json",
+                "selector": "#app",
+                "attribute": "data-page"
+              },
+              "extract": {
+                "context": {
+                  "embed": {
+                    "kind": "url",
+                    "path": "props.embedUrl"
+                  },
+                  "pageaudio": {
+                    "path": "props.video.language",
+                    "allowedValues": [
+                      "ita"
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "request": {
+                "method": "GET",
+                "follow": "embed",
+                "headers": {
+                  "Accept": "text/html",
+                  "Referer": "https://animeunity.cx/"
+                }
+              },
+              "response": {
+                "format": "literal-selection",
+                "scriptSelector": "script:containsData(window.masterPlaylist)",
+                "selection": {
+                  "kind": "assignment",
+                  "name": "window.masterPlaylist",
+                  "lineTerminatedAssignment": true
+                }
+              },
+              "extract": {
+                "context": {
+                  "token": {
+                    "path": "value.params.token"
+                  },
+                  "expires": {
+                    "path": "value.params.expires"
+                  }
+                }
+              }
+            },
+            {
+              "request": {
+                "method": "GET",
+                "follow": "embed",
+                "headers": {
+                  "Accept": "text/html",
+                  "Referer": "https://animeunity.cx/"
+                }
+              },
+              "response": {
+                "format": "literal-selection",
+                "scriptSelector": "script:containsData(window.masterPlaylist)",
+                "selection": {
+                  "kind": "assignment",
+                  "name": "window.masterPlaylist",
+                  "lineTerminatedAssignment": true
+                }
+              },
+              "extract": {
+                "collection": "@",
+                "fields": {
+                  "url": {
+                    "path": "value.url",
+                    "transforms": [
+                      {
+                        "op": "appendQuery",
+                        "items": {
+                          "token": "{token}",
+                          "expires": "{expires}",
+                          "h": "1"
+                        }
+                      }
+                    ]
+                  },
+                  "mediaTypeHint": {
+                    "literal": "hls"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "releaseNotes": "0.1.0 beta: AnimeUnity Italian anime catalogue. Sub plays the site's JPN version (Japanese audio, normally with Italian subtitles); Dub plays the site's ITA version (Italian audio). The audio version is picked from the site's own per-episode language list and checked again on the episode page, so a Dub request never returns the Japanese version and a Sub request never returns the Italian dub. If the requested version does not exist for an episode, no stream is offered. Only the JPN version is offered as Sub. Video is HLS from VixCloud. Measured 22 Nov 2026 with the 2.1.36 engine tool: search, details, episode lists, Sub and Dub stream resolution on sample titles, and a 50-title anime corpus run. Search uses the site's own titles and returns the first 30 matches, so some English names are not found. Genres are not shown. Device playback, subtitle presence and spoken language were not verified."
+}
