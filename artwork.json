@@ -271,16 +271,16 @@
       "id" : "animeworld-it",
       "language" : "it",
       "manifest" : {
-        "path" : "connectors\/animeworld-it\/releases\/c4835a61ecb9653013aa932ed20c24ba7f5c2a4a64636bdbaf21ad48a9fe9b15\/connector.json",
-        "sha256" : "c4835a61ecb9653013aa932ed20c24ba7f5c2a4a64636bdbaf21ad48a9fe9b15",
-        "signature" : "BCUHaO\/JJYPcCXomNAIIiXswkRcHNPIoM+zDd+isEiD0\/4hXYLZdDkXIWZLaZCkETWb6eP6iAqas4zCbqFMAAw=="
+        "path" : "connectors\/animeworld-it\/releases\/25c06687530e8181c62ae3e3cc8ddc523ae3b59f0180a10ea5698e02491e2871\/connector.json",
+        "sha256" : "25c06687530e8181c62ae3e3cc8ddc523ae3b59f0180a10ea5698e02491e2871",
+        "signature" : "yoZbQygy9KHPQHMfrXJCFpmF5A7kQfybFAjI3IzinaE7i9VKDfCSbCkNxaubUb43q7UtheY0BKmdT3kiW5+0DQ=="
       },
       "minimumAppVersion" : "2.1.36",
       "name" : "AnimeWorld (SUB ITA)",
-      "releaseNotes" : "0.1.0 beta: AnimeWorld entries the site lists as SUB ITA (Japanese audio with Italian subtitles) only. ITA dub entries are a separate site entry and are excluded from search; an ITA page lists no episodes, and Dub requests return no stream. Measured 21 Nov 2026 with the 2.1.36 engine tool: in a 50-title sample, all 37 titles the source has reached a valid video file; 13 were not found under their sample names. The site uses Italian, English or romaji titles, so some names are not found. Device playback, subtitle presence and spoken language were not verified.",
+      "releaseNotes" : "0.1.1: no resolver change. Corrects the authorization note: this module was first published on 22 Nov 2026 without the owner's authorization; the owner reviewed it and asked to keep it on 26 Nov 2026 after testing. AnimeWorld entries the site lists as SUB ITA (Japanese audio with Italian subtitles) only. ITA dub entries are a separate site entry and are excluded from search; an ITA page lists no episodes, and Dub requests return no stream. Measured 26 Nov 2026 with the 2.1.36 engine tool: 25 entries sampled from the site's A-Z listing, middle episode; 23 reached a valid video file with the sampled title. The 2 failures were Italian-dub-only entries, which this module excludes by design. The site uses Italian, English or romaji titles, so some names are not found. Device playback, subtitle presence and spoken language were not verified.",
       "releaseTrack" : "beta",
       "status" : "active",
-      "version" : "0.1.0"
+      "version" : "0.1.1"
     },
     {
       "contentRating" : "unknown",
@@ -328,10 +328,10 @@
     }
   ],
   "enabled" : true,
-  "generatedAt" : 1795654941,
+  "generatedAt" : 1795655210,
   "name" : "AROKI Connectors",
   "publicKey" : "BYKainAr2pxVfWxSSQJHG79Xl\/mnkTuIl1ujEmR+1V4=",
   "repositoryID" : "aroki-connectors",
   "schemaVersion" : 1,
-  "signature" : "um1pp21MkLG32NokK9E5leeqP94Cmpu9NPpjpuBbcGBzQoeRYl4HpcTYwN24HRHGlN8CEZvTScVvU4tdl\/fUCA=="
+  "signature" : "TTAfF3xgC7d4TtT7IydSd8Hn6vTqcv5ZI+75YYXRP6TcZ+VsQc27bLAxrgfwPJq3dHQ2e+\/KBb9cji6P\/A9nBA=="
 }
