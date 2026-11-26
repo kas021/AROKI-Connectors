@@ -3,7 +3,7 @@
   "id": "kickassanime",
   "familyID": "kickassanime",
   "name": "KickAssAnime",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "minimumAppVersion": "2.1.36",
   "contentType": "video",
   "language": "en",
@@ -12,7 +12,7 @@
   "status": "active",
   "authorization": {
     "basis": "personal",
-    "note": "Owner-requested conversion of a Synthetiq Player source for testing; not a rights determination."
+    "note": "First published on 22 Nov 2026 without the owner's authorization; reviewed and kept at the owner's request on 26 Nov 2026 after testing. Not a rights determination."
   },
   "allowedHosts": [
     "kaa.lt",
@@ -317,5 +317,5 @@
   "requiredEngineFeatures": [
     "typed-graph-context-v1"
   ],
-  "releaseNotes": "Beta conversion of the KickAssAnime Player source (kaa.lt JSON catalogue, krussdomi player). Sub only: the site's HLS master carries several audio tracks (Japanese default plus English and others) and Aroki 2.1.36 cannot choose a track per request, so Dub is not offered. Measured: search, details, episodes and stream resolution against the live site and a corpus run. Not verified: playback on a device, which audio track the device plays, and subtitle timing."
+  "releaseNotes": "0.1.2: no resolver change. Corrects the authorization note: this module was first published on 22 Nov 2026 without the owner's authorization; the owner reviewed it and asked to keep it on 26 Nov 2026 after testing. KickAssAnime source (kaa.lt JSON catalogue, krussdomi player). Sub only: the site's HLS master carries several audio tracks (Japanese default plus English and others) and Aroki 2.1.36 cannot choose a track per request, so Dub is not offered. Measured 26 Nov 2026 with the 2.1.36 engine tool: 25 corpus titles, middle episode; 21 reached the HLS playlist and first video segment. The 4 misses were titles the site lists under a different name or has no video for. Not verified: playback on a device, which audio track the device plays, and subtitle timing."
 }
