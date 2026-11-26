@@ -315,23 +315,23 @@
       "id" : "animeunity-it",
       "language" : "it",
       "manifest" : {
-        "path" : "connectors\/animeunity-it\/releases\/b3357da92a9e36964e0c2a0490ec933c9250e2f3919f35dee6a5e9d82acb5072\/connector.json",
-        "sha256" : "b3357da92a9e36964e0c2a0490ec933c9250e2f3919f35dee6a5e9d82acb5072",
-        "signature" : "hloc0Opo1f5NR01LH8UsCiry9PkCHfRuUB8h21F988BfwKQM8AUfb9oLySOhQviuDsq0hyjrLIkGDGSSENn0CA=="
+        "path" : "connectors\/animeunity-it\/releases\/6e186e2ac5a2767a44ce9794e330d0911c19f2a8be5a10520202e4905ebf5cd9\/connector.json",
+        "sha256" : "6e186e2ac5a2767a44ce9794e330d0911c19f2a8be5a10520202e4905ebf5cd9",
+        "signature" : "Y7\/htoTB\/d4PuuBPGnwRCS4ctEvH2RTQ0LpubBmevMhaY9GYBV4BdQpD3\/RrheGbFin76ruN\/SkGcp8bRwLxAA=="
       },
       "minimumAppVersion" : "2.1.36",
       "name" : "AnimeUnity (ITA)",
-      "releaseNotes" : "0.1.0 beta: AnimeUnity Italian anime catalogue. Sub plays the site's JPN version (Japanese audio, normally with Italian subtitles); Dub plays the site's ITA version (Italian audio). The audio version is picked from the site's own per-episode language list and checked again on the episode page, so a Dub request never returns the Japanese version and a Sub request never returns the Italian dub. If the requested version does not exist for an episode, no stream is offered. Only the JPN version is offered as Sub. Video is HLS from VixCloud. Measured 22 Nov 2026 with the 2.1.36 engine tool: search, details, episode lists, Sub and Dub stream resolution on sample titles, and a 50-title anime corpus run. Search uses the site's own titles and returns the first 30 matches, so some English names are not found. Genres are not shown. Device playback, subtitle presence and spoken language were not verified.",
+      "releaseNotes" : "0.1.1: no resolver change. Corrects the authorization note: this module was first published on 22 Nov 2026 without the owner's authorization; the owner reviewed it and asked to keep it on 26 Nov 2026 after testing. AnimeUnity Italian anime catalogue. Sub plays the site's JPN version (Japanese audio, normally with Italian subtitles); Dub plays the site's ITA version (Italian audio). The audio version is picked from the site's own per-episode language list and checked again on the episode page, so a Dub request never returns the Japanese version and a Sub request never returns the Italian dub. Known limit: Dub reads only the first entry of that list, so an episode the site lists as JPN first and ITA second offers no Dub stream although the dub exists. Video is HLS from VixCloud. Measured 26 Nov 2026 with the 2.1.36 engine tool, middle episode: 21 of 25 sampled titles played with automatic audio; Dub resolved for 7 of 10 titles the site lists with an Italian version. Italian-only titles play only when Dub is asked. Search uses the site's own titles, so some names are not found. Genres are not shown. Device playback, subtitle presence and spoken language were not verified.",
       "releaseTrack" : "beta",
       "status" : "active",
-      "version" : "0.1.0"
+      "version" : "0.1.1"
     }
   ],
   "enabled" : true,
-  "generatedAt" : 1795655210,
+  "generatedAt" : 1795655851,
   "name" : "AROKI Connectors",
   "publicKey" : "BYKainAr2pxVfWxSSQJHG79Xl\/mnkTuIl1ujEmR+1V4=",
   "repositoryID" : "aroki-connectors",
   "schemaVersion" : 1,
-  "signature" : "TTAfF3xgC7d4TtT7IydSd8Hn6vTqcv5ZI+75YYXRP6TcZ+VsQc27bLAxrgfwPJq3dHQ2e+\/KBb9cji6P\/A9nBA=="
+  "signature" : "e3OYA0Yh4Kp0oItFO1b1q1+yCm8w2zUUtvPWxE2l3AH2u0ciDAcd2J\/0ZnbHYdIeLvdfjvXQENUFrnzsr5AMDw=="
 }
