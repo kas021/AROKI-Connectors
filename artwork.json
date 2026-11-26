@@ -249,16 +249,16 @@
       "id" : "kickassanime",
       "language" : "en",
       "manifest" : {
-        "path" : "connectors\/kickassanime\/releases\/450ae9145c424a7f2a5318e8668e2216dfaeb65cc41e177dad290e96371f626d\/connector.json",
-        "sha256" : "450ae9145c424a7f2a5318e8668e2216dfaeb65cc41e177dad290e96371f626d",
-        "signature" : "1QKi+kkYhIHx9FC78vJNPobTEvWZ6X6hpenyblmbj7FORI46lU7CGXz\/JwVPhbZi7NZ2XTRl32Os6x3Ngk8dAw=="
+        "path" : "connectors\/kickassanime\/releases\/c5204dc83cf8f7a9cd4a56969400bf1475537b0415b562aa6ff2341958ed6ae3\/connector.json",
+        "sha256" : "c5204dc83cf8f7a9cd4a56969400bf1475537b0415b562aa6ff2341958ed6ae3",
+        "signature" : "tb3LSaJPBev0Q95hgap0MVAiRhO7Tcyjt+f2o07tspWGPQ7WyrUoq\/AXL0UBKHlvdPQ6MBxaclHBSerGS8DHAw=="
       },
       "minimumAppVersion" : "2.1.36",
       "name" : "KickAssAnime",
-      "releaseNotes" : "Beta conversion of the KickAssAnime Player source (kaa.lt JSON catalogue, krussdomi player). Sub only: the site's HLS master carries several audio tracks (Japanese default plus English and others) and Aroki 2.1.36 cannot choose a track per request, so Dub is not offered. Measured: search, details, episodes and stream resolution against the live site and a corpus run. Not verified: playback on a device, which audio track the device plays, and subtitle timing.",
+      "releaseNotes" : "0.1.2: no resolver change. Corrects the authorization note: this module was first published on 22 Nov 2026 without the owner's authorization; the owner reviewed it and asked to keep it on 26 Nov 2026 after testing. KickAssAnime source (kaa.lt JSON catalogue, krussdomi player). Sub only: the site's HLS master carries several audio tracks (Japanese default plus English and others) and Aroki 2.1.36 cannot choose a track per request, so Dub is not offered. Measured 26 Nov 2026 with the 2.1.36 engine tool: 25 corpus titles, middle episode; 21 reached the HLS playlist and first video segment. The 4 misses were titles the site lists under a different name or has no video for. Not verified: playback on a device, which audio track the device plays, and subtitle timing.",
       "releaseTrack" : "beta",
       "status" : "active",
-      "version" : "0.1.1"
+      "version" : "0.1.2"
     },
     {
       "contentRating" : "unknown",
@@ -328,10 +328,10 @@
     }
   ],
   "enabled" : true,
-  "generatedAt" : 1795653695,
+  "generatedAt" : 1795654941,
   "name" : "AROKI Connectors",
   "publicKey" : "BYKainAr2pxVfWxSSQJHG79Xl\/mnkTuIl1ujEmR+1V4=",
   "repositoryID" : "aroki-connectors",
   "schemaVersion" : 1,
-  "signature" : "Vs4I5pqNx0Iml5\/5bvPdG8QUfSeRbg12gUMgSfTaXjoyF1Xd\/WjDKEYKqf+LXkRqrsyDY516wWFk5jCWONotAQ=="
+  "signature" : "um1pp21MkLG32NokK9E5leeqP94Cmpu9NPpjpuBbcGBzQoeRYl4HpcTYwN24HRHGlN8CEZvTScVvU4tdl\/fUCA=="
 }
