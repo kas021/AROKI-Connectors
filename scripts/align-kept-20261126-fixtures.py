@@ -22,6 +22,13 @@ REVIEWED = {
         "published_version": "0.1.1",
         "test_class": "KickAssAnimeKept012Tests",
     },
+    "animeworld-it": {
+        "sha256": "25c06687530e8181c62ae3e3cc8ddc523ae3b59f0180a10ea5698e02491e2871",
+        "version": "0.1.1",
+        "published_sha256": "c4835a61ecb9653013aa932ed20c24ba7f5c2a4a64636bdbaf21ad48a9fe9b15",
+        "published_version": "0.1.0",
+        "test_class": "AnimeWorldITKept011Tests",
+    },
 }
 
 root = Path(sys.argv[1])
