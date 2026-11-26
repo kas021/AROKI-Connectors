@@ -3,7 +3,7 @@
   "id": "animeworld-it",
   "familyID": "animeworld-it",
   "name": "AnimeWorld (SUB ITA)",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "minimumAppVersion": "2.1.36",
   "contentType": "video",
   "language": "it",
@@ -12,7 +12,7 @@
   "status": "active",
   "authorization": {
     "basis": "personal",
-    "note": "Owner-requested conversion of a Synthetiq Player source for testing; not a rights determination."
+    "note": "First published on 22 Nov 2026 without the owner's authorization; reviewed and kept at the owner's request on 26 Nov 2026 after testing. Not a rights determination."
   },
   "allowedHosts": [
     "www.animeworld.ac",
@@ -196,5 +196,5 @@
       }
     }
   },
-  "releaseNotes": "0.1.0 beta: AnimeWorld entries the site lists as SUB ITA (Japanese audio with Italian subtitles) only. ITA dub entries are a separate site entry and are excluded from search; an ITA page lists no episodes, and Dub requests return no stream. Measured 21 Nov 2026 with the 2.1.36 engine tool: in a 50-title sample, all 37 titles the source has reached a valid video file; 13 were not found under their sample names. The site uses Italian, English or romaji titles, so some names are not found. Device playback, subtitle presence and spoken language were not verified."
+  "releaseNotes": "0.1.1: no resolver change. Corrects the authorization note: this module was first published on 22 Nov 2026 without the owner's authorization; the owner reviewed it and asked to keep it on 26 Nov 2026 after testing. AnimeWorld entries the site lists as SUB ITA (Japanese audio with Italian subtitles) only. ITA dub entries are a separate site entry and are excluded from search; an ITA page lists no episodes, and Dub requests return no stream. Measured 26 Nov 2026 with the 2.1.36 engine tool: 25 entries sampled from the site's A-Z listing, middle episode; 23 reached a valid video file with the sampled title. The 2 failures were Italian-dub-only entries, which this module excludes by design. The site uses Italian, English or romaji titles, so some names are not found. Device playback, subtitle presence and spoken language were not verified."
 }
