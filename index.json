@@ -241,16 +241,16 @@
       "id" : "toontales",
       "language" : "en",
       "manifest" : {
-        "path" : "connectors\/toontales\/releases\/7c8c0121abfbe5104aa4845cf677b2c365a7c58617e42a394aac3c8563a9eea3\/connector.json",
-        "sha256" : "7c8c0121abfbe5104aa4845cf677b2c365a7c58617e42a394aac3c8563a9eea3",
-        "signature" : "vnePjaTRyzsPrmPknC7jRmUi\/47ki5TIVjFvZ+LWcYL85IGAnoRwhfttg617Xdp2hmru8o0tYyGs0oCqPImvBw=="
+        "path" : "connectors\/toontales\/releases\/ee95132cb0c1f1c67e50f20a0a8dcdb56c79065cf184867877ca10f819e4eb01\/connector.json",
+        "sha256" : "ee95132cb0c1f1c67e50f20a0a8dcdb56c79065cf184867877ca10f819e4eb01",
+        "signature" : "N0WHk42yWx1jjGss47Bj2Eddun84yGxx+A1TQfFAkeATUUmNcOwKLVzhsP15t+dCNRmcEICQPSU\/fS\/8Nx+8Dg=="
       },
       "minimumAppVersion" : "2.1.36",
       "name" : "ToonTales (Classic Cartoons)",
-      "releaseNotes" : "0.1.0 beta: classic theatrical cartoon shorts from ToonTales (Looney Tunes, Merrie Melodies, Tom and Jerry, Disney, Pink Panther and others). Each short is one title with one video: a single MP4 with its original English soundtrack. There is no Dub option and no subtitles. Measured 22 Nov 2026 with the 2.1.36 engine tool on 30 well-known shorts: all 23 that search found passed the search, details and MP4 file check; 7 were not found by search (mostly MGM Tex Avery, Fleischer and UPA titles). Search shows only the site's first page of results and uses the site's own short titles. Device playback, picture quality and sound were not verified.",
+      "releaseNotes" : "Retired on 2026-11-26 at the owner's request. No new installations or updates are offered. Existing installed copies and user data are not deleted; you can remove this source on your device and choose another available source.",
       "releaseTrack" : "beta",
-      "status" : "active",
-      "version" : "0.1.0"
+      "status" : "retired",
+      "version" : "0.1.1"
     },
     {
       "contentRating" : "unknown",
@@ -272,10 +272,10 @@
     }
   ],
   "enabled" : true,
-  "generatedAt" : 1795360897,
+  "generatedAt" : 1795653695,
   "name" : "AROKI Connectors",
   "publicKey" : "BYKainAr2pxVfWxSSQJHG79Xl\/mnkTuIl1ujEmR+1V4=",
   "repositoryID" : "aroki-connectors",
   "schemaVersion" : 1,
-  "signature" : "ueKzSpeTNr7cJG6wPWkXk5oyxtZTB\/Bcd8iSg13uLHQuC9vyD4+Ns9BF+TfESOy91gNjIC6shP\/s6OK+i9v4Cg=="
+  "signature" : "c\/hvqGuuh+ywULuPPXGsRlGxuyXSHKRLZghV\/PqbG9pXU9Q+AKU81J46LpJw+MF11dQ0AItRrEPB+bwOW11mBg=="
 }
