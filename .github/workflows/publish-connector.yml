@@ -133,6 +133,10 @@ jobs:
         if: steps.candidate.outputs.changed == 'true' && inputs.connector_id == 'synthetiq-one'
         run: python3 AROKI-Connectors/scripts/align-one-retirement-fixtures.py Vireo
 
+      - name: Verify reviewed ToonTales retirement fixture
+        if: steps.candidate.outputs.changed == 'true' && inputs.connector_id == 'toontales'
+        run: python3 AROKI-Connectors/scripts/align-toontales-retirement-fixtures.py Vireo
+
       - name: Build the native validator and run deterministic tests
         if: steps.candidate.outputs.changed == 'true'
         env:

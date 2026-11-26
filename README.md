@@ -35,6 +35,13 @@ copies, downloads, saved titles or history. Its historical manifests remain in
 the repository. AniKoto is active again; the signed index is authoritative for
 current versions and compatibility. Flux 0.1.4 and AniPM 0.1.2 are active.
 
+ToonTales was retired on November 26, 2026 at the owner's request. It had been
+withdrawn on July 31, 2026; version 0.1.0 was published on November 22, 2026
+without the owner's authorization. Refresh the collection to receive its
+retired status. Retirement stops new install/update offers; it does not remotely
+delete installed copies, downloads, saved titles or history. Its historical
+manifests remain in the repository.
+
 The repository also contains **Update Flow Test**, a non-catalogue fixture used
 to verify source-update handling. It is not a recommended content source.
 
@@ -49,7 +56,8 @@ Previously installed copies remain under the user's control and can be removed
 on-device. Their historical manifests remain recoverable through Git history.
 
 Senshi, ToonTales, DonghuaWorld, and Archive Classics were withdrawn in earlier
-reviews. Previously installed copies remain under the user's control and can be
+reviews; ToonTales is now listed in the signed index as retired (see above).
+Previously installed copies remain under the user's control and can be
 removed on-device.
 
 ## Safety boundary
