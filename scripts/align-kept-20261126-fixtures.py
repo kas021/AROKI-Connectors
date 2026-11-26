@@ -29,6 +29,13 @@ REVIEWED = {
         "published_version": "0.1.0",
         "test_class": "AnimeWorldITKept011Tests",
     },
+    "animeunity-it": {
+        "sha256": "6e186e2ac5a2767a44ce9794e330d0911c19f2a8be5a10520202e4905ebf5cd9",
+        "version": "0.1.1",
+        "published_sha256": "b3357da92a9e36964e0c2a0490ec933c9250e2f3919f35dee6a5e9d82acb5072",
+        "published_version": "0.1.0",
+        "test_class": "AnimeUnityITKept011Tests",
+    },
 }
 
 root = Path(sys.argv[1])

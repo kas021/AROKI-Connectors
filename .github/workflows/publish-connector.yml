@@ -145,6 +145,10 @@ jobs:
         if: steps.candidate.outputs.changed == 'true' && inputs.connector_id == 'animeworld-it'
         run: python3 AROKI-Connectors/scripts/align-kept-20261126-fixtures.py Vireo animeworld-it
 
+      - name: Verify reviewed AnimeUnity (ITA) 0.1.1 owner-kept republish fixture
+        if: steps.candidate.outputs.changed == 'true' && inputs.connector_id == 'animeunity-it'
+        run: python3 AROKI-Connectors/scripts/align-kept-20261126-fixtures.py Vireo animeunity-it
+
       - name: Build the native validator and run deterministic tests
         if: steps.candidate.outputs.changed == 'true'
         env:
